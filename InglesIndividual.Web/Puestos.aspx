@@ -14,7 +14,7 @@
         gridOptions: {
             columns: [
                         { text: 'ID', dataField: 'ID', width: 100, cellsrenderer: renderEdit },
-                        { text: 'Puesto', dataField: 'Nombre', width: 100 },
+                        { text: 'Puesto', dataField: 'Nombre', width: 300 },
                         { text: 'Eliminar', dataField: "Eliminar", sortable: false, cellsrenderer: renderDelete }
                     ]
         },
