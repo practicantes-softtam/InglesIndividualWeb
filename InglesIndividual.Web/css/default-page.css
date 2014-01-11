@@ -1,0 +1,98 @@
+﻿*
+{
+    font-family: Verdana;
+    font-size: 9pt;
+}
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+.container {
+   min-height:100%;
+   /*position:relative;*/
+}
+.header {
+   background: #008651;
+   /*padding:10px;*/
+   height: 50px;
+}
+.body {
+   padding:10px;
+   padding-bottom:50px;   /* Height of the footer */
+}
+.footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:50px;   /* Height of the footer */
+   background: #008651;
+}
+
+.logo
+{
+    width: 700px;
+    height: 120px;
+    margin: 0px auto;
+}
+
+.login-container
+{
+    width: 700px;
+    height: 300px;
+    margin: 30px auto;
+    /*border: solid 1px black;*/
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    background-color: #008651;
+    color: #fff;
+    padding: 20px;
+}
+
+.login-textbox
+{
+    height: 50px;
+    width: 500px;
+    border: solid 1px #006d42;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    background-color: #00673e;
+    
+    -moz-box-shadow:    inset 0 0 10px #005533;
+    -webkit-box-shadow: inset 0 0 10px #005533;
+    box-shadow:         inset 0 0 10px #005533;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.login-button
+{
+    /*background-color: #008651;
+    box-shadow:         0 0 10px #005533;
+    border: 0;*/
+}
+
+.title
+{
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 28pt;
+    text-align: right;
+    color: #181818;
+    /*text-shadow: white 0.1em 0.1em 0.2em;*/
+}
+
+
+.etiqueta
+{
+    color: #181818;
+    text-shadow: white 0.1em 0.1em 0.2em;
+    font-weight: bold;
+    font-size: 12pt;
+     width: 300px;
+    text-align: right;
+}
