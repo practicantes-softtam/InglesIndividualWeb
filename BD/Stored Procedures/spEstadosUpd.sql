@@ -4,6 +4,7 @@ go
 
 create proc spEstadosUpd
 (
+	@pClaPais	int,
 	@pClaEstado int,
 	@pNomEstado varchar (50)
 )
@@ -13,5 +14,6 @@ begin
 	update Estados
 	set NomEstado =@pNomEstado
 	where ClaEstado = @pClaEstado
-
+	and ClaPais = @pClaPais
+	
 end

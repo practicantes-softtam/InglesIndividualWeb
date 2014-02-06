@@ -4,12 +4,15 @@ go
 
 create proc spEstadosDel
 (
-	@pClaEstado int
+	@pClaEstado int,
+	@pClaPais	int
 )
 as
 begin
 
-	delete Estados where ClaEstado = @pClaEstado
+	delete Estados 
+	where ClaEstado = @pClaEstado
+	and ClaPais = @pClaPais
 
 
 end

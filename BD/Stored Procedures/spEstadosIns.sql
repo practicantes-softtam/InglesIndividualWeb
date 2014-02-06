@@ -4,6 +4,7 @@ go
 
 create proc spEstadosIns
 (
+	@pClaPais	int,
 	@pClaEstado int out,
 	@pNomEstado varchar (50)
 )
@@ -12,7 +13,9 @@ begin
 
 	select @pClaEstado = ISNULL (MAX (ClaEstado), 0)+1
 	from Estados
-
-	insert into Estados (ClaEstado, NomEstado)
-	values (@pClaEstado, @pNomEstado)
+	where ClaPais = @pClaPais
+	
+	insert into Estados (ClaEstado, NomEstado, ClaPais)
+	values (@pClaEstado, @pNomEstado, @pClaPais)
+	
 end
