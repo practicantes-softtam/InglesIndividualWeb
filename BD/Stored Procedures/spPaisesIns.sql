@@ -3,16 +3,18 @@ drop proc spPaisesIns
 go
 create proc spPaisesIns
 (
-@pClaPais int out,
-@pNomPais varchar(50)
+	@pClaPais int out,
+	@pNomPais varchar(50)
 )
 as 
 begin
- select @pClaPais = ISNULL (Max (ClaPais),0) +1
- from Paises
- insert into Paises (ClaPais,NomPais)
- values(@pClaPais,@pNomPais)
- end
+	 select @pClaPais = ISNULL (Max (ClaPais),0) +1
+	 from Paises
+	 
+	 insert into Paises (ClaPais,NomPais)
+	 values(@pClaPais,@pNomPais)
+
+end
  
  
 
