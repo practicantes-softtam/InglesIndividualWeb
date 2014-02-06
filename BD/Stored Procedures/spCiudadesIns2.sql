@@ -13,14 +13,9 @@ as
 begin
 	select @pClaCiudad = isnull  (MAX (ClaCiudad), 0)+ 1 
 	from Ciudades
-
+	where ClaPais = @pClaPais and ClaEstado = @pClaEstado
+	
 	insert into Ciudades	(ClaCiudad,		NomCiudad,	ClaEstado,		ClaPais) 
 	values					(@pClaCiudad,	@pNomCiudad,	@pClaEstado, @pClaPais)
 
 end
-
-declare @clave int
-	exec spCiudadesIns @clave out, 'Ciudad de Prueba', 1,1
-	select @clave
-
-	select * from Ciudades
