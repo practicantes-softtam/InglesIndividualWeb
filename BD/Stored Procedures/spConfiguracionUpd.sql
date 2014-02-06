@@ -15,9 +15,11 @@ as
 begin
 
 	update Configuracion
-	set NomConfig =@pNomConfig
-	where ClaCategoria = @pClaCategoria AND ClaConfig = @pClaConfig
+	set NomConfig =@pNomConfig,
+		ValorEntero = @pValorEntero,
+		ValorCadena = @pValorCadena,
+		Editable = @pEditable
+	where ClaCategoria = @pClaCategoria 
+	AND ClaConfig = @pClaConfig
 
 end
-
---Configuracion

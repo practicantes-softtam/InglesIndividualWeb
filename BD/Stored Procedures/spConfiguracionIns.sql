@@ -14,5 +14,7 @@ create proc spConfiguracionIns
 as 
 begin
 
- insert into Configuracion (ClaCategoria, ClaConfig, NomConfig, ValorEntero, ValorCadena, Editable) values(@pClaCategoria, @pClaConfig, @pNomConfig, @pValorEntero, @pValorCadena, @pEditable  )
+ insert into Configuracion (ClaCategoria, ClaConfig, NomConfig, ValorEntero, ValorCadena, Editable) 
+ values(@pClaCategoria, @pClaConfig, @pNomConfig, @pValorEntero, @pValorCadena, @pEditable  )
+ 
 end

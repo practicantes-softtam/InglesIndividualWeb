@@ -10,7 +10,9 @@ create proc spConfiguracionDel
 as
 begin
 
-	delete Configuracion where ClaConfig = @pClaConfig AND ClaCategoria = @pClaCategoria
+	delete Configuracion 
+	where ClaConfig = @pClaConfig 
+	AND ClaCategoria = @pClaCategoria
 
 
 end
