@@ -13,7 +13,7 @@ as
 begin
 
 	update Salones
-	set NomSalon = @pNomSalon,  ClaCampus = @pClaCampus, @pClaCapacidad = @pClaCapacidad
+	set NomSalon = @pNomSalon,  ClaCampus = @pClaCampus, ClaCapacidad = @pClaCapacidad
 	
 	where IdSalon = @pIdSalon
 end

@@ -21,7 +21,7 @@ begin
 end
 
 declare @clave int
-	exec spDepartamentosIns @clave out,  'Departamento de Prueba', 1
+	exec spDepartamentosIns @clave out,  'Departamento de Prueba',1
 	select @clave
 
 	select * from Departamentos

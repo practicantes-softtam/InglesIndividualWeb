@@ -16,4 +16,4 @@ begin
 end
 
 exec spDepartamentosDel 10
-	select * from Salones
+	select * from Departamentos
