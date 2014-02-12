@@ -1,5 +1,5 @@
 if exists (select 1 from sys.procedures where name = 'spConfiguracionDel')
-drop proc spEstadosIns
+drop proc spConfiguracionDel
 go
 
 create proc spConfiguracionDel
