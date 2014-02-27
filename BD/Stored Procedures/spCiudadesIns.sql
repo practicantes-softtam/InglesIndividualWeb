@@ -19,8 +19,3 @@ begin
 
 end
 
-declare @clave int
-	exec spCiudadesIns @clave out, 'Ciudad de Prueba', 1,1
-	select @clave
-
-	select * from Ciudades

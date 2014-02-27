@@ -19,9 +19,3 @@ begin
 	values					(@pClaNivel,	@pNomNivel, @pClubConversacion)
 
 end
-
-declare @clave int
-	exec spNivelesIns @clave out, 'Niveles de Prueba',1
-	select @clave
-
-	select * from Niveles

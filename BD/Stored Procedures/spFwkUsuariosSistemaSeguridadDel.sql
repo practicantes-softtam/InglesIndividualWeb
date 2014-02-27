@@ -15,6 +15,3 @@ begin
 
 
 end
-
-exec spFwkUsuariosSistemaSeguridadDel 10
-	select * from FwkUsuariosSistemaSeguridad

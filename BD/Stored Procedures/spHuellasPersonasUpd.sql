@@ -20,5 +20,3 @@ begin
 	where ClaCampus = @pClaCampus
 end
 
-exec spDepartamentosUpd 10, 'HuellasPersonas 10', 1
-	select * from HuellasPersonas

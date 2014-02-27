@@ -7,16 +7,14 @@ create proc spSalonesUpd
 	@pIdSalon int out,
 	@pNomSalon varchar (20), 
 	@pClaCampus int,
-	@pClaCapacidad int
+	@pCapacidad int
 )
 as
 begin
 
 	update Salones
-	set NomSalon = @pNomSalon,  ClaCampus = @pClaCampus, ClaCapacidad = @pClaCapacidad
+	set NomSalon = @pNomSalon,  ClaCampus = @pClaCampus, Capacidad = @pCapacidad
 	
 	where IdSalon = @pIdSalon
 end
 
-exec spSalonesUpd 10, 'Salon 10', 1,1
-	select * from Salones

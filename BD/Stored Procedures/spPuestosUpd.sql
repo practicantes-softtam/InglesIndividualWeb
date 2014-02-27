@@ -13,8 +13,6 @@ begin
 	update Puestos
 	set NomPuesto = @pNomPuesto
 	
-	where IdPuesto = @pIdPuesto
+	where ClaPuesto = @pClaPuesto
 end
 
-exec spPuestosUpd 10, 'Puesto 10'
-	select * from Puestos

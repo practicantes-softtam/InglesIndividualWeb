@@ -26,13 +26,11 @@ as
 begin
 
 	update HorarioMaestros
-	set  (ClaEmpleado=@pClaEmpleado, ClaCampus=@pClaCampus, ClaHorario=@pClaHorario, Lun=@pLun, Mar=@pMar, 
+	set  ClaEmpleado=@pClaEmpleado, ClaCampus=@pClaCampus, ClaHorario=@pClaHorario, Lun=@pLun, Mar=@pMar, 
 	Mie=@pMie, Jue=@pJue, Vie=@pVie, Sab=@pSab, Dom=@pDom, OrdenLun=@pOrdenLun, OrdenMar=@pOrdenMar, OrdenMie=@pOrdenMie, 
-	OrdenJue=@pOrdenJue, OrdenVie=@pOrdenVie, OrdenSab=@pOrdenSab, OrdenDom=@pOrdenDom) --duda
+	OrdenJue=@pOrdenJue, OrdenVie=@pOrdenVie, OrdenSab=@pOrdenSab, OrdenDom=@pOrdenDom
 	
 	
-	where ClaCiudad = @pClaCiudad
+	where ClaEmpleado = @pClaEmpleado
 end
 
-exec spHorarioMaestrosUpd 10, 'Ciudad 10', 1,1 --duda
-	select * from HorarioMaestros

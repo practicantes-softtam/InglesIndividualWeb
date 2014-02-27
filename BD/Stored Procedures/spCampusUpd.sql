@@ -32,6 +32,6 @@ begin
        
 end
 
-select * from Campus
+
 
 

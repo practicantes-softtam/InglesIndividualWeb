@@ -13,16 +13,10 @@ create proc spFwkUsuariosIns
 )
 as
 begin
-	select @pIdUsuario = isnull  (MAX (IdUsuario), 0)+ 1 --duda--
+	select @pIdUsuario = isnull  (MAX (IdUsuario), 0)+ 1 
 	from FwkUsuarios
 
 	insert into FwkUsuarios	(IdUsuario, NomUsuario, Password, Email) 
 	values					(@pIdUsuario,	@pNomUsuario,	@pPassword, @pEmail)
 
 end
-
-declare @clave int
-	exec spFwkUsuariosIns @clave out, 'FwkUsuarios de Prueba', 1,1 --duda
-	select @clave
-
-	select * from FwkUsuarios

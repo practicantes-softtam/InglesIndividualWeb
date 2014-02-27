@@ -15,5 +15,3 @@ begin
 
 end
 
-exec spCiudadesDel 10
-	select * from Ciudades

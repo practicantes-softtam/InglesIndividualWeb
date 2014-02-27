@@ -12,7 +12,7 @@ create proc spKardexIns
 	@pClaProfesor int,
 	@pCalificacion decimal (5),
 	@pTipoClase tinyint,
-	@pFecha smaldatetime,
+	@pFecha smalldatetime,
 	@pClaCalificacion int,
 	@pIdCita int
 )
@@ -20,15 +20,10 @@ as
 begin
 
 	
-	insert into Kardex (Matricula, ClaCampus, ClaNivel, ClaLeccion, ClaProfesor, 
+	insert into Kardex (IdCalificacion, Matricula, ClaCampus, ClaNivel, ClaLeccion, ClaProfesor, 
 						Calificacion, TipoClase, Fecha, ClaCalificacion, IdCita)
 	values (@pIdCalificacion, @pMatricula, @pClaCampus, @pClaNivel, @pClaLeccion, @pClaProfesor,
 			@pCalificacion, @pTipoClase, @pFecha, @pClaCalificacion, @pIdCita)
 	
 end
 
-declare @clave int
-	exec spKardexIns @clave out,1,  'Kardex de Prueba'
-	select @clave
-
-	select * from Kardex

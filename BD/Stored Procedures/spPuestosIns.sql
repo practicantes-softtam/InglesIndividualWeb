@@ -19,8 +19,3 @@ begin
 	select @pClaPuesto = @@IDENTITY
 end
 
-declare @clave int
-	exec spPuestosIns @clave out,1,  'Puesto de Prueba'
-	select @clave
-
-	select * from Puestos

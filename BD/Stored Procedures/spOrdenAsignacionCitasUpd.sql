@@ -16,6 +16,3 @@ begin
 	
 	where ClaCampus = @pClaCampus
 end
-
-exec spOrdenAsignacionCitasUpd 10, 'OrdenAsignacionCitas 10'
-	select * from OrdenAsignacionCitas

@@ -19,5 +19,3 @@ begin
 
 end
 
-exec spHuellasPersonasDel 10
-	select * from HuellasPersonas

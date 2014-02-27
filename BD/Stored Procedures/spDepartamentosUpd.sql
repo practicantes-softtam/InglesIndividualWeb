@@ -18,5 +18,3 @@ begin
 	where ClaDepartamento = @pClaDepartamento
 end
 
-exec spDepartamentosUpd 10, 'Departamento 10', 1
-	select * from Departamentos

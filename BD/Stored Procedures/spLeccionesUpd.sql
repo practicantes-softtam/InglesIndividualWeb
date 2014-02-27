@@ -17,6 +17,3 @@ begin
 	
 	where ClaLeccion = @pClaLeccion
 end
-
-exec spLeccionesUpd 10, 'Lecciones 10'
-	select * from Lecciones

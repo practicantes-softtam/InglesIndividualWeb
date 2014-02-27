@@ -20,9 +20,3 @@ begin
 	values					(@pClaLeccion,	@pClaNivel,	@pNomLeccion, @pEsReview)
 
 end
-
-declare @clave int
-	exec spLeccionesIns @clave out, 'Lecciones de Prueba', 1,1
-	select @clave
-
-	select * from Lecciones

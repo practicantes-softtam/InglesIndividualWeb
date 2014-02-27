@@ -19,5 +19,3 @@ begin
 	where ClaCampus = @pClaCampus
 end
 
-exec spHorarioClubConversacionUpd 10, 'HorarioClubConversacion 10', 1,1
-	select * from HorarioClubConversacion

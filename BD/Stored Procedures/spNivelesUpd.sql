@@ -16,6 +16,3 @@ begin
 	
 	where ClaNivel = @pClaNivel
 end
-
-exec spNivelesUpd 10, 'Niveles 10'
-	select * from Niveles

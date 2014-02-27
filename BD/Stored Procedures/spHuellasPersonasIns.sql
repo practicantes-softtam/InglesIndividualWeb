@@ -21,8 +21,3 @@ begin
 	select @pIdRegistro = @@IDENTITY
 end
 
-declare @clave int
-	exec spHuellasPersonasIns @clave out,  'HuellasPersonas de Prueba',1, 1,1
-	select @clave
-
-	select * from HuellasPersonas

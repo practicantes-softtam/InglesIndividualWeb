@@ -15,5 +15,3 @@ begin
 
 end
 
-exec spSalonesDel 10
-	select * from Salones

@@ -26,7 +26,7 @@ create proc spHorarioMaestrosIns
 
 as
 begin
-	select @pClaEmpleado = isnull  (MAX (ClaEmpleado), 0)+ 1 --duda--
+	select @pClaEmpleado = isnull  (MAX (ClaEmpleado), 0)+ 1 
 	from HorarioMaestros
 
 	insert into HorarioMaestros	(ClaEmpleado, ClaCampus, ClaHorario, Lun, Mar, Mie, Jue, Vie, Sab, Dom, OrdenLun,
@@ -36,8 +36,3 @@ begin
 
 end
 
-declare @clave int
-	exec spHorarioMaestrosIns @clave out, 'HorarioMaestros de Prueba', 1,1 --duda
-	select @clave
-
-	select * from HorarioMaestros

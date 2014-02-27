@@ -12,7 +12,7 @@ create proc spKardexUpd
 	@pClaProfesor int,
 	@pCalificacion decimal (5),
 	@pTipoClase tinyint,
-	@pFecha smaldatetime,
+	@pFecha smalldatetime,
 	@pClaCalificacion int,
 	@pIdCita int
 )
@@ -26,6 +26,3 @@ begin
 	
 	where IdCalificacion = @pIdCalificacion
 end
-
-exec spKardexUpd 10, 'Kardex 10', 1,1
-	select * from Kardex

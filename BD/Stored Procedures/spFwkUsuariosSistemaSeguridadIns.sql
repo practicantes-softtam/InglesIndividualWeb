@@ -17,8 +17,3 @@ begin
 	select @pIdRegistro = @@IDENTITY
 end
 
-declare @clave int
-	exec spFwkUsuariosSistemaSeguridadIns @clave out,  'FwkUsuariosSistemaSeguridad de Prueba'
-	select @clave
-
-	select * from FwkUsuariosSistemaSeguridad

@@ -19,9 +19,3 @@ begin
 	values					(@pClaCampus,	@pClaProfesor,	@pOrden)
 
 end
-
-declare @clave int
-	exec spOrdenAsignacionCitasIns @clave out, 'OrdenAsignacionCitas de Prueba', 1
-	select @clave
-
-	select * from OrdenAsignacionCitas

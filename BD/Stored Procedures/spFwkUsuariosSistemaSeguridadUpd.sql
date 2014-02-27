@@ -12,10 +12,8 @@ as
 begin
 
 	update FwkUsuariosSistemaSeguridad
-	set IdRegistro = @pIdRegistro,  IdUsuario = @pIdeUsuario
+	set IdUsuario = @pIdeUsuario
 	
-	where FwkUsuariosSistemaSeguridad =@pFwkUsuariosSistemaSeguridad --duda--
+	where IdRegistro =@pIdRegistro
 end
  
-exec spFwkUsuariosSistemaSeguridadUpd 10, 'FwkUsuariosSistemaSeguridad'
-	select * from FwkUsuariosSistemaSeguridad

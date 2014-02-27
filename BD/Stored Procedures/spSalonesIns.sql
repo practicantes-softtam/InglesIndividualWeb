@@ -20,8 +20,3 @@ begin
 	select @pIdSalon = @@IDENTITY
 end
 
-declare @clave int
-	exec spSalonesIns @clave out,1,  'Salon de Prueba', 1
-	select @clave
-
-	select * from Salones

@@ -15,5 +15,3 @@ begin
 
 end
 
-exec spHorarioMaestrosDel 10
-	select * from HorarioMaestros

@@ -13,10 +13,11 @@ as
 begin
 
 	update FwkUsuarios
-	set NomUsuario = @pNomUsuario --duda
+	set NomUsuario = @pNomUsuario,
+		Password = @pPassword,
+		Email = @pEmail
+		
 	
 	where IdUsuario = @pIdUsuario
 end
 
-exec spFwkUsuariosUpd 10, 'FwkUsuarios 10', 1,1
-	select * from FwkUsuarios

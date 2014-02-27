@@ -21,9 +21,3 @@ begin
 	values					(@pClaCampus,	@pClaEmpleado,	@pClaHorario, @pClaDia, @pHoras)
 
 end
-
-declare @clave int
-	exec spHorarioClubConversacionIns @clave out, 'HorarioClubConversacion de Prueba', 1,1 --duda
-	select @clave
-
-	select * from HorarioClubConversacion

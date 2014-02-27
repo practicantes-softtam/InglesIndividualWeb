@@ -15,5 +15,3 @@ begin
 
 end
 
-exec spFwkUsuariosDel 10
-	select * from FwkUsuarios
