@@ -10,14 +10,14 @@ namespace InglesIndividual.Entities
     {
         public int ID
         {
-            get;
-            set;
+            get { return ID; }
+            set { ID = value; }
         }
 
         public string Nombre
         {
-            get;
-            set;
+            get { return Nombre; }
+            set { Nombre = value; }
         }
 
         public Puesto() : this(false)

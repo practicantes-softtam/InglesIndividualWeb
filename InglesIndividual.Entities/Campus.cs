@@ -9,49 +9,56 @@ namespace InglesIndividual.Entities
     {
         public int Clave
         {
-            get;
-            set;
+            get { return Clave; }
+            set { Clave = value; }
         }
 
         public string Nombre
         {
-            get; set;
+            get { return Nombre; }
+            set { Nombre = value; }
         }
         
         public string Calle
         {
-            get; set;
+            get { return Calle; }
+            set { Calle = value; }
         }
         
         public string Colonia
         {
-            get; set;
+            get { return Colonia; }
+            set { Colonia = value; }
         }
         
         public int CodigoPostal
         {
-            get; set;
+            get { return CodigoPostal; }
+            set { CodigoPostal = value; }
         }
 
         public string Telefono
         {
-            get; set;
+            get { return Telefono; }
+            set { Telefono = value; }
         }
 
         public string DirectorGeneral
         {
-            get; set;
+            get { return DirectorGeneral; }
+            set { DirectorGeneral = value; }
         }
 
         public string DirectorAdministrativo
         {
-            get; set;
+            get { return DirectorAdministrativo; }
+            set { DirectorAdministrativo = value; }
         }
 
         public Ciudad Ciudad
         {
-            get;
-            set;
+            get { return Ciudad; }
+            set { Ciudad = value; }
         }
 
         public Campus() : this(false)

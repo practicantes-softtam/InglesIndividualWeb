@@ -8,7 +8,7 @@ namespace InglesIndividual.DataEntities
 {
     public class SpCampusGrd : PagedStoredProcedure
     {
-        public SpCampusGrd() : base("spCampusGrd")
+        public SpCampusGrd() : base("SpCampusGrd")
         {
             this.AddParameter("@pNomCampus", System.Data.SqlDbType.VarChar, DBNull.Value);
 	        this.AddParameter("@pClaPais", System.Data.SqlDbType.Int, DBNull.Value);

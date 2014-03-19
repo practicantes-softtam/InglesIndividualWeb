@@ -6,7 +6,7 @@ create proc spOrdenAsignacionCitasIns
 (
 
 	@pClaCampus int out, 
-	@pClaProfesor int,
+	@pClaProfesor int out,
 	@pOrden int
 	
 )
@@ -16,6 +16,6 @@ begin
 	from OrdenAsignacionCitas
 
 	insert into OrdenAsignacionCitas	(ClaCampus,		ClaProfesor,	Orden) 
-	values					(@pClaCampus,	@pClaProfesor,	@pOrden)
+	values								(@pClaCampus,	@pClaProfesor,	@pOrden)
 
 end

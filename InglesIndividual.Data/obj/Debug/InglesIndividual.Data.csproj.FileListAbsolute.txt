@@ -1,0 +1,11 @@
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndividual.Data.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndividual.Data.pdb
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\Framework.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndividual.DataEntities.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndividual.Entities.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\Framework.pdb
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndividual.DataEntities.pdb
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndividual.Entities.pdb
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.csprojResolveAssemblyReference.cache
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.pdb

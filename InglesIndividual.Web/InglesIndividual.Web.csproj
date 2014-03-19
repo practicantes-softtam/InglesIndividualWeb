@@ -50,6 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ciudades.aspx" />
     <Content Include="css\default-page.css" />
     <Content Include="Default.aspx" />
     <Content Include="htmlcontrols\jquery\jquery-1.10.2.min.js" />
@@ -413,7 +414,9 @@
     <Content Include="htmlcontrols\jqwidgets\styles\jqx.windowsphone.css" />
     <Content Include="js\grid.js" />
     <Content Include="Puestos.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -424,6 +427,13 @@
   <ItemGroup>
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ciudades.aspx.cs">
+      <DependentUpon>Ciudades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ciudades.aspx.designer.cs">
+      <DependentUpon>Ciudades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

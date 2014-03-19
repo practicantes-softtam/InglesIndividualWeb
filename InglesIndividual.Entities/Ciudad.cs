@@ -7,22 +7,23 @@ namespace InglesIndividual.Entities
 {
     public class Ciudad : WebEntity
     {
-        public int Clave
-        {
-            get;
-            set;
-        }
-
+      
+	    public int Clave
+	       {
+		    get { return Clave;}
+		    set { Clave = value;}
+	}
+	 
         public string Nombre
         {
-            get;
-            set;
+            get { return Nombre; }
+            set { Nombre = value; }
         }
 
         public Estado Estado
         {
-            get;
-            set;
+            get { return Estado; }
+            set { Estado = value; }
         }
 
         public Ciudad() : this(false)

@@ -1,0 +1,7 @@
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\bin\Debug\InglesIndividual.DataEntities.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\bin\Debug\InglesIndividual.DataEntities.pdb
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\bin\Debug\Framework.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\bin\Debug\Framework.pdb
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\obj\Debug\InglesIndividual.DataEntities.csprojResolveAssemblyReference.cache
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\obj\Debug\InglesIndividual.DataEntities.dll
+C:\Proyectos\Ingles Individual Web\InglesIndividual.DataEntities\obj\Debug\InglesIndividual.DataEntities.pdb

@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Campus.cs" />
+    <Compile Include="Ciudad.cs" />
+    <Compile Include="Estado.cs" />
+    <Compile Include="FwkUsuarios.cs" />
+    <Compile Include="FwkUsuariosSistemaSeguridad.cs" />
+    <Compile Include="HorarioClubConversacion.cs" />
+    <Compile Include="HorarioMaestros.cs" />
+    <Compile Include="HuellasPersonas.cs" />
     <Compile Include="JQXGridSettings.cs" />
+    <Compile Include="Leccion.cs" />
+    <Compile Include="Nivel.cs" />
+    <Compile Include="OrdenAsignacionCitas.cs" />
+    <Compile Include="Pais.cs" />
     <Compile Include="Puesto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebEntity.cs" />
