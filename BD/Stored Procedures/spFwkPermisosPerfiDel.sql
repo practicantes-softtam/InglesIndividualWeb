@@ -9,7 +9,7 @@ create proc spFwkPermisosPerfilDel
 	@pClaPerfil int,
 	@pClaModulo int,
 	@pClaObjeto int,
-	@pClaAccion int,
+	@pClaAccion char(5),
 	@pPermitir tinyint
 )
 as

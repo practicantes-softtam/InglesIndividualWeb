@@ -1,8 +1,8 @@
-if exists (select 1 from sys.procedures where name = 'spPerfilesDel')
-drop proc spPerfilesDel
+if exists (select 1 from sys.procedures where name = 'spFwkPerfilesDel')
+drop proc spFwkPerfilesDel
 go
 
-create proc spPerfilesDel
+create proc spFwkPerfilesDel
 (
 	
 	@pClaAplicacion int,

@@ -3,7 +3,7 @@ drop proc spFwkAplicacionesIns
 go
 create proc spFwkAplicacionesIns
 (
-	@pClaAplicacion int,
+	@pClaAplicacion int out,
 	@pNomAplicacion varchar(50)
 )
 as 

@@ -3,7 +3,7 @@ drop proc spFwkAccionesIns
 go
 create proc spFwkAccionesIns
 (
-	@pClaAccion char(5),
+	@pClaAccion char (5) out,
 	@pDescripcion varchar(50)
 )
 as 

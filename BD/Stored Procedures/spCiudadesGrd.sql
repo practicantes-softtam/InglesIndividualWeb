@@ -30,3 +30,4 @@ begin
 
 end
 
+select*from Ciudades

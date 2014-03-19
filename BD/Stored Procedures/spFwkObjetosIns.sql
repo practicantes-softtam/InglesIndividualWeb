@@ -2,7 +2,7 @@ if exists (select 1 from sys.procedures where name = 'spFwkObjetosIns')
 drop proc spFwkObjetosIns
 go
 
-create proc spFwkObjetososIns
+create proc spFwkObjetosIns
 (
 
 	@pClaAplicacion int,

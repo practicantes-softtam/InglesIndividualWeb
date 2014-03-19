@@ -1,9 +1,9 @@
-if exists (select 1 from sys.procedures where name = 'spPerfilesUpd')
+if exists (select 1 from sys.procedures where name = 'spFwkPerfilesUpd')
 
-drop proc spPerfilesUpd
+drop proc spFwkPerfilesUpd
 go
 
-create proc spPerfilesUpd
+create proc spFwkPerfilesUpd
 (
 	@pClaAplicacion int,
 	@pClaPerfil int ,
