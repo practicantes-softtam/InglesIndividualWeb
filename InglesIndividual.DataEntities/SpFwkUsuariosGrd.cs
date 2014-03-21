@@ -25,9 +25,9 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }
             set { this.Command.Parameters["@pIdUsuario"].Value = value; }
         }
-        public int NomUsuario
+        public string NomUsuario
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pNomUsuario"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pNomUsuario"].Value, ""); }
             set { this.Command.Parameters["@pNomUsuario"].Value = value; }
         }
         public int Password
@@ -44,5 +44,5 @@ namespace InglesIndividual.DataEntities
 }
 
 
-    }
-}
+    
+

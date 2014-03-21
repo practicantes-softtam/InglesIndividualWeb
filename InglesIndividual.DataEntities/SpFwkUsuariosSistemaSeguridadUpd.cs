@@ -6,13 +6,13 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpFwkUsuariosUpd : PagedStoredProcedure
+    public class SpFwkUsuariosSistemaSeguridadUpd : PagedStoredProcedure
     {
-        public SpFwkUsuariosUpd()
-            : base("SpFwkUsuariosUpd")
+        public SpFwkUsuariosSistemaSeguridadUpd()
+            : base("SpFwkUsuariosSistemaSeguridadUpd")
         {
             this.AddParameter("@pIdRegistro", System.Data.SqlDbType.Int, DBNull.Value);
-            this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarCha, DBNull.Value);
+            this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarChar, DBNull.Value);
             
         }
 

@@ -29,7 +29,7 @@ namespace InglesIndividual.Entities
 
         public int Lunes
         {
-            get { return Lues; }
+            get { return Lunes; }
             set { Lunes = value; }
         }
 

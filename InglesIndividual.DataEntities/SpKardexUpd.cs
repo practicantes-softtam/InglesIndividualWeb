@@ -9,6 +9,7 @@ namespace InglesIndividual.DataEntities
     public class SpKardexUpd : PagedStoredProcedure
     {
         public SpKardexUpd() : base("SpKardexUpd")
+        {
             this.AddParameter("@pIdCalificacion", System.Data.SqlDbType.Int, DBNull.Value);
             this.Command.Parameters["@pIdCalificacion"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pMatricula", System.Data.SqlDbType.Int, DBNull.Value);

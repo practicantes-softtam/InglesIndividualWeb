@@ -42,8 +42,17 @@
   <ItemGroup>
     <Compile Include="Campus.cs" />
     <Compile Include="Ciudades.cs" />
+    <Compile Include="FwkAcciones.cs" />
+    <Compile Include="FwkAplicaciones.cs" />
+    <Compile Include="FwkModulos.cs" />
+    <Compile Include="FwkObjetos.cs" />
+    <Compile Include="FwkPerfiles.cs" />
+    <Compile Include="FwkPermisosAdicionales.cs" />
+    <Compile Include="FwkPermisosPerfil.cs" />
+    <Compile Include="FwkUsuarioAplicacion.cs" />
     <Compile Include="FwkUsuarios.cs" />
     <Compile Include="InglesIndividualDataObject.cs" />
+    <Compile Include="Paises.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Puestos.cs" />
   </ItemGroup>

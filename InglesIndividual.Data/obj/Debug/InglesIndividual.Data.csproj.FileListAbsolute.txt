@@ -9,3 +9,14 @@ C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\bin\Debug\InglesIndivid
 C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.csprojResolveAssemblyReference.cache
 C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.dll
 C:\Proyectos\Ingles Individual Web\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.pdb
+C:\Proyecto\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.csprojResolveAssemblyReference.cache
+C:\Proyecto\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.dll
+C:\Proyecto\InglesIndividual.Data\obj\Debug\InglesIndividual.Data.pdb
+C:\Proyecto\InglesIndividual.Data\bin\Debug\InglesIndividual.Data.dll
+C:\Proyecto\InglesIndividual.Data\bin\Debug\InglesIndividual.Data.pdb
+C:\Proyecto\InglesIndividual.Data\bin\Debug\Framework.dll
+C:\Proyecto\InglesIndividual.Data\bin\Debug\InglesIndividual.DataEntities.dll
+C:\Proyecto\InglesIndividual.Data\bin\Debug\InglesIndividual.Entities.dll
+C:\Proyecto\InglesIndividual.Data\bin\Debug\Framework.pdb
+C:\Proyecto\InglesIndividual.Data\bin\Debug\InglesIndividual.DataEntities.pdb
+C:\Proyecto\InglesIndividual.Data\bin\Debug\InglesIndividual.Entities.pdb

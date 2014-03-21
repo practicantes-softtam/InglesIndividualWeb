@@ -413,6 +413,7 @@
     <Content Include="htmlcontrols\jqwidgets\styles\jqx.web.css" />
     <Content Include="htmlcontrols\jqwidgets\styles\jqx.windowsphone.css" />
     <Content Include="js\grid.js" />
+    <Content Include="Paises.aspx" />
     <Content Include="Puestos.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -443,6 +444,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="JsonGridData.cs" />
+    <Compile Include="Paises.aspx.cs">
+      <DependentUpon>Paises.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paises.aspx.designer.cs">
+      <DependentUpon>Paises.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Puestos.aspx.cs">
       <DependentUpon>Puestos.aspx</DependentUpon>

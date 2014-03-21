@@ -11,3 +11,16 @@ C:\Proyectos\Ingles Individual Web\InglesIndividual.Business\bin\Debug\InglesInd
 C:\Proyectos\Ingles Individual Web\InglesIndividual.Business\obj\Debug\InglesIndividual.Business.csprojResolveAssemblyReference.cache
 C:\Proyectos\Ingles Individual Web\InglesIndividual.Business\obj\Debug\InglesIndividual.Business.dll
 C:\Proyectos\Ingles Individual Web\InglesIndividual.Business\obj\Debug\InglesIndividual.Business.pdb
+C:\Proyecto\InglesIndividual.Business\obj\Debug\InglesIndividual.Business.csprojResolveAssemblyReference.cache
+C:\Proyecto\InglesIndividual.Business\obj\Debug\InglesIndividual.Business.dll
+C:\Proyecto\InglesIndividual.Business\obj\Debug\InglesIndividual.Business.pdb
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.Business.dll
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.Business.pdb
+C:\Proyecto\InglesIndividual.Business\bin\Debug\Framework.dll
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.Data.dll
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.Entities.dll
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.DataEntities.dll
+C:\Proyecto\InglesIndividual.Business\bin\Debug\Framework.pdb
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.Data.pdb
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.Entities.pdb
+C:\Proyecto\InglesIndividual.Business\bin\Debug\InglesIndividual.DataEntities.pdb
