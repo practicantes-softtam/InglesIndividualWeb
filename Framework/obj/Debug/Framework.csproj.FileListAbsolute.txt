@@ -2,3 +2,7 @@ C:\Proyectos\Ingles Individual Web\Framework\bin\Debug\Framework.dll
 C:\Proyectos\Ingles Individual Web\Framework\bin\Debug\Framework.pdb
 C:\Proyectos\Ingles Individual Web\Framework\obj\Debug\Framework.dll
 C:\Proyectos\Ingles Individual Web\Framework\obj\Debug\Framework.pdb
+C:\Proyecto\Framework\bin\Debug\Framework.dll
+C:\Proyecto\Framework\bin\Debug\Framework.pdb
+C:\Proyecto\Framework\obj\Debug\Framework.dll
+C:\Proyecto\Framework\obj\Debug\Framework.pdb
