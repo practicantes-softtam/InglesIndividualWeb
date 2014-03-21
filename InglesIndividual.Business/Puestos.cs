@@ -18,7 +18,7 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Puestos();
         }
 
-        public List<Entities.Puesto> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
+        public List<Entetis.Puesto> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
         {
             return this.Data.ListarPuestos(settings, nomPuesto);
         }
