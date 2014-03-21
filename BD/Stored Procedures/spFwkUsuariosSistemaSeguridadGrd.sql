@@ -14,14 +14,14 @@ create proc spFwkUsuariosSistemaSeguridadGrd
 as
 begin
 
-	select	RowNumber = ROW_NUMBER() over (order by res.IdRegistro),
-			res.IdRegistro,
-			res.IdUsuario
+	select	RowNumber = ROW_NUMBER() over (order by fwkss.IdRegistro),
+			fwkss.IdRegistro,
+			fwkss.IdUsuario
 			
 	into #tabla
-	from FwkUsuariosSistemaSeguridad res
+	from FwkUsuariosSistemaSeguridad fwkss
 	
-	where (res.IdRegistro = @pIdRegistro or @pIdUsuario = 0)
+	where (fwkss.IdRegistro = @pIdRegistro or @pIdUsuario = 0)
 	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 end

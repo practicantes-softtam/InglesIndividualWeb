@@ -7,7 +7,7 @@ using Framework;
 
 namespace InglesIndividual.Data
 {
-    public class Campus : InglesIndividualDataObject
+    public class FwkUsuarios : InglesIndividualDataObject
     {
         public List<Entities.Campus> ListarCampus(Entities.JQXGridSettings settings, string nombre, int pais, int ciudad, int estado)
         {

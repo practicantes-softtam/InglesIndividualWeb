@@ -7,14 +7,14 @@ namespace InglesIndividual.Business
 {
     public class Campus : InglesIndividualBusinessObject
     {
-        private Data.Campus Data
+        private Data.FwkUsuarios Data
         {
-            get { return this.DataObject as Data.Campus; }
+            get { return this.DataObject as Data.FwkUsuarios; }
         }
 
         public Campus()
         {
-            this.DataObject = new Data.Campus();
+            this.DataObject = new Data.FwkUsuarios();
         }
 
         public List<Entities.Campus> ListarCampus(Entities.JQXGridSettings settings, string nombre, int pais, int ciudad, int estado)

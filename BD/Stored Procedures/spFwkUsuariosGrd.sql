@@ -15,6 +15,10 @@ create proc spFwkUsuariosGrd
 as
 begin
 
+		if @pIdUsuario is not null begin
+		select @pIdUsuario = '%' + @pIdUsuario + '%'
+end	
+	
 	select	RowNumber = ROW_NUMBER() over (order by fwku.IdUsuario),
 			fwku.IdUsuario,
 			fwku.NomUsuario,
