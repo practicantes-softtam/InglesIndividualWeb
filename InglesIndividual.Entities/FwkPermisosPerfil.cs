@@ -9,11 +9,11 @@ namespace InglesIndividual.Entities
     {
 
         
-        private int _claAplicacion;
-        private int _claPerfil;
-        private int _claModulo;
-        private int _claObjeto;
-        private string _claAccion;
+        private FwkAplicaciones _claAplicacion;
+        private FwkPerfiles _claPerfil;
+        private FwkModulos _claModulo;
+        private FwkObjetos _claObjeto;
+        private FwkAcciones _claAccion;
         private int _permitir;
 
         public int Permitir
@@ -23,32 +23,32 @@ namespace InglesIndividual.Entities
         }
 
 
-        public string ClaAccion
+        public FwkAcciones ClaAccion
         {
             get { return _claAccion; }
             set { _claAccion = value; }
         }
 
 
-        public int ClaObjeto
+        public FwkObjetos ClaObjeto
         {
             get { return _claObjeto; }
             set { _claObjeto = value; }
         }
 
 
-        public int ClaModulo
+        public FwkModulos ClaModulo
         {
             get { return _claModulo; }
             set { _claModulo = value; }
         }
 
-        public int ClaPerfil
+        public FwkPerfiles ClaPerfil
         {
             get { return _claPerfil; }
             set { _claPerfil = value; }
         }
-        public int ClaAplicacion
+        public FwkAplicaciones ClaAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }

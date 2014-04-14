@@ -8,25 +8,25 @@ namespace InglesIndividual.Entities
   public  class FwkUsuarioPerfil:WebEntity
 
     {
-        private string _idUsuario;
-        private int _claAplicacion;
-        private int _claPerfil;
+        private FwkUsuarios _idUsuario;
+        private FwkAplicaciones _claAplicacion;
+        private FwkPerfiles _claPerfil;
 
-        public int ClaPerfil
+        public FwkPerfiles  ClaPerfil
         {
-            get { return _claPerfil; }
-            set { _claPerfil = value; }
+            get { return _claPerfil; ; }
+            set {_claPerfil = value; }
         }
 
 
-        public int ClaAplicacion
+        public FwkAplicaciones ClaAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }
         }
         
 
-        public string IsUsuario
+        public FwkUsuarios IdUsuario
         {
             get { return _idUsuario; }
             set { _idUsuario = value; }

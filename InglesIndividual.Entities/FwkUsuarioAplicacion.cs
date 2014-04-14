@@ -7,20 +7,20 @@ namespace InglesIndividual.Entities
 {
     public class FwkUsuarioAplicacion:WebEntity
     {
-        private int _claAplicacion;
-        private string _idUsusario;
+        private FwkAplicaciones _claAplicacion;
+        private FwkUsuarios _idUsusario;
 
-        public string IdUsuario
+        public FwkUsuarios IdUsuario
         {
             get { return _idUsusario; }
-            set { _idUsusario = value; }
+            set {_idUsusario = value; }
         }
 
 
-        public int ClaAplicacion
+        public FwkAplicaciones ClaAplicacion
         {
             get { return _claAplicacion; }
-            set { _claAplicacion = value; }
+            set {_claAplicacion = value; }
         }
 
           public FwkUsuarioAplicacion() : this(false)

@@ -7,7 +7,7 @@ namespace InglesIndividual.Entities
 {
   public  class FwkAcciones : WebEntity
     {
-        private int  _claAccion;
+        private string  _claAccion;
         private string _descripcion;
 
         public string Descripcion
@@ -17,7 +17,7 @@ namespace InglesIndividual.Entities
         }
         
 
-        public int ClaAccion
+        public string ClaAccion
         {
             get { return _claAccion; }
             set { _claAccion = value; }
