@@ -7,18 +7,18 @@ namespace InglesIndividual.Entities
 {
     public class HorarioClubConversacion : WebEntity
      {
-        private int _claCampus;
+        private Campus _campus;
         private int _claEmpleado;
         private int _claHorario;
         private int _claDia;
         private int _horas;
 
 
-        public int ClaCampus
+        public Campus Campus
 	
         {
-            get { return _claCampus; }
-            set { _claCampus = value; }
+            get { return _campus; }
+            set { _campus = value; }
         }
 
         public int ClaEmpleado
@@ -46,6 +46,12 @@ namespace InglesIndividual.Entities
             set { _horas = value; }
         }
 
+        public HorarioClubConversacion() 
+            : this(false)
+        {
+
+        }
+        
         public HorarioClubConversacion(bool fromDataSource) : base (fromDataSource)
         {
 

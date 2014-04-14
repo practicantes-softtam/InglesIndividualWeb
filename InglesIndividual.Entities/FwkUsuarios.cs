@@ -36,6 +36,12 @@ namespace InglesIndividual.Entities
             set { _email = value; }
         }
 
+        public FwkUsuarios() 
+            : this(false)
+        {
+
+        }
+
        
         public FwkUsuarios(bool fromDataSource) : base(fromDataSource)
         {

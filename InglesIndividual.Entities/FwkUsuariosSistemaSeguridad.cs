@@ -22,6 +22,13 @@ namespace InglesIndividual.Entities
             get { return _idUsuario; }
             set { _idUsuario = value; }
         }
+
+        public FwkUsuariosSistemaSeguridad() 
+            : this(false)
+        {
+
+        }
+
         
         public FwkUsuariosSistemaSeguridad(bool fromDataSource) : base(fromDataSource)
         {

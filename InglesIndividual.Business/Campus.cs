@@ -17,7 +17,7 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Campus();
         }
 
-        public List<Entities.Campus> ListarCampus(Entities.JQXGridSettings settings, string nombre, int pais, int ciudad, int estado)
+        public List<Entities.Departamentos> ListarCampus(Entities.JQXGridSettings settings, string nombre, int pais, int ciudad, int estado)
         {
             return this.Data.ListarCampus(settings, nombre, pais, ciudad, estado);
         }

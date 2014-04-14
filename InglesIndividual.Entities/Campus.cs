@@ -6,67 +6,82 @@ using Framework;
 
 namespace InglesIndividual.Entities
 {
-    public class Departamentos : WebEntity
+    public class Campus : WebEntity
     {
-        public int Clave
+        private int _claCampus;
+        private string _nomCampus;
+        private string _calle;
+        private string _colonia;
+        private int _codigoPostal;
+        private Ciudad _ciudad;
+        private string _telefono;
+        private string _directorGeneral;
+        private string _directorAdministrativo;
+
+        public int ClaCampus
         {
-            get { return Clave; }
-            set { Clave = value; }
+            get { return _claCampus; }
+            set { _claCampus = value; }
         }
 
-        public string Nombre
+        public string NomCampus
         {
-            get { return Nombre; }
-            set { Nombre = value; }
+            get { return _nomCampus; }
+            set { _nomCampus = value; }
         }
         
         public string Calle
         {
-            get { return Calle; }
-            set { Calle = value; }
+            get { return _calle; }
+            set { _calle = value; }
         }
         
         public string Colonia
         {
-            get { return Colonia; }
-            set { Colonia = value; }
+            get { return _colonia; }
+            set { _colonia = value; }
         }
         
         public int CodigoPostal
         {
-            get { return CodigoPostal; }
-            set { CodigoPostal = value; }
+            get { return _codigoPostal; }
+            set { _codigoPostal = value; }
+        }
+
+             
+
+        public Ciudad Ciudad
+        {
+            get { return _ciudad; }
+            set { _ciudad = value; }
         }
 
         public string Telefono
         {
-            get { return Telefono; }
-            set { Telefono = value; }
+            get { return _telefono; }
+            set { _telefono = value; }
         }
 
         public string DirectorGeneral
         {
-            get { return DirectorGeneral; }
-            set { DirectorGeneral = value; }
+            get { return _directorGeneral; }
+            set { _directorGeneral = value; }
         }
 
         public string DirectorAdministrativo
         {
-            get { return DirectorAdministrativo; }
-            set { DirectorAdministrativo = value; }
+            get { return _directorAdministrativo; }
+            set { _directorAdministrativo = value; }
         }
 
-        public Ciudad Ciudad
+        public Campus() 
+            : this(false)
         {
-            get { return Ciudad; }
-            set { Ciudad = value; }
+
         }
 
-        public Departamentos() : this(false)
-        {
-        }
-
-        public Departamentos(bool fromDataSource) : base(fromDataSource)
+              
+        public Campus(bool fromDataSource) : base(fromDataSource)
         {
         }
     }

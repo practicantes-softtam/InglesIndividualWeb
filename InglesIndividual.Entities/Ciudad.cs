@@ -7,17 +7,21 @@ namespace InglesIndividual.Entities
 {
     public class Ciudad : WebEntity
     {
-      
+        private int _clave;
+        private Estado _estado;
+        private string _nomCiudad;
+
+
 	    public int Clave
 	       {
-		    get { return Clave;}
-		    set { Clave = value;}
+		    get { return _clave;}
+		    set { _clave = value;}
 	}
 	 
-        public string Nombre
+        public string NomCiudad
         {
-            get { return Nombre; }
-            set { Nombre = value; }
+            get { return _nomCiudad; }
+            set { _nomCiudad = value; }
         }
 
         public Estado Estado
@@ -26,7 +30,8 @@ namespace InglesIndividual.Entities
             set { Estado = value; }
         }
 
-        public Ciudad() : this(false)
+        public Ciudad() 
+            : this(false)
         {
         }
 

@@ -8,7 +8,7 @@ namespace InglesIndividual.Entities
     public class HorarioMaestros : WebEntity
       {
         private int _claEmpleado;
-        private int _claCampus;
+        private Campus _campus;
         private int _claHorario;
         private int _lun;
         private int _mar;
@@ -32,11 +32,11 @@ namespace InglesIndividual.Entities
             set { _claEmpleado = value; }
         }
 
-        public int ClaCampus
+        public Campus Campus
 	
         {
-            get { return _claCampus; }
-            set { _claCampus = value; }
+            get { return _campus; }
+            set { _campus = value; }
         }
 
         public int ClaHorario
@@ -129,6 +129,11 @@ namespace InglesIndividual.Entities
             set { _ordenDom = value; }
         }
 
+        public HorarioMaestros() 
+            : this(false)
+        {
+
+        }
 
         public HorarioMaestros(bool fromDataSource) : base(fromDataSource)
             

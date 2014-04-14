@@ -7,14 +7,14 @@ namespace InglesIndividual.Entities
 {
     public class OrdenAsignacionCitas : WebEntity
     {
-        private int _claCampus;
+        private Campus _campus;
         private int _claProfesor;
         private int _orden;
 
-        public int ClaCampus
+        public Campus Campus
         {
-            get { return _claCampus; }
-            set { _claCampus = value; }
+            get { return _campus; }
+            set { _campus = value; }
         }
 
         public int ClaProfesor
@@ -27,6 +27,12 @@ namespace InglesIndividual.Entities
         {
             get { return _orden; }
             set { _orden= value; }
+        }
+
+        public OrdenAsignacionCitas() 
+            : this(false)
+        {
+
         }
 
 
