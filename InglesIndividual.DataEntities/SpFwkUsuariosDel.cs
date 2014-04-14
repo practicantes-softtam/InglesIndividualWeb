@@ -11,11 +11,11 @@ namespace InglesIndividual.DataEntities
         public SpFwkUsuariosDel()
             : base("SpFwkUsuariosDel")
         {
-            this.AddParameter("@pIdUsuario", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarChar, "");
         }
-        public int ClaCiudad
+        public string IdUsuario
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }
             set { this.Command.Parameters["@pIdUsuario"].Value = value; }
         }
     }

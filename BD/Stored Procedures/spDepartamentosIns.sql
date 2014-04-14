@@ -10,6 +10,7 @@ create proc spDepartamentosIns
 	@pNomDepartamento varchar (30)
 	
 )
+
 as
 begin
 

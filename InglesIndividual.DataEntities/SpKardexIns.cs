@@ -13,14 +13,14 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pIdCalificacion", System.Data.SqlDbType.Int, DBNull.Value);
             this.Command.Parameters["@pIdCalificacion"].Direction = System.Data.ParameterDirection.Output;
-            this.AddParameter("@pMatricula", System.Data.SqlDbType.Int, DBNull.Value);
+            this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaLeccion", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaProfesor", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pCalificacion", System.Data.SqlDbType.Decimal, DBNull.Value);
             this.AddParameter("@pTipoClase", System.Data.SqlDbType.Int, DBNull.Value);
-            this.AddParameter("@pFecha", System.Data.SqlDbType.SmallDateTime, DBNull.Value);
+            this.AddParameter("@pFecha", System.Data.SqlDbType.DateTime, DBNull.Value);
             this.AddParameter("@pClaCalificacion", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pIdCita", System.Data.SqlDbType.VarChar, DBNull.Value);
 
@@ -72,6 +72,13 @@ namespace InglesIndividual.DataEntities
         {
             get { return Utils.IsNull(this.Command.Parameters["@pTipoClase"].Value, 0); }
             set { this.Command.Parameters["@pTipoClase"].Value = value; }
+        }
+
+        public DateTime Fecha
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pFecha"].Value, DateTime.MinValue); }
+            set { this.Command.Parameters["@pFecha"].Value = value; }
+
         }
 
         public int ClaCalificacion

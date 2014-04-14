@@ -25,19 +25,19 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }
             set { this.Command.Parameters["@pIdUsuario"].Value = value; }
         }
-        public int NomUsuario
+        public string NomUsuario
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pNomUsuario"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pNomUsuario"].Value, ""); }
             set { this.Command.Parameters["@pNomUsuario"].Value = value; }
         }
-        public int Password
+        public string Password
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pPassword"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pPassword"].Value, ""); }
             set { this.Command.Parameters["@pPassword"].Value = value; }
         }
-        public int Email
+        public string Email
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pEmail"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pEmail"].Value, ""); }
             set { this.Command.Parameters["@pEmail"].Value = value; }
         }
     }

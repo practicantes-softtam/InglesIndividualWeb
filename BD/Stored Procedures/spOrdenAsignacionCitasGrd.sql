@@ -18,14 +18,14 @@ begin
 		select @pClaCampus = '%' + @pClaCampus + '%'
 	end	
 	
-	select	RowNumber = ROW_NUMBER() over (order by oac.ClaCampus asc), 
-		oac.ClaCampus,
-		oac.ClaProfesor,
-		oac.Orden	
+	select	RowNumber = ROW_NUMBER() over (order by ClaCampus asc), 
+		ClaCampus,
+		ClaProfesor,
+		Orden	
 		 
 	
 	into #tabla
-	from OrdenAsignacionCitas oac
+	from OrdenAsignacionCitas 
 	where ClaCampus like @pClaCampus
 	and (ClaProfesor = @pClaProfesor or @pClaProfesor = 0)
 	and (Orden = @pOrden or @pOrden = 0)

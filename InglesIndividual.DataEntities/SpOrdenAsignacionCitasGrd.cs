@@ -35,7 +35,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pOrden"].Value, 0); }
             set { this.Command.Parameters["@pOrden"].Value = value; }
         }
-
-
     }
 }

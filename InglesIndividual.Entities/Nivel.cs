@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.Entities
 {
-    public class Nivel : Entity
+    public class Nivel : WebEntity
     {
         private int _claNivel;
         private string _nomNivel;
@@ -29,11 +29,16 @@ namespace InglesIndividual.Entities
             get { return this._clubConversacion; }
             set { this._clubConversacion = value; }
         }
+
+        public Nivel()
+            : this(false)
+        { 
+
+        }
         
-     public Nivel (bool fromDataSource)
-     {
+        public Nivel (bool fromDataSource) : base(fromDataSource)
+        {
+
         }
     }
-
-
-    }
+}

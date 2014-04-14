@@ -13,7 +13,7 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pIdCalificacion", System.Data.SqlDbType.Int, 0);
         }
-        public int ClaNivel
+        public int IdCalificacion
         {
             get { return Utils.IsNull(this.Command.Parameters["@pIdCalificacion"].Value, 0); }
             set { this.Command.Parameters["@pIdCalificacion"].Value = value; }

@@ -18,17 +18,17 @@ begin
 		select @pClaDepartamento = '%' + @pClaDepartamento + '%'
 	end	
 	
-	select	RowNumber = ROW_NUMBER() over (order by d.ClaDepartamento asc), 
-		d.ClaDepartamento,
-		d.ClaCampus,
-		d.NomDepartamento	
+	select	RowNumber = ROW_NUMBER() over (order by ClaDepartamento asc), 
+		ClaDepartamento,
+		ClaCampus,
+		NomDepartamento	
 		 
 	
 	into #tabla
-	from Departamentos d
+	from Departamentos 
 	where ClaDepartamento like @pClaDepartamento
 	and (ClaCampus = @pClaCampus or @pClaCampus = 0)
-	and d.NomDepartamento like '%' + @pNomDepartamento + '%'
+	and NomDepartamento like '%' + @pNomDepartamento + '%'
 	
 	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor

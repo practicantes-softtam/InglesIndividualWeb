@@ -7,41 +7,48 @@ namespace InglesIndividual.Entities
 {
     public class HorarioClubConversacion : WebEntity
      {
+        private int _claCampus;
+        private int _claEmpleado;
+        private int _claHorario;
+        private int _claDia;
+        private int _horas;
+
+
         public int ClaCampus
 	
         {
-            get { return ClaCampus; }
-            set { ClaCampus = value; }
+            get { return _claCampus; }
+            set { _claCampus = value; }
         }
 
         public int ClaEmpleado
 	
         {
-            get { return ClaEmpleado; }
-            set { ClaEmpleado = value; }
+            get { return _claEmpleado; }
+            set { _claEmpleado = value; }
         }
 
         public int ClaHorario
         {
-            get { return ClaHorario; }
-            set { ClaHorario = value; }
+            get { return _claHorario; }
+            set { _claHorario = value; }
         }
 
         public int ClaDia
         {
-            get { return ClaDia; }
-            set { ClaDia = value; }
+            get { return _claDia; }
+            set { _claDia = value; }
         }
 
         public int Horas
         {
-            get { return Horas; }
-            set { Horas = value; }
+            get { return _horas; }
+            set { _horas = value; }
         }
 
-        public HorarioClubConversacion(bool fromDataSource)
-            
+        public HorarioClubConversacion(bool fromDataSource) : base (fromDataSource)
         {
+
         }
     }
 }

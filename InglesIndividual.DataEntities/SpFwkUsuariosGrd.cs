@@ -8,8 +8,7 @@ namespace InglesIndividual.DataEntities
 {
     public class SpFwkUsuariosGrd : PagedStoredProcedure
     {
-        public SpFwkUsuariosGrd()
-            : base("SpFwkUsuariosGrd")
+        public SpFwkUsuariosGrd() : base("SpFwkUsuariosGrd")
         {
             this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pNomUsuario", System.Data.SqlDbType.VarChar, DBNull.Value);
@@ -25,16 +24,19 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }
             set { this.Command.Parameters["@pIdUsuario"].Value = value; }
         }
+        
         public string NomUsuario
         {
             get { return Utils.IsNull(this.Command.Parameters["@pNomUsuario"].Value, ""); }
             set { this.Command.Parameters["@pNomUsuario"].Value = value; }
         }
+        
         public int Password
         {
             get { return Utils.IsNull(this.Command.Parameters["@pPassword"].Value, 0); }
             set { this.Command.Parameters["@pPassword"].Value = value; }
         }
+        
         public int Email
         {
             get { return Utils.IsNull(this.Command.Parameters["@pEmail"].Value, 0); }

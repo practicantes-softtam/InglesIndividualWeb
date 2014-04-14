@@ -6,9 +6,9 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpCampusUpd : PagedStoredProcedure
+    public class SpDepartamentosUpd : PagedStoredProcedure
     {
-        public SpCampusUpd()
+        public SpDepartamentosUpd()
             : base("SpCampusUpd")
         {
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);

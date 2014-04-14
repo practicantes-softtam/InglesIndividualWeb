@@ -33,27 +33,27 @@ begin
 		select @pClaEmpleado = '%' + @pClaEmpleado + '%'
 	end	
 
-	select	RowNumber = ROW_NUMBER() over (order by hm.ClaEmpleado asc), 
-		 hm.ClaEmpleado, 
-		 hm.ClaCampus,
-		 hm.ClaHorario, 
-		 hm.Lun, 
-		 hm.Mar,
-		 hm.Mie,
-		 hm.Jue,
-		 hm.Vie,
-		 hm.Sab,
-		 hm.Dom,
-		 hm.OrdenLun,
-		 hm.OrdenMar,
-		 hm.OrdenMie,
-		 hm.OrdenJue,
-		 hm.OrdenVie,
-		 hm.OrdenSab,
-		 hm.OrdenDom
+	select	RowNumber = ROW_NUMBER() over (order by ClaEmpleado asc), 
+		 ClaEmpleado, 
+		 ClaCampus,
+		 ClaHorario, 
+		 Lun, 
+		 Mar,
+		 Mie,
+		 Jue,
+		 Vie,
+		 Sab,
+		 Dom,
+		 OrdenLun,
+		 OrdenMar,
+		 OrdenMie,
+		 OrdenJue,
+		 OrdenVie,
+		 OrdenSab,
+		 OrdenDom
 	
 	into #tabla
-	from HorarioMaestros hm
+	from HorarioMaestros 
 	where ClaEmpleado like @pClaEmpleado
 	and (ClaCampus = @pClaCampus or @pClaCampus = 0)
 	and (ClaHorario = @pClaHorario or @pClaHorario = 0)

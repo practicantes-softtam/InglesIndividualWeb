@@ -7,31 +7,32 @@ namespace InglesIndividual.Entities
 {
     public class OrdenAsignacionCitas : WebEntity
     {
-       
+        private int _claCampus;
+        private int _claProfesor;
+        private int _orden;
 
         public int ClaCampus
         {
-            get { return ClaCampus; }
-            set { ClaCampus = value; }
+            get { return _claCampus; }
+            set { _claCampus = value; }
         }
 
         public int ClaProfesor
         {
-            get { return ClaProfesor; }
-            set { ClaProfesor = value; }
+            get { return _claProfesor; }
+            set { _claProfesor = value; }
         }
 
         public int Orden
         {
-            get { return Orden; }
-            set { Orden= value; }
+            get { return _orden; }
+            set { _orden= value; }
         }
 
 
-        public OrdenAsignacionCitas(bool fromDataSource)
-                 {
+        public OrdenAsignacionCitas(bool fromDataSource) : base(fromDataSource)
+        {
+
         }
     }
-
-
-    }
+}

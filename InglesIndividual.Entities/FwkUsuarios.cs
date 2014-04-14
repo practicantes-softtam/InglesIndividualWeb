@@ -7,34 +7,39 @@ namespace InglesIndividual.Entities
 {
     public class FwkUsuarios : WebEntity
     {
+        private string _idUsuario;
+        private string _nomUsuario;
+        private string _password;
+        private string _email;
+
         public string IdUsuario
         {
-            get { return IdUsuario; }
-            set { IdUsuario = value; }
+            get { return _idUsuario; }
+            set { _idUsuario = value; }
         }
 
         public string NomUsuario
         {
-            get { return NomUsuario; }
-            set { NomUsuario = value; }
+            get { return _nomUsuario; }
+            set { _nomUsuario = value; }
         }
 
         public string Password
         {
-            get { return Password; }
-            set { Password = value; }
+            get { return _password; }
+            set { _password = value; }
         }
 
         public string Email
         {
-            get { return Email; }
-            set { Email = value; }
+            get { return _email; }
+            set { _email = value; }
         }
 
        
-        public FwkUsuarios(bool fromDataSource)
-            : base(fromDataSource)
+        public FwkUsuarios(bool fromDataSource) : base(fromDataSource)
         {
+
         }
     }
 }

@@ -21,15 +21,15 @@ begin
 		select @pClaCampus = '%' + @pClaHorario + '%'
 	end	
 	
-	select	RowNumber = ROW_NUMBER() over (order by hcc.ClaCampus asc), 
-		 hcc.ClaCampus, 
-		 hcc.ClaEmpleado, 
-		 hcc.ClaHorario, 
-		 hcc.ClaDia, 
-		 hcc.Horas
+	select	RowNumber = ROW_NUMBER() over (order by ClaCampus asc), 
+		 ClaCampus, 
+		 ClaEmpleado, 
+		 ClaHorario, 
+		 ClaDia, 
+		 Horas
 		 
 		 into #tabla
-	from HorarioClubConversacion hcc
+	from HorarioClubConversacion 
 	where ClaCampus like @pClaCampus 
 	and (ClaEmpleado=@pClaEmpleado or @pClaEmpleado=0)
 	and (ClaHorario=@pClaHorario or @pClaHorario=0)

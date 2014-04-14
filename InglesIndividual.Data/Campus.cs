@@ -9,10 +9,10 @@ namespace InglesIndividual.Data
 {
     public class Campus : InglesIndividualDataObject
     {
-        public List<Entities.Campus> ListarCampus(Entities.JQXGridSettings settings, string nombre, int pais, int ciudad, int estado)
+        public List<Entities.Departamentos> ListarCampus(Entities.JQXGridSettings settings, string nombre, int pais, int ciudad, int estado)
         {
             DataEntities.SpCampusGrd sp = new DataEntities.SpCampusGrd();
-            List<Entities.Campus> list = new List<Entities.Campus>();
+            List<Entities.Departamentos> list = new List<Entities.Departamentos>();
 
             sp.ClaCiudad = ciudad;
             sp.ClaEstado = estado;
@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
 
             foreach (DataRow dr in dt.Rows)
             {
-                Entities.Campus item = new Entities.Campus(true);
+                Entities.Departamentos item = new Entities.Departamentos(true);
                 item.Calle = Utils.GetDataRowValue(dr, "Calle", "");
                 item.Ciudad = new Entities.Ciudad(true);
                 item.Ciudad.Nombre = Utils.GetDataRowValue(dr, "NomCiudad", "");

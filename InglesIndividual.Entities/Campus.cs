@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Framework;
 
 namespace InglesIndividual.Entities
 {
-    public class Campus : WebEntity
+    public class Departamentos : WebEntity
     {
         public int Clave
         {
@@ -61,11 +62,11 @@ namespace InglesIndividual.Entities
             set { Ciudad = value; }
         }
 
-        public Campus() : this(false)
+        public Departamentos() : this(false)
         {
         }
 
-        public Campus(bool fromDataSource) : base(fromDataSource)
+        public Departamentos(bool fromDataSource) : base(fromDataSource)
         {
         }
     }

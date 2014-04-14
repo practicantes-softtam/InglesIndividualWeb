@@ -8,8 +8,7 @@ namespace InglesIndividual.DataEntities
 {
     public class SpFwkUsuariosSistemaSeguridadUpd : PagedStoredProcedure
     {
-        public SpFwkUsuariosSistemaSeguridadUpd()
-            : base("SpFwkUsuariosSistemaSeguridadUpd")
+        public SpFwkUsuariosSistemaSeguridadUpd() : base("SpFwkUsuariosSistemaSeguridadUpd")
         {
             this.AddParameter("@pIdRegistro", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarChar, DBNull.Value);
@@ -21,7 +20,7 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pIdRegistro"].Value, 0); }
             set { this.Command.Parameters["@pIdUsuario"].Value = value; }
         }
-        public string ClaEstado
+        public string IdUsuario
         {
             get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }
             set { this.Command.Parameters["@pIdUsuario"].Value = value; }

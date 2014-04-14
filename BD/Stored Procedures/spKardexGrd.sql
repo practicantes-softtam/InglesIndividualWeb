@@ -23,36 +23,18 @@ create proc spKardexGrd
 as
 begin
 
-		if @pIdCalificacion is not null begin
-		select @pIdCalificacion = '%' + @pIdCalificacion + '%'
+		if @pMatricula is not null begin
+		select @pMatricula = '%' + @pMatricula + '%'
 	end	
 	
-	select	RowNumber = ROW_NUMBER() over (order by k.IdCalificacion asc), 
-		k.IdCalificacion,
-		k.Matricula,
-		k.ClaCampus,
-		k.ClaNivel,
-		k.ClaLeccion,
-		k.ClaProfesor,
-		k.Calificacion,
-		k.TipoClase,
-		k.Fecha,
-		k.ClaCalificacion,
-		k.IdCita
+	select	RowNumber = ROW_NUMBER() over (order by Matricula asc), 
+		IdCalificacion, Matricula, ClaCampus, ClaNivel,	ClaLeccion, ClaProfesor,
+		Calificacion, TipoClase, Fecha, ClaCalificacion, IdCita
 		 
 	
 	into #tabla
-	from Kardex k
-	where IdCalificacion like @pIdCalificacion
-	and (Matricula = @pMatricula or @pMatricula = 0)
-	and (ClaCampus = @pClaCampus or @pClaCampus = 0)
-	and (ClaNivel = @pClaNivel or @pClaNivel = 0)
-	and (ClaLeccion = @pClaLeccion or @pClaLeccion = 0)
-	and (ClaProfesor = @pClaProfesor or @pClaProfesor = 0)
-	and (Calificacion = @pCalificacion or @pCalificacion = 0)
-	and (TipoClase = @pTipoClase or @pTipoClase = 0)
-	and (ClaCalificacion = @pClaCalificacion or @pClaCalificacion = 0)
-	and (IdCita = @pIdCita or @pIdCita = 0)
+	from Kardex 
+	where Matricula like @pMatricula
 	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 

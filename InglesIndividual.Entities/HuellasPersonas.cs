@@ -7,41 +7,54 @@ namespace InglesIndividual.Entities
 {
     public class HuellasPersonas : WebEntity
     {
+        private int _idRegistro;
+        private int _claCampus;
+        private string _matricula;
+        private int _claEmpleado;
+        private int _tipoPersona;
+        private string _huella;
+
        public int IdRegistro
 	
         {
-            get { return IdRegistro; }
-            set { IdRegistro = value; }
+            get { return _idRegistro; }
+            set { _idRegistro = value; }
         }
 
         public int ClaCampus
 	
         {
-            get { return ClaCampus; }
-            set { ClaCampus= value; }
+            get { return _claCampus; }
+            set { _claCampus= value; }
+        }
+
+        public int ClaEmpleado
+        {
+            get { return _claEmpleado; }
+            set { _claEmpleado = value; }
         }
 
         public string Matricula
         {
-            get { return Matricula; }
-            set { Matricula = value; }
+            get { return _matricula; }
+            set { _matricula = value; }
         }
 
         public int TipoPersona
         {
-            get { return TipoPersona; }
-            set { TipoPersona = value; }
+            get { return _tipoPersona; }
+            set { _tipoPersona = value; }
         }
 
         public string Huella
         {
-            get { return Huella; }
-            set { Huella = value; }
+            get { return _huella; }
+            set { _huella = value; }
         }
 
-        public HuellasPersonas(bool fromDataSource)
-            
+        public HuellasPersonas(bool fromDataSource) : base(fromDataSource)
         {
+
         }
     }
 }

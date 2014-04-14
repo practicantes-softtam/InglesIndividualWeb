@@ -38,8 +38,8 @@ namespace InglesIndividual.Web
             string nomPuesto = HttpContext.Current.Request.QueryString.Get("nomPuesto");
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
-            Business.Puestos bo = new Business.Puestos();
-            List<Entities.Puesto> list = bo.ListarPuestos(settings, nomPuesto);
+            Business.Salones bo = new Business.Salones();
+            List<Entities.Puestos> list = bo.ListarPuestos(settings, nomPuesto);
             
             int registros = 0;
             
@@ -64,7 +64,7 @@ namespace InglesIndividual.Web
         [WebMethod]
         public static string Eliminar(string[] ids)
         {
-            Business.Puestos bo = new Business.Puestos();
+            Business.Salones bo = new Business.Salones();
             List<Exception> list = bo.Eliminar(ids);
             if (list.Count > 0)
             {

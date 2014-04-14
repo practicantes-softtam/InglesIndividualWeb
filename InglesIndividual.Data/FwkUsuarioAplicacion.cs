@@ -8,7 +8,7 @@ using System.Data;
 namespace InglesIndividual.Data
 {
 
-    public class FwkUsuarioAplicacion : InglesIndividualDataObject
+    public class HorarioClubConversacion : InglesIndividualDataObject
     {
         public List<Entities.FwkUsuarioAplicacion> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion,string idUSuario)
         {
@@ -24,10 +24,7 @@ namespace InglesIndividual.Data
                 Entities.FwkUsuarioAplicacion item = new Entities.FwkUsuarioAplicacion(true);
                 item.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
-
-
                 this.SetWebEntityGridValues(item, dr);
-
                 list.Add(item);
             }
 
@@ -38,11 +35,9 @@ namespace InglesIndividual.Data
         {
             Entities.FwkUsuarioAplicacion item = entity as Entities.FwkUsuarioAplicacion;
             DataEntities.SpFwkUsuarioAplicacionIns
-               sp = new DataEntities.SpFwkUsuarioAplicacionIns();
+            sp = new DataEntities.SpFwkUsuarioAplicacionIns();
             sp.ClaAplicaion = item.ClaAplicacion;
             sp.IdUsuario = item.IdUsuario;
-
-
 
             if (tran != null)
             {
@@ -72,11 +67,6 @@ namespace InglesIndividual.Data
             {
                 return sp.ExecuteNonQuery(this.ConnectionString);
             }
-
         }
-
-
-
-
     }
 }

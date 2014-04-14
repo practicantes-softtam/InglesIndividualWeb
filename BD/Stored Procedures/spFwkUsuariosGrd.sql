@@ -19,16 +19,16 @@ begin
 		select @pIdUsuario = '%' + @pIdUsuario + '%'
 end	
 	
-	select	RowNumber = ROW_NUMBER() over (order by fwku.IdUsuario),
-			fwku.IdUsuario,
-			fwku.NomUsuario,
-			fwku.[Password],
-			fwku.Email
+	select	RowNumber = ROW_NUMBER() over (order by IdUsuario asc),
+			IdUsuario,
+			NomUsuario,
+			[Password],
+			Email
 			
 	into #tabla
-	from FwkUsuarios fwku
+	from FwkUsuarios 
 	
-	where (fwku.IdUsuario = @pIdUsuario or @pNomUsuario = 0)
+	where (IdUsuario = @pIdUsuario or @pNomUsuario = 0)
 	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 end

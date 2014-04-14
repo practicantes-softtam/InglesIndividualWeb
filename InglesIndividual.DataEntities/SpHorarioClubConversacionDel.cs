@@ -8,12 +8,11 @@ namespace InglesIndividual.DataEntities
 {
     public class SpHorarioClubConversacionDel : StoredProcedure
     {
-        public SpHorarioClubConversacionDel()
-            : base("SpHorarioClubConversacionDel")
+        public SpHorarioClubConversacionDel() : base("SpHorarioClubConversacionDel")
         {
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, 0);
         }
-        public int ClaNivel
+        public int ClaCampus
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaCampus"].Value, 0); }
             set { this.Command.Parameters["@pClaCampus"].Value = value; }

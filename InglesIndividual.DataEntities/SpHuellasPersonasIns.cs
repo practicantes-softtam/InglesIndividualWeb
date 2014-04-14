@@ -14,6 +14,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pIdRegistro", System.Data.SqlDbType.Int, DBNull.Value);
             this.Command.Parameters["@pIdRegistro"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
+            this.AddParameter("@pClaEmpleado", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pTipoPersona", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pHuella", System.Data.SqlDbType.VarChar, DBNull.Value);
@@ -32,6 +33,12 @@ namespace InglesIndividual.DataEntities
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaCampus"].Value, 0); }
             set { this.Command.Parameters["@pClaCampus"].Value = value; }
+        }
+
+        public int ClaEmpleado
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pClaEmpleado"].Value, 0); }
+            set { this.Command.Parameters["@pClaEmpleado"].Value = value; }
         }
         
         public string Matricula

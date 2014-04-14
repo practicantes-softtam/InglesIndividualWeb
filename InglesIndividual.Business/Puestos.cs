@@ -18,7 +18,7 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Puestos();
         }
 
-        public List<Entities.Puesto> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
+        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
         {
             return this.Data.ListarPuestos(settings, nomPuesto);
         }
@@ -30,8 +30,8 @@ namespace InglesIndividual.Business
             {
                 foreach (string id in ids)
                 {
-                    Entities.Puesto item = new Entities.Puesto(true);
-                    item.ID = Utils.IsNull(id, 0);
+                    Entities.Puestos item = new Entities.Puestos(true);
+                    item.ClaPuesto = Utils.IsNull(id, 0);
 
                     try
                     {
