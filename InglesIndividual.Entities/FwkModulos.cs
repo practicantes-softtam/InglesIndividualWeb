@@ -7,10 +7,11 @@ namespace InglesIndividual.Entities
 {
     public class FwkModulos:WebEntity
     {
-        private int _claAplicacion;
+       
         private int _claModulo;
         private string _nomModulo;
         private int _claModuloPadre;
+        private FwkAplicaciones  _claAplicacion;
 
         public int ClaModuloPadre
         {
@@ -34,10 +35,10 @@ namespace InglesIndividual.Entities
         }
 
 
-        public int ClaAplicacion
+        public  FwkAplicaciones ClaAplicacion
         {
             get { return _claAplicacion; }
-            set { _claAplicacion = value; }
+            set {_claAplicacion=value;}
         }
 
           public FwkModulos(): this(false)
