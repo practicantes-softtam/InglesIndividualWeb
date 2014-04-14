@@ -10,10 +10,16 @@ namespace InglesIndividual.Data
 
     public class FwkPermisosAdicionales : InglesIndividualDataObject
     {
-        public List<Entities.FwkPermisosAdicionales> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, int permitir)
+        public List<Entities.FwkPermisosAdicionales> ListarFwkPermisosAdicionales(InglesIndividual.Entities.JQXGridSettings settings, string idUsuario, int claAplicacion, int claModulo, int claObjeto, string claAccion, int permitir)
+
         {
             List<Entities.FwkPermisosAdicionales> list = new List<Entities.FwkPermisosAdicionales>();
             DataEntities.SpFwkPermisosAdicionalesGrd sp = new DataEntities.SpFwkPermisosAdicionalesGrd();
+            sp.IdUsuario = idUsuario;
+            sp.ClaAplicaion = claAplicacion;
+            sp.ClaModulo = claModulo;
+            sp.ClaObjeto = claObjeto;
+            sp.ClaAccion = claAccion;
             sp.Permitir = permitir;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
@@ -21,11 +27,16 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkPermisosAdicionales item = new Entities.FwkPermisosAdicionales(true);
-                item.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", " ");
-                item.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                item.ClaModulo = Utils.GetDataRowValue(dr, "ClaModulo", 0);
-                item.ClaObjeto = Utils.GetDataRowValue(dr, "ClaObjeto", 0);
-                item.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", "");
+                item.IdUsuario = new Entities.FwkUsuarios();
+                item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", " ");
+                item.ClaAplicacion = new Entities.FwkAplicaciones();
+                item.ClaAplicacion.NomAplicacion = Utils.GetDataRowValue(dr, "NomAplicacion","");
+                item.ClaModulo = new Entities.FwkModulos();
+                item.ClaModulo.ClaModulo = Utils.GetDataRowValue(dr, "ClaModulo", 0);
+                item.ClaModulo = new Entities.FwkModulos();
+                item.ClaObjeto.ClaObjeto = Utils.GetDataRowValue(dr, "ClaObjeto", 0);
+                item.ClaAccion = new Entities.FwkAcciones();
+                item.ClaAccion.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", "");
                 item.Permitir = Utils.GetDataRowValue(dr, "Permitir", 0);
                 
 
@@ -42,11 +53,11 @@ namespace InglesIndividual.Data
             Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
             DataEntities.SpFwkPermisosAdicionalesIns
                sp = new DataEntities.SpFwkPermisosAdicionalesIns();
-            sp.IdUsuario = item.IdUsuario;
-            sp.ClaAplicaion = item.ClaAplicacion;
-            sp.ClaModulo = item.ClaModulo;
-            sp.ClaObjeto = item.ClaObjeto;
-            sp.ClaAccion = item.ClaAccion;
+            sp.IdUsuario = item.IdUsuario.IdUsuario;
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
+            sp.ClaObjeto = item.ClaObjeto.ClaObjeto;
+            sp.ClaAccion = item.ClaAccion.ClaAccion;
             sp.Permitir = item.Permitir;
             
 
@@ -67,11 +78,11 @@ namespace InglesIndividual.Data
             Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
             DataEntities.SpFwkPermisosAdicionalesDel
                sp = new DataEntities.SpFwkPermisosAdicionalesDel();
-            sp.IdUsuario = item.IdUsuario;
-            sp.ClaAplicaion = item.ClaAplicacion;
-            sp.ClaModulo = item.ClaModulo;
-            sp.ClaObjeto = item.ClaObjeto;
-            sp.ClaAccion = item.ClaAccion;
+            sp.IdUsuario = item.IdUsuario.IdUsuario;
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
+            sp.ClaObjeto = item.ClaObjeto.ClaObjeto;
+            sp.ClaAccion = item.ClaAccion.ClaAccion;
            
 
             if (tran != null)

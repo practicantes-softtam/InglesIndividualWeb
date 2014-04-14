@@ -8,22 +8,25 @@ using System.Data;
 namespace InglesIndividual.Data
 {
 
-    public class FwObjetos : InglesIndividualDataObject
+    public class FwkObjetos : InglesIndividualDataObject
     {
-        public List<Entities.FwkObjetos> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string nomObjetos)
+        public List<Entities.FwkObjetos> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string claveObjeto,int claAplicacion,int claModulo)
         {
             List<Entities.FwkObjetos> list = new List<Entities.FwkObjetos>();
             DataEntities.SpFwkObjetosGrd sp = new DataEntities.SpFwkObjetosGrd();
-            sp.NomObjeto = nomObjetos;
+            sp.ClaAplicaion = claAplicacion;
+            sp.ClaModulo=claModulo;
+            sp.ClaveObjeto=claveObjeto;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkObjetos item = new Entities.FwkObjetos(true);
-
-                item.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                item.ClaModulo= Utils.GetDataRowValue(dr, "ClaModulo", 0);
+                item.ClaAplicacion = new Entities.FwkAplicaciones();
+                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.ClaModulo = new Entities.FwkModulos();
+                item.ClaModulo.ClaModulo= Utils.GetDataRowValue(dr, "ClaModulo", 0);
                 item.ClaObjeto = Utils.GetDataRowValue(dr, "ClaObjeto", 0);
                 item.ClaveObjeto=Utils.GetDataRowValue(dr,"ClaveObjeto","");
                 item.NomObjeto = Utils.GetDataRowValue(dr, "NomObjetos", "");
@@ -41,9 +44,9 @@ namespace InglesIndividual.Data
         {
             Entities.FwkObjetos item = entity as Entities.FwkObjetos;
             DataEntities.SpFwkObjetosIns
-               sp = new DataEntities.SpFwkObjetosIns();
-            sp.ClaAplicaion = item.ClaAplicacion;
-            sp.ClaModulo = item.ClaModulo;
+            sp = new DataEntities.SpFwkObjetosIns();
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
             sp.ClaObjeto = item.ClaObjeto;
             sp.ClaveObjeto = item.ClaveObjeto;
             sp.NomObjeto = item.NomObjeto;
@@ -66,8 +69,8 @@ namespace InglesIndividual.Data
             Entities.FwkObjetos item = entity as Entities.FwkObjetos;
             DataEntities.SpFwkObjetoDel
                sp = new DataEntities.SpFwkObjetoDel();
-            sp.ClaAplicaion = item.ClaAplicacion;
-            sp.ClaModulo = item.ClaModulo;
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
             sp.ClaObjeto = item.ClaObjeto;
             
             if (tran != null)
@@ -84,6 +87,11 @@ namespace InglesIndividual.Data
 
 
 
+
+        public List<Entities.FwkObjetos> ListarFwkObjetos(Entities.JQXGridSettings settings, int claAplicacion, int claModulo, int claObjeto, string claveObjeto, string nomObjeto, string url)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

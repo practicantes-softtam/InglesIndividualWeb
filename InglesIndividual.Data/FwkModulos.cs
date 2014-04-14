@@ -8,12 +8,13 @@ using System.Data;
 namespace InglesIndividual.Data
 {
 
-    public class FwModulos : InglesIndividualDataObject
+    public class FwkModulos : InglesIndividualDataObject
     {
-        public List<Entities.FwkModulos> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string nomModulo)
+        public List<Entities.FwkModulos> ListarFwkModulos(InglesIndividual.Entities.JQXGridSettings settings, int claModulo,string nomModulo)
         {
             List<Entities.FwkModulos> list = new List<Entities.FwkModulos>();
             DataEntities.SpFwkModulosGrd sp = new DataEntities.SpFwkModulosGrd();
+            sp.ClaModulo = claModulo;
             sp.NomModulo = nomModulo;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
@@ -21,8 +22,8 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkModulos item = new Entities.FwkModulos(true);
-
-                item.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.ClaAplicacion = new Entities.FwkAplicaciones();
+                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.ClaModulo= Utils.GetDataRowValue(dr, "ClaModulo", 0);
                 item.NomModulo = Utils.GetDataRowValue(dr, "NomModulo", "");
                 item.ClaModuloPadre = Utils.GetDataRowValue(dr, "ClaModuloPadre", 0);
@@ -39,8 +40,8 @@ namespace InglesIndividual.Data
         {
             Entities.FwkModulos item = entity as Entities.FwkModulos;
             DataEntities.SpFwkModulosIns
-               sp = new DataEntities.SpFwkModulosIns();
-            sp.ClaAplicaion = item.ClaAplicacion;
+            sp = new DataEntities.SpFwkModulosIns();
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaModulo = item.ClaModulo;
             sp.NomModulo = item.NomModulo;
             sp.ClaModuloPadre = item.ClaModuloPadre;
@@ -60,8 +61,8 @@ namespace InglesIndividual.Data
         {
             Entities.FwkModulos item = entity as Entities.FwkModulos;
             DataEntities.SpFwkModulosDel
-               sp = new DataEntities.SpFwkModulosDel();
-            sp.ClaAplicaion = item.ClaAplicacion;
+            sp = new DataEntities.SpFwkModulosDel();
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaModulo = item.ClaModulo;
             
 
@@ -77,7 +78,6 @@ namespace InglesIndividual.Data
         }
 
 
-
-
+      
     }
 }

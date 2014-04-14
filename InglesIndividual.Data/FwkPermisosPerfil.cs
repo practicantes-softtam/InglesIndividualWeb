@@ -10,10 +10,15 @@ namespace InglesIndividual.Data
 
     public class FwkPermisosPerfil : InglesIndividualDataObject
     {
-        public List<Entities.FwkPermisosPerfil> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, int permitir)
+        public List<Entities.FwkPermisosPerfil>ListarFwkPermisosPerfil(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, int claPerfil, int claModulo, int claObjeto, string claAccion, int permitir)
         {
             List<Entities.FwkPermisosPerfil> list = new List<Entities.FwkPermisosPerfil>();
             DataEntities.SpFwkPermisosPerfilGrd sp = new DataEntities.SpFwkPermisosPerfilGrd();
+            sp.ClaAplicacion = claAplicacion;
+            sp.ClaPerfil = claPerfil;
+            sp.ClaModulo = claModulo;
+            sp.ClaObjeto = claObjeto;
+            sp.ClaAccion = claAccion;
             sp.Permitir = permitir;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
@@ -21,11 +26,14 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkPermisosPerfil item = new Entities.FwkPermisosPerfil(true);
-              
-                item.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                item.ClaModulo = Utils.GetDataRowValue(dr, "ClaModulo", 0);
-                item.ClaObjeto = Utils.GetDataRowValue(dr, "ClaObjeto", 0);
-                item.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", "");
+                item.ClaAplicacion = new Entities.FwkAplicaciones();
+                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.ClaModulo = new Entities.FwkModulos();
+                item.ClaModulo.ClaModulo = Utils.GetDataRowValue(dr, "ClaModulo", 0);
+                item.ClaObjeto = new Entities.FwkObjetos();
+                item.ClaObjeto.ClaObjeto = Utils.GetDataRowValue(dr, "ClaObjeto", 0);
+                item.ClaAccion = new Entities.FwkAcciones();
+                item.ClaAccion.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", "");
                 item.Permitir = Utils.GetDataRowValue(dr, "Permitir", 0);
 
 
@@ -43,11 +51,11 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkPermisosPerfilIns
                sp = new DataEntities.SpFwkPermisosPerfilIns();
             
-            sp.ClaAplicacion = item.ClaAplicacion;
-            sp.ClaPerfil = item.ClaPerfil;
-            sp.ClaModulo = item.ClaModulo;
-            sp.ClaObjeto = item.ClaObjeto;
-            sp.ClaAccion = item.ClaAccion;
+            sp.ClaAplicacion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaPerfil = item.ClaPerfil.ClaPerfil;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
+            sp.ClaObjeto = item.ClaObjeto.ClaObjeto;
+            sp.ClaAccion = item.ClaAccion.ClaAccion;
             sp.Permitir = item.Permitir;
 
 
@@ -69,11 +77,11 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkPermisosPerfilDel
                sp = new DataEntities.SpFwkPermisosPerfilDel();
 
-            sp.ClaAplicacion = item.ClaAplicacion;
-            sp.ClaPerfil = item.ClaPerfil;
-            sp.ClaModulo = item.ClaModulo;
-            sp.ClaObjeto = item.ClaObjeto;
-            sp.ClaAccion = item.ClaAccion;
+            sp.ClaAplicacion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaPerfil = item.ClaPerfil.ClaPerfil;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
+            sp.ClaObjeto = item.ClaObjeto.ClaObjeto;
+            sp.ClaAccion = item.ClaAccion.ClaAccion;
            
 
 

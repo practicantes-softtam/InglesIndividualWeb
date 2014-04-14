@@ -10,10 +10,11 @@ namespace InglesIndividual.Data
 
     public class FwkPerfil : InglesIndividualDataObject
     {
-        public List<Entities.FwkPerfiles> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string nomPerfil)
+        public List<Entities.FwkPerfiles> ListarFwkPerfiles(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomPerfil)
         {
             List<Entities.FwkPerfiles> list = new List<Entities.FwkPerfiles>();
             DataEntities.SpFwkPerfilGrd sp = new DataEntities.SpFwkPerfilGrd();
+            sp.ClaAplicaion = claAplicacion;
             sp.NomPerfil = nomPerfil;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
@@ -21,8 +22,8 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkPerfiles item = new Entities.FwkPerfiles(true);
-
-                item.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.ClaAplicacion = new Entities.FwkAplicaciones();
+                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.ClaPerfil = Utils.GetDataRowValue(dr, "ClaPerfil", 0);
                 item.NomPerfil = Utils.GetDataRowValue(dr, "NomPerfil", "");
                 
@@ -40,7 +41,7 @@ namespace InglesIndividual.Data
             Entities.FwkPerfiles item = entity as Entities.FwkPerfiles;
             DataEntities.SpFwkPerfilesIns
                sp = new DataEntities.SpFwkPerfilesIns();
-            sp.ClaAplicaion = item.ClaAplicacion;
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaPerfil = item.ClaPerfil;
             sp.NomPerfil = item.NomPerfil;
 
@@ -61,7 +62,7 @@ namespace InglesIndividual.Data
             Entities.FwkPerfiles item = entity as Entities.FwkPerfiles;
             DataEntities.SpFwkPerfilesDel
                sp = new DataEntities.SpFwkPerfilesDel();
-            sp.ClaAplicaion = item.ClaAplicacion;
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaPerfil = item.ClaPerfil;
             
 
@@ -79,6 +80,11 @@ namespace InglesIndividual.Data
 
 
 
+
+        public List<Entities.FwkObjetos> ListarFwkPerfiles(Entities.JQXGridSettings settings, int claAplicacion, int claPerfil, string nomPerfil)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -10,10 +10,11 @@ namespace InglesIndividual.Data
 
     public class FwkAplicaciones : InglesIndividualDataObject
     {
-        public List<Entities.FwkAplicaciones> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string nomAplicaciones)
+        public List<Entities.FwkAplicaciones> ListarFwkAplicacion(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomAplicaciones)
         {
             List<Entities.FwkAplicaciones> list = new List<Entities.FwkAplicaciones>();
             DataEntities.SpFwkAplicacionesGrd sp = new DataEntities.SpFwkAplicacionesGrd();
+            sp.ClaAplicacion = claAplicacion;
             sp.NomAplicacion = nomAplicaciones;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
