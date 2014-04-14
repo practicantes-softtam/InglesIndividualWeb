@@ -10,10 +10,11 @@ namespace InglesIndividual.Data
 
     public class FwkAcciones : InglesIndividualDataObject
     {
-        public List<Entities.FwkAcciones> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string descripcion)
+        public List<Entities.FwkAcciones> ListarFwkAcciones(InglesIndividual.Entities.JQXGridSettings settings,string claAccion, string descripcion)
         {
             List<Entities.FwkAcciones> list = new List<Entities.FwkAcciones>();
             DataEntities.SpFwkAccionesGrd sp = new DataEntities.SpFwkAccionesGrd();
+            sp.ClaAccion = claAccion;
             sp.Descripcion = descripcion;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
@@ -22,7 +23,7 @@ namespace InglesIndividual.Data
             {
                 Entities.FwkAcciones item = new Entities.FwkAcciones(true);
 
-                item.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", 0);
+                item.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", ""); ;
                 item.Descripcion = Utils.GetDataRowValue(dr, "Descripcion", "");
 
                 this.SetWebEntityGridValues(item, dr);
