@@ -8,7 +8,7 @@ namespace InglesIndividual.Entities
     public class HuellasPersonas : WebEntity
     {
         private int _idRegistro;
-        private Campus _campus;
+        private int _campus;
         private string _matricula;
         private int _claEmpleado;
         private int _tipoPersona;
@@ -21,7 +21,7 @@ namespace InglesIndividual.Entities
             set { _idRegistro = value; }
         }
 
-        public Campus Campus
+        public int ClaCampus
 	
         {
             get { return _campus; }

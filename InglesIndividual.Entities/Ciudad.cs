@@ -7,12 +7,14 @@ namespace InglesIndividual.Entities
 {
     public class Ciudad : WebEntity
     {
+
         private int _clave;
-        private Estado _estado;
+        private int _estado;
+        private int _pais;
         private string _nomCiudad;
 
 
-	    public int Clave
+	    public int ClaCiudad
 	       {
 		    get { return _clave;}
 		    set { _clave = value;}
@@ -24,19 +26,26 @@ namespace InglesIndividual.Entities
             set { _nomCiudad = value; }
         }
 
-        public Estado Estado
+        public int ClaEstado
         {
-            get { return Estado; }
-            set { Estado = value; }
+            get { return _estado; }
+            set { _estado = value; }
         }
 
-        public Ciudad() 
-            : this(false)
+        public int ClaPais
         {
+            get { return _pais; }
+            set { _pais = value; }
+        }
+
+        public Ciudad() : this(false)
+        {
+
         }
 
         public Ciudad(bool fromDataSource) : base(fromDataSource)
         {
+
         }
     }
 }

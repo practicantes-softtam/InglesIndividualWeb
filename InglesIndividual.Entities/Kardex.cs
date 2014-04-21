@@ -10,9 +10,9 @@ namespace InglesIndividual.Entities
     {
         private int _idCalificacion;
         private string _matricula;
-        private Campus _campus;
-        private Nivel _nivel;
-        private Leccion _leccion;
+        private int _campus;
+        private int _nivel;
+        private int _leccion;
         private int _claProfesor;
         private decimal _calificacion;
         private int _tipoClase;
@@ -32,13 +32,13 @@ namespace InglesIndividual.Entities
             set { _matricula = value; }
         }
 
-        public Campus Campus
+        public int ClaCampus
         {
             get { return _campus; }
             set { _campus = value; }
         }
 
-        public Nivel Nivel
+        public int ClaNivel
         {
             get { return _nivel; }
             set { _nivel = value; }
@@ -46,8 +46,8 @@ namespace InglesIndividual.Entities
 
          public int ClaLeccion
         {
-            get { return _claLeccion; }
-            set { _claLeccion = value; }
+            get { return _leccion; }
+            set { _leccion = value; }
         }
 
          public int ClaProfesor

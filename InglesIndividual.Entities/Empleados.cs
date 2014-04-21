@@ -57,9 +57,9 @@ namespace InglesIndividual.Entities
             set { _departamento = value; }
         }
 
-        private Puesto _puesto;
+        private Puestos _puesto;
 
-        public Puesto Puesto
+        public Puestos Puesto
         {
             get { return _puesto; }
             set { _puesto = value; }

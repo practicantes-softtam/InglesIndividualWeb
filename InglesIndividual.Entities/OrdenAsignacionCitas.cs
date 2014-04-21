@@ -7,11 +7,11 @@ namespace InglesIndividual.Entities
 {
     public class OrdenAsignacionCitas : WebEntity
     {
-        private Campus _campus;
+        private int _campus;
         private int _claProfesor;
         private int _orden;
 
-        public Campus Campus
+        public int ClaCampus
         {
             get { return _campus; }
             set { _campus = value; }

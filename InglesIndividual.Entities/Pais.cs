@@ -7,16 +7,19 @@ namespace InglesIndividual.Entities
 {
     public class Pais : WebEntity
     {
-        public int Clave
+        private int _claPais;
+        private string _nomPais;
+
+        public int ClaPais
         {
-            get;
-            set;
+            get { return _claPais; }
+            set { _claPais = value; }
         }
 
-        public string Nombre
+        public string NomPais
         {
-            get;
-            set;
+            get { return _nomPais; }
+            set { _nomPais = value; }
         }
 
         public Pais() : this(false)

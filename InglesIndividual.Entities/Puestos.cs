@@ -25,13 +25,14 @@ namespace InglesIndividual.Entities
             set { _nomPuesto = value; }
         }
 
-        public Puestos() 
-            : this(false)
+        public Puestos() : this(false)
         {
+
         }
 
         public Puestos(bool fromDataSource) : base(fromDataSource)
         {
+
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Framework;
+
 
 namespace InglesIndividual.Entities
 {
@@ -13,7 +13,9 @@ namespace InglesIndividual.Entities
         private string _calle;
         private string _colonia;
         private int _codigoPostal;
-        private Ciudad _ciudad;
+        private int _pais;
+        private int _estado;
+        private int _ciudad;
         private string _telefono;
         private string _directorGeneral;
         private string _directorAdministrativo;
@@ -48,9 +50,19 @@ namespace InglesIndividual.Entities
             set { _codigoPostal = value; }
         }
 
+        public int ClaPais
+        {
+            get { return _pais; }
+            set { _pais = value; }
+        }
              
+        public int ClaEstado
+        {
+            get { return _estado; }
+            set { _estado = value; }
+        }
 
-        public Ciudad Ciudad
+        public int ClaCiudad
         {
             get { return _ciudad; }
             set { _ciudad = value; }
@@ -74,8 +86,7 @@ namespace InglesIndividual.Entities
             set { _directorAdministrativo = value; }
         }
 
-        public Campus() 
-            : this(false)
+        public Campus() : this(false)
         {
 
         }
