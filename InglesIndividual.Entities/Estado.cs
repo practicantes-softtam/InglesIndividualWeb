@@ -7,24 +7,30 @@ namespace InglesIndividual.Entities
 {
     public class Estado : WebEntity
     {
+        private int _clave;
+
         public int Clave
         {
-            get;
-            set;
+            get { return _clave; }
+            set { _clave = value; }
         }
+
+        private string _nombre;
 
         public string Nombre
         {
-            get;
-            set;
+            get { return _nombre; }
+            set { _nombre = value; }
         }
+
+        private Pais _pais;
 
         public Pais Pais
         {
-            get;
-            set;
+            get { return _pais; }
+            set { _pais = value; }
         }
-
+        
         public Estado() : this(false)
         {
         }
