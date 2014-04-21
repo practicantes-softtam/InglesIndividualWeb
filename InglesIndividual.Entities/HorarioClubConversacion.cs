@@ -7,14 +7,14 @@ namespace InglesIndividual.Entities
 {
     public class HorarioClubConversacion : WebEntity
      {
-        private Campus _campus;
+        private int _campus;
         private int _claEmpleado;
         private int _claHorario;
         private int _claDia;
         private int _horas;
 
 
-        public Campus Campus
+        public int ClaCampus
 	
         {
             get { return _campus; }

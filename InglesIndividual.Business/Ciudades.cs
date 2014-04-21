@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Ciudades();
         }
 
-        public List<Entities.Ciudad> ListarCiudades(Entities.JQXGridSettings settings, string nombre, int pais, int estado)
+        public List<Entities.Ciudades> ListarCiudades(Entities.JQXGridSettings settings,int claCiudad, int claEstado, int claPais)
         {
-            return this.Data.ListarCiudades(settings, nombre, pais, estado);
+            return this.Data.ListarCiudades(settings, claCiudad, claEstado, claPais);
 
 
         }
@@ -31,8 +31,8 @@ namespace InglesIndividual.Business
             {
                 foreach (string id in ids)
                 {
-                    Entities.Ciudad item = new Entities.Ciudad(true);
-                    item.Clave = Utils.IsNull(id, 0);
+                    Entities.Ciudades item = new Entities.Ciudades(true);
+                    item.ClaCiudad = Utils.IsNull(id, 0);
 
                     try
                     {

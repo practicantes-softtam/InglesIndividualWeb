@@ -10,9 +10,9 @@ namespace InglesIndividual.Data
 {
     public class Ciudades : InglesIndividualDataObject
     {
-        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, int claCiudad, int claEstado, int claPais)
+        public List<Entities.Ciudades> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, int claCiudad, int claEstado, int claPais)
         {
-            List<Entities.Ciudad> list = new List<Entities.Ciudad>();
+            List<Entities.Ciudades> list = new List<Entities.Ciudades>();
             DataEntities.SpCiudadesGrd sp = new DataEntities.SpCiudadesGrd();
             sp.ClaCiudad = claCiudad;
             sp.ClaEstado = claEstado;
@@ -22,7 +22,7 @@ namespace InglesIndividual.Data
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
          {
-                Entities.Ciudad item = new Entities.Ciudad(true);
+                Entities.Ciudades item = new Entities.Ciudades(true);
                 item.ClaCiudad = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
                 item.ClaEstado = Utils.GetDataRowValue(dr, "ClaEstado", 0);
                 item.ClaPais = Utils.GetDataRowValue(dr, "ClaPais", 0);
@@ -34,7 +34,7 @@ namespace InglesIndividual.Data
 
         public override int Insert(Entity entity, DataTransaction tran)
         {
-            Entities.Ciudad item = entity as Entities.Ciudad;
+            Entities.Ciudades item = entity as Entities.Ciudades;
             DataEntities.SpCiudadesIns
             sp = new DataEntities.SpCiudadesIns();
             sp.ClaCiudad = item.ClaCiudad;
@@ -55,7 +55,7 @@ namespace InglesIndividual.Data
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
-            Entities.Ciudad item = entity as Entities.Ciudad;
+            Entities.Ciudades item = entity as Entities.Ciudades;
             DataEntities.SpCiudadesDel
                 sp = new DataEntities.SpCiudadesDel();
                 sp.ClaCiudad = item.ClaCiudad;

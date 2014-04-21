@@ -20,9 +20,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.HorarioClubConversacion();
         }
 
-        public List<Entities.HorarioClubConversacion> ListarHorarioClubConversacion(InglesIndividual.Entities.JQXGridSettings settings, int claCampus)
+        public List<Entities.HorarioClubConversacion> ListarHorarioClubConversacion(InglesIndividual.Entities.JQXGridSettings settings, int claCampus, int claEmpleado, int claHorario, int claDia)
         {
-            return this.Data.ListarHorarioClubConversacion(settings, claCampus);
+            return this.Data.ListarHorarioClubConversacion(settings, claCampus, claEmpleado, claHorario, claDia);
         }
 
         public List<Exception> Eliminar(int[] clas)
@@ -34,6 +34,10 @@ namespace InglesIndividual.Business
                 {
                     Entities.HorarioClubConversacion item = new Entities.HorarioClubConversacion(true);
                     item.ClaCampus = Utils.IsNull(cla, 0);
+                    item.ClaEmpleado = Utils.IsNull(cla, 0);
+                    item.ClaHorario = Utils.IsNull(cla, 0);
+                    item.ClaDia = Utils.IsNull(cla, 0);
+                    
 
                     try
                     {
