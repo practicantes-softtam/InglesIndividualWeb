@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,17 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Salones();
         }
 
-        public List<Entities.Salones> ListarSalones(InglesIndividual.Entities.JQXGridSettings settings, int IdSalon)
+        public List<Entities.Salones> ListarSalones(InglesIndividual.Entities.JQXGridSettings settings, string nomSalon)
         {
-            return this.Data.ListarSalones(settings, IdSalon);
+            return this.Data.ListarSalones(settings, nomSalon);
         }
 
-        public List<Exception> Eliminar(int[] ids)
+        public List<Exception> Eliminar(string[] ids)
         {
             List<Exception> list = new List<Exception>();
             if (ids != null && ids.Length > 0)
             {
-                foreach (int id in ids)
+                foreach (string id in ids)
                 {
                     Entities.Salones item = new Entities.Salones(true);
                     item.IdSalon = Utils.IsNull(id, 0);
