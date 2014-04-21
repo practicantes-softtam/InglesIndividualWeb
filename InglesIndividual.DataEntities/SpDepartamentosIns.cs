@@ -6,18 +6,15 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpSalonesIns : PagedStoredProcedure
+    public class SpDepartamentosIns : PagedStoredProcedure
     {
-        public SpSalonesIns()
-            : base("SpCiudadesIns")
+        public SpDepartamentosIns()
+            : base("SpDepartamentosIns")
         {
             this.AddParameter("@pClaDepartamento", System.Data.SqlDbType.Int, DBNull.Value);
             this.Command.Parameters["@pClaDepartamento"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
-            this.AddParameter("@pNomDepartamento", System.Data.SqlDbType.VarChar, DBNull.Value);
-           
-          
-            
+            this.AddParameter("@pNomDepartamento", System.Data.SqlDbType.VarChar, DBNull.Value);   
         }
 
         public int ClaDepartamento
@@ -37,14 +34,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pNomDepartamento"].Value, ""); }
             set { this.Command.Parameters["@pNomDepartamento"].Value = value; }
         }
-
-       
-
-       
-
-       
-       
-
-
     }
 }

@@ -9,13 +9,12 @@ namespace InglesIndividual.DataEntities
     public class SpNivelesIns : StoredProcedure
     {
 
-        public SpNivelesIns()
-            : base("spNivelesIns")
+        public SpNivelesIns() : base("spNivelesIns")
         {
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, 0);
-            this.Command.Parameters["@pClaNivel"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pNomNivel", System.Data.SqlDbType.VarChar, "");
             this.AddParameter("@pClubConversacion", System.Data.SqlDbType.Int, 0);
+            this.Command.Parameters["@pClaNivel"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int ClaNivel

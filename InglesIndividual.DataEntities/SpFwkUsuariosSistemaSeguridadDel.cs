@@ -8,8 +8,7 @@ namespace InglesIndividual.DataEntities
 {
     public class SpFwkUsuariosSistemaSeguridadDel : StoredProcedure
     {
-        public SpFwkUsuariosSistemaSeguridadDel()
-            : base("SpFwkUsuariosSistemaSeguridadDel")
+        public SpFwkUsuariosSistemaSeguridadDel() : base("SpFwkUsuariosSistemaSeguridadDel")
         {
             this.AddParameter("@pIdRegistro", System.Data.SqlDbType.Int, 0);
         }

@@ -6,15 +6,18 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpCiudadesUpd : PagedStoredProcedure
+    public class SpCiudadesUpd : StoredProcedure
     {
         public SpCiudadesUpd()
             : base("SpCiudadesUpd")
         {
             this.AddParameter("@pNomCiudad", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaEstado", System.Data.SqlDbType.Int, DBNull.Value);
+            this.Command.Parameters["@pClaEstado"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaPais", System.Data.SqlDbType.Int, DBNull.Value);
+            this.Command.Parameters["@pClaPais"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaCiudad", System.Data.SqlDbType.Int, DBNull.Value);
+            this.Command.Parameters["@pClaCiudad"].Direction = System.Data.ParameterDirection.Output;
 
         }
 
@@ -38,8 +41,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pCiudad"].Value, 0); }
             set { this.Command.Parameters["@pClaCiudad"].Value = value; }
         }
-
-
-
     }
 }

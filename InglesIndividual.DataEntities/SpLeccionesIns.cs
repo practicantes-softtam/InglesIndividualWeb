@@ -6,19 +6,16 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpLeccionesIns : PagedStoredProcedure
+    public class SpLeccionesIns : StoredProcedure
     {
-        public SpLeccionesIns()
-            : base("SpLeccionesIns")
+        public SpLeccionesIns() : base("SpLeccionesIns")
         {
             this.AddParameter("@pClaLeccion", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaLeccion"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pNomLeccion", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pEsReview", System.Data.SqlDbType.Int, DBNull.Value);
-            
-
-
+            this.Command.Parameters["@pClaLeccion"].Direction = System.Data.ParameterDirection.Output;
+            this.Command.Parameters["@pClaNivel"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int ClaLeccion
@@ -26,6 +23,7 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pClaLeccion"].Value, 0); }
             set { this.Command.Parameters["@pClaLeccion"].Value = value; }
         }
+
         public int ClaNivel
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaNivel"].Value, 0); }
@@ -41,8 +39,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pEsReview"].Value, 0); }
             set { this.Command.Parameters["@pEsReview"].Value = value; }
         }
-
-
-
     }
 }

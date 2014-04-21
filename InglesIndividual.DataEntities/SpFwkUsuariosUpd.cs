@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpFwkUsuariosUpd : PagedStoredProcedure
+    public class SpFwkUsuariosUpd : StoredProcedure
     {
         public SpFwkUsuariosUpd()
             : base("SpFwkUsuariosUpd")
@@ -38,8 +38,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pEmail"].Value, 0); }
             set { this.Command.Parameters["@pEmail"].Value = value; }
         }
-
-
-
     }
 }

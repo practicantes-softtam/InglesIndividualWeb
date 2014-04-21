@@ -8,11 +8,11 @@ namespace InglesIndividual.DataEntities
 {
     public class SpNivelesDel : StoredProcedure
    {
-        public SpNivelesDel()
-            : base("SpNivelesDel")
+        public SpNivelesDel() : base("SpNivelesDel")
         {
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, 0);
         }
+
         public int ClaNivel
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaNivel"].Value, 0); }

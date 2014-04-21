@@ -6,9 +6,9 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpDepartamentosUpd : PagedStoredProcedure
+    public class SpCampusUpd : StoredProcedure
     {
-        public SpDepartamentosUpd()
+        public SpCampusUpd()
             : base("SpCampusUpd")
         {
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
@@ -22,7 +22,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pClaCiudad", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pTelefono", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pDirectorGeneral", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.AddParameter("@pCirectorAdministrativo", System.Data.SqlDbType.VarChar, DBNull.Value);
+            this.AddParameter("@pDirectorAdministrativo", System.Data.SqlDbType.VarChar, DBNull.Value);
 
         }
 

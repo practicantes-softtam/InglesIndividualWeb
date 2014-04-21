@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    class SpFwkModulosUpd  : StoredProcedure
+    public class SpFwkModulosUpd  : StoredProcedure
     {
 
         public SpFwkModulosUpd(): base("spFwkModulosUpd")

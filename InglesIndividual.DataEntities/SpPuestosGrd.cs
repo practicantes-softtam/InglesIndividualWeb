@@ -8,24 +8,14 @@ namespace InglesIndividual.DataEntities
 {
 	public class SpPuestosGrd : PagedStoredProcedure
 	{
-		public SpPuestosGrd(): base("spPuestosGrd")
+		public SpPuestosGrd(): base("SpPuestosGrd")
 		{
-			this.AddParameter("@pNomPuesto", System.Data.SqlDbType.VarChar, "");
+			this.AddParameter("@pClaPuesto", System.Data.SqlDbType.Int, DBNull.Value);
 		}
-		public string NomPuesto
-		{
-			get { return Utils.IsNull(this.Command.Parameters["@pNomPuesto"].Value, ""); }
-			set 
-            {
-                if (value == null)
-                {
-                    this.Command.Parameters["@pNomPuesto"].Value = DBNull.Value;
-                }
-                else
-                {
-                    this.Command.Parameters["@pNomPuesto"].Value = value;
-                }
-            }
-		}
+        public int ClaCiudad
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pClaPuesto"].Value, 0); }
+            set { this.Command.Parameters["@pClaPuesto"].Value = value; }
+        }
 	}
 }

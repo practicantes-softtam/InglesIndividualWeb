@@ -6,13 +6,11 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpKardexIns : PagedStoredProcedure
+    public class SpKardexIns : StoredProcedure
     {
-        public SpKardexIns()
-            : base("SpKardexIns")
+        public SpKardexIns() : base("SpKardexIns")
         {
             this.AddParameter("@pIdCalificacion", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pIdCalificacion"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, DBNull.Value);
@@ -23,7 +21,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pFecha", System.Data.SqlDbType.DateTime, DBNull.Value);
             this.AddParameter("@pClaCalificacion", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pIdCita", System.Data.SqlDbType.VarChar, DBNull.Value);
-
+            this.Command.Parameters["@pIdCalificacion"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int IdCalificacion
@@ -92,6 +90,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pIdCita"].Value, 0); }
             set { this.Command.Parameters["@pIdCita"].Value = value; }
         }
-
-       }
+    }
 }

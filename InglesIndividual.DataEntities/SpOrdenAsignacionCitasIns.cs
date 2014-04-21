@@ -6,16 +6,15 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpOrdenAsignacionCitasIns : PagedStoredProcedure
+    public class SpOrdenAsignacionCitasIns : StoredProcedure
     {
-        public SpOrdenAsignacionCitasIns()
-            : base("SpOrdenAsignacionCitasIns")
+        public SpOrdenAsignacionCitasIns() : base("SpOrdenAsignacionCitasIns")
         {
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaCampus"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaProfesor", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pOrden", System.Data.SqlDbType.Int, DBNull.Value);
-            
+            this.Command.Parameters["@pClaCampus"].Direction = System.Data.ParameterDirection.Output;
+            this.Command.Parameters["@pClaProfesor"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int ClaCampus
@@ -35,7 +34,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pOrden"].Value, 0); }
             set { this.Command.Parameters["@pOrden"].Value = value; }
         }
-
-        
     }
 }

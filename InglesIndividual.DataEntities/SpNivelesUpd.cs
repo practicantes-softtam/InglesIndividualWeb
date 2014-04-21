@@ -6,15 +6,14 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpNivelesUpd : PagedStoredProcedure
+    public class SpNivelesUpd : StoredProcedure
     {
-        public SpNivelesUpd()
-            : base("SpNivelesUpd")
+        public SpNivelesUpd() : base("SpNivelesUpd")
         {
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, 0);
-            this.Command.Parameters["@pClaNivel"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pNomNivel", System.Data.SqlDbType.VarChar, "");
-            this.AddParameter("@pClubConversacion", System.Data.SqlDbType.Int, "");
+            this.AddParameter("@pClubConversacion", System.Data.SqlDbType.Int, 0);
+            this.Command.Parameters["@pClaNivel"].Direction = System.Data.ParameterDirection.Output;
 
         }
 
@@ -35,8 +34,5 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pClubConversacion"].Value, ""); }
             set { this.Command.Parameters["@pClubConversacion"].Value = value; }
         }
-
-
-
     }
 }

@@ -6,21 +6,17 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpHuellasPersonasIns : PagedStoredProcedure
+    public class SpHuellasPersonasIns : StoredProcedure
     {
-        public SpHuellasPersonasIns()
-            : base("SpHuellasPersonasIns")
+        public SpHuellasPersonasIns() : base("SpHuellasPersonasIns")
         {
             this.AddParameter("@pIdRegistro", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pIdRegistro"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaEmpleado", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pTipoPersona", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pHuella", System.Data.SqlDbType.VarChar, DBNull.Value);
-            
-
-
+            this.Command.Parameters["@pIdRegistro"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int IdRegistro

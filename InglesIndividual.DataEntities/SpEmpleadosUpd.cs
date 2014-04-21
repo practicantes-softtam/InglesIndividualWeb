@@ -39,7 +39,7 @@ namespace InglesIndividual.DataEntities
 
          public string ApPaterno
          {
-             get { return Utils.IsNull(this.Command.Parameters["@pApPaterno"].Value, ""; }
+             get { return Utils.IsNull(this.Command.Parameters["@pApPaterno"].Value, ""); }
              set { this.Command.Parameters["@pApPaterno"].Value = value; }
          }
 

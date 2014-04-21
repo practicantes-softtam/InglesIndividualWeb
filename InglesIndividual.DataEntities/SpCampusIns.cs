@@ -6,13 +6,11 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpSalonesIns : PagedStoredProcedure
+    public class SpCampusIns : StoredProcedure
     {
-        public SpSalonesIns()
-            : base("SpCiudadesIns")
+        public SpCampusIns() : base("SpCampusIns")
         {
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaCampus"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pNomCampus", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pCalle", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pColonia", System.Data.SqlDbType.VarChar, DBNull.Value);
@@ -23,7 +21,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pTelefono", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pDirectorGeneral", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pDirectorAdministrativo", System.Data.SqlDbType.VarChar, DBNull.Value);
-            
+            this.Command.Parameters["@pClaCampus"].Direction = System.Data.ParameterDirection.Output;
        }
 
         public int ClaCampus

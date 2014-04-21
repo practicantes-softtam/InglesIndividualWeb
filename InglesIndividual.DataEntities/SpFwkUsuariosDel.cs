@@ -13,6 +13,7 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarChar, "");
         }
+
         public string IdUsuario
         {
             get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }

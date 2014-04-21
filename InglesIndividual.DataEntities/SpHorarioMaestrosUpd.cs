@@ -6,14 +6,12 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpHorarioMaestrosUpd : PagedStoredProcedure
+    public class SpHorarioMaestrosUpd : StoredProcedure
     {
-        public SpHorarioMaestrosUpd()
-            : base("SpHorarioMaestrosUpd")
+        public SpHorarioMaestrosUpd() : base("SpHorarioMaestrosUpd")
         {
 
             this.AddParameter("@pClaEmpleado", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaEmpleado"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaHorario", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pLun", System.Data.SqlDbType.Int, DBNull.Value);
@@ -30,7 +28,9 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pOrdenVie", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pOrdenSab", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pOrdenDom", System.Data.SqlDbType.Int, DBNull.Value);
-
+            this.Command.Parameters["@pClaEmpleado"].Direction = System.Data.ParameterDirection.Output;
+            this.Command.Parameters["@pClaCampus"].Direction = System.Data.ParameterDirection.Output;
+            this.Command.Parameters["@pClaHorario"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int ClaEmpleado
@@ -135,8 +135,6 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pOrdenDom"].Value, 0); }
             set { this.Command.Parameters["@pOrdenDom"].Value = value; }
         }
-
-
     }
 }
 

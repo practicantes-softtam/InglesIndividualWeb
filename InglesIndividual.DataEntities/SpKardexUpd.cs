@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpKardexUpd : PagedStoredProcedure
+    public class SpKardexUpd : StoredProcedure
     {
         public SpKardexUpd() : base("SpKardexUpd")
         {

@@ -8,15 +8,24 @@ namespace InglesIndividual.DataEntities
 {
     public class SpOrdenAsignacionCitasDel : StoredProcedure
     {
-        public SpOrdenAsignacionCitasDel()
-            : base("SpOrdenAsignacionCitasDel")
+        public SpOrdenAsignacionCitasDel() : base("SpOrdenAsignacionCitasDel")
         {
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pClaProfesor", System.Data.SqlDbType.Int, 0);
+            this.Command.Parameters["@pClaCampus"].Direction = System.Data.ParameterDirection.Output;
+            this.Command.Parameters["@pClaProfesor"].Direction = System.Data.ParameterDirection.Output;
         }
+        
         public int ClaCampus
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaCampus"].Value, 0); }
             set { this.Command.Parameters["@pClaCampus"].Value = value; }
+        }
+
+        public int ClaProfesor
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pClaProfesor"].Value, 0); }
+            set { this.Command.Parameters["@pClaProfesor"].Value = value; }
         }
     }
 }

@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    public class SpFwkUsuariosSistemaSeguridadIns : PagedStoredProcedure
+    public class SpFwkUsuariosSistemaSeguridadIns : StoredProcedure
     {
         public SpFwkUsuariosSistemaSeguridadIns() : base("SpFwkUsuariosSistemaSeguridadIns")
         {
