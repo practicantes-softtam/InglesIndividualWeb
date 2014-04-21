@@ -7,8 +7,8 @@ namespace InglesIndividual.Entities
 {
    public class FwkObjetos: WebEntity
     {
-        private FwkAplicaciones _claAplicacion;
-        private FwkModulos _claModulo;
+        private int _claAplicacion;
+        private int _claModulo;
         private int _claObjeto;
         private string _claveObjeto;
         private string _nomObjeto;
@@ -42,14 +42,14 @@ namespace InglesIndividual.Entities
         }
 
 
-        public FwkModulos ClaModulo
+        public int ClaModulo
         {
             get { return _claModulo; }
             set { _claModulo = value; }
         }
 
 
-        public FwkAplicaciones ClaAplicacion
+        public int ClaAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }

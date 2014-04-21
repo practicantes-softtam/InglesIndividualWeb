@@ -7,7 +7,7 @@ namespace InglesIndividual.Entities
 {
     public class FwkPerfiles:WebEntity
     {
-        private FwkAplicaciones _claAplicacion;
+        private int _claAplicacion;
         private int _claPerfil;
         private string _nomPerfil;
 
@@ -25,7 +25,7 @@ namespace InglesIndividual.Entities
         }
 
 
-        public FwkAplicaciones ClaAplicacion
+        public int ClaAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }

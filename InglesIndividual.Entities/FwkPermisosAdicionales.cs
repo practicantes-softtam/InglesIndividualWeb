@@ -7,11 +7,11 @@ namespace InglesIndividual.Entities
 {
    public class FwkPermisosAdicionales:WebEntity
     {
-        private FwkUsuarios _idUsusario;
-        private FwkAplicaciones _claAplicacion;
-        private FwkModulos _claModulo;
-        private FwkObjetos _claObjeto;
-        private FwkAcciones _claAccion;
+        private string _idUsusario;
+        private int _claAplicacion;
+        private int _claModulo;
+        private int _claObjeto;
+        private string _claAccion;
         private int _permitir;
 
         public int Permitir
@@ -21,35 +21,35 @@ namespace InglesIndividual.Entities
         }
 
 
-        public FwkAcciones ClaAccion
+        public string ClaAccion
         {
             get { return _claAccion; }
             set { _claAccion = value; }
         }
 
 
-        public FwkObjetos ClaObjeto
+        public int ClaObjeto
         {
             get { return _claObjeto; }
             set { _claObjeto = value; }
         }
 
 
-        public  FwkModulos ClaModulo
+        public int ClaModulo
         {
             get { return _claModulo; }
             set { _claModulo = value; }
         }
 
 
-        public FwkAplicaciones ClaAplicacion
+        public int ClaAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }
         }
 
 
-        public FwkUsuarios IdUsuario
+        public string IdUsuario
         {
             get { return _idUsusario; }
             set { _idUsusario = value; }
