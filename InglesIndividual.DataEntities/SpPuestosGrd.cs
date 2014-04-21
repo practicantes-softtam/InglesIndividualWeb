@@ -12,7 +12,7 @@ namespace InglesIndividual.DataEntities
 		{
 			this.AddParameter("@pClaPuesto", System.Data.SqlDbType.Int, DBNull.Value);
 		}
-        public int ClaCiudad
+        public int ClaPuesto
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaPuesto"].Value, 0); }
             set { this.Command.Parameters["@pClaPuesto"].Value = value; }

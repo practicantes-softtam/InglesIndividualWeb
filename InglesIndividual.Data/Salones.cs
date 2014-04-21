@@ -37,9 +37,9 @@ namespace InglesIndividual.Data
         public override int Insert(Entity entity, DataTransaction tran)
         {
             Entities.Salones item = entity as Entities.Salones;
-            DataEntities.SpPuestosIns
-                sp = new DataEntities.SpPuestosIns;
-            sp.ClaPuesto = item.IdSalon;
+            DataEntities.SpSalonesIns
+            sp = new DataEntities.SpSalonesIns();
+            sp.IdSalon = item.IdSalon;
             sp.NomSalon = item.NomSalon;
                
                 if (tran != null)

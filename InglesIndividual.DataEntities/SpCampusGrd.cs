@@ -16,7 +16,7 @@ namespace InglesIndividual.DataEntities
 
         }
 
-        public int ClaCiudad
+        public int ClaCampus
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaCampus"].Value, 0); }
             set { this.Command.Parameters["@pClaCampus"].Value = value; }

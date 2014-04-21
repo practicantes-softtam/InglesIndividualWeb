@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
 
                 item.ClaDepartamento = Utils.GetDataRowValue(dr, "ClaDepartamento", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.Clave = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.NomDepartamento = Utils.GetDataRowValue(dr, "NomDepartamento", "");
 
                 this.SetWebEntityGridValues(item, dr);
