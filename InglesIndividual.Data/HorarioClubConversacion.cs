@@ -7,23 +7,27 @@ using Framework;
 
 namespace InglesIndividual.Data
 {
-    public class HorarioClubConversacion : InglesIndividualDataObject 
+    public class HorarioClubConversacion: InglesIndividualDataObject
     {
-        public List<Entities.HorarioClubConversacion> ListarHorarioClubConversacion(Entities.JQXGridSettings settings, int ClaCampus)
+        public List<Entities.HorarioClubConversacion> ListarHorarioClubConversacion(InglesIndividual.Entities.JQXGridSettings settings, int ClaCampus, int ClaEmpleado, int ClaHorario, int ClaDia)
         {
             DataEntities.SpHorarioClubConversacionGrd sp = new DataEntities.SpHorarioClubConversacionGrd();
             List<Entities.HorarioClubConversacion> list = new List<Entities.HorarioClubConversacion>();
             sp.ClaCampus = ClaCampus;
+            sp.ClaEmpleado = ClaEmpleado;
+            sp.ClaHorario = ClaHorario;
+            sp.ClaDia = ClaDia;
+
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.HorarioClubConversacion item = new Entities.HorarioClubConversacion(true);
-                item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
-                item.ClaDia = Utils.GetDataRowValue(dr,"ClaDia", 0);
-                item.Horas = Utils.GetDataRowValue(dr, "Horas", 0);
+                item.ClaDia = Utils.GetDataRowValue(dr, "ClaDia", 0);
+                //item.Horas = Utils.GetDataRowValue(dr, "Horas", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -35,7 +39,7 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionIns sp = new DataEntities.SpHorarioClubConversacionIns();
-            sp.ClaCampus = item.ClaCampus;
+            sp.ClaCampus = item.Campus.ClaCampus;
             sp.ClaEmpleado = item.ClaEmpleado;
             sp.ClaHorario = item.ClaHorario;
             sp.ClaDia = item.ClaDia;
@@ -46,7 +50,6 @@ namespace InglesIndividual.Data
             }
 
             else
-
             {
                 return sp.ExecuteNonQuery(this.ConnectionString);
             }
@@ -56,7 +59,10 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionDel sp = new DataEntities.SpHorarioClubConversacionDel();
-            sp.ClaCampus = item.ClaCampus;
+            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaEmpleado = item.ClaEmpleado;
+            sp.ClaHorario = item.ClaHorario;
+            sp.ClaDia = item.ClaDia;
 
             if (tran != null)
             {

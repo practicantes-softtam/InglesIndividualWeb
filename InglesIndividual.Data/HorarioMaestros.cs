@@ -22,20 +22,6 @@ namespace InglesIndividual.Data
                 item.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
-                item.Lun = Utils.GetDataRowValue(dr, "Lun", 0);
-                item.Mar = Utils.GetDataRowValue(dr, "Mar", 0);
-                item.Mie = Utils.GetDataRowValue(dr, "Mie", 0);
-                item.Jue = Utils.GetDataRowValue(dr, "Jue", 0);
-                item.Vie = Utils.GetDataRowValue(dr, "Vie", 0);
-                item.Sab = Utils.GetDataRowValue(dr, "Sab", 0);
-                item.Dom = Utils.GetDataRowValue(dr, "Dom", 0);
-                item.OrdenLun = Utils.GetDataRowValue(dr, "OrdenLun", 0);
-                item.OrdenMar = Utils.GetDataRowValue(dr, "OrdenMar", 0);
-                item.OrdenMie = Utils.GetDataRowValue(dr, "OrdenMie", 0);
-                item.OrdenJue = Utils.GetDataRowValue(dr, "OrdenJue", 0);
-                item.OrdenVie = Utils.GetDataRowValue(dr, "OrdenVie", 0);
-                item.OrdenSab = Utils.GetDataRowValue(dr, "OrdenSab", 0);
-                item.OrdenDom = Utils.GetDataRowValue(dr, "OrdenDom", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -76,10 +62,11 @@ namespace InglesIndividual.Data
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
-            Entities.FwkUsuarios item = entity as Entities.FwkUsuarios;
-            DataEntities.SpFwkUsuariosDel sp = new DataEntities.SpFwkUsuariosDel();
-            sp.IdUsuario = item.IdUsuario;
-            
+            Entities.HorarioMaestros item = entity as Entities.HorarioMaestros;
+            DataEntities.SpHorarioMaestrosDel sp = new DataEntities.SpHorarioMaestrosDel();
+            sp.ClaEmpleado = item.ClaEmpleado;
+            sp.ClaCampus = item.ClaCampus;
+            sp.ClaHorario = item.ClaHorario;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

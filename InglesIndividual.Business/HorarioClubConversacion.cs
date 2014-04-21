@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Framework;
 
 namespace InglesIndividual.Business
 {
-    public class HorarioClubConversacion : BaseBusinessObject
+    public class HorarioClubConversacion : InglesIndividualBusinessObject
     {
         private Data.HorarioClubConversacion Data
         {

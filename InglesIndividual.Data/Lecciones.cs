@@ -21,8 +21,6 @@ namespace InglesIndividual.Data
                 Entities.Lecciones item = new Entities.Lecciones(true);
                 item.ClaLeccion = Utils.GetDataRowValue(dr, "CLaLeccion", 0);
                 item.ClaNivel = Utils.GetDataRowValue(dr, "ClaNivel", 0);
-                item.NomLeccion = Utils.GetDataRowValue(dr, "NomLeccion", "");
-                item.EsReview = Utils.GetDataRowValue(dr, "EsReview", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -54,6 +52,7 @@ namespace InglesIndividual.Data
             Entities.Lecciones item = entity as Entities.Lecciones;
             DataEntities.SpLeccionesDel sp = new DataEntities.SpLeccionesDel();
             sp.ClaLeccion = item.ClaLeccion;
+            sp.ClaNivel = item.ClaNivel;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

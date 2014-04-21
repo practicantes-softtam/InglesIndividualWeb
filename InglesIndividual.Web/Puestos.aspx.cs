@@ -38,7 +38,7 @@ namespace InglesIndividual.Web
             string nomPuesto = HttpContext.Current.Request.QueryString.Get("nomPuesto");
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
-            Business.Salones bo = new Business.Salones();
+            Business.Puestos bo = new Business.Puestos();
             List<Entities.Puestos> list = bo.ListarPuestos(settings, nomPuesto);
             
             int registros = 0;

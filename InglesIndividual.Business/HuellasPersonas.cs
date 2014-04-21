@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Framework;
 
 namespace InglesIndividual.Business
 {
-    public class HuellasPersonas : BaseBusinessObject
+    public class HuellasPersonas : InglesIndividualBusinessObject
     {
         private Data.HuellasPersonas Data
         {
@@ -26,7 +27,7 @@ namespace InglesIndividual.Business
         public List<Exception> Eliminar(int[] ids)
         {
             List<Exception> list = new List<Exception>();
-            if (ids != && ids.Length > 0)
+            if (ids != null && ids.Length > 0)
             {
                 foreach (int id in ids)
                 {

@@ -20,11 +20,6 @@ namespace InglesIndividual.Data
             {
                 Entities.HuellasPersonas item = new Entities.HuellasPersonas(true);
                 item.IdRegistro = Utils.GetDataRowValue(dr, "IdRegistro", 0);
-                item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
-                item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
-                item.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
-                item.TipoPersona = Utils.GetDataRowValue(dr, "TipoPersona",0);
-                item.Huella = Utils.GetDataRowValue(dr, "Huella", "");
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }

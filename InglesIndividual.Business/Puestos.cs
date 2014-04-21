@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Framework;
+
 
 namespace InglesIndividual.Business
 {
-    public class Puestos : BaseBusinessObject
+    public class Puestos : InglesIndividualBusinessObject
     {
         private Data.Puestos Data
         {
@@ -18,17 +20,17 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Puestos();
         }
 
-        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
+        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, int ClaPuesto)
         {
-            return this.Data.ListarPuestos(settings, nomPuesto);
+            return this.Data.ListarPuestos(settings, ClaPuesto);
         }
 
-        public List<Exception> Eliminar(string[] ids)
+        public List<Exception> Eliminar(int[] ids)
         {
             List<Exception> list = new List<Exception>();
             if (ids != null && ids.Length > 0)
             {
-                foreach (string id in ids)
+                foreach (int id in ids)
                 {
                     Entities.Puestos item = new Entities.Puestos(true);
                     item.ClaPuesto = Utils.IsNull(id, 0);

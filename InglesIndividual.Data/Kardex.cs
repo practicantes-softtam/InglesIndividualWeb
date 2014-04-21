@@ -20,17 +20,7 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Kardex item = new Entities.Kardex(true);
-                item.IdCalificacion = Utils.GetDataRowValue(dr, "IdCalificacion", 0);
-                item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
-                item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
-                item.ClaNivel = Utils.GetDataRowValue(dr, "ClaNivel", 0);
-                item.ClaLeccion = Utils.GetDataRowValue(dr, "ClaLeccion", 0);
-                item.ClaProfesor = Utils.GetDataRowValue(dr, "ClaProfesor", 0);
-                item.Calificacion = Utils.GetDataRowValue(dr, "Calificacion", 0);
-                item.TipoClase = Utils.GetDataRowValue(dr, "TipoClase", 0);
-                item.Fecha = Utils.GetDataRowValue(dr, "Fecha", DateTime.MinValue);
-                item.ClaCalificacion = Utils.GetDataRowValue(dr, "ClaCalificacion", 0);
-                item.IdCita = Utils.GetDataRowValue(dr, "IdCita", 0);
+                item.IdCalificacion = Utils.GetDataRowValue(dr, "IdCalificacion", 0);                
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }

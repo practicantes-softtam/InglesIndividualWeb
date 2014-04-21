@@ -17,17 +17,8 @@ namespace InglesIndividual.DataEntities
         public int IdRegistro
         {
             get { return Utils.IsNull(this.Command.Parameters["@pIdRegistro"].Value, 0); }
-            set 
-            {
-                if (value == null)
-                {
-                    this.Command.Parameters["@pIdRegistro"].Value = DBNull.Value;
-                }
-                else
-                {
-                    this.Command.Parameters["@pIdRegistro"].Value = value;
-                }
-            }
+            set { this.Command.Parameters["@pIdRegistro"].Value = value; }
         }
     }
 }
+

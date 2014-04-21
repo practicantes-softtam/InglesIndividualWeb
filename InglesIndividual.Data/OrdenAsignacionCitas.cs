@@ -21,7 +21,6 @@ namespace InglesIndividual.Data
                 Entities.OrdenAsignacionCitas item = new Entities.OrdenAsignacionCitas(true);
                 item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.ClaProfesor = Utils.GetDataRowValue(dr, "ClaProfesor", 0);
-                item.Orden = Utils.GetDataRowValue(dr, "Orden", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -52,6 +51,7 @@ namespace InglesIndividual.Data
             Entities.OrdenAsignacionCitas item = entity as Entities.OrdenAsignacionCitas;
             DataEntities.SpOrdenAsignacionCitasDel sp = new DataEntities.SpOrdenAsignacionCitasDel();
             sp.ClaCampus = item.ClaCampus;
+            sp.ClaProfesor = item.ClaProfesor;
 
             if (tran != null)
             {

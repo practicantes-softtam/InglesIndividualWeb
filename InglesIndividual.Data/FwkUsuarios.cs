@@ -10,19 +10,17 @@ namespace InglesIndividual.Data
     public class FwkUsuarios : InglesIndividualDataObject
     {
         
-        public List<Entities.FwkUsuarios> ListarFwkUsuarios(Entities.JQXGridSettings settings, string NomUsuario)
+        public List<Entities.FwkUsuarios> ListarFwkUsuarios(Entities.JQXGridSettings settings, string IdUsuario)
         {
             DataEntities.SpFwkUsuariosGrd sp = new DataEntities.SpFwkUsuariosGrd();
             List<Entities.FwkUsuarios> list = new List<Entities.FwkUsuarios>();
-            sp.NomUsuario = NomUsuario;
+            sp.IdUsuario = IdUsuario;
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkUsuarios item = new Entities.FwkUsuarios(true);
-                item.Password = Utils.GetDataRowValue(dr, "Password", "");
-                item.Email = Utils.GetDataRowValue(dr, "Email", "");
-                item.NomUsuario = Utils.GetDataRowValue(dr, "NomUsuario", "");
+                item.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }

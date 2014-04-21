@@ -43,7 +43,6 @@ namespace InglesIndividual.Data
             
  //Aqui batallé D:
             sp.ClaEstado = item.Clave;
-            sp.NomEstado = item.Nombre;
             sp.ClaPais = item.Pais.Clave;
  
             if (tran != null)

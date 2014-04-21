@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.Business
 {
-    public class Lecciones : BaseBusinessObject
+    public class Lecciones : InglesIndividualBusinessObject
     {
         private Data.Lecciones Data
         {

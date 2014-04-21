@@ -9,11 +9,11 @@ namespace InglesIndividual.Data
 {
     public class Puestos : InglesIndividualDataObject
     {
-        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
+        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, int ClaPuesto)
         {
             List<Entities.Puestos> list = new List<Entities.Puestos>();
             DataEntities.SpPuestosGrd sp = new DataEntities.SpPuestosGrd();
-            sp.NomPuesto = nomPuesto;
+            sp.ClaPuesto = ClaPuesto;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
@@ -30,27 +30,6 @@ namespace InglesIndividual.Data
 
             return list;
         }
-
-        //public override int Insert(Entity entity, DataTransaction tran)
-        //{
-        //    Entities.FwkModulos item = entity as Entities.FwkModulos;
-        //    DataEntities.SpFwkModulosIns
-        //       sp = new DataEntities.SpFwkModulosIns();
-        //    sp.ClaAplicaion = item.ClaAplicacion;
-        //    sp.ClaModulo = item.ClaModulo;
-        //    sp.NomModulo = item.NomModulo;
-        //    sp.ClaModuloPadre = item.ClaModuloPadre;
-
-        //    if (tran != null)
-        //    {
-        //        return sp.ExecuteNonQuery(tran);
-        //    }
-        //    else
-        //    {
-        //        return sp.ExecuteNonQuery(this.ConnectionString);
-        //    }
-
-        //}
 
         public override int Insert(Entity entity, DataTransaction tran)
         {

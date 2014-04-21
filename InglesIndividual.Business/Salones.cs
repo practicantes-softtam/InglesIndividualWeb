@@ -6,7 +6,7 @@ using Framework;
 
 namespace InglesIndividual.Business
 {
-    public class Salones : BaseBusinessObject
+    public class Salones : InglesIndividualBusinessObject
     {
         private Data.Salones Data
         {
@@ -18,20 +18,20 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Salones();
         }
 
-        public List<Entities.Salones> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomSalon)
+        public List<Entities.Salones> ListarSalones(InglesIndividual.Entities.JQXGridSettings settings, int IdSalon)
         {
-            return this.Data.ListarSalones(settings, nomSalon);
+            return this.Data.ListarSalones(settings, IdSalon);
         }
 
-        public List<Exception> Eliminar(string[] ids)
+        public List<Exception> Eliminar(int[] ids)
         {
             List<Exception> list = new List<Exception>();
             if (ids != null && ids.Length > 0)
             {
-                foreach (string id in ids)
+                foreach (int id in ids)
                 {
                     Entities.Salones item = new Entities.Salones(true);
-                    item.ID = Utils.IsNull(id, 0);
+                    item.IdSalon = Utils.IsNull(id, 0);
 
                     try
                     {

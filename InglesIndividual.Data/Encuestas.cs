@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
 
                 item.ClaEncuesta = Utils.GetDataRowValue(dr, "ClaEncuesta", 0);
                 item.NomEncuesta = Utils.GetDataRowValue(dr, "NomEncuesta", "");
-               
+
                 this.SetWebEntityGridValues(item, dr);
 
                 list.Add(item);
@@ -69,7 +69,5 @@ namespace InglesIndividual.Data
             }
 
         }
-    }
-
     }
 }

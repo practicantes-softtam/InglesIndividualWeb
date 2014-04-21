@@ -19,9 +19,7 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Nivel item = new Entities.Nivel(true);
-                item.ClaNivel = Utils.GetDataRowValue(dr, "ClaNilve", 0);
-                item.NomNivel = Utils.GetDataRowValue(dr, "NomNivel", "");
-                item.ClubConversacion = Utils.GetDataRowValue(dr, "ClubConversacion", 0);
+                item.ClaNivel = Utils.GetDataRowValue(dr, "ClaNivel", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }

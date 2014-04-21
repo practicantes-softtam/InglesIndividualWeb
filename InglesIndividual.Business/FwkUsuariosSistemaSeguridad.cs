@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Framework;
 
 namespace InglesIndividual.Business
 {
-    public class FwkUsuariosSistemaSeguridad : BaseBusinessObject
+    public class FwkUsuariosSistemaSeguridad : InglesIndividualBusinessObject
     {
         private Data.FwkUsuariosSistemaSeguridad Data
         {

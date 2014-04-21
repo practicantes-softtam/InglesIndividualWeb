@@ -10,11 +10,11 @@ namespace InglesIndividual.Data
 {
     public class Ciudades : InglesIndividualDataObject
     {
-        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, string nomCiudad, int claEstado, int claPais)
+        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, int claCiudad, int claEstado, int claPais)
         {
             List<Entities.Ciudad> list = new List<Entities.Ciudad>();
             DataEntities.SpCiudadesGrd sp = new DataEntities.SpCiudadesGrd();
-            sp.NomCiudad = nomCiudad;
+            sp.ClaCiudad = claCiudad;
             sp.ClaEstado = claEstado;
             sp.ClaPais = claPais;
             this.ConfigurePagedStoredProcedure(sp, settings);
@@ -23,16 +23,10 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
          {
                 Entities.Ciudad item = new Entities.Ciudad(true);
-                item.Clave = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
-                item.Nombre = Utils.GetDataRowValue(dr, "NomCiudad", "");
-                item.Estado = new Entities.Estado();
-                item.Estado.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
-                item.Estado.Pais = new Entities.Pais();
-                item.Estado.Pais.Nombre = Utils.GetDataRowValue(dr, "NomPais", "");   
+                item.ClaCiudad = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
+                item.ClaEstado = Utils.GetDataRowValue(dr, "ClaEstado", 0);
+                item.ClaPais = Utils.GetDataRowValue(dr, "ClaPais", 0);
                 
-                this.SetWebEntityGridValues(item, dr);
-
-                list.Add(item);
             }
 
             return list;
@@ -42,21 +36,20 @@ namespace InglesIndividual.Data
         {
             Entities.Ciudad item = entity as Entities.Ciudad;
             DataEntities.SpCiudadesIns
-                sp = new DataEntities.SpCiudadesIns();
-            sp.ClaCiudad = item.Clave;
-            sp.ClaEstado = item.Estado.Clave;
-            sp.ClaPais = item.Estado.Pais.Clave;
+            sp = new DataEntities.SpCiudadesIns();
+            sp.ClaCiudad = item.ClaCiudad;
+            sp.ClaEstado = item.ClaEstado;
+            sp.ClaPais = item.ClaPais;
+            sp.NomCiudad = item.NomCiudad;
             
             if (tran !=null) {
             return sp.ExecuteNonQuery(tran);
                 
             }
-            else { 
+            else 
+            { 
             return sp.ExecuteNonQuery (this.ConnectionString);
             }
-
-            
-
         }
 
 
@@ -65,9 +58,7 @@ namespace InglesIndividual.Data
             Entities.Ciudad item = entity as Entities.Ciudad;
             DataEntities.SpCiudadesDel
                 sp = new DataEntities.SpCiudadesDel();
-            sp.ClaCiudad = item.Clave;
-            
-
+                sp.ClaCiudad = item.ClaCiudad;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);
