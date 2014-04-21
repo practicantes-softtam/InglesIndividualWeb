@@ -8,7 +8,7 @@ using System.Data;
 namespace InglesIndividual.Data
 {
 
-    public class HorarioClubConversacion : InglesIndividualDataObject
+    public class FwkUsuarioAplicacion : InglesIndividualDataObject
     {
         public List<Entities.FwkUsuarioAplicacion> ListarFwkUsuarioAplicacion(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion,string idUSuario)
         {
