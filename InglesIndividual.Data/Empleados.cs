@@ -28,10 +28,10 @@ namespace InglesIndividual.Data
                 item.Nombre = Utils.GetDataRowValue(dr, "NOmbre", "");
                 item.Sexo = Utils.GetDataRowValue(dr, "Sexo", "");
                 item.Campus = new Entities.Campus();
-                item.Campus.Clave = Utils.GetDataRowValue(dr, "Clave", 0);
+                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "Clave", 0);
                 item.Departamento = new Entities.Departamentos();
                 item.Departamento.ClaDepartamento = Utils.GetDataRowValue(dr, "ClaDepartamento", 0);
-                item.Puesto = new Entities.Puesto();
+                item.Puesto = new Entities.Puestos();
                 item.Puesto.ClaPuesto = Utils.GetDataRowValue(dr, "ClaPuesto", 0);
                 item.Calle = Utils.GetDataRowValue(dr, "Calle", "");
                 item.Colonia = Utils.GetDataRowValue(dr, "Colonia", "");
@@ -41,7 +41,7 @@ namespace InglesIndividual.Data
                 item.Estado = new Entities.Estado();
                 item.Estado.Clave = Utils.GetDataRowValue(dr, "ClaEstado", 0);
                 item.Ciudad = new Entities.Ciudad();
-                item.Ciudad.Clave = Utils.GetDataRowValue(dr, "Clave", 0);
+                item.Ciudad.ClaCiudad = Utils.GetDataRowValue(dr, "Clave", 0);
                 item.Telefono1 = Utils.GetDataRowValue(dr, "Telefono1", "");
                 item.Telefono2 = Utils.GetDataRowValue(dr, "Telefono2", "");
                 item.Email = Utils.GetDataRowValue(dr, "Email", "");
@@ -69,7 +69,7 @@ namespace InglesIndividual.Data
             sp.ApMaterno = item.ApMaterno;
             sp.Nombre = item.Nombre;
             sp.Sexo = item.Sexo;
-            sp.ClaCampus = item.Campus.Clave;
+            sp.ClaCampus = item.Campus.ClaCampus;
             sp.ClaDepartamento = item.Departamento.ClaDepartamento;
             sp.ClaPuesto = item.Puesto.ClaPuesto;
             sp.Calle = item.Calle;
@@ -77,7 +77,7 @@ namespace InglesIndividual.Data
             sp.CP = item.CP;
             sp.ClaPais = item.Pais.Clave;
             sp.ClaEstado = item.Estado.Clave;
-            sp.ClaCiudad = item.Ciudad.Clave;
+            sp.ClaCiudad = item.Ciudad.ClaCiudad;
             sp.Telefono1 = item.Telefono1;
             sp.Telefono2 = item.Telefono2;
             sp.Email = item.Email;

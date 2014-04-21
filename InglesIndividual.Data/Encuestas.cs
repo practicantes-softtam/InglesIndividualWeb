@@ -70,4 +70,4 @@ namespace InglesIndividual.Data
 
         }
     }
-
+}
