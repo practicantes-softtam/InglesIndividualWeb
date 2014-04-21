@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace InglesIndividual.Data
 {
     public class Departamentos : InglesIndividualDataObject
     {
-        public List<Entities.Departamentos> ListarAsistencia(InglesIndividual.Entities.JQXGridSettings settings, string nomDepartamento)
+        public List<Entities.Departamentos> ListarDepartamentos(InglesIndividual.Entities.JQXGridSettings settings, string nomDepartamento)
         {
             List<Entities.Departamentos> list = new List<Entities.Departamentos>();
             DataEntities.SpDepartamentosGrd sp = new DataEntities.SpDepartamentosGrd();
@@ -41,8 +42,8 @@ namespace InglesIndividual.Data
             DataEntities.SpDepartamentosIns
                 sp = new DataEntities.SpDepartamentosIns();
             sp.ClaDepartamento = item.ClaDepartamento;
-            sp.ClaCampus = item.Campus.Clave;
-            sp.NomDepartamentos = item.NomDepartamento;
+            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.NomDepartamento = item.NomDepartamento;
 
             if (tran != null)
             {
