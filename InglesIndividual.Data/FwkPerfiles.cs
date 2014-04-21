@@ -10,10 +10,11 @@ namespace InglesIndividual.Data
 
     public class FwkPerfil : InglesIndividualDataObject
     {
-        public List<Entities.FwkPerfiles> ListarFwkPerfiles(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomPerfil)
+        public List<Entities.FwkPerfiles> ListarFwkPerfiles(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomPerfil, int claPerfil)
         {
             List<Entities.FwkPerfiles> list = new List<Entities.FwkPerfiles>();
             DataEntities.SpFwkPerfilGrd sp = new DataEntities.SpFwkPerfilGrd();
+            sp.ClaPerfil = claPerfil;
             sp.ClaAplicaion = claAplicacion;
             sp.NomPerfil = nomPerfil;
             this.ConfigurePagedStoredProcedure(sp, settings);
