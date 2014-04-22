@@ -8,6 +8,7 @@ using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.Script.Services;
 using InglesIndividual.Entities;
+using Framework;
 
 namespace InglesIndividual.Web
 {
@@ -39,7 +40,7 @@ namespace InglesIndividual.Web
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
             Business.Puestos bo = new Business.Puestos();
-            List<Entities.Puestos> list = bo.ListarPuestos(settings, nomPuesto);
+            List<Entities.Puesto> list = bo.ListarPuestos(settings, nomPuesto);
             
             int registros = 0;
             
@@ -62,7 +63,7 @@ namespace InglesIndividual.Web
         }
 
         [WebMethod]
-        public static string Eliminar(int [] ids)
+        public static string Eliminar(string[] ids)
         {
             Business.Puestos bo = new Business.Puestos();
             List<Exception> list = bo.Eliminar(ids);
@@ -77,6 +78,46 @@ namespace InglesIndividual.Web
             }
 
             return "";
+        }
+        
+        [WebMethod]
+        public static void Guardar(string action, string id, string nombre)
+        {
+            Entities.Puesto item;
+
+            if (action.ToLower() == "add")
+            {
+                item = new Puesto();
+            }
+            else
+            {
+                item = new Puesto(true);
+            }
+
+            item.ID = Utils.IsNull(id, 0);
+            item.Nombre = nombre;
+
+            Business.Puestos bo = new Business.Puestos();
+            bo.Save(item);
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
+        public static string PruebaCombo()
+        {
+            List<Entities.Puesto> list = new List<Puesto>();
+            for (int i = 1; i <= 10; i++)
+            {
+                Entities.Puesto item = new Puesto();
+                item.ID = i;
+                item.Nombre = string.Format("Puesto {0}", 0);
+                list.Add(item);
+            }
+            System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+
+            return js.Serialize(list);
+            
         }
     }
 }
