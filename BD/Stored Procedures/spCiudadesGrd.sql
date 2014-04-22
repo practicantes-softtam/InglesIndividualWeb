@@ -26,6 +26,7 @@ begin
 	and (ClaPais=@pClaPais or @pClaPais=0)
 	and (ClaEstado=@pClaEstado or @pClaEstado=0)
 	
+	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 
 end

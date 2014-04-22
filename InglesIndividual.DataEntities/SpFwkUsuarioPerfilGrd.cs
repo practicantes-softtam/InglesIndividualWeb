@@ -37,34 +37,24 @@ namespace InglesIndividual.DataEntities
         public int ClaAplicacion
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaAplicacion"].Value, 0); }
-            set
-            {
-                if (value == null)
-                {
-                    this.Command.Parameters["@ClaAplicacion"].Value = DBNull.Value;
-                }
-                else
-                {
-                    this.Command.Parameters["ClaAplicacion"].Value = value;
-                }
-            }
+            
+                 set { this.Command.Parameters["@pClaAplicacion"].Value = value; }
+               
+            
         }
+
+
+       
 
 
         public int ClaPerfil
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaPerfil"].Value, 0); }
-            set
-            {
-                if (value == null)
-                {
-                    this.Command.Parameters["@ClaPerfil"].Value = DBNull.Value;
-                }
-                else
-                {
-                    this.Command.Parameters["@ClaPerfil"].Value = value;
-                }
-            }
+            
+            
+                 set { this.Command.Parameters["@pClaPerfil"].Value = value; }
+
+            
         }
 
     }

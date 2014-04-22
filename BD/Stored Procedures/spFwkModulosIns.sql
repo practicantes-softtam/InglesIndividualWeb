@@ -4,8 +4,8 @@ go
 
 create proc spFwkModulosIns
 (
-	@pClaAplicacion int,
-	@pClaModulo int,
+	@pClaAplicacion int out,
+	@pClaModulo int out ,
 	@pNomModulo  varchar(50),
 	@pClaModuloPadre int
 )
@@ -15,3 +15,5 @@ begin
  insert into FwkModulos (ClaAplicacion, ClaModulo, NomModulo, ClaModuloPadre) 
  values(@pClaAplicacion, @pClaModulo,@pNomModulo, @pClaModuloPadre)
  end
+
+select * from FwkModulos

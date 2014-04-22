@@ -4,7 +4,7 @@ go
 
 CREATE proc spFwkObjetosGrd
 (
-	@pNomObjeto varchar (100),
+	@pClaveObjeto varchar (10),
 	@pClaAplicacion	int,
 	@pClamodulo int,
 	@pTamanioPagina	int,
@@ -14,15 +14,15 @@ CREATE proc spFwkObjetosGrd
 as
 begin
 
-	if @pNomObjeto is not null begin
-		select @pNomObjeto = '%' + @pNomObjeto + '%'
+	if @pClaveObjeto is not null begin
+		select @pClaveObjeto = '%' + @pClaveObjeto + '%'
 	end	
 
 	select	RowNumber = ROW_NUMBER() over (order by ClaObjeto asc), 
 		 ClaObjeto,NomObjeto,Url,ClaveObjeto, ClaAplicacion, ClaModulo
-	into #tabla2
+	into #tabla
 	from FwkObjetos
-	where NomObjeto like @pNomObjeto 
+	where ClaveObjeto like @pClaveObjeto
 	and (ClaAplicacion=@pClaAplicacion or @pClaAplicacion=0)
 	and (ClaModulo=@pClamodulo or @pClamodulo=0)
 	
@@ -30,4 +30,4 @@ begin
 
 end
 
-select*from #tabla2
+select*from #tabla

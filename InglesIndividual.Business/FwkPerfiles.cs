@@ -15,9 +15,9 @@ namespace InglesIndividual.Business
 
         
 
-        public List<Entities.FwkObjetos> ListarFwkPerfiles(Entities.JQXGridSettings settings, int claAplicacion, int claPerfil, string nomPerfil)
+        public List<Entities.FwkPerfiles> ListarFwkPerfiles(Entities.JQXGridSettings settings, int claAplicacion, int claPerfil, string nomPerfil)
         {
-            return this.Data.ListarFwkPerfiles(settings, claAplicacion,claPerfil, nomPerfil);
+            return this.Data.ListarPerfil(settings, claAplicacion,claPerfil, nomPerfil);
 
 
 

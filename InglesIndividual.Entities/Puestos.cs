@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,31 +9,31 @@ namespace InglesIndividual.Entities
 {
     public class Puestos : WebEntity
     {
+
         private int _claPuesto;
-        private string _nomPuesto;
-  
+        private string _Nombre;
+       
         
-    public int ClaPuesto
-    
+        public int ClaPuesto
         {
-            get { return _claPuesto ; }
+            get { return _claPuesto; }
             set { _claPuesto = value; }
         }
 
         public string NomPuesto
         {
-            get { return _nomPuesto; }
-            set { _nomPuesto = value; }
+            get { return _Nombre; }
+            set { _Nombre = value; }
         }
 
-        public Puestos() : this(false)
+           public Puestos(): this(false)
         {
-
         }
 
         public Puestos(bool fromDataSource) : base(fromDataSource)
         {
-
         }
+
+
     }
 }

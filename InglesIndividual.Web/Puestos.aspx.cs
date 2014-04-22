@@ -62,9 +62,9 @@ namespace InglesIndividual.Web
         }
 
         [WebMethod]
-        public static string Eliminar(string[] ids)
+        public static string Eliminar(int [] ids)
         {
-            Business.Salones bo = new Business.Salones();
+            Business.Puestos bo = new Business.Puestos();
             List<Exception> list = bo.Eliminar(ids);
             if (list.Count > 0)
             {

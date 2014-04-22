@@ -8,7 +8,7 @@ CREATE proc spFwkPermisosPerfilGrd
 	@pClaAplicacion	int,
 	@pClaModulo int,
 	@pClaObjeto int,
-	@pClaAccion int,
+	@pClaAccion char(5),
 	@pTamanioPagina	int,
 	@pNumPagina		int,
 	@pOrdenarPor		varchar(100)

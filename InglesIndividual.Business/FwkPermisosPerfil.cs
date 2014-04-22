@@ -17,7 +17,7 @@ namespace InglesIndividual.Business
 
         public List<Entities.FwkPermisosPerfil> ListarFwkPermisosPerfil(Entities.JQXGridSettings settings,  int claAplicacion,int claPerfil, int claModulo, int claObjeto, string claAccion, int permitir)
         {
-            return this.Data.ListarFwkPermisosPerfil(settings, claAplicacion,claPerfil, claModulo, claObjeto, claAccion, permitir);
+            return this.Data.ListarFwkPerimisosPerfil(settings, claAplicacion,claPerfil, claModulo, claObjeto, claAccion, permitir);
 
 
         }

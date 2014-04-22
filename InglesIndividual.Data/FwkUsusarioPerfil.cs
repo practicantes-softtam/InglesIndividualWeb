@@ -10,15 +10,15 @@ namespace InglesIndividual.Data
 
     public class FwkUsusarioPerfil : InglesIndividualDataObject
     {
-        public List<Entities.FwkUsuarioPerfil> ListarFwkUsuarioPerfil(InglesIndividual.Entities.JQXGridSettings settings, string idUsuario,int claAplicacion,int claPerfil)
-
+        public List<Entities.FwkUsuarioPerfil> ListarFwkUsuarioPerfil(InglesIndividual.Entities.JQXGridSettings settings, string idUsuario, int claAplicacion, int claPerfil)
         {
             List<Entities.FwkUsuarioPerfil> list = new List<Entities.FwkUsuarioPerfil>();
             DataEntities.SpFwkUsuariosPerfilGrd sp = new DataEntities.SpFwkUsuariosPerfilGrd();
             sp.ClaAplicacion = claAplicacion;
             sp.IdUsuario = idUsuario;
-            sp.ClaPerfil = claPerfil;
             sp.ClaAplicacion = claAplicacion;
+            sp.ClaPerfil = claPerfil;
+            
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
@@ -27,11 +27,11 @@ namespace InglesIndividual.Data
                 Entities.FwkUsuarioPerfil item = new Entities.FwkUsuarioPerfil(true);
                 item.IdUsuario = new Entities.FwkUsuarios();
                 item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
-                item.ClaPerfil = new Entities.FwkPerfiles();
-                item.ClaPerfil.ClaPerfil = Utils.GetDataRowValue(dr, "ClaPerfil", 0);
                 item.ClaAplicacion = new Entities.FwkAplicaciones();
                 item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                
+                item.ClaPerfil = new Entities.FwkPerfiles();
+                item.ClaPerfil.ClaPerfil = Utils.GetDataRowValue(dr, "ClaPerfil", 0);
+
 
                 this.SetWebEntityGridValues(item, dr);
 
@@ -46,7 +46,7 @@ namespace InglesIndividual.Data
             Entities.FwkUsuarioPerfil item = entity as Entities.FwkUsuarioPerfil;
             DataEntities.SpFwkUsuarioPerfilIns
                sp = new DataEntities.SpFwkUsuarioPerfilIns();
-           
+
             sp.IdUsuario = item.IdUsuario.IdUsuario;
             sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaPerfil = item.ClaPerfil.ClaPerfil;
@@ -62,6 +62,7 @@ namespace InglesIndividual.Data
             }
 
         }
+
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
@@ -84,9 +85,6 @@ namespace InglesIndividual.Data
             }
 
         }
-
-
-
-
+        
     }
 }

@@ -10,13 +10,13 @@ namespace InglesIndividual.Data
 
     public class FwkPermisosPerfil : InglesIndividualDataObject
     {
-        public List<Entities.FwkPermisosPerfil>ListarFwkPermisosPerfil(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, int claPerfil, int claModulo, int claObjeto, string claAccion, int permitir)
+        public List<Entities.FwkPermisosPerfil> ListarFwkPerimisosPerfil(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, int claPerfil, int ClaModulo, int claObjeto, string claAccion, int permitir)
         {
             List<Entities.FwkPermisosPerfil> list = new List<Entities.FwkPermisosPerfil>();
             DataEntities.SpFwkPermisosPerfilGrd sp = new DataEntities.SpFwkPermisosPerfilGrd();
             sp.ClaAplicacion = claAplicacion;
             sp.ClaPerfil = claPerfil;
-            sp.ClaModulo = claModulo;
+            sp.ClaModulo = ClaModulo;
             sp.ClaObjeto = claObjeto;
             sp.ClaAccion = claAccion;
             sp.Permitir = permitir;
@@ -58,8 +58,7 @@ namespace InglesIndividual.Data
             sp.ClaAccion = item.ClaAccion.ClaAccion;
             sp.Permitir = item.Permitir;
 
-
-
+            
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);
@@ -70,6 +69,7 @@ namespace InglesIndividual.Data
             }
 
         }
+
 
         public override int Delete(Entity entity, DataTransaction tran)
         {

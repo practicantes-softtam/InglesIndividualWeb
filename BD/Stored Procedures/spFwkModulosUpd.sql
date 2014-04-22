@@ -4,8 +4,8 @@ go
 
 create proc spFwkModulosUpd
 (
-	@pClaAplicacion int,
-	@pClaModulo int,
+	@pClaAplicacion int out,
+	@pClaModulo int  ,
 	@pNomModulo  varchar(50),
 	@pClaModuloPadre int
 )
@@ -18,3 +18,5 @@ begin
 	where ClaAplicacion = @pClaAplicacion 
 	AND ClaModulo= @pClaModulo
 end
+
+select * from FwkModulos

@@ -12,13 +12,13 @@ namespace InglesIndividual.DataEntities
         public spFwkAccionesDel()
             : base("spFwkAccionesDel")
         {
-            this.AddParameter("@pClaAccion", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pClaAccion", System.Data.SqlDbType.Char,"");
         }
 
 
-        public int ClaAccion
+        public string ClaAccion
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pClaAccion"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pClaAccion"].Value, ""); }
             set { this.Command.Parameters["@pClaPais"].Value = value; }
         }
     }

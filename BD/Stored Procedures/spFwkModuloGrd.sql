@@ -24,7 +24,6 @@ begin
 	where NomModulo like @pNomModulo
 	and (ClaAplicacion=@pClaAplicacion or @pClaAplicacion=0)
 	
-	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 
 end

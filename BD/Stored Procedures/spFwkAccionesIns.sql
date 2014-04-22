@@ -15,4 +15,4 @@ begin
 end
 
 
-
+select * from FwkAcciones

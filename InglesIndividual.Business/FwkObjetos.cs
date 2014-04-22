@@ -8,7 +8,7 @@ namespace InglesIndividual.Business
 {
     public class FwkObjetos : InglesIndividualBusinessObject
     {
-        private Data. FwkObjetos Data
+        private Data.FwkObjetos Data
         {
             get { return this.DataObject as Data.FwkObjetos; }
         }

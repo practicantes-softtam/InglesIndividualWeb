@@ -113,10 +113,7 @@
 
 </script>
  <input type="button" value ="Nuevo" id ="uiNuevo" />
- <input type="button" value="Eliminar" id="uiEliminar" />
-
-
-<div id="PaisGrid"></div>
+ <input type="button" value="Eliminar" id="uiEliminar" />&nbsp;<div id="PaisGrid"></div>
 
  <div id="jqxwindow">
         <div>Paises</div>

@@ -10,9 +10,9 @@ namespace InglesIndividual.Data
 {
     public class Ciudades : InglesIndividualDataObject
     {
-        public List<Entities.Ciudades> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, int claCiudad, int claEstado, int claPais)
+        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, int claCiudad, int claEstado, int claPais)
         {
-            List<Entities.Ciudades> list = new List<Entities.Ciudades>();
+            List<Entities.Ciudad> list = new List<Entities.Ciudad>();
             DataEntities.SpCiudadesGrd sp = new DataEntities.SpCiudadesGrd();
             sp.ClaCiudad = claCiudad;
             sp.ClaEstado = claEstado;
@@ -22,11 +22,17 @@ namespace InglesIndividual.Data
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
          {
-                Entities.Ciudades item = new Entities.Ciudades(true);
+                Entities.Ciudad item = new Entities.Ciudad(true);
                 item.ClaCiudad = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
-                item.ClaEstado = Utils.GetDataRowValue(dr, "ClaEstado", 0);
-                item.ClaPais = Utils.GetDataRowValue(dr, "ClaPais", 0);
+                item.NomCiudad = Utils.GetDataRowValue(dr, "NomCiudad", "");
+                item.ClaEstado = new Entities.Estado();
+                item.ClaEstado.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
+                item.ClaPais = new Entities.Pais();
+                item.ClaPais.Nombre = Utils.GetDataRowValue(dr, "NomPais", "");   
                 
+                this.SetWebEntityGridValues(item, dr);
+
+                list.Add(item);
             }
 
             return list;
@@ -34,31 +40,31 @@ namespace InglesIndividual.Data
 
         public override int Insert(Entity entity, DataTransaction tran)
         {
-            Entities.Ciudades item = entity as Entities.Ciudades;
+            Entities.Ciudad item = entity as Entities.Ciudad;
             DataEntities.SpCiudadesIns
             sp = new DataEntities.SpCiudadesIns();
             sp.ClaCiudad = item.ClaCiudad;
-            sp.ClaEstado = item.ClaEstado;
-            sp.ClaPais = item.ClaPais;
-            sp.NomCiudad = item.NomCiudad;
+            sp.ClaEstado = item.ClaEstado.Clave;
+            sp.ClaPais = item.ClaPais.Clave;
             
             if (tran !=null) {
             return sp.ExecuteNonQuery(tran);
                 
             }
-            else 
-            { 
+            else { 
             return sp.ExecuteNonQuery (this.ConnectionString);
             }
-        }
+          }
 
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
-            Entities.Ciudades item = entity as Entities.Ciudades;
+            Entities.Ciudad item = entity as Entities.Ciudad;
             DataEntities.SpCiudadesDel
                 sp = new DataEntities.SpCiudadesDel();
-                sp.ClaCiudad = item.ClaCiudad;
+            sp.ClaCiudad = item.ClaCiudad;
+            
+
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

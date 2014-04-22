@@ -10,8 +10,11 @@ create proc spFwkUsuarioAplicacionUpd
 )
 as
 begin
-
-	update FwkUsuarioAplicacion
+select fwka.NomAplicacion, fwku.NomUsuario
+from FwkUsuarioAplicacion fwkua
+inner join FwkAplicaciones fwka on  fwkua.ClaAplicacion=  fwka.ClaAplicacion
+inner join  FwkUsuarios fwku on fwku.IdUsuario = fwku.IdUsuario
+update FwkUsuarioAplicacion
     set ClaAplicacion= @pClaAplicacion,
     IdUsuario=@IdUsuario
   where ClaAplicacion = @pClaAplicacion

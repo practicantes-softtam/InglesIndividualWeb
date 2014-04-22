@@ -8,6 +8,7 @@ namespace InglesIndividual.Entities
     public class Empleados : WebEntity
     {
         private int _claEmpleado;
+        private Puestos _claPuesto;
 
         public int ClaEmpleado
         {
@@ -57,13 +58,14 @@ namespace InglesIndividual.Entities
             set { _departamento = value; }
         }
 
-        private Puestos _puesto;
 
-        public Puestos Puesto
+
+        public Puestos ClaPuesto
         {
-            get { return _puesto; }
-            set { _puesto = value; }
+            get { return _claPuesto; }
+            set { _claPuesto = value; }
         }
+
         private string _calle;
 
         public string Calle

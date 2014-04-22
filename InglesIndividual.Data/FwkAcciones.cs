@@ -10,7 +10,7 @@ namespace InglesIndividual.Data
 
     public class FwkAcciones : InglesIndividualDataObject
     {
-        public List<Entities.FwkAcciones> ListarFwkAcciones(InglesIndividual.Entities.JQXGridSettings settings,string claAccion, string descripcion)
+        public List<Entities.FwkAcciones> ListarFwkAcciones(InglesIndividual.Entities.JQXGridSettings settings, string claAccion, string descripcion)
         {
             List<Entities.FwkAcciones> list = new List<Entities.FwkAcciones>();
             DataEntities.SpFwkAccionesGrd sp = new DataEntities.SpFwkAccionesGrd();
@@ -23,7 +23,7 @@ namespace InglesIndividual.Data
             {
                 Entities.FwkAcciones item = new Entities.FwkAcciones(true);
 
-                item.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", ""); ;
+                item.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", " ");
                 item.Descripcion = Utils.GetDataRowValue(dr, "Descripcion", "");
 
                 this.SetWebEntityGridValues(item, dr);
@@ -52,6 +52,8 @@ namespace InglesIndividual.Data
             }
 
         }
+
+     
 
         public override int Delete(Entity entity, DataTransaction tran)
         {

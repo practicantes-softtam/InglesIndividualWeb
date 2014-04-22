@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.FwkModulos();
         }
 
-        public List<Entities.FwkModulos> ListarFwkModulos(Entities.JQXGridSettings settings ,int claModulo,string nomModulo)
+        public List<Entities.FwkModulos> ListarFwkModulos(Entities.JQXGridSettings settings ,int claAplicacion,int claModulo,string nomModulo,int claModuloPadre)
         {
-            return this.Data.ListarFwkModulos(settings, claModulo, nomModulo);
+            return this.Data.ListarFwkModulos(settings, claAplicacion, claModulo, nomModulo,claModuloPadre);
 
 
 
@@ -33,6 +33,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkModulos item = new Entities.FwkModulos(true);
+                     
                      item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
                      item.ClaModulo = Utils.IsNull(id, 0);
 

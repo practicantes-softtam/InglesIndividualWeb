@@ -10,13 +10,12 @@ namespace InglesIndividual.Data
 
     public class FwkPermisosAdicionales : InglesIndividualDataObject
     {
-        public List<Entities.FwkPermisosAdicionales> ListarFwkPermisosAdicionales(InglesIndividual.Entities.JQXGridSettings settings, string idUsuario, int claAplicacion, int claModulo, int claObjeto, string claAccion, int permitir)
-
+        public List<Entities.FwkPermisosAdicionales> ListarPermisosAdicionales(InglesIndividual.Entities.JQXGridSettings settings, string idUsuario, int claAplicacion, int claModulo, int claObjeto, string claAccion, int permitir)
         {
             List<Entities.FwkPermisosAdicionales> list = new List<Entities.FwkPermisosAdicionales>();
             DataEntities.SpFwkPermisosAdicionalesGrd sp = new DataEntities.SpFwkPermisosAdicionalesGrd();
             sp.IdUsuario = idUsuario;
-            sp.ClaAplicaion = claAplicacion;
+            sp.ClaAplicaion= claAplicacion;
             sp.ClaModulo = claModulo;
             sp.ClaObjeto = claObjeto;
             sp.ClaAccion = claAccion;
@@ -29,11 +28,11 @@ namespace InglesIndividual.Data
                 Entities.FwkPermisosAdicionales item = new Entities.FwkPermisosAdicionales(true);
                 item.IdUsuario = new Entities.FwkUsuarios();
                 item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", " ");
-                item.ClaAplicacion = new Entities.FwkAplicaciones();
-                item.ClaAplicacion.NomAplicacion = Utils.GetDataRowValue(dr, "NomAplicacion","");
+                item.ClaAccion = new Entities.FwkAcciones();
+                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.ClaModulo = new Entities.FwkModulos();
                 item.ClaModulo.ClaModulo = Utils.GetDataRowValue(dr, "ClaModulo", 0);
-                item.ClaModulo = new Entities.FwkModulos();
+                item.ClaObjeto = new Entities.FwkObjetos();
                 item.ClaObjeto.ClaObjeto = Utils.GetDataRowValue(dr, "ClaObjeto", 0);
                 item.ClaAccion = new Entities.FwkAcciones();
                 item.ClaAccion.ClaAccion = Utils.GetDataRowValue(dr, "ClaAccion", "");
@@ -53,6 +52,7 @@ namespace InglesIndividual.Data
             Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
             DataEntities.SpFwkPermisosAdicionalesIns
                sp = new DataEntities.SpFwkPermisosAdicionalesIns();
+
             sp.IdUsuario = item.IdUsuario.IdUsuario;
             sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaModulo = item.ClaModulo.ClaModulo;
@@ -73,6 +73,32 @@ namespace InglesIndividual.Data
 
         }
 
+        public override int Update(Entity entity, DataTransaction tran)
+        {
+            Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
+            DataEntities.SpFwkPermisosAdicionalesUpd
+               sp = new DataEntities.SpFwkPermisosAdicionalesUpd();
+            sp.IdUsuario = item.IdUsuario.IdUsuario;
+            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaModulo = item.ClaModulo.ClaModulo;
+            sp.ClaObjeto = item.ClaObjeto.ClaObjeto;
+            sp.ClaAccion = item.ClaAccion.ClaAccion;
+            sp.Permitir = item.Permitir;
+
+
+
+            if (tran != null)
+            {
+                return sp.ExecuteNonQuery(tran);
+            }
+            else
+            {
+                return sp.ExecuteNonQuery(this.ConnectionString);
+            }
+
+        }
+
+
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
@@ -83,6 +109,7 @@ namespace InglesIndividual.Data
             sp.ClaModulo = item.ClaModulo.ClaModulo;
             sp.ClaObjeto = item.ClaObjeto.ClaObjeto;
             sp.ClaAccion = item.ClaAccion.ClaAccion;
+            
            
 
             if (tran != null)

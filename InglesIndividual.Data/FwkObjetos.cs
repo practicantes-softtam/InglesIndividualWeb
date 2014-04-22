@@ -10,13 +10,16 @@ namespace InglesIndividual.Data
 
     public class FwkObjetos : InglesIndividualDataObject
     {
-        public List<Entities.FwkObjetos> ListarPaises(InglesIndividual.Entities.JQXGridSettings settings, string claveObjeto,int claAplicacion,int claModulo)
+        public List<Entities.FwkObjetos> ListarFwkObjetos(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion,int claModulo,int claObjeto, string ClaObjeto, string nomObjetos ,string url)
         {
             List<Entities.FwkObjetos> list = new List<Entities.FwkObjetos>();
             DataEntities.SpFwkObjetosGrd sp = new DataEntities.SpFwkObjetosGrd();
             sp.ClaAplicaion = claAplicacion;
-            sp.ClaModulo=claModulo;
-            sp.ClaveObjeto=claveObjeto;
+            sp.ClaModulo = claModulo;
+            sp.ClaObjeto = claObjeto;
+            sp.ClaveObjeto = ClaObjeto;
+            sp.NomObjeto = nomObjetos;
+            sp.Url = url;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
@@ -44,7 +47,8 @@ namespace InglesIndividual.Data
         {
             Entities.FwkObjetos item = entity as Entities.FwkObjetos;
             DataEntities.SpFwkObjetosIns
-            sp = new DataEntities.SpFwkObjetosIns();
+               sp = new DataEntities.SpFwkObjetosIns();
+            
             sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaModulo = item.ClaModulo.ClaModulo;
             sp.ClaObjeto = item.ClaObjeto;
@@ -64,6 +68,7 @@ namespace InglesIndividual.Data
 
         }
 
+       
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.FwkObjetos item = entity as Entities.FwkObjetos;
@@ -87,11 +92,6 @@ namespace InglesIndividual.Data
 
 
 
-
-        public List<Entities.FwkObjetos> ListarFwkObjetos(Entities.JQXGridSettings settings, int claAplicacion, int claModulo, int claObjeto, string claveObjeto, string nomObjeto, string url)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

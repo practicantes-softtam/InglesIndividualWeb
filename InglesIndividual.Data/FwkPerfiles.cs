@@ -10,12 +10,12 @@ namespace InglesIndividual.Data
 
     public class FwkPerfil : InglesIndividualDataObject
     {
-        public List<Entities.FwkPerfiles> ListarFwkPerfiles(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomPerfil, int claPerfil)
+        public List<Entities.FwkPerfiles> ListarPerfil(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion, int claPerfil,string nomPerfil)
         {
             List<Entities.FwkPerfiles> list = new List<Entities.FwkPerfiles>();
             DataEntities.SpFwkPerfilGrd sp = new DataEntities.SpFwkPerfilGrd();
-            sp.ClaPerfil = claPerfil;
             sp.ClaAplicaion = claAplicacion;
+            sp.ClaPerfil = claPerfil;
             sp.NomPerfil = nomPerfil;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
@@ -58,6 +58,8 @@ namespace InglesIndividual.Data
 
         }
 
+       
+
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.FwkPerfiles item = entity as Entities.FwkPerfiles;
@@ -81,11 +83,6 @@ namespace InglesIndividual.Data
 
 
 
-
-        public List<Entities.FwkObjetos> ListarFwkPerfiles(Entities.JQXGridSettings settings, int claAplicacion, int claPerfil, string nomPerfil)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

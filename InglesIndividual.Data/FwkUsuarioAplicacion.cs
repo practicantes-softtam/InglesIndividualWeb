@@ -10,24 +10,26 @@ namespace InglesIndividual.Data
 
     public class FwkUsuarioAplicacion : InglesIndividualDataObject
     {
-        public List<Entities.FwkUsuarioAplicacion> ListarFwkUsuarioAplicacion(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion,string idUSuario)
+        public List<Entities.FwkUsuarioAplicacion> ListarFwkUsuarioAplicacion(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion,string idUsuario)
         {
             List<Entities.FwkUsuarioAplicacion> list = new List<Entities.FwkUsuarioAplicacion>();
             DataEntities.SpFwkUsuariosAplicacionGrd sp = new DataEntities.SpFwkUsuariosAplicacionGrd();
             sp.ClaAplicacion = claAplicacion;
-                sp.IdUsuario=idUSuario;
+            sp.IdUsuario=idUsuario;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkUsuarioAplicacion item = new Entities.FwkUsuarioAplicacion(true);
-                item.IdUsuario = new Entities.FwkUsuarios();
-                item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
                 item.ClaAplicacion = new Entities.FwkAplicaciones();
                 item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                
+                item.IdUsuario = new Entities.FwkUsuarios();
+                item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
+
+
                 this.SetWebEntityGridValues(item, dr);
+
                 list.Add(item);
             }
 
@@ -38,9 +40,11 @@ namespace InglesIndividual.Data
         {
             Entities.FwkUsuarioAplicacion item = entity as Entities.FwkUsuarioAplicacion;
             DataEntities.SpFwkUsuarioAplicacionIns
-            sp = new DataEntities.SpFwkUsuarioAplicacionIns();
+               sp = new DataEntities.SpFwkUsuarioAplicacionIns();
             sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.IdUsuario = item.IdUsuario.IdUsuario;
+
+
 
             if (tran != null)
             {
@@ -52,6 +56,7 @@ namespace InglesIndividual.Data
             }
 
         }
+
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
@@ -70,6 +75,11 @@ namespace InglesIndividual.Data
             {
                 return sp.ExecuteNonQuery(this.ConnectionString);
             }
+
         }
+
+
+
+
     }
 }

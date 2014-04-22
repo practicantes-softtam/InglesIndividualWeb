@@ -21,7 +21,7 @@ namespace InglesIndividual.DataEntities
             set { this.Command.Parameters["@pClaAplicacion"].Value = value; }
         }
 
-        public string Descripcion
+        public string NomAplicacion
         {
             get { return Utils.IsNull(this.Command.Parameters["@pNomAplicacion"].Value, ""); }
             set { this.Command.Parameters["@pNomAplicaion"].Value = value; }

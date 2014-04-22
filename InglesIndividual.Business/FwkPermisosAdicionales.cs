@@ -19,7 +19,7 @@ namespace InglesIndividual.Business
 
         
         {
-            return this.Data.ListarFwkPermisosAdicionales (settings, idUsuario,claAplicacion,claModulo,claObjeto,claAccion,permitir);
+            return this.Data.ListarPermisosAdicionales (settings, idUsuario,claAplicacion,claModulo,claObjeto,claAccion,permitir);
 
         
         }

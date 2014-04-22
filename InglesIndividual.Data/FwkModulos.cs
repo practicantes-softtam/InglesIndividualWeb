@@ -10,12 +10,14 @@ namespace InglesIndividual.Data
 
     public class FwkModulos : InglesIndividualDataObject
     {
-        public List<Entities.FwkModulos> ListarFwkModulos(InglesIndividual.Entities.JQXGridSettings settings, int claModulo,string nomModulo)
+        public List<Entities.FwkModulos> ListarFwkModulos(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion, int ClaModulo, string nomModulo, int claModuloPadre)
         {
             List<Entities.FwkModulos> list = new List<Entities.FwkModulos>();
             DataEntities.SpFwkModulosGrd sp = new DataEntities.SpFwkModulosGrd();
-            sp.ClaModulo = claModulo;
+            sp.ClaAplicaion = claAplicacion;
+            sp.ClaModulo = ClaModulo;
             sp.NomModulo = nomModulo;
+            sp.ClaModuloPadre = claModuloPadre;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
@@ -54,14 +56,15 @@ namespace InglesIndividual.Data
             {
                 return sp.ExecuteNonQuery(this.ConnectionString);
             }
-
         }
+
+        
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.FwkModulos item = entity as Entities.FwkModulos;
             DataEntities.SpFwkModulosDel
-            sp = new DataEntities.SpFwkModulosDel();
+               sp = new DataEntities.SpFwkModulosDel();
             sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
             sp.ClaModulo = item.ClaModulo;
             
@@ -78,6 +81,7 @@ namespace InglesIndividual.Data
         }
 
 
-      
+
+
     }
 }

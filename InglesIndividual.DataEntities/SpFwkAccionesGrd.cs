@@ -1,10 +1,9 @@
 ﻿using System;
 using Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Framework;
+
 
 namespace InglesIndividual.DataEntities
 {
@@ -12,22 +11,23 @@ namespace InglesIndividual.DataEntities
 	{
 		public SpFwkAccionesGrd(): base("spFwkAccionesGrd")
 		{
-			this.AddParameter("@pDescripcion", System.Data.SqlDbType.VarChar, "");
-		}
-		public string Descripcion
-		{
+            this.AddParameter("@pClaAccion", System.Data.SqlDbType.Char, " ");
+            this.AddParameter("@pDescripcion", System.Data.SqlDbType.VarChar, "");
+            this.Command.Parameters["@pClaAccion"].Direction = System.Data.ParameterDirection.Output;
+        }
+
+        public string ClaAccion
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pClaAccion"].Value, " "); }
+            set { this.Command.Parameters["@pClaAccion"].Value = value; }
+        }
+
+        public string Descripcion
+        {
             get { return Utils.IsNull(this.Command.Parameters["@pDescripcion"].Value, ""); }
-			set 
-            {
-                if (value == null)
-                {
-                    this.Command.Parameters["@pDescripcion"].Value = DBNull.Value;
-                }
-                else
-                {
-                    this.Command.Parameters["@pDescripcion"].Value = value;
-                }
-            }
-		}
-	}
+            set { this.Command.Parameters["@pDescripcion"].Value = value; }
+        }
+
+
+    }
 }

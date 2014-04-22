@@ -9,43 +9,47 @@ namespace InglesIndividual.Entities
     {
 
         private int _clave;
-        private int _estado;
-        private int _pais;
+        private Estado _estado;
+        private Pais _pais;
         private string _nomCiudad;
 
 
-	    public int ClaCiudad
-	       {
-		    get { return _clave;}
-		    set { _clave = value;}
-	}
-	 
+        public int ClaCiudad
+        {
+            get { return _clave; }
+            set { _clave = value; }
+        }
+
         public string NomCiudad
         {
             get { return _nomCiudad; }
             set { _nomCiudad = value; }
         }
 
-        public int ClaEstado
+        public Estado ClaEstado
         {
             get { return _estado; }
             set { _estado = value; }
         }
 
-        public int ClaPais
+        public Pais ClaPais
         {
             get { return _pais; }
             set { _pais = value; }
         }
 
-        public Ciudad() : this(false)
+        public Ciudad()
+            : this(false)
         {
 
         }
 
-        public Ciudad(bool fromDataSource) : base(fromDataSource)
+        public Ciudad(bool fromDataSource)
+            : base(fromDataSource)
         {
 
         }
+
+
     }
 }

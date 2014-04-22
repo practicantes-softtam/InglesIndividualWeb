@@ -10,12 +10,14 @@ namespace InglesIndividual.Data
 
     public class FwkAplicaciones : InglesIndividualDataObject
     {
-        public List<Entities.FwkAplicaciones> ListarFwkAplicacion(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomAplicaciones)
+        public List<Entities.FwkAplicaciones> ListarFwkAplicaciones(InglesIndividual.Entities.JQXGridSettings settings,int claAplicacion, string nomAplicaciones)
         {
             List<Entities.FwkAplicaciones> list = new List<Entities.FwkAplicaciones>();
             DataEntities.SpFwkAplicacionesGrd sp = new DataEntities.SpFwkAplicacionesGrd();
-            sp.ClaAplicacion = claAplicacion;
+            sp.ClaAplicaion = claAplicacion;
             sp.NomAplicacion = nomAplicaciones;
+            
+           
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
@@ -53,6 +55,26 @@ namespace InglesIndividual.Data
 
         }
 
+        public override int Update(Entity entity, DataTransaction tran)
+        {
+            Entities.FwkAplicaciones item = entity as Entities.FwkAplicaciones;
+            DataEntities.spFwkAplicacionesUpd
+               sp = new DataEntities.spFwkAplicacionesUpd();
+            sp.ClaAplicacion = item.ClaAplicacion;
+            sp.NomAplicacion = item.NomAplicacion;
+
+            if (tran != null)
+            {
+                return sp.ExecuteNonQuery(tran);
+            }
+            else
+            {
+                return sp.ExecuteNonQuery(this.ConnectionString);
+            }
+
+        }
+
+
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.FwkAplicaciones item = entity as Entities.FwkAplicaciones;
@@ -60,8 +82,6 @@ namespace InglesIndividual.Data
                sp = new DataEntities.SpFwkAplicacionesDel();
             sp.ClaAplicacion = item.ClaAplicacion;
             
-
-
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

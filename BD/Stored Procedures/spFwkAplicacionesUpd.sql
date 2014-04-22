@@ -3,7 +3,7 @@ drop proc spFwkAplicacionesUpd
 go
 create proc spFwkAplicacionesUpd
 (
-	@pClaAplicacion int,
+	@pClaAplicacion int out,
 	@pNomAplicacion varchar(50)
 	)
 	

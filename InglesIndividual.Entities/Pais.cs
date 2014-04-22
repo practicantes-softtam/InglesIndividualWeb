@@ -7,7 +7,7 @@ namespace InglesIndividual.Entities
 {
     public class Pais : WebEntity
     {
-        private int _clave;
+        private int _clave; 
 
         public int Clave
         {

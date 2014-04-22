@@ -3,7 +3,7 @@ drop proc spFwkAccionesDel
 go
 create proc spfwkAccionesDel
 (
-	@pClaAccion int
+	@pClaAccion char(5)
 )
 as
 begin

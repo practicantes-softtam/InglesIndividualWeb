@@ -28,7 +28,7 @@ namespace InglesIndividual.Web
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
             Business.Ciudades bo = new Business.Ciudades();
-            List<Entities.Ciudades> list = bo.ListarCiudades(settings,  "", 0,0);
+            List<Entities.Ciudad> list = bo.ListarCiudades(settings,  0, 0,0);
 
             int registros = 0;
 
@@ -46,17 +46,17 @@ namespace InglesIndividual.Web
 [WebMethod]
         public static void Guardar(string action, string id, string nombre)
         {
-            Entities.Ciudades item;
+            Entities.Ciudad item;
             if (action.ToLower() == "add")
             {
-                item = new Ciudades();
+                item = new Ciudad();
             }
             else
             {
-                item = new Ciudades(true);
+                item = new Ciudad(true);
             }
-            item.Clave = Utils.IsNull(id, 0);
-            item.Nombre = nombre;
+            item.ClaCiudad = Utils.IsNull(id, 0);
+            item.NomCiudad = nombre;
 
             Business.Ciudades bo = new Business.Ciudades();
             bo.Save(item);

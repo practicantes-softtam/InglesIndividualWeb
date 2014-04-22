@@ -11,13 +11,13 @@ namespace InglesIndividual.DataEntities
        public spFwkAccionesUpd(): base("spFwkAccionesUpd")
        {
 
-           this.AddParameter("@pClaAccion", System.Data.SqlDbType.Int, 0);
+           this.AddParameter("@pClaAccion", System.Data.SqlDbType.Char,"");
            this.AddParameter("@pDescripcion", System.Data.SqlDbType.VarChar, "");
        }
 
-       public int ClaAccion
+       public string ClaAccion
        {
-           get { return Utils.IsNull(this.Command.Parameters["@pClaAccion"].Value, 0); }
+           get { return Utils.IsNull(this.Command.Parameters["@pClaAccion"].Value, " "); }
            set { this.Command.Parameters["@pClaAccion"].Value = value; }
        }
 

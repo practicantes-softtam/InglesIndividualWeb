@@ -21,7 +21,7 @@ namespace InglesIndividual.Business
 
         public List<Entities.FwkAplicaciones> ListarFwkaplicacion(InglesIndividual.Entities.JQXGridSettings settings, int claAplicacion, string nomFwkAplicaciones)
         {
-            return this.Data.ListarFwkAplicacion(settings,claAplicacion, nomFwkAplicaciones);
+            return this.Data.ListarFwkAplicaciones(settings,claAplicacion, nomFwkAplicaciones);
         }
 
         public List<Exception> Eliminar(string[] ids)

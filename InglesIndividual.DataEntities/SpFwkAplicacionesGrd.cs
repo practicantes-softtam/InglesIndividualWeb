@@ -14,15 +14,27 @@ namespace InglesIndividual.DataEntities
         public SpFwkAplicacionesGrd() : base("spFwkAplicacionesGrd")
         {
 
-            this.AddParameter("@pNomAplicacion", System.Data.SqlDbType.VarChar, 50);
+            this.AddParameter("@pClaAplicacion", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pNomAplicacion", System.Data.SqlDbType.VarChar, " ");
 
+
+
+
+        }
+        public int ClaAplicaion
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pClaAplicaion"].Value, 0); }
+            set { this.Command.Parameters["@pClaAplicacion"].Value = value; }
         }
 
         public string NomAplicacion
         {
-            get { return Utils.IsNull(this.Command.Parameters["@picacion"].Value, ""); }
+            get { return Utils.IsNull(this.Command.Parameters["@pNomAplicacion"].Value, ""); }
             set { this.Command.Parameters["@pNomAplicacion"].Value = value; }
         }
 
+
     }
 }
+
+

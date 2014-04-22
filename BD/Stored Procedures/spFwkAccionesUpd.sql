@@ -3,7 +3,7 @@ drop proc spFwkAccionesUpd
 go
 create proc spFwkAccionesUpd
 (
-	@pClaAccion char(5),
+	@pClaAccion char(5) out,
 	@pDescripcion varchar(50)
 	)
 	

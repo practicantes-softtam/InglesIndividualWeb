@@ -6,10 +6,10 @@ using Framework;
 
 namespace InglesIndividual.DataEntities
 {
-    class SpFwkModulosUpd  : StoredProcedure
+    public class SpFwkModulosUpd : StoredProcedure
     {
 
-        public SpFwkModulosUpd(): base("spFwkModulosUpd")
+        public SpFwkModulosUpd()  : base("spFwkModulosUpd")
         {
             this.AddParameter("@pClaAplicacion", System.Data.SqlDbType.Int, 0);
             this.AddParameter("@pClaModulo", System.Data.SqlDbType.Int, 0);
@@ -31,11 +31,11 @@ namespace InglesIndividual.DataEntities
             set { this.Command.Parameters["@pClaModulo"].Value = value; }
         }
 
-      
+
 
         public string NomModulo
         {
-            get {return Utils.IsNull(this.Command.Parameters["@pNomModulo"].Value," ");}
+            get { return Utils.IsNull(this.Command.Parameters["@pNomModulo"].Value, " "); }
             set { this.Command.Parameters["@pNomModulo"].Value = value; }
 
         }
@@ -49,4 +49,4 @@ namespace InglesIndividual.DataEntities
     }
 }
 
-    
+
