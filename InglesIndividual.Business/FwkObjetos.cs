@@ -33,8 +33,8 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkObjetos item = new Entities.FwkObjetos(true);
-                    item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
-                    item.ClaModulo.ClaModulo = Utils.IsNull(id, 0);
+                    item.FwkAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
+                    item.FwkModulo.ClaModulo = Utils.IsNull(id, 0);
 
 
                     try

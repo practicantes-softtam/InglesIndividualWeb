@@ -30,9 +30,9 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkUsuarioPerfil item = new Entities.FwkUsuarioPerfil(true);
-                    item.IdUsuario.IdUsuario = Utils.IsNull(id, "");
-                    item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
-                    item.ClaPerfil.ClaPerfil = Utils.IsNull(id, 0);
+                    item.FwkUsuario.IdUsuario = Utils.IsNull(id, "");
+                    item.FwkAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
+                    item.FwkPerfil.ClaPerfil = Utils.IsNull(id, 0);
 
                     try
                     {

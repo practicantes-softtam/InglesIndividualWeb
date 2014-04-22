@@ -29,11 +29,11 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkPermisosPerfil item = new Entities.FwkPermisosPerfil(true);
-                    item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
-                    item.ClaPerfil.ClaPerfil = Utils.IsNull(id, 0);
-                    item.ClaModulo.ClaModulo = Utils.IsNull(id, 0);
-                    item.ClaObjeto.ClaObjeto = Utils.IsNull(id, 0);
-                    item.ClaAccion.ClaAccion = Utils.IsNull(id, "");
+                    item.FwkAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
+                    item.FwkPerfil.ClaPerfil = Utils.IsNull(id, 0);
+                    item.FwkModulos.ClaModulo = Utils.IsNull(id, 0);
+                    item.FwkObjetos.ClaObjeto = Utils.IsNull(id, 0);
+                    item.FwkAcciones.ClaAccion = Utils.IsNull(id, "");
 
                     try
                     {

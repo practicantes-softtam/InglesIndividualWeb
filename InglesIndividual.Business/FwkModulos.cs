@@ -34,7 +34,7 @@ namespace InglesIndividual.Business
                 {
                     Entities.FwkModulos item = new Entities.FwkModulos(true);
                      
-                     item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
+                     item.FwkAplicaciones.ClaAplicacion = Utils.IsNull(id, 0);
                      item.ClaModulo = Utils.IsNull(id, 0);
 
 

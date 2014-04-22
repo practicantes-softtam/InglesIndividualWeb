@@ -31,11 +31,11 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkPermisosAdicionales item = new Entities.FwkPermisosAdicionales(true);
-                    item.IdUsuario.IdUsuario = Utils.IsNull(id, "");
-                    item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
-                    item.ClaModulo.ClaModulo = Utils.IsNull(id, 0);
-                    item.ClaObjeto.ClaObjeto = Utils.IsNull(id, 0);
-                    item.ClaAccion.ClaAccion = Utils.IsNull(id, "" );
+                    item.FwkUsuario.IdUsuario = Utils.IsNull(id, "");
+                    item.FwkAplicaciones.ClaAplicacion = Utils.IsNull(id, 0);
+                    item.FwkModulos.ClaModulo = Utils.IsNull(id, 0);
+                    item.FwkObjetos.ClaObjeto = Utils.IsNull(id, 0);
+                    item.FwkAcciones.ClaAccion = Utils.IsNull(id, "" );
 
                     try
                     {

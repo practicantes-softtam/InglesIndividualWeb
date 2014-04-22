@@ -29,8 +29,8 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkUsuarioAplicacion item = new Entities.FwkUsuarioAplicacion(true);
-                    item.ClaAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
-                    item.IdUsuario.IdUsuario = Utils.IsNull(id, "");
+                    item.FwkAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
+                    item.FwkUsuario.IdUsuario = Utils.IsNull(id, "");
 
                     try
                     {
