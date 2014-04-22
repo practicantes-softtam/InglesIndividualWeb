@@ -10,14 +10,14 @@ namespace InglesIndividual.Entities
         private FwkAplicaciones _claAplicacion;
         private FwkUsuarios _idUsusario;
 
-        public FwkUsuarios IdUsuario
+        public FwkUsuarios FwkUsuario
         {
             get { return _idUsusario; }
             set { _idUsusario = value; }
         }
 
 
-        public  FwkAplicaciones ClaAplicacion
+        public  FwkAplicaciones FwkAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }

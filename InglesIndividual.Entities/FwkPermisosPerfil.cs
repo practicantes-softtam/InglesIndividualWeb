@@ -23,32 +23,32 @@ namespace InglesIndividual.Entities
         }
 
 
-        public FwkAcciones ClaAccion
+        public FwkAcciones FwkAcciones
         {
             get { return _claAccion; }
             set { _claAccion = value; }
         }
 
 
-        public FwkObjetos ClaObjeto
+        public FwkObjetos FwkObjetos
         {
             get { return _claObjeto; }
             set { _claObjeto = value; }
         }
 
 
-        public FwkModulos ClaModulo
+        public FwkModulos FwkModulos
         {
             get { return _claModulo; }
             set { _claModulo = value; }
         }
 
-        public FwkPerfiles ClaPerfil
+        public FwkPerfiles FwkPerfil
         {
             get { return _claPerfil; }
             set { _claPerfil = value; }
         }
-        public FwkAplicaciones ClaAplicacion
+        public FwkAplicaciones FwkAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }

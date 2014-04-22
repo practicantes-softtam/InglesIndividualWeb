@@ -25,7 +25,7 @@ namespace InglesIndividual.Entities
         }
 
 
-        public FwkAplicaciones ClaAplicacion
+        public FwkAplicaciones FwkAplicaciones
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }

@@ -12,21 +12,21 @@ namespace InglesIndividual.Entities
         private FwkAplicaciones _claAplicacion;
         private FwkPerfiles _claPerfil;
 
-        public FwkPerfiles  ClaPerfil
+        public FwkPerfiles  FwkPerfil
         {
             get { return _claPerfil; ; }
             set {_claPerfil = value; }
         }
 
 
-        public FwkAplicaciones ClaAplicacion
+        public FwkAplicaciones FwkAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }
         }
         
 
-        public FwkUsuarios IdUsuario
+        public FwkUsuarios FwkUsuario
         {
             get { return _idUsuario; }
             set { _idUsuario = value; }

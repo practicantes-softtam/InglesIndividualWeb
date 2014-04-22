@@ -42,14 +42,14 @@ namespace InglesIndividual.Entities
         }
 
 
-        public FwkModulos ClaModulo
+        public FwkModulos FwkModulo
         {
             get { return _claModulo; }
             set { _claModulo = value; }
         }
 
 
-        public FwkAplicaciones ClaAplicacion
+        public FwkAplicaciones FwkAplicacion
         {
             get { return _claAplicacion; }
             set { _claAplicacion = value; }
