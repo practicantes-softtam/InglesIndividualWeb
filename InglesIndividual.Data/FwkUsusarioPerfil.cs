@@ -25,12 +25,12 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkUsuarioPerfil item = new Entities.FwkUsuarioPerfil(true);
-                item.IdUsuario = new Entities.FwkUsuarios();
-                item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
-                item.ClaAplicacion = new Entities.FwkAplicaciones();
-                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                item.ClaPerfil = new Entities.FwkPerfiles();
-                item.ClaPerfil.ClaPerfil = Utils.GetDataRowValue(dr, "ClaPerfil", 0);
+                item.FwkUsuario = new Entities.FwkUsuarios();
+                item.FwkUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
+                item.FwkAplicacion = new Entities.FwkAplicaciones();
+                item.FwkAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.FwkPerfil = new Entities.FwkPerfiles();
+                item.FwkPerfil.ClaPerfil = Utils.GetDataRowValue(dr, "ClaPerfil", 0);
 
 
                 this.SetWebEntityGridValues(item, dr);
@@ -47,9 +47,9 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkUsuarioPerfilIns
                sp = new DataEntities.SpFwkUsuarioPerfilIns();
 
-            sp.IdUsuario = item.IdUsuario.IdUsuario;
-            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
-            sp.ClaPerfil = item.ClaPerfil.ClaPerfil;
+            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.ClaAplicaion = item.FwkAplicacion.ClaAplicacion;
+            sp.ClaPerfil = item.FwkPerfil.ClaPerfil;
 
 
             if (tran != null)
@@ -70,9 +70,9 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkUsuarioPerfilDel
                sp = new DataEntities.SpFwkUsuarioPerfilDel();
 
-            sp.IdUsuario = item.IdUsuario.IdUsuario;
-            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
-            sp.ClaPerfil = item.ClaPerfil.ClaPerfil;
+            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.ClaAplicaion = item.FwkAplicacion.ClaAplicacion;
+            sp.ClaPerfil = item.FwkPerfil.ClaPerfil;
 
 
             if (tran != null)

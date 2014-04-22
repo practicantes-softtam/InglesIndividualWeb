@@ -22,10 +22,10 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkUsuarioAplicacion item = new Entities.FwkUsuarioAplicacion(true);
-                item.ClaAplicacion = new Entities.FwkAplicaciones();
-                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
-                item.IdUsuario = new Entities.FwkUsuarios();
-                item.IdUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
+                item.FwkAplicacion = new Entities.FwkAplicaciones();
+                item.FwkAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.FwkUsuario = new Entities.FwkUsuarios();
+                item.FwkUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
 
 
                 this.SetWebEntityGridValues(item, dr);
@@ -41,8 +41,8 @@ namespace InglesIndividual.Data
             Entities.FwkUsuarioAplicacion item = entity as Entities.FwkUsuarioAplicacion;
             DataEntities.SpFwkUsuarioAplicacionIns
                sp = new DataEntities.SpFwkUsuarioAplicacionIns();
-            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
-            sp.IdUsuario = item.IdUsuario.IdUsuario;
+            sp.ClaAplicaion = item.FwkAplicacion.ClaAplicacion;
+            sp.IdUsuario = item.FwkUsuario.IdUsuario;
 
 
 
@@ -63,8 +63,8 @@ namespace InglesIndividual.Data
             Entities.FwkUsuarioAplicacion item = entity as Entities.FwkUsuarioAplicacion;
             DataEntities.SpFwkUsuarioAplicacionDel
                sp = new DataEntities.SpFwkUsuarioAplicacionDel();
-            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
-            sp.IdUsuario = item.IdUsuario.IdUsuario;
+            sp.ClaAplicaion = item.FwkAplicacion.ClaAplicacion;
+            sp.IdUsuario = item.FwkUsuario.IdUsuario;
 
 
             if (tran != null)

@@ -23,8 +23,8 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkPerfiles item = new Entities.FwkPerfiles(true);
-                item.ClaAplicacion = new Entities.FwkAplicaciones();
-                item.ClaAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
+                item.FwkAplicaciones= new Entities.FwkAplicaciones();
+                item.FwkAplicaciones.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.ClaPerfil = Utils.GetDataRowValue(dr, "ClaPerfil", 0);
                 item.NomPerfil = Utils.GetDataRowValue(dr, "NomPerfil", "");
                 
@@ -42,7 +42,7 @@ namespace InglesIndividual.Data
             Entities.FwkPerfiles item = entity as Entities.FwkPerfiles;
             DataEntities.SpFwkPerfilesIns
                sp = new DataEntities.SpFwkPerfilesIns();
-            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaAplicaion = item.FwkAplicaciones.ClaAplicacion;
             sp.ClaPerfil = item.ClaPerfil;
             sp.NomPerfil = item.NomPerfil;
 
@@ -65,7 +65,7 @@ namespace InglesIndividual.Data
             Entities.FwkPerfiles item = entity as Entities.FwkPerfiles;
             DataEntities.SpFwkPerfilesDel
                sp = new DataEntities.SpFwkPerfilesDel();
-            sp.ClaAplicaion = item.ClaAplicacion.ClaAplicacion;
+            sp.ClaAplicaion = item.FwkAplicaciones.ClaAplicacion;
             sp.ClaPerfil = item.ClaPerfil;
             
 
