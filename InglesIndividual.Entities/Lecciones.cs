@@ -9,7 +9,7 @@ namespace InglesIndividual.Entities
     public class Lecciones : WebEntity
     {
         private int _claLeccion;
-        private int _nivel;
+        private Nivel _nivel;
         private string _nomLeccion;
         private int _esReview;
 
@@ -19,7 +19,7 @@ namespace InglesIndividual.Entities
             set { _claLeccion = value; }
         }
 
-        public int ClaNivel
+        public Nivel ClaNivel
         {
             get { return _nivel; }
             set { _nivel = value; }
