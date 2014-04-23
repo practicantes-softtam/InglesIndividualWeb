@@ -87,7 +87,7 @@ namespace InglesIndividual.Entities
         }
         private Ciudades _ciudad;
 
-        public Ciudades Ciudad
+        public Ciudades ClaCiudad
         {
             get { return _ciudad; }
             set { _ciudad = value; }
