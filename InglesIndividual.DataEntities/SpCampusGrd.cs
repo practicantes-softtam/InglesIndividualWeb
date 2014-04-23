@@ -12,7 +12,7 @@ namespace InglesIndividual.DataEntities
             : base("SpCampusGrd")
         {
 
-            this.AddParameter("@pNomCampus", System.Data.SqlDbType.Int, "");
+            this.AddParameter("@pNomCampus", System.Data.SqlDbType.VarChar, "");
 
         }
 

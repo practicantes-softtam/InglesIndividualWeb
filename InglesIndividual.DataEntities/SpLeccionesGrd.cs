@@ -8,11 +8,12 @@ namespace InglesIndividual.DataEntities
 {
     public class SpLeccionesGrd : PagedStoredProcedure
     {
-        public SpLeccionesGrd() : base("SpLeccionesGrd")
+        public SpLeccionesGrd()
+            : base("SpLeccionesGrd")
         {
             this.AddParameter("@pClaLeccion", System.Data.SqlDbType.Int, 0);
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, 0);
-            this.AddParameter("@pNomLeccion", System.Data.SqlDbType.VarChar, "");
+            
         }
 
         public int ClaLeccion
@@ -27,10 +28,5 @@ namespace InglesIndividual.DataEntities
             set { this.Command.Parameters["@pClaNivel"].Value = value; }
         }
 
-        public string NomLeccion
-        {
-            get { return Utils.IsNull(this.Command.Parameters["@pNomLeccion"].Value, ""); }
-            set { this.Command.Parameters["@pNomLeccion"].Value = value; }
-        }
     }
 }
