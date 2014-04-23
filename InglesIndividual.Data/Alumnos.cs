@@ -34,7 +34,7 @@ namespace InglesIndividual.Data
                 item.Pais.Nombre = Utils.GetDataRowValue(dr, "NomPais", "");
                 item.Estado = new Entities.Estado();
                 item.Estado.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
-                item.Ciudad = new Entities.Ciudades();
+                item.Ciudad = new Entities.Ciudad();
                 item.Ciudad.NomCiudad = Utils.GetDataRowValue(dr, "NomCiudad", "");
                 item.Empresa = Utils.GetDataRowValue(dr, "Empresa", "");
                 item.Telefono1 = Utils.GetDataRowValue(dr, "Telefono1", "");
@@ -76,7 +76,7 @@ namespace InglesIndividual.Data
             sp.CP = item.CP;
             sp.ClaPais = item.Pais.Clave;
             sp.ClaEstado = item.Estado.Clave;
-            sp.ClaCiudad = item.Ciudades.ClaCiudad;
+            sp.ClaCiudad = item.Ciudad.Clave;
             sp.Empresa = item.Empresa;
             sp.Telefono1 = item.Telefono1;
             sp.Telefono2 = item.Telefono2;

@@ -9,19 +9,19 @@ namespace InglesIndividual.Data
 {
     public class Puestos : InglesIndividualDataObject
     {
-        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, int claPuesto)
+        public List<Entities.Puesto> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
         {
-            List<Entities.Puestos> list = new List<Entities.Puestos>();
+            List<Entities.Puesto> list = new List<Entities.Puesto>();
             DataEntities.SpPuestosGrd sp = new DataEntities.SpPuestosGrd();
-            sp.ClaPuesto = claPuesto;
+            sp.NomPuesto = nomPuesto;
             this.ConfigurePagedStoredProcedure(sp, settings);
 
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
-                Entities.Puestos item = new Entities.Puestos(true);
-                item.ClaPuesto = Utils.GetDataRowValue(dr, "ClaPuesto", 0);
-                item.NomPuesto = Utils.GetDataRowValue(dr, "NomPuesto", "");
+                Entities.Puesto item = new Entities.Puesto(true);
+                item.Clave = Utils.GetDataRowValue(dr, "ClaPuesto", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomPuesto", "");
 
                 this.SetWebEntityGridValues(item, dr);
 
@@ -33,9 +33,9 @@ namespace InglesIndividual.Data
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
-            Entities.Puestos item = entity as Entities.Puestos;
+            Entities.Puesto item = entity as Entities.Puesto;
             DataEntities.SpPuestosDel sp = new DataEntities.SpPuestosDel();
-            sp.ClaPuesto = item.ClaPuesto;
+            sp.ClaPuesto = item.Clave;
 
             if (tran != null)
             {
