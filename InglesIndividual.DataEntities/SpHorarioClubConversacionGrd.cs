@@ -45,6 +45,12 @@ namespace InglesIndividual.DataEntities
             get { return Utils.IsNull(this.Command.Parameters["@pClaDia"].Value, 0); }
             set { this.Command.Parameters["@pClaDia"].Value = value; }
         }
+
+        public int Horas
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pHoras"].Value, 0); }
+            set { this.Command.Parameters["@pHoras"].Value = value; }
+        }
     }
 }
 
