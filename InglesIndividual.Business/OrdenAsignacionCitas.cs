@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.OrdenAsignacionCitas();
         }
 
-        public List<Entities.OrdenAsignacionCitas> ListarOrdenAsignacionCitas(InglesIndividual.Entities.JQXGridSettings settings, int ClaCampus)
+        public List<Entities.OrdenAsignacionCitas> ListarOrdenAsignacionCitas(InglesIndividual.Entities.JQXGridSettings settings, int ClaCampus, int ClaProfesor, int ClaOrden)
         {
-            return this.Data.ListarOrdenAsignacionCitas(settings, ClaCampus);
+            return this.Data.ListarOrdenAsignacionCitas(settings, ClaCampus, ClaProfesor, ClaOrden);
         }
 
         public List<Exception> Eliminar(int[] clas)
@@ -31,7 +31,8 @@ namespace InglesIndividual.Business
                 foreach (int cla in clas)
                 {
                     Entities.OrdenAsignacionCitas item = new Entities.OrdenAsignacionCitas(true);
-                    item.ClaCampus = Utils.IsNull(cla, 0);
+                    item.Campus = new Entities.Campus();
+                    item.Campus.ClaCampus = Utils.IsNull(cla, 0);
 
                     try
                     {

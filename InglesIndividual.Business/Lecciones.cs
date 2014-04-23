@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Lecciones();
         }
 
-        public List<Entities.Lecciones> ListarLecciones(InglesIndividual.Entities.JQXGridSettings settings, int claLeccion)
+        public List<Entities.Lecciones> ListarLecciones(InglesIndividual.Entities.JQXGridSettings settings, int claLeccion, int ClaNivel)
         {
-            return this.Data.ListarLecciones(settings, claLeccion);
+            return this.Data.ListarLecciones(settings, claLeccion, ClaNivel);
         }
 
         public List<Exception> Eliminar(int[] clas)

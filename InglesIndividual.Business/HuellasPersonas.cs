@@ -19,9 +19,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.HuellasPersonas();            
         }
 
-        public List<Entities.HuellasPersonas> ListarHuellasPersonas(InglesIndividual.Entities.JQXGridSettings settings, int idRegistro)
+        public List<Entities.HuellasPersonas> ListarHuellasPersonas(InglesIndividual.Entities.JQXGridSettings settings, int idRegistro, string Matricula, int ClaEmpleado)
         {
-            return this.Data.ListarHuellasPersonas(settings, idRegistro);
+            return this.Data.ListarHuellasPersonas(settings, idRegistro, Matricula, ClaEmpleado);
         }
 
         public List<Exception> Eliminar(int[] ids)

@@ -19,9 +19,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.HorarioMaestros();
         }
 
-        public List<Entities.HorarioMaestros> ListarHorarioMaestros(InglesIndividual.Entities.JQXGridSettings settings, int ClaEmpleado)
+        public List<Entities.HorarioMaestros> ListarHorarioMaestros(InglesIndividual.Entities.JQXGridSettings settings, int ClaEmpleado, int ClaCampus, int ClaHorario)
         {
-            return this.Data.ListarHorarioMaestros(settings, ClaEmpleado);
+            return this.Data.ListarHorarioMaestros(settings, ClaEmpleado, ClaCampus, ClaHorario);
         }
 
         public List<Exception> Eliminar(int[] clas)
@@ -32,7 +32,8 @@ namespace InglesIndividual.Business
                 foreach (int cla in clas)
                 {
                     Entities.HorarioMaestros item = new Entities.HorarioMaestros(true);
-                    item.ClaEmpleado = Utils.IsNull(cla, 0);
+                    item.Empleado = new Entities.Empleados();
+                    item.Empleado.ClaEmpleado = Utils.IsNull(cla, 0);
                     try
                     {
                         this.Data.Delete(item);

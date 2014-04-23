@@ -19,9 +19,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Kardex();
         }
 
-        public List<Entities.Kardex> ListarKardex(InglesIndividual.Entities.JQXGridSettings settings, int IdCalificacion)
+        public List<Entities.Kardex> ListarKardex(InglesIndividual.Entities.JQXGridSettings settings, string Matricula)
         {
-            return this.Data.ListarKardex(settings, IdCalificacion);
+            return this.Data.ListarKardex(settings, Matricula);
         }
 
         public List<Exception> Eliminar(int[] ids)

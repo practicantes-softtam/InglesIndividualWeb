@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Ciudades();
         }
 
-        public List<Entities.Ciudad> ListarCiudades(Entities.JQXGridSettings settings,int claCiudad, int claEstado, int claPais)
+        public List<Entities.Ciudad> ListarCiudades(Entities.JQXGridSettings settings, string nomCiudad)
         {
-            return this.Data.ListarCiudades(settings, claCiudad, claEstado, claPais);
+            return this.Data.ListarCiudades(settings, nomCiudad);
 
 
         }
