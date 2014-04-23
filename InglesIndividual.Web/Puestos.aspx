@@ -1,19 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Puestos.aspx.cs" Inherits="InglesIndividual.Web.Puestos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    <script src="js/grid.js" type="text/javascript"></script> 
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <script type="text/javascript">
-    var grid = new Grid("uiGrid");
+    var grid = new Grid("uiGrid",GetTheme());
 
     var settings = {
         source: {
-            datafields: [{ name: 'ID' }, { name: 'Nombre'}],
+            datafields: [{ name: 'Clave' }, { name: 'Nombre'}],
             url: 'Puestos.aspx/GetData'
         },
         gridOptions: {
             columns: [
-                        { text: 'ID', dataField: 'ID', width: 100, cellsrenderer: renderEdit },
+                        { text: 'Clave', dataField: 'Clave', width: 100, cellsrenderer: renderEdit },
                         { text: 'Puesto', dataField: 'Nombre', width: 300 },
                         { text: 'Eliminar', dataField: "Eliminar", sortable: false, cellsrenderer: renderDelete }
                     ]
@@ -22,7 +23,7 @@
             formatData: function (data) {
                 if (data.sortdatafield != undefined && data.sortdatafield != null) {
                     switch (data.sortdatafield) {
-                        case "ID": data.sortdatafield = "ClaPuesto"; break;
+                        case "Clave": data.sortdatafield = "ClaPuesto"; break;
                         case "Nombre": data.sortdatafield = "NomPuesto"; break;
                     }
                 }
@@ -35,25 +36,26 @@
         },
         deleteOptions: {
             checkID: "Puestos",
-            fieldID : "ID"
+            fieldID : "Clave"
         }
     };
 
     $(document).ready(function () {
 
-        $("#jqxwindow").jqxWindow({ width: 300, height: 300, autoOpen: false });
-        $("#uiGuardar").jqxButton();
-        $("#uiCancelar").jqxButton();
+        //$("#uiGrid").jqxGrid({theme: 'office'});
+        $("#jqxwindow").jqxWindow({ width: 300, height: 300, autoOpen: false, theme: GetTheme() });
+        $("#uiGuardar").jqxButton({ theme: GetTheme()});
+        $("#uiCancelar").jqxButton({ theme: GetTheme() });
 
         $("#uiCancelar").click(function () {
             $("#jqxwindow").jqxWindow("close");
         });
-        $("#form1").jqxValidator({
+        $("#mainForm").jqxValidator({
             rules: [
                 { input: "#uiNombre", message: "El nombre del puesto es requerido", rule: "required" }
             ]
         });
-        $("#form1").on('validationSuccess', function (event) {
+        $("#mainForm").on('validationSuccess', function (event) {
             var actionData = {
                 action: $("#uiAction").val(),
                 id: $("#uiID").val(),
@@ -74,7 +76,7 @@
         });
 
         $("#uiGuardar").click(function () {
-            $("#form1").jqxValidator("validate");
+            $("#mainForm").jqxValidator("validate");
         });
         $("#uiNuevo").click(function () {
             $("#uiAction").attr("value", "add");
@@ -101,7 +103,7 @@
             {
                 datatype: "json",
                 datafields: [
-                    { name: 'ID' },
+                    { name: 'Clave' },
                     { name: 'Nombre' }
                 ],
                 url: url

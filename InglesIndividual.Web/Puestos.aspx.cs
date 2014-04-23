@@ -94,7 +94,7 @@ namespace InglesIndividual.Web
                 item = new Puesto(true);
             }
 
-            item.ID = Utils.IsNull(id, 0);
+            item.Clave = Utils.IsNull(id, 0);
             item.Nombre = nombre;
 
             Business.Puestos bo = new Business.Puestos();
@@ -110,7 +110,7 @@ namespace InglesIndividual.Web
             for (int i = 1; i <= 10; i++)
             {
                 Entities.Puesto item = new Puesto();
-                item.ID = i;
+                item.Clave = i;
                 item.Nombre = string.Format("Puesto {0}", 0);
                 list.Add(item);
             }

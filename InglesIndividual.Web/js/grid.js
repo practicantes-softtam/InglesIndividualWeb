@@ -1,4 +1,4 @@
-﻿function Grid(id) {
+﻿function Grid(id, getTheme) {
     this.id = id;
     //this.settings = settings;
 
@@ -34,6 +34,7 @@
         var dataAdapter = new $.jqx.dataAdapter(source, adapterSettings);
 
         var gridSettings = {
+            theme: getTheme,
             source: dataAdapter,
             editable: false,
             pageable: true,

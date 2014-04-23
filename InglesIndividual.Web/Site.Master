@@ -8,18 +8,104 @@
     <script src="htmlcontrols/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="htmlcontrols/jqwidgets/jqx-all.js" type="text/javascript"></script>
     <link href="htmlcontrols/jqwidgets/styles/jqx.base.css" rel="stylesheet" type="text/css" />
+    <link href="htmlcontrols/jqwidgets/styles/jqx.office.css" rel="stylesheet" type="text/css" />
+    
     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#mainSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: getPageHeight(), orientation: 'horizontal', panels: [{ size: 150 }, { size: 150}] });
+            $('#menuSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: 30, orientation: 'vertical', panels: [{ size: getPageWidth() / 2 }, { size: getPageWidth() / 2}] });
+            $('#mainSplitter').css('marginLeft', (getLefMargin()));
+            $('#jqxMenu').jqxMenu({ theme: GetTheme(), width: '100%', height: '30' });
+            $('#body').css('background', '#008b54');
+            LoadButtons();
+        });
+
+        function LoadButtons() {
+
+            $('#uiBack').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $('#uiSave').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $('#uiNew').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $('#uiDelete').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $('#uiSearch').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+        }
+
+        function getButtonsHeight() {
+            return 30;
+        }
+
+        function getButtonssWidth() {
+            return (getPageWidth() / 2) / 6;
+        }
+
+        function getLefMargin() {
+            return $(document).width() / 100 * 15;
+        }
+
+        function getPageWidth() {
+            return $(document).width() / 100 * 70;
+        }
+
+        function getPageHeight() {
+            return $(document).height();
+        }
+
+        function GetTheme() {
+            return 'office';
+        }
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+<body style= "background-color:#008b54;">
+    <div id="mainSplitter">
+            
+            <div class="splitter-panel">
+                
+                
+                
+            </div>
+            <div class="splitter-panel">
+                
+                    <form id="mainForm" runat="server">
+                        <div>
+                            <div id="menuSplitter">
+                                <div class="splitter-panel">
+                                    <div id='jqxMenu'>
+                                        <ul>
+                                            <li><a href="#Home">Inicio</a></li>
+                                            <li>Catálogos
+                                                <ul>
+                                                    <li>Alumnos</li>
+                                                    <li>Campus</li>
+                                                    <li>Puestos</li>
+                                                </ul>
+                                            </li>
+                                            <li>Procesos</li>
+                                            <li>Reportes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="splitter-panel">
+                                    <div id="Buttons">
+                                        <div>
+                                            <input type="button" value="Regresar" id='uiBack' />
+                                            <input type="button" value="Guardar" id='uiSave' />
+                                            <input type="button" value="Nuevo" id='uiNew' />
+                                            <input type="button" value="Borrar" id='uiDelete' />
+                                            <input type="button" value="Buscar" id='uiSearch' />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </form>
+
+            </div>
     </div>
-    </form>
 </body>
 </html>
