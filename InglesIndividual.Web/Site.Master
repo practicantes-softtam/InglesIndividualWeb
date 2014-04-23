@@ -13,7 +13,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#mainSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: getPageHeight(), orientation: 'horizontal', panels: [{ size: 150 }, { size: 150}] });
-            $('#menuSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: 30, orientation: 'vertical', panels: [{ size: getPageWidth() / 2 }, { size: getPageWidth() / 2}] });
+            $('#menuSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: 105, orientation: 'horizontal', panels: [{ size: 30 }, { size: getButtonsHeight()}] });
             $('#mainSplitter').css('marginLeft', (getLefMargin()));
             $('#jqxMenu').jqxMenu({ theme: GetTheme(), width: '100%', height: '30' });
             $('#body').css('background', '#008b54');
@@ -21,7 +21,7 @@
         });
 
         function LoadButtons() {
-
+            $("#uiButtons").jqxButtonGroup({ mode: 'default' });
             $('#uiBack').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
             $('#uiSave').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
             $('#uiNew').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
@@ -30,7 +30,7 @@
         }
 
         function getButtonsHeight() {
-            return 30;
+            return 60;
         }
 
         function getButtonssWidth() {
@@ -86,13 +86,33 @@
                                     </div>
                                 </div>
                                 <div class="splitter-panel">
-                                    <div id="Buttons">
-                                        <div>
-                                            <input type="button" value="Regresar" id='uiBack' />
-                                            <input type="button" value="Guardar" id='uiSave' />
-                                            <input type="button" value="Nuevo" id='uiNew' />
-                                            <input type="button" value="Borrar" id='uiDelete' />
-                                            <input type="button" value="Buscar" id='uiSearch' />
+                                    <div>
+                                        <div id="uiButtons">
+                                            <div id='uiBack' style="display:table-row; padding-left:20px;">
+                                                <br />
+                                                <div style="display:table-cell; height:31px;"><img style='vertical-align:middle;width:32px; height:32px;' src="images/Icons/Back.png"; alt="Regresar" /></div>
+                                                <div style="display:table-cell; height:31px;">Regresar</div>
+                                            </div>
+                                            <div id='uiSave' style="display:table-row; padding-left:20px;">
+                                                <br />
+                                                <div style="display:table-cell; height:31px;"><img style='vertical-align:middle;width:32px; height:32px;' src="images/Icons/Save.png"; alt="Regresar" /></div>
+                                                <div style="display:table-cell; height:31px;">Guardar</div>
+                                            </div>
+                                            <div id='uiNew' style="display:table-row; padding-left:20px;">
+                                                <br />
+                                                <div style="display:table-cell; height:31px;"><img style='vertical-align:middle;width:32px; height:32px;' src="images/Icons/New.png"; alt="Regresar" /></div>
+                                                <div style="display:table-cell; height:31px;">Nuevo</div>
+                                            </div>
+                                            <div id='uiDelete' style="display:table-row; padding-left:20px;">
+                                                <br />
+                                                <div style="display:table-cell; height:31px;"><img style='vertical-align:middle;width:32px; height:32px;' src="images/Icons/Delete.png"; alt="Regresar" /></div>
+                                                <div style="display:table-cell; height:31px;">Borrar</div>
+                                            </div>
+                                            <div id='uiSearch' style="display:table-row; padding-left:20px;">
+                                                <br />
+                                                <div style="display:table-cell; height:31px;"><img style='vertical-align:middle;width:32px; height:32px;' src="images/Icons/Search.png"; alt="Regresar" /></div>
+                                                <div style="display:table-cell; height:31px;">Buscar</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
