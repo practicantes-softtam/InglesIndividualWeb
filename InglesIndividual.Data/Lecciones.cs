@@ -9,13 +9,13 @@ namespace InglesIndividual.Data
 {
     public class Lecciones : InglesIndividualDataObject
     {
-        public List<Entities.Lecciones> ListarLecciones(Entities.JQXGridSettings settings, int ClaLeccion, int ClaNivel, string NomLeccion)
+        public List<Entities.Lecciones> ListarLecciones(Entities.JQXGridSettings settings, int ClaLeccion, int ClaNivel)
         {
             List<Entities.Lecciones> list = new List<Entities.Lecciones>();
             DataEntities.SpLeccionesGrd sp = new DataEntities.SpLeccionesGrd();
             sp.ClaLeccion = ClaLeccion;
             sp.ClaNivel = ClaNivel;
-            sp.NomLeccion = NomLeccion;
+       
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)

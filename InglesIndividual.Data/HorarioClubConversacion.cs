@@ -23,10 +23,10 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.HorarioClubConversacion item = new Entities.HorarioClubConversacion(true);
-                item.ClaCampus = new Entities.Campus();
-                item.ClaCampus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
-                item.ClaEmpleado = new Entities.Empleados();
-                item.ClaEmpleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
+                item.Campus = new Entities.Campus();
+                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Empleado = new Entities.Empleados();
+                item.Empleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
                 item.ClaDia = Utils.GetDataRowValue(dr, "ClaDia", 0);
                 this.SetWebEntityGridValues(item, dr);
@@ -40,8 +40,8 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionIns sp = new DataEntities.SpHorarioClubConversacionIns();
-            sp.ClaCampus = item.ClaCampus.ClaCampus;
-            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.ClaHorario = item.ClaHorario;
             sp.ClaDia = item.ClaDia;
             sp.Horas = item.Horas;
@@ -60,8 +60,8 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionDel sp = new DataEntities.SpHorarioClubConversacionDel();
-            sp.ClaCampus = item.ClaCampus.ClaCampus;
-            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.ClaHorario = item.ClaHorario;
             sp.Horas = item.Horas;
             sp.ClaDia = item.ClaDia;

@@ -40,8 +40,8 @@ namespace InglesIndividual.Data
             sp.Colonia = item.Colonia;
             sp.CodigoPostal = item.CodigoPostal;
             sp.ClaPais = item.ClaPais.Clave;
-            sp.ClaEstado = item.ClaEstado.Clave;
-            sp.ClaCiudad = item.ClaCiudad.ClaCiudad;
+            sp.ClaEstado = item.Ciudad.Estado.Clave;
+            sp.ClaCiudad = item.Ciudad.Clave;
             sp.Telefono = item.Telefono;
             sp.DirectorGeneral = item.DirectorGeneral;
             sp.DirectorAdministrativo = item.DirectorAdministrativo;

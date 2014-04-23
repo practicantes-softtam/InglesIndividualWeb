@@ -20,8 +20,8 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.HorarioMaestros item = new Entities.HorarioMaestros(true);
-                item.ClaEmpleado = new Entities.Empleados();
-                item.ClaEmpleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
+                item.Empleado = new Entities.Empleados();
+                item.Empleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 item.ClaCampus = new Entities.Campus();
                 item.ClaCampus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
@@ -35,7 +35,7 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioMaestros item = entity as Entities.HorarioMaestros;
             DataEntities.SpFwkHorarioMaestrosIns sp = new DataEntities.SpFwkHorarioMaestrosIns();
-            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.ClaCampus = item.ClaCampus.ClaCampus;
             sp.ClaHorario = item.ClaHorario;
             sp.Lun = item.Lun;
@@ -67,7 +67,7 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioMaestros item = entity as Entities.HorarioMaestros;
             DataEntities.SpHorarioMaestrosDel sp = new DataEntities.SpHorarioMaestrosDel();
-            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.ClaCampus = item.ClaCampus.ClaCampus;
             sp.ClaHorario = item.ClaHorario;
             if (tran != null)
