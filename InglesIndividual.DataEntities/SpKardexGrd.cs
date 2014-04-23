@@ -11,16 +11,13 @@ namespace InglesIndividual.DataEntities
         public SpKardexGrd()
             : base("SpKardexGrd")
         {
-            this.AddParameter("@pIdCalificacion", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pIdCalificacion"].Direction = System.Data.ParameterDirection.Output;
-
+            this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, "");
         }
 
-        public int IdCalificacion
+        public string Matricula
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pIdCalificacion"].Value, 0); }
-            set { this.Command.Parameters["@pIdCalificacion"].Value = value; }
+            get { return Utils.IsNull(this.Command.Parameters["@pMatricula"].Value, ""); }
+            set { this.Command.Parameters["@pMatricula"].Value = value; }
         }
     }
 }
-

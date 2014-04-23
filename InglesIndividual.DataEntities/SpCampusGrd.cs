@@ -12,13 +12,13 @@ namespace InglesIndividual.DataEntities
             : base("SpCampusGrd")
         {
 
-            this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pNomCampus", System.Data.SqlDbType.Int, "");
 
         }
 
-        public int ClaCampus
+        public string NomCampus
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pClaCampus"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pNomCampus"].Value, ""); }
             set { this.Command.Parameters["@pClaCampus"].Value = value; }
         }
     }

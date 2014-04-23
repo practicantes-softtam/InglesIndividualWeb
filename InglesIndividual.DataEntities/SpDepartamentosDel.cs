@@ -12,11 +12,11 @@ namespace InglesIndividual.DataEntities
         public SpDepartamentosDel()
             : base("spDepartamentosDel")
         {
-            this.AddParameter("@pClaDepartamento", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pNomDepartamento", System.Data.SqlDbType.VarChar, "");
         }
-        public int ClaDepartamento
+        public string NomDepartamento
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pClaDepartamento"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pNomDepartamento"].Value, ""); }
             set { this.Command.Parameters["@pClaDepartamento"].Value = value; }
         }
 

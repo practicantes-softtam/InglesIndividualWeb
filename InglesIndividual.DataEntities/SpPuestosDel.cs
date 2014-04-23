@@ -11,11 +11,18 @@ namespace InglesIndividual.DataEntities
 		public SpPuestosDel(): base("spPuestosDel")
 		{
 			this.AddParameter("@pClaPuesto", System.Data.SqlDbType.Int, 0);
+            this.AddParameter("@pNomPuesto", System.Data.SqlDbType.VarChar, "");
 		}
 		public int ClaPuesto
 		{
 			get { return Utils.IsNull(this.Command.Parameters["@pClaPuesto"].Value, 0); }
 			set { this.Command.Parameters["@pClaPuesto"].Value = value; }
 		}
+
+        public string NomPuesto
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pNomPuesto"].Value, ""); }
+            set { this.Command.Parameters["@pNomPuesto"].Value = value; }
+        }
 	}
 }

@@ -12,29 +12,22 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pIdUsuario", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pNomUsuario", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.AddParameter("@pPassword", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.AddParameter("@pEmail", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.Command.Parameters["@pIdUsuario"].Direction = System.Data.ParameterDirection.Output;
 
         }
 
         
-        public string IdUsuario
+          public string IdUsuario
         {
             get { return Utils.IsNull(this.Command.Parameters["@pIdUsuario"].Value, ""); }
-            set
-            {
-                if (value == null)
-                {
-                    this.Command.Parameters["@pIdUsuario"].Value = DBNull.Value;
-                }
-                else
-                {
-                    this.Command.Parameters["@pIdUsuario"].Value = value;
-                }
-            }
-            
+            set { this.Command.Parameters["@pIdUsuario"].Value = value; }
+        }
+
+        public string NomUsuario
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pNomUsuario"].Value, ""); }
+            set { this.Command.Parameters["@pNomUsuario"].Value = value; }
+        }
         }
                 
         }
-    }
