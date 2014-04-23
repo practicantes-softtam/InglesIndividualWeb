@@ -9,18 +9,22 @@ namespace InglesIndividual.Data
 {
     public class OrdenAsignacionCitas : InglesIndividualDataObject
     {
-        public List<Entities.OrdenAsignacionCitas> ListarOrdenAsignacionCitas(Entities.JQXGridSettings settings, int ClaCampus)
+        public List<Entities.OrdenAsignacionCitas> ListarOrdenAsignacionCitas(Entities.JQXGridSettings settings, int ClaCampus, int claProfesor, int orden)
         {
             DataEntities.SpOrdenAsignacionCitasGrd sp = new DataEntities.SpOrdenAsignacionCitasGrd();
             List<Entities.OrdenAsignacionCitas> list = new List<Entities.OrdenAsignacionCitas>();
             sp.ClaCampus = ClaCampus;
+            sp.ClaProfesor = claProfesor;
+            sp.Orden = orden;
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.OrdenAsignacionCitas item = new Entities.OrdenAsignacionCitas(true);
-                item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.ClaCampus = new Entities.Campus();
+                item.ClaCampus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.ClaProfesor = Utils.GetDataRowValue(dr, "ClaProfesor", 0);
+                item.Orden= Utils.GetDataRowValue(dr, "Orden", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -32,8 +36,9 @@ namespace InglesIndividual.Data
         {
             Entities.OrdenAsignacionCitas item = entity as Entities.OrdenAsignacionCitas;
             DataEntities.SpOrdenAsignacionCitasIns sp = new DataEntities.SpOrdenAsignacionCitasIns();
-            sp.ClaCampus = item.ClaCampus;
+            sp.ClaCampus = item.ClaCampus.ClaCampus;
             sp.ClaProfesor = item.ClaProfesor;
+            sp.Orden = item.Orden;
             sp.Orden = item.Orden;
             if (tran != null)
             {
@@ -50,8 +55,9 @@ namespace InglesIndividual.Data
         {
             Entities.OrdenAsignacionCitas item = entity as Entities.OrdenAsignacionCitas;
             DataEntities.SpOrdenAsignacionCitasDel sp = new DataEntities.SpOrdenAsignacionCitasDel();
-            sp.ClaCampus = item.ClaCampus;
+            sp.ClaCampus = item.ClaCampus.ClaCampus;
             sp.ClaProfesor = item.ClaProfesor;
+            sp.Orden = item.Orden;          
 
             if (tran != null)
             {

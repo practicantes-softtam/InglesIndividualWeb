@@ -61,7 +61,7 @@ namespace InglesIndividual.Data
             Entities.Departamentos item = entity as Entities.Departamentos;
             DataEntities.SpDepartamentosDel
                 sp = new DataEntities.SpDepartamentosDel();
-            sp.ClaDepartamento = item.ClaDepartamento;
+            sp.NomDepartamento = item.NomDepartamento;
 
             if (tran != null)
             {

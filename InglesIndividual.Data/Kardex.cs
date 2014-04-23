@@ -10,17 +10,17 @@ namespace InglesIndividual.Data
     public class Kardex : InglesIndividualDataObject
     {
 
-        public List<Entities.Kardex> ListarKardex(Entities.JQXGridSettings settings, int IdCalificacion)
+        public List<Entities.Kardex> ListarKardex(Entities.JQXGridSettings settings, string Matricula)
         {
             DataEntities.SpKardexGrd sp = new DataEntities.SpKardexGrd();
             List<Entities.Kardex> list = new List<Entities.Kardex>();
-            sp.IdCalificacion = IdCalificacion;
+            sp.Matricula = Matricula;
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Kardex item = new Entities.Kardex(true);
-                item.IdCalificacion = Utils.GetDataRowValue(dr, "IdCalificacion", 0);                
+                item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");                
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -34,9 +34,9 @@ namespace InglesIndividual.Data
             DataEntities.SpKardexIns sp = new DataEntities.SpKardexIns();
             sp.IdCalificacion = item.IdCalificacion;
             sp.Matricula = item.Matricula;
-            sp.ClaCampus = item.ClaCampus;
-            sp.ClaNivel = item.ClaNivel;
-            sp.ClaLeccion = item.ClaLeccion;
+            sp.ClaCampus = item.ClaCampus.ClaCampus;
+            sp.ClaNivel = item.ClaNivel.ClaNivel;
+            sp.ClaLeccion = item.ClaLeccion.ClaLeccion;
             sp.ClaProfesor = item.ClaProfesor;
             sp.Calificacion = item.Calificacion;
             sp.TipoClase = item.TipoClase;
@@ -58,7 +58,7 @@ namespace InglesIndividual.Data
         {
             Entities.Kardex item = entity as Entities.Kardex;
             DataEntities.SpKardexDel sp = new DataEntities.SpKardexDel();
-            sp.IdCalificacion = item.IdCalificacion;
+            sp.Matricula = item.Matricula;
 
             if (tran != null)
             {

@@ -9,18 +9,21 @@ namespace InglesIndividual.Data
 {
     public class HorarioMaestros : InglesIndividualDataObject
     {
-        public List<Entities.HorarioMaestros> ListarHorarioMaestros(Entities.JQXGridSettings settings, int ClaEmpleado)
+        public List<Entities.HorarioMaestros> ListarHorarioMaestros(Entities.JQXGridSettings settings, int ClaEmpleado, int ClaCampus, int ClaHorario)
         {
             DataEntities.SpFwkHorarioMaestrosGrd sp = new DataEntities.SpFwkHorarioMaestrosGrd();
             List<Entities.HorarioMaestros> list = new List<Entities.HorarioMaestros>();
             sp.ClaEmpleado = ClaEmpleado;
+            sp.ClaCampus = ClaCampus;
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.HorarioMaestros item = new Entities.HorarioMaestros(true);
-                item.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
-                item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.ClaEmpleado = new Entities.Empleados();
+                item.ClaEmpleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
+                item.ClaCampus = new Entities.Campus();
+                item.ClaCampus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
@@ -32,8 +35,8 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioMaestros item = entity as Entities.HorarioMaestros;
             DataEntities.SpFwkHorarioMaestrosIns sp = new DataEntities.SpFwkHorarioMaestrosIns();
-            sp.ClaEmpleado = item.ClaEmpleado;
-            sp.ClaCampus = item.ClaCampus;
+            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaCampus = item.ClaCampus.ClaCampus;
             sp.ClaHorario = item.ClaHorario;
             sp.Lun = item.Lun;
             sp.Mar = item.Mar;
@@ -64,8 +67,8 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioMaestros item = entity as Entities.HorarioMaestros;
             DataEntities.SpHorarioMaestrosDel sp = new DataEntities.SpHorarioMaestrosDel();
-            sp.ClaEmpleado = item.ClaEmpleado;
-            sp.ClaCampus = item.ClaCampus;
+            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaCampus = item.ClaCampus.ClaCampus;
             sp.ClaHorario = item.ClaHorario;
             if (tran != null)
             {

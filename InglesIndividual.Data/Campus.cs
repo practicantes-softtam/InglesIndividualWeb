@@ -9,11 +9,11 @@ namespace InglesIndividual.Data
 {
     public class Campus : InglesIndividualDataObject
     {
-        public List<Entities.Campus> ListarCampus(InglesIndividual.Entities.JQXGridSettings settings, int ClaCampus)
+        public List<Entities.Campus> ListarCampus(InglesIndividual.Entities.JQXGridSettings settings, string nomCampus)
         {
             List<Entities.Campus> list = new List<Entities.Campus>();
             DataEntities.SpCampusGrd sp = new DataEntities.SpCampusGrd();
-            sp.ClaCampus = ClaCampus;
+            sp.NomCampus = nomCampus;
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
@@ -39,9 +39,9 @@ namespace InglesIndividual.Data
             sp.Calle = item.Calle;
             sp.Colonia = item.Colonia;
             sp.CodigoPostal = item.CodigoPostal;
-            sp.ClaPais = item.ClaPais;
-            sp.ClaEstado = item.ClaEstado;
-            sp.ClaCiudad = item.ClaCiudad;
+            sp.ClaPais = item.ClaPais.Clave;
+            sp.ClaEstado = item.ClaEstado.Clave;
+            sp.ClaCiudad = item.ClaCiudad.ClaCiudad;
             sp.Telefono = item.Telefono;
             sp.DirectorGeneral = item.DirectorGeneral;
             sp.DirectorAdministrativo = item.DirectorAdministrativo;
@@ -62,7 +62,7 @@ namespace InglesIndividual.Data
             Entities.Campus item = entity as Entities.Campus;
             DataEntities.SpCampusDel
                 sp = new DataEntities.SpCampusDel();
-            sp.ClaCampus = item.ClaCampus;
+            sp.NomCampus = item.NomCampus;
 
             if (tran != null)
             {
