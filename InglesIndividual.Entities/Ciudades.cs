@@ -9,8 +9,8 @@ namespace InglesIndividual.Entities
     {
 
         private int _clave;
-        private int _estado;
-        private int _pais;
+        private Estado _estado;
+        private Pais _pais;
         private string _nomCiudad;
 
 
@@ -26,13 +26,13 @@ namespace InglesIndividual.Entities
             set { _nomCiudad = value; }
         }
 
-        public int ClaEstado
+        public Estado ClaEstado
         {
             get { return _estado; }
             set { _estado = value; }
         }
 
-        public int ClaPais
+        public Pais ClaPais
         {
             get { return _pais; }
             set { _pais = value; }
