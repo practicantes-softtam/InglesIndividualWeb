@@ -20,20 +20,20 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Puestos();
         }
 
-        public List<Entities.Puestos> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, int claPuesto)
+        public List<Entities.Puesto> ListarPuestos(InglesIndividual.Entities.JQXGridSettings settings, string nomPuesto)
         {
-            return this.Data.ListarPuestos(settings, claPuesto);
+            return this.Data.ListarPuestos(settings, nomPuesto);
         }
 
-        public List<Exception> Eliminar(int[] ids)
+        public List<Exception> Eliminar(string[] ids)
         {
             List<Exception> list = new List<Exception>();
             if (ids != null && ids.Length > 0)
             {
-                foreach (int id in ids)
+                foreach (string id in ids)
                 {
-                    Entities.Puestos item = new Entities.Puestos(true);
-                    item.ClaPuesto = Utils.IsNull(id, 0);
+                    Entities.Puesto item = new Entities.Puesto(true);
+                    item.Clave = Utils.IsNull(id, 0);
 
                     try
                     {
@@ -49,11 +49,5 @@ namespace InglesIndividual.Business
             return list;
         }
 
-
-
-        public List<Entities.Puestos> ListarPuestos(Entities.JQXGridSettings settings, string nomPuesto)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
