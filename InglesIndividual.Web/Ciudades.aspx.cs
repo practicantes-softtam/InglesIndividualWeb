@@ -28,7 +28,7 @@ namespace InglesIndividual.Web
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
             Business.Ciudades bo = new Business.Ciudades();
-            List<Entities.Ciudad> list = bo.ListarCiudades(settings,  0, 0,0);
+            List<Entities.Ciudad> list = bo.ListarCiudades(settings,  "");
 
             int registros = 0;
 
@@ -55,7 +55,7 @@ namespace InglesIndividual.Web
             {
                 item = new Ciudad(true);
             }
-            item.ClaCiudad = Utils.IsNull(id, 0);
+            item.Clave = Utils.IsNull(id, 0);
             item.NomCiudad = nombre;
 
             Business.Ciudades bo = new Business.Ciudades();
