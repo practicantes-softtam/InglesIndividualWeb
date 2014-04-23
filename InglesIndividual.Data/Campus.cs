@@ -19,7 +19,7 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Campus item = new Entities.Campus(true);
-                item.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.NomCampus= Utils.GetDataRowValue(dr, "NomCampus", "");
 
                 this.SetWebEntityGridValues(item, dr);
 
