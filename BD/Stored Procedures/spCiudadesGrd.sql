@@ -5,8 +5,6 @@ go
 CREATE proc spCiudadesGrd
 (
 	@pNomCiudad varchar (50),
-	@pClaEstado	int,
-	@pClaPais int,
 	@pTamanioPagina	int,
 	@pNumPagina		int,
 	@pOrdenarPor		varchar(100)
@@ -23,10 +21,6 @@ begin
 	into #tabla
 	from Ciudades
 	where NomCiudad like @pNomCiudad 
-	and (ClaPais=@pClaPais or @pClaPais=0)
-	and (ClaEstado=@pClaEstado or @pClaEstado=0)
-	
-	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 
 end
