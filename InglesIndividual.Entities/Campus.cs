@@ -13,9 +13,9 @@ namespace InglesIndividual.Entities
         private string _calle;
         private string _colonia;
         private int _codigoPostal;
-        private int _pais;
-        private int _estado;
-        private int _ciudad;
+        private Pais _pais;
+        private Estado _estado;
+        private Ciudades _ciudad;
         private string _telefono;
         private string _directorGeneral;
         private string _directorAdministrativo;
@@ -50,19 +50,19 @@ namespace InglesIndividual.Entities
             set { _codigoPostal = value; }
         }
 
-        public int ClaPais
+        public Pais ClaPais
         {
             get { return _pais; }
             set { _pais = value; }
         }
              
-        public int ClaEstado
+        public Estado ClaEstado
         {
             get { return _estado; }
             set { _estado = value; }
         }
 
-        public int ClaCiudad
+        public Ciudades ClaCiudad
         {
             get { return _ciudad; }
             set { _ciudad = value; }
