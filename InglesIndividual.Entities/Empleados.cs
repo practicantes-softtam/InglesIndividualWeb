@@ -8,7 +8,7 @@ namespace InglesIndividual.Entities
     public class Empleados : WebEntity
     {
         private int _claEmpleado;
-        private Puestos _claPuesto;
+        private Puesto _puesto;
 
         public int ClaEmpleado
         {
@@ -60,10 +60,10 @@ namespace InglesIndividual.Entities
 
 
 
-        public Puestos ClaPuesto
+        public Puesto Puesto
         {
-            get { return _claPuesto; }
-            set { _claPuesto = value; }
+            get { return _puesto; }
+            set { _puesto = value; }
         }
 
         private string _calle;
@@ -101,9 +101,9 @@ namespace InglesIndividual.Entities
             get { return _estado; }
             set { _estado = value; }
         }
-        private Ciudades _ciudad;
+        private Ciudad _ciudad;
 
-        public Ciudades Ciudad
+        public Ciudad Ciudad
         {
             get { return _ciudad; }
             set { _ciudad = value; }

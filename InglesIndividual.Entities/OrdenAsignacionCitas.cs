@@ -11,7 +11,7 @@ namespace InglesIndividual.Entities
         private int _claProfesor;
         private int _orden;
 
-        public Campus ClaCampus
+        public Campus Campus
         {
             get { return _campus; }
             set { _campus = value; }

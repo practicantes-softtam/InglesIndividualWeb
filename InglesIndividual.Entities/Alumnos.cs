@@ -85,9 +85,9 @@ namespace InglesIndividual.Entities
             get { return _estado; }
             set { _estado = value; }
         }
-        private Ciudades _ciudad;
+        private Ciudad _ciudad;
 
-        public Ciudades ClaCiudad
+        public Ciudad Ciudad
         {
             get { return _ciudad; }
             set { _ciudad = value; }

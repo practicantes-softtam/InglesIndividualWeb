@@ -8,24 +8,24 @@ namespace InglesIndividual.Entities
     public class HorarioClubConversacion : WebEntity
      {
         private Campus _campus;
-        private Empleados _claEmpleado;
+        private Empleados _empleado;
         private int _claHorario;
         private int _claDia;
         private int _horas;
 
 
-        public Campus ClaCampus
+        public Campus Campus
 	
         {
             get { return _campus; }
             set { _campus = value; }
         }
 
-        public Empleados ClaEmpleado
+        public Empleados Empleado
 	
         {
-            get { return _claEmpleado; }
-            set { _claEmpleado = value; }
+            get { return _empleado; }
+            set { _empleado = value; }
         }
 
         public int ClaHorario

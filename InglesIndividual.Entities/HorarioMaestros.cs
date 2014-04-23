@@ -7,7 +7,7 @@ namespace InglesIndividual.Entities
 {
     public class HorarioMaestros : WebEntity
       {
-        private Empleados _claEmpleado;
+        private Empleados _empleado;
         private Campus _campus;
         private int _claHorario;
         private int _lun;
@@ -25,11 +25,11 @@ namespace InglesIndividual.Entities
         private int _ordenSab;
         private int _ordenDom;
 
-        public Empleados ClaEmpleado
+        public Empleados Empleado
 	
         {
-            get { return _claEmpleado; }
-            set { _claEmpleado = value; }
+            get { return _empleado; }
+            set { _empleado = value; }
         }
 
         public Campus ClaCampus
