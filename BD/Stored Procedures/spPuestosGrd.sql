@@ -7,7 +7,7 @@ CREATE proc spPuestosGrd
 	@pNomPuesto		varchar(30),
 	@pTamanioPagina	int,
 	@pNumPagina		int,
-	@pOrdenarPor		varchar(100)
+	@pOrdenarPor	varchar(100)
 )
 as
 begin

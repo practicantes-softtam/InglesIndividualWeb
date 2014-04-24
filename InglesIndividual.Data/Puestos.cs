@@ -31,6 +31,16 @@ namespace InglesIndividual.Data
             return list;
         }
 
+        public override int Insert(Entity entity)
+        {
+            Entities.Puesto item = entity as Entities.Puesto;
+            DataEntities.SpPuestosIns sp = new DataEntities.SpPuestosIns();
+            sp.ClaPuesto = item.Clave;
+            sp.NomPuesto = item.Nombre;
+
+            return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.Puesto item = entity as Entities.Puesto;

@@ -2,7 +2,7 @@
     this.id = id;
     //this.settings = settings;
 
-    this.load = function (settings) {
+    this.load = function (settings, gridWidth) {
         this.settings = settings;
         var gridID = this.id;
         var source = {
@@ -47,7 +47,8 @@
             rendergridrows: function (args) {
                 return args.data;
             },
-            enabletooltips: true
+            enabletooltips: true,
+            width: gridWidth
         }
 
         if (this.settings.gridOptions != undefined) {
@@ -104,8 +105,16 @@
 }
 
 function renderEdit(row, columnfield, value, defaulthtml, columnproperties) {
-    return "<span style=\"padding-left: 5px\"><a href=\"javascript:edit('" + value + "');\">" + value + "</a></span>";
+    return "Editar"; /*"<span style=\"padding-left: 5px\"><a href=\"javascript:edit('" + value + "');\">" + value + "</a></span>";*/
 }
+
+function editClick(row) {
+    editrow = row;
+    var dataRecord = $("#"+grid.id).jqxGrid('getrowdata', editrow);
+    edit(dataRecord.ID);
+}
+                        
+
 
 function executeAjax(ajaxSettings) {
     var settings = {

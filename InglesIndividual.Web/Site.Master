@@ -12,8 +12,8 @@
     
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#mainSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: getPageHeight(), orientation: 'horizontal', panels: [{ size: 150 }, { size: 150}] });
-            $('#menuSplitter').jqxSplitter({ theme: GetTheme(), width: getPageWidth(), height: 105, orientation: 'horizontal', panels: [{ size: 30 }, { size: getButtonsHeight()}] });
+            $('#mainSplitter').jqxSplitter({ resizable: false, splitBarSize: 0, theme: GetTheme(), width: getPageWidth(), height: getPageHeight(), orientation: 'horizontal', panels: [{ size: 150 }, { size: 150}] });
+            $('#menuSplitter').jqxSplitter({ resizable: false, splitBarSize: 0, theme: GetTheme(), width: getPageWidth(), height: 100, orientation: 'horizontal', panels: [{ size: 30 }, { size: getButtonsHeight()}] });
             $('#mainSplitter').css('marginLeft', (getLefMargin()));
             $('#jqxMenu').jqxMenu({ theme: GetTheme(), width: '100%', height: '30' });
             $('#body').css('background', '#008b54');
@@ -24,9 +24,54 @@
             $("#uiButtons").jqxButtonGroup({ mode: 'default' });
             $('#uiBack').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
             $('#uiSave').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $("#uiSave").click(Save);
             $('#uiNew').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $("#uiNew").click(New);
             $('#uiDelete').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $("#uiDelete").click(Delete);
             $('#uiSearch').jqxButton({ theme: GetTheme(), width: getButtonssWidth(), height: getButtonsHeight() });
+            $('#uiSearch').click( Search );
+        }
+
+        function Save() {
+            $("#mainForm").jqxValidator("validate");
+        }
+
+        function Delete() {
+            eliminar();
+        }
+
+        function New() {
+            $("#uiAction").attr("value", "add");
+            $("#jqxwindow").jqxWindow("open");
+        }
+
+        function Search() {
+            grid.refresh();
+        }
+
+        function eliminar() {
+            
+            var arr = grid.getRecordsForDelete();
+            
+            var actionData = { ids: arr };
+            if (arr.length<=0) {
+                return;
+            }
+            $.ajax
+            ({
+                type: "POST",
+                url: getFormName() + ".aspx/Eliminar",
+                data: JSON.stringify(actionData),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    Search();
+                },
+                error: function (err) {
+
+                }
+            });
         }
 
         function getButtonsHeight() {
@@ -52,6 +97,9 @@
         function GetTheme() {
             return 'office';
         }
+
+        
+
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -127,5 +175,25 @@
 
             </div>
     </div>
+
+    <div id="eventWindow">
+                <div>
+                    <img width="14" height="14" src="../../images/help.png" alt="" />
+                    Modal Window</div>
+                <div>
+                    <div>
+                        Please click "OK", "Cancel" or the close button to close the modal window. The dialog
+                        result will be displayed in the events log.
+                    </div>
+                    <div>
+                    <div style="float: right; margin-top: 15px;">
+                        <input type="button" id="ok" value="OK" style="margin-right: 10px" />
+                        <input type="button" id="cancel" value="Cancel" />
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
 </body>
 </html>

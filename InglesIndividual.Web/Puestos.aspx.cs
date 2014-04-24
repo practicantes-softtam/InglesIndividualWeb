@@ -16,19 +16,7 @@ namespace InglesIndividual.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            List<Entities.Puesto> list = new List<Entities.Puesto>();
-            for (int i = 1; i <= 10; i++)
-            {
-                Entities.Puesto item = new Entities.Puesto();
-                item.ID = i;
-                item.Nombre = "Puesto " + i.ToString();
-
-                list.Add(item);
-            }
-
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            string x = js.Serialize(list);*/
+            
         }
 
         [WebMethod]
