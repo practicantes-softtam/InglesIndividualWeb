@@ -8,8 +8,8 @@ namespace InglesIndividual.Entities
 {
     public class Campus : WebEntity
     {
-        private int _claCampus;
-        private string _nomCampus;
+        private int _clave;
+        private string _nombre;
         private string _calle;
         private string _colonia;
         private int _codigoPostal;
@@ -19,16 +19,16 @@ namespace InglesIndividual.Entities
         private string _directorGeneral;
         private string _directorAdministrativo;
 
-        public int ClaCampus
+        public int Clave
         {
-            get { return _claCampus; }
-            set { _claCampus = value; }
+            get { return _clave; }
+            set { _clave = value; }
         }
 
-        public string NomCampus
+        public string Nombre
         {
-            get { return _nomCampus; }
-            set { _nomCampus = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
         
         public string Calle
@@ -49,7 +49,7 @@ namespace InglesIndividual.Entities
             set { _codigoPostal = value; }
         }
 
-        public Pais ClaPais
+        public Pais Pais
         {
             get { return _pais; }
             set { _pais = value; }
