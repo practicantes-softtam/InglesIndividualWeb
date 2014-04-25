@@ -14,9 +14,9 @@
         },
         gridOptions: {
             columns: [
-                        { text: 'Clave', dataField: 'Clave', width: 100, cellsrenderer: renderEdit },
-                        { text: 'Puesto', dataField: 'Nombre', width: 300 },
-                        { text: 'Eliminar', dataField: "Eliminar", sortable: false, cellsrenderer: renderDelete }
+                        { text: 'Puesto',   dataField: 'Nombre',    width: 380 },
+                        { text: 'Eliminar', dataField: "Eliminar",  width: 70, sortable: false, cellsrenderer: renderDelete },
+                        { text: 'Editar',   dataField: 'Editar',    width: 50, cellsrenderer: renderEdit, columntype: 'button', buttonclick: editClick }
                     ]
         },
         adapter: {
@@ -27,7 +27,7 @@
                         case "Nombre": data.sortdatafield = "NomPuesto"; break;
                     }
                 }
-                var p1 = $("#param1").val();
+                var p1 = $("#uiPuesto").val();
                 $.extend(data, {
                     nomPuesto: p1
                 });
@@ -36,25 +36,25 @@
         },
         deleteOptions: {
             checkID: "Puestos",
-            fieldID : "Clave"
+            fieldID: "Clave"
         }
     };
 
     $(document).ready(function () {
 
-        //$("#uiGrid").jqxGrid({theme: 'office'});
-        $("#jqxwindow").jqxWindow({ width: 300, height: 300, autoOpen: false, theme: GetTheme() });
-        $("#uiGuardar").jqxButton({ theme: GetTheme()});
-        $("#uiCancelar").jqxButton({ theme: GetTheme() });
+        $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
 
-        $("#uiCancelar").click(function () {
-            $("#jqxwindow").jqxWindow("close");
-        });
+        $("#uiPuesto").jqxInput({ placeHolder: " Proporcione el Puesto a buscar", height: 30, width: 300 });
+        $("#uiID").jqxInput({ placeHolder: " Clave del Puesto", height: 30, width: 150, disabled: true });
+        $("#uiNombre").jqxInput({ placeHolder: " Nombre del Puesto", height: 30, width: 200 });
+
         $("#mainForm").jqxValidator({
+            theme: GetTheme(),
             rules: [
                 { input: "#uiNombre", message: "El nombre del puesto es requerido", rule: "required" }
             ]
         });
+
         $("#mainForm").on('validationSuccess', function (event) {
             var actionData = {
                 action: $("#uiAction").val(),
@@ -65,35 +65,22 @@
                 url: "puestos.aspx/Guardar",
                 data: JSON.stringify(actionData),
                 success: function (msg) {
-                    if (msg.d != "") {
-                        alert(msg.d);
-                    }
+                    $("#jqxwindow").jqxWindow("close");
                     grid.refresh();
+
+//                    if (msg.d != "") {
+//                        alert(msg.d);
+//                    }
+                    
                 }
             };
 
             executeAjax(settings);
         });
 
-        $("#uiGuardar").click(function () {
-            $("#mainForm").jqxValidator("validate");
-        });
-        $("#uiNuevo").click(function () {
-            $("#uiAction").attr("value", "add");
-            $("#jqxwindow").jqxWindow("open");
-        });
-
-        $("#uiEliminar").click(function () {
-            eliminar();
-        });
-
-        $("#uiBuscar").click(function () {
-            grid.refresh();
-        });
-
         configurarCombo();
 
-        grid.load(settings);
+        grid.load(settings, 500);
     });
 
     function configurarCombo() {
@@ -116,45 +103,35 @@
                 }
             });
             //adp.dataBind();
-            $("#combo").jqxComboBox({ selectedIndex: 0, source: adp, displayMember: "Nombre", valueMember: "ID", width: 200, height: 25 });
-    }
+            $("#combo").jqxComboBox({ theme: GetTheme(), selectedIndex: 0, source: adp, displayMember: "Nombre", valueMember: "ID", width: 200, height: 25 });
+        }
+
     function renderDelete(row, columnfield, value, defaulthtml, columnproperties) {
         return grid.renderDeleteCheckBox(row);
     }
 
-    function eliminar() {
-        var arr = grid.getRecordsForDelete();
-        if(arr.length > 0){
-            var actionData = { ids: arr };
-            var settings = {
-                url: "puestos.aspx/Eliminar",
-                data: JSON.stringify(actionData),
-                success: function (msg) {
-                    grid.refresh();
-                }
-            };
-
-            executeAjax(settings);
-        }
+    function getFormName() {
+        return "Puestos";
     }
 
     function edit(id) {
+        
         $("#uiAction").attr("value", "edit");
         $("#uiID").attr("value", id);
         $('#jqxwindow').jqxWindow('open');
     }
 
-    </script>
+//    function GetControlValues() {
+//        var url = document.URL;
+//        var params = "{clave:'" + document.URL.split('=')[1] + "'}";
+//        var entity;
+//        entity = SetEntityForEdition(params, 'AcidosEdit');
+//    }
+
+</script>
 	<table>
         <tr>
-            <td>Parametro 1</td><td><input type="text" id="param1" /></td>
-        </tr>
-        <tr>
-            <td>
-                <input type="button" value="Buscar" id="uiBuscar" />
-                <input type="button" value="Eliminar" id="uiEliminar" />
-                <input type="button" value="Nuevo" id="uiNuevo" />
-            </td>
+            <td>Puesto</td><td><input type="text" id="uiPuesto" /></td>
         </tr>
     </table>
     <div id="uiGrid">
@@ -171,11 +148,6 @@
                 </tr>
                 <tr>
                     <td>Puesto</td><td><input type="text" id="uiNombre" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="button" value="Guardar" id="uiGuardar" />&nbsp;
-                        <input type="button" value="Cancelar" id="uiCancelar" /></td>
                 </tr>
             </table>
         </div>
