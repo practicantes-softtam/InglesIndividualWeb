@@ -9,7 +9,7 @@ namespace InglesIndividual.Entities
     {
         private int _clave;
         private Estado _estado;
-        private string _nomCiudad;
+        private string _nombre;
 
 
 	    public int Clave
@@ -18,10 +18,10 @@ namespace InglesIndividual.Entities
 		    set { _clave = value;}
 	}
 	 
-        public string NomCiudad
+        public string Nombre
         {
-            get { return _nomCiudad; }
-            set { _nomCiudad = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
 
         public Estado Estado
