@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Framework;
 
 namespace InglesIndividual.Business
@@ -18,20 +19,21 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Lecciones();
         }
 
-        public List<Entities.Lecciones> ListarLecciones(InglesIndividual.Entities.JQXGridSettings settings, int claLeccion, int ClaNivel)
+        public List<Entities.Lecciones> ListarLecciones(InglesIndividual.Entities.JQXGridSettings settings, string NomLeccion)
         {
-            return this.Data.ListarLecciones(settings, claLeccion, ClaNivel);
+            return this.Data.ListarLecciones(settings, NomLeccion);
         }
 
-        public List<Exception> Eliminar(int[] clas)
+        public List<Exception> Eliminar(string[] ids)
         {
             List<Exception> list = new List<Exception>();
-            if (clas != null && clas.Length > 0)
+            if (ids != null && ids.Length > 0)
             {
-                foreach (int cla in clas)
+                foreach (string id in ids)
                 {
                     Entities.Lecciones item = new Entities.Lecciones(true);
-                    item.ClaLeccion = Utils.IsNull(cla, 0);
+                    item.Clave = Utils.IsNull(id, 0);
+
                     try
                     {
                         this.Data.Delete(item);
@@ -45,5 +47,6 @@ namespace InglesIndividual.Business
 
             return list;
         }
+
     }
 }

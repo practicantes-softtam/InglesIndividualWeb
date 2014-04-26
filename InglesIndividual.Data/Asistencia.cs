@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
 
                 item.idRegistro = Utils.GetDataRowValue(dr, "idRegistro", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Campus.Clave = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
                 item.Empleado = new Entities.Empleados();
                 item.Empleado.Nombre = Utils.GetDataRowValue(dr, "Nombre", "");
@@ -48,7 +48,7 @@ namespace InglesIndividual.Data
             DataEntities.SpAsistenciaIns
                 sp = new DataEntities.SpAsistenciaIns();
             sp.IdRegistro = item.idRegistro;
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.Matricula = item.Matricula;
             sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.TipoPersona = item.TipoPersona;

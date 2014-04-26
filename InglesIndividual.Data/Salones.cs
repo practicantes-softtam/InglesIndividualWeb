@@ -26,7 +26,7 @@ namespace InglesIndividual.Data
 
                 item.IdSalon = Utils.GetDataRowValue(dr, "IdSalon", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Campus.Clave = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.NomSalon = Utils.GetDataRowValue(dr, "NomSalon", "");
                 item.Capacidad = Utils.GetDataRowValue(dr, "Capacidad", 0);
                 
@@ -44,7 +44,7 @@ namespace InglesIndividual.Data
             DataEntities.SpSalonesIns
                 sp = new DataEntities.SpSalonesIns();
             sp.IdSalon = item.IdSalon;
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.NomSalon = item.NomSalon;
             sp.Capacidad = item.Capacidad;
             

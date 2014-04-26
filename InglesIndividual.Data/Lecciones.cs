@@ -9,22 +9,21 @@ namespace InglesIndividual.Data
 {
     public class Lecciones : InglesIndividualDataObject
     {
-        public List<Entities.Lecciones> ListarLecciones(Entities.JQXGridSettings settings, int ClaLeccion, int ClaNivel)
+        public List<Entities.Lecciones> ListarLecciones(Entities.JQXGridSettings settings, string NomLeccion)
         {
             List<Entities.Lecciones> list = new List<Entities.Lecciones>();
             DataEntities.SpLeccionesGrd sp = new DataEntities.SpLeccionesGrd();
-            sp.ClaLeccion = ClaLeccion;
-            sp.ClaNivel = ClaNivel;
+            sp.NomLeccion = NomLeccion;
+            this.ConfigurePagedStoredProcedure(sp, settings);
+         
        
             this.ConfigurePagedStoredProcedure(sp, settings);
             DataTable dt = sp.GetDataTable(this.ConnectionString);
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Lecciones item = new Entities.Lecciones(true);
-                item.ClaLeccion = Utils.GetDataRowValue(dr, "ClaLeccion", 0);
-                item.ClaNivel = new Entities.Nivel();
-                item.ClaNivel.ClaNivel = Utils.GetDataRowValue(dr, "ClaNivel", 0);
-                item.NomLeccion = Utils.GetDataRowValue(dr, "NomLeccion", "");
+                item.Clave = Utils.GetDataRowValue(dr, "ClaLeccion", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomLeccion", "");
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -36,28 +35,18 @@ namespace InglesIndividual.Data
         {
             Entities.Lecciones item = entity as Entities.Lecciones;
             DataEntities.SpLeccionesIns sp = new DataEntities.SpLeccionesIns();
-            sp.ClaLeccion = item.ClaLeccion;
-            sp.ClaNivel = item.ClaNivel.ClaNivel;
-            sp.NomLeccion = item.NomLeccion;
-            sp.EsReview = item.EsReview;
-            if (tran != null)
-            {
-                return sp.ExecuteNonQuery(tran);
-            }
-            else
-            {
-                return sp.ExecuteNonQuery(this.ConnectionString);
-            }
-
+            sp.ClaLeccion = item.Clave;
+            sp.NomLeccion = item.Nombre;
+            return sp.ExecuteNonQuery(this.ConnectionString);
         }
-
+            
+            
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.Lecciones item = entity as Entities.Lecciones;
             DataEntities.SpLeccionesDel sp = new DataEntities.SpLeccionesDel();
-            sp.NomLeccion = item.NomLeccion;
-            sp.ClaLeccion = item.ClaLeccion;
-            sp.ClaNivel = item.ClaNivel.ClaNivel;
+            sp.NomLeccion = item.Nombre;
+            sp.ClaLeccion = item.Clave;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

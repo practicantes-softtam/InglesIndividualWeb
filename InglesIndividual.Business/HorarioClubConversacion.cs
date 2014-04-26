@@ -34,7 +34,7 @@ namespace InglesIndividual.Business
                 {
                     Entities.HorarioClubConversacion item = new Entities.HorarioClubConversacion(true);
                     item.Campus = new Entities.Campus();
-                    item.Campus.ClaCampus = Utils.IsNull(cla, 0);
+                    item.Campus.Clave = Utils.IsNull(cla, 0);
                     item.Empleado = new Entities.Empleados();
                     item.Empleado.ClaEmpleado = Utils.IsNull(cla, 0);
                     item.ClaHorario = Utils.IsNull(cla, 0);

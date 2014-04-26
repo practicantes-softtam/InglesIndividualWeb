@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
             {
                 Entities.HorarioClubConversacion item = new Entities.HorarioClubConversacion(true);
                 item.Campus = new Entities.Campus();
-                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Campus.Clave = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.Empleado = new Entities.Empleados();
                 item.Empleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
@@ -40,7 +40,7 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionIns sp = new DataEntities.SpHorarioClubConversacionIns();
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.ClaHorario = item.ClaHorario;
             sp.ClaDia = item.ClaDia;
@@ -60,7 +60,7 @@ namespace InglesIndividual.Data
         {
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionDel sp = new DataEntities.SpHorarioClubConversacionDel();
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.ClaHorario = item.ClaHorario;
             sp.Horas = item.Horas;

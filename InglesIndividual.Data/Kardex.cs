@@ -34,9 +34,9 @@ namespace InglesIndividual.Data
             DataEntities.SpKardexIns sp = new DataEntities.SpKardexIns();
             sp.IdCalificacion = item.IdCalificacion;
             sp.Matricula = item.Matricula;
-            sp.ClaCampus = item.ClaCampus.ClaCampus;
+            sp.ClaCampus = item.ClaCampus.Clave;
             sp.ClaNivel = item.ClaNivel.ClaNivel;
-            sp.ClaLeccion = item.ClaLeccion.ClaLeccion;
+            sp.ClaLeccion = item.ClaLeccion.Clave;
             sp.ClaProfesor = item.ClaProfesor;
             sp.Calificacion = item.Calificacion;
             sp.TipoClase = item.TipoClase;

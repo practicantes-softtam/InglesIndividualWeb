@@ -22,6 +22,7 @@ namespace InglesIndividual.Data
          {
                 Entities.Ciudad item = new Entities.Ciudad(true);
                 item.Clave = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomCiudad", "");
                 item.Estado = new Entities.Estado();
                 item.Estado.Clave = Utils.GetDataRowValue(dr, "ClaEstado", 0);
                 item.Estado.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
@@ -59,7 +60,7 @@ namespace InglesIndividual.Data
             Entities.Ciudad item = entity as Entities.Ciudad;
             DataEntities.SpCiudadesDel
                 sp = new DataEntities.SpCiudadesDel();
-            sp.NomCiudad = item.NomCiudad;
+            sp.NomCiudad = item.Nombre;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

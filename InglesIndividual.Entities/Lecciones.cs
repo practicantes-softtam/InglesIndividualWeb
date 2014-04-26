@@ -8,38 +8,23 @@ namespace InglesIndividual.Entities
 {
     public class Lecciones : WebEntity
     {
-        private int _claLeccion;
-        private Nivel _nivel;
-        private string _nomLeccion;
-        private int _esReview;
+        private int _clave;
+        private string _nombre;
 
-    public int ClaLeccion
+    public int Clave
         {
-            get { return _claLeccion; }
-            set { _claLeccion = value; }
+            get { return _clave; }
+            set { _clave = value; }
         }
 
-        public Nivel ClaNivel
+        
+        public string Nombre
         {
-            get { return _nivel; }
-            set { _nivel = value; }
+            get { return _nombre; }
+            set { _nombre = value; }
         }
         
-        public string NomLeccion
-        {
-            get { return _nomLeccion; }
-            set { _nomLeccion = value; }
-        }
-        
-        public int EsReview
-        {
-            get { return _esReview; }
-            set { _esReview = value; }
-        }
-        
-       
-        public Lecciones() 
-            : this(false)
+        public Lecciones() : this(false)
         {
 
         }

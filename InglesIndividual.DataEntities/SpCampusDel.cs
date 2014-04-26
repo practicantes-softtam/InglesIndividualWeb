@@ -11,12 +11,12 @@ namespace InglesIndividual.DataEntities
 
         public SpCampusDel() : base("SpCampusDel")
         {
-            this.AddParameter("@pNomCampus", System.Data.SqlDbType.VarChar, "");
+            this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, 0);
         }
 
-        public string NomCampus
+        public int ClaCampus
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pNomCampus"].Value, ""); }
+            get { return Utils.IsNull(this.Command.Parameters["@pClaCampus"].Value, 0); }
             set { this.Command.Parameters["@pClaCampus"].Value = value; }
         }
     }

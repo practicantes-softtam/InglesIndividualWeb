@@ -37,7 +37,7 @@ namespace InglesIndividual.Data
             Entities.HuellasPersonas item = entity as Entities.HuellasPersonas;
             DataEntities.SpHuellasPersonasIns sp = new DataEntities.SpHuellasPersonasIns();
             sp.IdRegistro = item.IdRegistro;
-            sp.ClaCampus = item.ClaCampus.ClaCampus;
+            sp.ClaCampus = item.ClaCampus.Clave;
             sp.Matricula = item.Matricula;
             sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
             sp.TipoPersona = item.TipoPersona;

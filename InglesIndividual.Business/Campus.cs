@@ -18,20 +18,20 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Campus();
         }
 
-        public List<Entities.Campus> ListarCampus(Entities.JQXGridSettings settings, string nomCampus)
+        public List<Entities.Campus> ListarCampus(InglesIndividual.Entities.JQXGridSettings settings, string nomCampus, string calle, string colonia, string telefono)
         {
-            return this.Data.ListarCampus(settings, nomCampus);
+            return this.Data.ListarCampus(settings, nomCampus, calle, colonia, telefono);//this.Data.ListarCampus(settings, nomCampus, calle, colonia, telefono);
         }
 
-        public List<Exception> Eliminar(string[] clas)
+        public List<Exception> Eliminar(string[] ids)
         {
             List<Exception> list = new List<Exception>();
-            if (clas != null && clas.Length > 0)
+            if (ids != null && ids.Length > 0)
             {
-                foreach (string cla in clas)
+                foreach (string id in ids)
                 {
                     Entities.Campus item = new Entities.Campus(true);
-                    item.NomCampus = Utils.IsNull(cla, "");
+                    item.Clave = Utils.IsNull(id, 0);
 
                     try
                     {

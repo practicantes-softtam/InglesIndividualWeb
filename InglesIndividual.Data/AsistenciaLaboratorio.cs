@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
 
                 item.IdAsistenciaLaboratorio = Utils.GetDataRowValue(dr, "IdAsistenciaLaboratorio", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Campus.Clave = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
                 item.Fecha = Utils.GetDataRowValue(dr, "Fecha", 0);
                 
@@ -43,7 +43,7 @@ namespace InglesIndividual.Data
             DataEntities.SpAsistenciaLaboratorioIns
                 sp = new DataEntities.SpAsistenciaLaboratorioIns();
             sp.IdAsistenciaLaboratorio = item.IdAsistenciaLaboratorio;
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.Matricula = item.Matricula;
             sp.Fecha = item.Fecha;
            

@@ -28,7 +28,8 @@ namespace InglesIndividual.Data
                 item.Nombre = Utils.GetDataRowValue(dr, "NOmbre", "");
                 item.Sexo = Utils.GetDataRowValue(dr, "Sexo", "");
                 item.Campus = new Entities.Campus();
-                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "Clave", 0);
+                item.Campus = new Entities.Campus();
+                item.Campus.Clave = Utils.GetDataRowValue(dr, "Clave", 0);
                 item.Departamento = new Entities.Departamentos();
                 item.Departamento.ClaDepartamento = Utils.GetDataRowValue(dr, "ClaDepartamento", 0);
                 item.Puesto = new Entities.Puesto();
@@ -69,7 +70,7 @@ namespace InglesIndividual.Data
             sp.ApMaterno = item.ApMaterno;
             sp.Nombre = item.Nombre;
             sp.Sexo = item.Sexo;
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.ClaDepartamento = item.Departamento.ClaDepartamento;
             sp.ClaPuesto = item.Puesto.Clave;
             sp.Calle = item.Calle;

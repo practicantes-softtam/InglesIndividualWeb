@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
 
                 item.IdRegistro = Utils.GetDataRowValue(dr, "IdRegistro", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.ClaCampus = Utils.GetDataRowValue(dr, "Clave", 0);
+                item.Campus.Clave = Utils.GetDataRowValue(dr, "Clave", 0);
                 item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
                 item.FechaIni = Utils.GetDataRowValue(dr, "FechaIni", 0);
                 item.FechaFin = Utils.GetDataRowValue(dr, "FechaFin", 0);
@@ -48,7 +48,7 @@ namespace InglesIndividual.Data
             DataEntities.SpExtensionesCursoIns
                 sp = new DataEntities.SpExtensionesCursoIns();
             sp.IdRegistro = item.IdRegistro;
-            sp.ClaCampus = item.Campus.ClaCampus;
+            sp.ClaCampus = item.Campus.Clave;
             sp.Matricula = item.Matricula;
             sp.FechaIni = item.FechaIni;
             sp.FechaFin = item.FechaFin;
