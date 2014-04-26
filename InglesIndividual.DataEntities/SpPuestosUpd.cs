@@ -12,7 +12,6 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pClaPuesto", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pNomPuesto", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.Command.Parameters["@pClaPuesto"].Direction = System.Data.ParameterDirection.Output;
         }
 
         public int ClaPuesto

@@ -9,7 +9,7 @@
 
     var settings = {
         source: {
-            datafields: [{ name: 'Clave' }, { name: 'Nombre'}],
+            datafields: [{ name: 'ID' }, { name: 'Nombre'}],
             url: 'Puestos.aspx/GetData'
         },
         gridOptions: {
@@ -23,7 +23,7 @@
             formatData: function (data) {
                 if (data.sortdatafield != undefined && data.sortdatafield != null) {
                     switch (data.sortdatafield) {
-                        case "Clave": data.sortdatafield = "ClaPuesto"; break;
+                        case "ID": data.sortdatafield = "ClaPuesto"; break;
                         case "Nombre": data.sortdatafield = "NomPuesto"; break;
                     }
                 }
@@ -36,7 +36,7 @@
         },
         deleteOptions: {
             checkID: "Puestos",
-            fieldID: "Clave"
+            fieldID: "ID"
         }
     };
 
@@ -45,7 +45,7 @@
         $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
 
         $("#uiPuesto").jqxInput({ placeHolder: " Proporcione el Puesto a buscar", height: 30, width: 300 });
-        $("#uiID").jqxInput({ placeHolder: " Clave del Puesto", height: 30, width: 150, disabled: true });
+        $("#uiID").jqxInput({ placeHolder: " ID del Puesto", height: 30, width: 150, disabled: true });
         $("#uiNombre").jqxInput({ placeHolder: " Nombre del Puesto", height: 30, width: 200 });
 
         $("#mainForm").jqxValidator({
@@ -90,7 +90,7 @@
             {
                 datatype: "json",
                 datafields: [
-                    { name: 'Clave' },
+                    { name: 'ID' },
                     { name: 'Nombre' }
                 ],
                 url: url
@@ -115,18 +115,20 @@
     }
 
     function edit(id) {
-        
+        SetEntityForEdition(id);
+    }
+
+    function SetControlValues(entity) {
         $("#uiAction").attr("value", "edit");
-        $("#uiID").attr("value", id);
+        $('#uiID').val(entity.ID);
+        $('#uiNombre').val(entity.Nombre);
         $('#jqxwindow').jqxWindow('open');
     }
 
-//    function GetControlValues() {
-//        var url = document.URL;
-//        var params = "{clave:'" + document.URL.split('=')[1] + "'}";
-//        var entity;
-//        entity = SetEntityForEdition(params, 'AcidosEdit');
-//    }
+    function CleanControls(entity) {
+        $('#uiID').val("");
+        $('#uiNombre').val("");
+    }
 
 </script>
 	<table>

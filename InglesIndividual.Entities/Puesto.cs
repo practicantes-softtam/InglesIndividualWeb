@@ -12,7 +12,7 @@ namespace InglesIndividual.Entities
         private string _nombre;
        
         
-        public int Clave
+        public int ID
         {
             get { return _clave; }
             set { _clave = value; }

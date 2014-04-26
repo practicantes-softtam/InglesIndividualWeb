@@ -110,7 +110,7 @@ function renderEdit(row, columnfield, value, defaulthtml, columnproperties) {
 
 function editClick(row) {
     editrow = row;
-    var dataRecord = $("#"+grid.id).jqxGrid('getrowdata', editrow);
+    var dataRecord = $("#" + grid.id).jqxGrid('getrowdata', editrow);
     edit(dataRecord.ID);
 }
                         

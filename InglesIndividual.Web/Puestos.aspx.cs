@@ -67,6 +67,20 @@ namespace InglesIndividual.Web
 
             return "";
         }
+
+        [WebMethod]
+        public static string GetEntityForEdition(string id)
+        {
+            //AcidosEdit obj = new AcidosEdit();
+            System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+            Business.Puestos bo = new Business.Puestos();
+            Entities.Puesto entity = new Entities.Puesto();
+            entity.ID = Utils.IsNull(id, 0);
+            entity.SetFromDataSource(true);
+            bo.PrepareEntityForEdition(entity);
+
+            return js.Serialize(entity);
+        }
         
         [WebMethod]
         public static void Guardar(string action, string id, string nombre)
@@ -82,7 +96,7 @@ namespace InglesIndividual.Web
                 item = new Puesto(true);
             }
 
-            item.Clave = Utils.IsNull(id, 0);
+            item.ID = Utils.IsNull(id, 0);
             item.Nombre = nombre;
 
             Business.Puestos bo = new Business.Puestos();
@@ -98,7 +112,7 @@ namespace InglesIndividual.Web
             for (int i = 1; i <= 10; i++)
             {
                 Entities.Puesto item = new Puesto();
-                item.Clave = i;
+                item.ID = i;
                 item.Nombre = string.Format("Puesto {0}", 0);
                 list.Add(item);
             }

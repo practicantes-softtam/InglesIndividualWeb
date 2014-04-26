@@ -33,7 +33,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.Puesto item = new Entities.Puesto(true);
-                    item.Clave = Utils.IsNull(id, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {
