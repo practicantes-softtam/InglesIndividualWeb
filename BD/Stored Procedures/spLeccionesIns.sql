@@ -5,18 +5,15 @@ go
 create proc spLeccionesIns
 (
 
-	@pClaLeccion int out, 
-	@pClaNivel int,
-	@pNomLeccion varchar (30),
-	@pEsReview tinyint
-	
+	@pClaLeccion		int,
+	@pClaNivel			int,
+	@pNomLeccion		varchar (30),
+	@pEsReview			int
 )
 as
 begin
-	select @pClaLeccion = isnull  (MAX (ClaLeccion), 0)+ 1 
-	from Lecciones
-
-	insert into Lecciones	(ClaLeccion,		ClaNivel,	NomLeccion,		EsReview) 
-	values					(@pClaLeccion,	@pClaNivel,	@pNomLeccion, @pEsReview)
-
+	
+	insert into Lecciones (NomLeccion)
+	values (@pNomLeccion)
+	select @pClaLeccion = @@IDENTITY
 end
