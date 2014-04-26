@@ -4,16 +4,17 @@ go
 
 create proc spLeccionesUpd
 (
-	@pClaLeccion int out, 
-	@pClaNivel int,
-	@pNomLeccion varchar (30),
-	@pEsReview tinyint
+	@pClaLeccion		int,
+	@pClaNivel			int,
+	@pNomLeccion		varchar (30),
+	@pEsReview			int
 )
 as
 begin
 
 	update Lecciones
-	set ClaNivel = @pClaNivel, NomLeccion = @pNomLeccion, EsReview = @pEsReview
+	set NomLeccion = @pNomLeccion, EsReview = @pEsReview, ClaNivel = @pClaNivel
 	
 	where ClaLeccion = @pClaLeccion
+
 end
