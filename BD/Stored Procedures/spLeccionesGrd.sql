@@ -10,23 +10,18 @@ create proc spLeccionesGrd
 	@pClaLeccion		int,
 	@pClaNivel			int,
 	@pNomLeccion		varchar (30),
-	@pEsReview			tinyint
-	
+	@pEsReview			int
 )
 as
 begin
 
-		if @pClaLeccion is not null begin
-		select @pClaNivel = '%' + @pClaNivel + '%'
+		if @pNomLeccion is not null begin
+		select @pNomLeccion = '%' + @pNomLeccion + '%'
 	end	
 	
-	select	RowNumber = ROW_NUMBER() over (order by ClaNivel asc), 
-		ClaLeccion,
-		ClaNivel,
-		NomLeccion,
-		EsReview	
-		 
-	
+	select	RowNumber = ROW_NUMBER() over (order by ClaLeccion asc), 
+		ClaLeccion, NomLeccion, ClaNivel, EsReview
+		
 	into #tabla
 	from Lecciones 
 	where NomLeccion like @pNomLeccion
