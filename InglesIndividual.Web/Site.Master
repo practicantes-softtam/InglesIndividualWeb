@@ -7,6 +7,8 @@
     <title>Inglés Individual</title>
     <script src="htmlcontrols/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="htmlcontrols/jqwidgets/jqx-all.js" type="text/javascript"></script>
+    <script src="js/Combo.js" type="text/javascript"></script>
+    <script src="js/grid.js" type="text/javascript"></script>
     <link href="htmlcontrols/jqwidgets/styles/jqx.base.css" rel="stylesheet" type="text/css" />
     <link href="htmlcontrols/jqwidgets/styles/jqx.office.css" rel="stylesheet" type="text/css" />
     

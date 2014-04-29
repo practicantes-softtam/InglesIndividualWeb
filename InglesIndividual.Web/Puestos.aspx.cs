@@ -71,7 +71,6 @@ namespace InglesIndividual.Web
         [WebMethod]
         public static string GetEntityForEdition(string id)
         {
-            //AcidosEdit obj = new AcidosEdit();
             System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
             Business.Puestos bo = new Business.Puestos();
             Entities.Puesto entity = new Entities.Puesto();
@@ -106,20 +105,13 @@ namespace InglesIndividual.Web
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
-        public static string PruebaCombo()
+        public static string PuestosDataBind()
         {
             List<Entities.Puesto> list = new List<Puesto>();
-            for (int i = 1; i <= 10; i++)
-            {
-                Entities.Puesto item = new Puesto();
-                item.ID = i;
-                item.Nombre = string.Format("Puesto {0}", 0);
-                list.Add(item);
-            }
+            Business.Puestos bo = new Business.Puestos();
+            list = bo.Combo();
             System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
-
             return js.Serialize(list);
-            
         }
     }
 }

@@ -83,5 +83,26 @@ namespace InglesIndividual.Data
                 }
             }
         }
+
+        public List<Entities.Puesto> Combo()
+        {
+            List<Entities.Puesto> list = new List<Entities.Puesto>();
+            DataEntities.SpPuestosSel sp = new DataEntities.SpPuestosSel();
+            sp.ClaPuesto = -1;
+            DataTable dt = sp.GetDataTable(this.ConnectionString);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Entities.Puesto item = new Entities.Puesto(true);
+                item.ID = Utils.GetDataRowValue(dr, "ClaPuesto", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomPuesto", "");
+
+                this.SetWebEntityGridValues(item, dr);
+
+                list.Add(item);
+            }
+
+            return list;
+        }
     }
 }

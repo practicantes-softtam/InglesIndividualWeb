@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Puestos.aspx.cs" Inherits="InglesIndividual.Web.Puestos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   <script src="js/grid.js" type="text/javascript"></script> 
+   
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -10,7 +10,7 @@
     var settings = {
         source: {
             datafields: [{ name: 'ID' }, { name: 'Nombre'}],
-            url: 'Puestos.aspx/GetData'
+            url: getFormName()+'.aspx/GetData'
         },
         gridOptions: {
             columns: [
@@ -44,6 +44,7 @@
 
         $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
 
+        ComboBoxDataBind("#uiCmbPuesto", getFormName(), "PuestosDataBind", GetTheme());
         $("#uiPuesto").jqxInput({ placeHolder: " Proporcione el Puesto a buscar", height: 30, width: 300 });
         $("#uiID").jqxInput({ placeHolder: " ID del Puesto", height: 30, width: 150, disabled: true });
         $("#uiNombre").jqxInput({ placeHolder: " Nombre del Puesto", height: 30, width: 200 });
@@ -68,43 +69,43 @@
                     $("#jqxwindow").jqxWindow("close");
                     grid.refresh();
 
-//                    if (msg.d != "") {
-//                        alert(msg.d);
-//                    }
-                    
+                    //                    if (msg.d != "") {
+                    //                        alert(msg.d);
+                    //                    }
+
                 }
             };
 
             executeAjax(settings);
         });
 
-        configurarCombo();
+        //configurarCombo();
 
         grid.load(settings, 500);
     });
 
-    function configurarCombo() {
-        var url = "puestos.aspx/PruebaCombo";
-        // prepare the data
-        var src =
-            {
-                datatype: "json",
-                datafields: [
-                    { name: 'ID' },
-                    { name: 'Nombre' }
-                ],
-                url: url
-            };
-            var adp = new $.jqx.dataAdapter(src, {
-                contentType: 'application/json; charset=utf-8',
-                downloadComplete: function (data, textStatus, jqXHR) {
-                    //alert(data.d);
-                    return data.d;
-                }
-            });
-            //adp.dataBind();
-            $("#combo").jqxComboBox({ theme: GetTheme(), selectedIndex: 0, source: adp, displayMember: "Nombre", valueMember: "ID", width: 200, height: 25 });
-        }
+//    function configurarCombo() {
+//        var url = "Puestos.aspx/PruebaCombo";
+//        // prepare the data
+//        var src =
+//            {
+//                datatype: "json",
+//                datafields: [
+//                    { name: 'ID' },
+//                    { name: 'Nombre' }
+//                ],
+//                url: url
+//            };
+//            var adp = new $.jqx.dataAdapter(src, {
+//                contentType: 'application/json; charset=utf-8',
+//                downloadComplete: function (data, textStatus, jqXHR) {
+//                    //alert(data.d);
+//                    return data.d;
+//                }
+//            });
+//            //adp.dataBind();
+//            $("#combo").jqxComboBox({ theme: GetTheme(), selectedIndex: 0, source: adp, displayMember: "Nombre", valueMember: "ID", width: 200, height: 25 });
+//        }
 
     function renderDelete(row, columnfield, value, defaulthtml, columnproperties) {
         return grid.renderDeleteCheckBox(row);
@@ -139,7 +140,7 @@
     <div id="uiGrid">
     </div>
 
-    <div id="combo"></div>
+    <div id="uiCmbPuesto"></div>
     <div id="jqxwindow">
         <div>Puestos</div>
         <div>

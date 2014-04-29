@@ -49,5 +49,10 @@ namespace InglesIndividual.Business
             return list;
         }
 
+        public List<Entities.Puesto> Combo()
+        {
+            return this.Data.Combo();
+        }
+
     }
 }

@@ -15,7 +15,7 @@ begin
 	select	ClaPuesto,
 			NomPuesto
 	from	Puestos 
-	where	ClaPuesto	=	@pClaPuesto
+	where	((ClaPuesto	=	@pClaPuesto)	or	@pClaPuesto = -1)
 end
 
 
