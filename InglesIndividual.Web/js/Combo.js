@@ -1,13 +1,13 @@
-﻿function ComboBoxDataBind(ObjectId, form, functionDataBind, theme) {
+﻿function ComboBoxDataBind(ObjectId, form, functionDataBind, theme, params) {
 
     var DisplayMember, KeyValue;
     DisplayMember = "Nombre";
     KeyValue = "ID";
     var theme = theme;
     // prepare the data
-
-    var data = LoadSourceCombo(form, functionDataBind, KeyValue, DisplayMember);
-    //alert(data);
+    //var datafields = "{ name: KeyValue },{ name: DisplayMember }";
+    var data = LoadSourceCombo(form, functionDataBind, KeyValue, DisplayMember, params);
+    alert(data);
     var source =
         {
             datatype: "json",
@@ -39,28 +39,63 @@
 }
 
 
-function LoadSourceCombo(form, functionDataBind, KeyValue, DisplayMember) {
-    var url;
+function LoadSourceCombo(form, functionDataBind, KeyValue, DisplayMember, params) {
+    var url, data1, data;
     url = form + ".aspx/" + functionDataBind;
     
-    var result;
-    $.ajax
-    (
-        {
-            async: false,
-            type: "GET",
-            url: url, //from+".aspx/"+functionDataBind,
-            data: [{ name: KeyValue }, { name: DisplayMember}],
-            contentType: "application/json;charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                result = response.d;
-            },
-            error: function (err) {
-                //alert('Error' + err.text);
-                return "";
+    if (params == "") {
+        data = "[{ name: " + KeyValue + " }, { name: " + DisplayMember + "}]";
+        alert("data: " + data);
+        var result;
+        $.ajax
+        (
+            {
+                async: false,
+                type: "GET",
+                url: url, //from+".aspx/"+functionDataBind,
+                data: data, //[{ name: KeyValue }, { name: DisplayMember}],
+//                datafields: [
+//                                { name: 'ID' },
+//                                { name: 'Nombre' }
+//                            ],
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    result = response.d;
+                },
+                error: function (err) {
+                    //alert('Error' + err.text);
+                    return "";
+                }
             }
-        }
-    );
+        );
+    }
+        else {
+            data = JSON.Parse("[{ name: " + KeyValue + " }, { name: " + DisplayMember + "},{name:claPais, value:-1}]");
+            alert("data: " + data);
+            var result;
+            $.ajax
+        (
+            {
+                async: false,
+                type: "GET",
+                url: url, //from+".aspx/"+functionDataBind,
+                data: data, //[{ name: KeyValue }, { name: DisplayMember}],
+                //                datafields: [
+                //                                { name: 'ID' },
+                //                                { name: 'Nombre' }
+                //                            ],
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    result = response.d;
+                },
+                error: function (err) {
+                    //alert('Error' + err.text);
+                    return "";
+                }
+            }
+        );
+    }
     return result;
 }
