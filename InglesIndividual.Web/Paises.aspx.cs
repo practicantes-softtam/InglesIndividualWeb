@@ -56,7 +56,7 @@ namespace InglesIndividual.Web
             {
                 item = new Pais(true);
             }
-            item.Clave = Utils.IsNull(id, 0);
+            item.ID = Utils.IsNull(id, 0);
             item.Nombre = nombre;
             Business.Paises bo = new Business.Paises();
             bo.Save(item);

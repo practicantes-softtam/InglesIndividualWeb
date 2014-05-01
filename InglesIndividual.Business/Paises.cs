@@ -32,7 +32,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.Pais item = new Entities.Pais(true);
-                    item.Clave = Utils.IsNull(id, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {
@@ -48,11 +48,10 @@ namespace InglesIndividual.Business
             return list;
         }
 
-
-
-
-
-
+        public List<Entities.Pais> Combo()
+        {
+            return this.Data.Combo();
+        }
 
     }
 }

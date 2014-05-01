@@ -9,7 +9,7 @@ namespace InglesIndividual.Entities
     {
         private int _clave; 
 
-        public int Clave
+        public int ID
         {
             get { return _clave; }
             set { _clave = value; }

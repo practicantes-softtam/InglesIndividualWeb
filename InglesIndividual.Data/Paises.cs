@@ -22,7 +22,7 @@ namespace InglesIndividual.Data
            {
                Entities.Pais item = new Entities.Pais(true);
 
-               item.Clave = Utils.GetDataRowValue(dr, "ClaPais", 0 );
+               item.ID = Utils.GetDataRowValue(dr, "ClaPais", 0 );
                item.Nombre= Utils.GetDataRowValue(dr, "NomPais", "");
 
                this.SetWebEntityGridValues(item, dr);
@@ -38,7 +38,7 @@ namespace InglesIndividual.Data
            Entities.Pais item = entity as Entities.Pais;
            DataEntities.SpPaisesIns
               sp = new DataEntities.SpPaisesIns();
-           sp.ClaPais = item.Clave;
+           sp.ClaPais = item.ID;
            sp.NomPais = item.Nombre;
 
            if (tran != null)
@@ -57,7 +57,7 @@ namespace InglesIndividual.Data
            Entities.Pais item = entity as Entities.Pais;
            DataEntities.spPaisesDel
            sp = new DataEntities.spPaisesDel();
-           sp.ClaPais = item.Clave;
+           sp.ClaPais = item.ID;
            
 
            if (tran != null)
@@ -70,5 +70,25 @@ namespace InglesIndividual.Data
            }
 
        }
-              }
+
+       public List<Entities.Pais> Combo()
+       {
+           List<Entities.Pais> list = new List<Entities.Pais>();
+           DataEntities.SpPaisesSel sp = new DataEntities.SpPaisesSel();
+           DataTable dt = sp.GetDataTable(this.ConnectionString);
+
+           foreach (DataRow dr in dt.Rows)
+           {
+               Entities.Pais item = new Entities.Pais(true);
+               item.ID = Utils.GetDataRowValue(dr, "ClaPais", 0);
+               item.Nombre = Utils.GetDataRowValue(dr, "NomPais", "");
+
+               this.SetWebEntityGridValues(item, dr);
+
+               list.Add(item);
+           }
+
+           return list;
+       }
+    }
 }

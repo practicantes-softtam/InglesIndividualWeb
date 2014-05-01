@@ -74,8 +74,8 @@ namespace InglesIndividual.Data
             sp.Calle = item.Calle;
             sp.Colonia = item.Colonia;
             sp.CP = item.CP;
-            sp.ClaPais = item.Pais.Clave;
-            sp.ClaEstado = item.Estado.Clave;
+            sp.ClaPais = item.Pais.ID;
+            sp.ClaEstado = item.Estado.ID;
             sp.ClaCiudad = item.Ciudad.Clave;
             sp.Empresa = item.Empresa;
             sp.Telefono1 = item.Telefono1;

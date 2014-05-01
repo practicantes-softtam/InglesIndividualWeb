@@ -40,11 +40,54 @@
         }
     };
 
+    //Recarga el Combo de Estados al detectar un cambio en el de paises
+    function uiPaisChange() {
+        $("#uiPais").on('change', function (event) {
+            var pais = $("#uiPais").jqxComboBox('getSelectedItem')
+            if (pais.value > 0) {
+                ComboBoxDataBind(getEstadoSettings(pais.value));
+            }
+        });
+    }
+    //Establece los settings para cargar el combo Paises
+    function getPaisSettings() {
+        var settings = {
+            id:"uiPais",//Id del Div que funcionará como combo
+            form: getFormName(),//Nombre de la pantalla actual
+            functionDataBind: "PaisesDataBind",//Nombre del web method de C# que nos traerá la info para llenar el combo
+            theme: GetTheme()//Establece el tema del combo
+        };
+        return settings;
+    }
+    //Establece los settings para cargar el combo Estados
+    function getEstadoSettings(claPais) {
+        var settings = {
+            id: "uiEstado",
+            form: getFormName(),
+            functionDataBind: "EstadosDataBind",
+            theme: GetTheme(),
+            filters: { 'claPais': claPais }
+        };
+        return settings;
+    }
+    //Establece los settings para cargar el combo Puestos
+    function getPuestoSettings() {
+        var settings = {
+            id: "uiCmbPuesto",
+            form: getFormName(),
+            functionDataBind: "PuestosDataBind",
+            theme: GetTheme()
+        };
+        return settings;
+    }
+
     $(document).ready(function () {
 
         $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
-
-        ComboBoxDataBind("#uiCmbPuesto", getFormName(), "PuestosDataBind", GetTheme());
+        ComboBoxDataBind(getPaisSettings());//Carga el Combo Paises
+        ComboBoxDataBind(getEstadoSettings(-1)); //Carga el Combo Estados con TODOS los estados
+        ComboBoxDataBind(getPuestoSettings()); //Carga el Combo Puestos
+        uiPaisChange();//Inicializa la función que detecta cuando haya cambios en el combo Paises para recargar el combo Estados
         $("#uiPuesto").jqxInput({ placeHolder: " Proporcione el Puesto a buscar", height: 30, width: 300 });
         $("#uiID").jqxInput({ placeHolder: " ID del Puesto", height: 30, width: 150, disabled: true });
         $("#uiNombre").jqxInput({ placeHolder: " Nombre del Puesto", height: 30, width: 200 });
@@ -84,29 +127,6 @@
         grid.load(settings, 500);
     });
 
-//    function configurarCombo() {
-//        var url = "Puestos.aspx/PruebaCombo";
-//        // prepare the data
-//        var src =
-//            {
-//                datatype: "json",
-//                datafields: [
-//                    { name: 'ID' },
-//                    { name: 'Nombre' }
-//                ],
-//                url: url
-//            };
-//            var adp = new $.jqx.dataAdapter(src, {
-//                contentType: 'application/json; charset=utf-8',
-//                downloadComplete: function (data, textStatus, jqXHR) {
-//                    //alert(data.d);
-//                    return data.d;
-//                }
-//            });
-//            //adp.dataBind();
-//            $("#combo").jqxComboBox({ theme: GetTheme(), selectedIndex: 0, source: adp, displayMember: "Nombre", valueMember: "ID", width: 200, height: 25 });
-//        }
-
     function renderDelete(row, columnfield, value, defaulthtml, columnproperties) {
         return grid.renderDeleteCheckBox(row);
     }
@@ -139,7 +159,8 @@
     </table>
     <div id="uiGrid">
     </div>
-
+    <div id="uiPais"></div>
+    <div id="uiEstado"></div>
     <div id="uiCmbPuesto"></div>
     <div id="jqxwindow">
         <div>Puestos</div>

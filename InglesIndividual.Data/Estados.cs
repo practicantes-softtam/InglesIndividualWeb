@@ -21,10 +21,10 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Estado item = new Entities.Estado(true);
-                item.Clave = Utils.GetDataRowValue(dr, "ClaEstado", 0);
+                item.ID = Utils.GetDataRowValue(dr, "ClaEstado", 0);
                 item.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
                 item.Pais = new Entities.Pais();
-                item.Pais.Clave = Utils.GetDataRowValue(dr, "ClaPais", 0);
+                item.Pais.ID = Utils.GetDataRowValue(dr, "ClaPais", 0);
 
                 this.SetWebEntityGridValues(item, dr);
 
@@ -42,8 +42,8 @@ namespace InglesIndividual.Data
                 sp = new DataEntities.SpEstadosIns();
             
  //Aqui batallé D:
-            sp.ClaEstado = item.Clave;
-            sp.ClaPais = item.Pais.Clave;
+            sp.ClaEstado = item.ID;
+            sp.ClaPais = item.Pais.ID;
  
             if (tran != null)
             {
@@ -65,7 +65,7 @@ namespace InglesIndividual.Data
             Entities.Estado item = entity as Entities.Estado;
             DataEntities.SpEstadosDel
                 sp = new DataEntities.SpEstadosDel();
-            sp.ClaEstado = item.Clave;
+            sp.ClaEstado = item.ID;
 
 
             if (tran != null)
@@ -79,6 +79,25 @@ namespace InglesIndividual.Data
 
         }
 
+        public List<Entities.Estado> Combo(int claPais)
+        {
+            List<Entities.Estado> list = new List<Entities.Estado>();
+            DataEntities.SpEstadosSel sp = new DataEntities.SpEstadosSel();
+            sp.ClaPais = claPais;
+            DataTable dt = sp.GetDataTable(this.ConnectionString);
 
+            foreach (DataRow dr in dt.Rows)
+            {
+                Entities.Estado item = new Entities.Estado(true);
+                item.ID = Utils.GetDataRowValue(dr, "ClaEstado", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
+
+                this.SetWebEntityGridValues(item, dr);
+
+                list.Add(item);
+            }
+
+            return list;
+        }
     }
 }

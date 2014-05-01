@@ -24,11 +24,11 @@ namespace InglesIndividual.Data
                 item.Clave = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
                 item.Nombre = Utils.GetDataRowValue(dr, "NomCiudad", "");
                 item.Estado = new Entities.Estado();
-                item.Estado.Clave = Utils.GetDataRowValue(dr, "ClaEstado", 0);
+                item.Estado.ID = Utils.GetDataRowValue(dr, "ClaEstado", 0);
                 item.Estado.Nombre = Utils.GetDataRowValue(dr, "NomEstado", "");
                 item.Estado.Pais = new Entities.Pais();
                 item.Estado.Pais.Nombre = Utils.GetDataRowValue(dr, "NomPais", "");
-                item.Estado.Pais.Clave = Utils.GetDataRowValue(dr, "ClaPais", 0);
+                item.Estado.Pais.ID = Utils.GetDataRowValue(dr, "ClaPais", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -42,8 +42,8 @@ namespace InglesIndividual.Data
             DataEntities.SpCiudadesIns
             sp = new DataEntities.SpCiudadesIns();
             sp.ClaCiudad = item.Clave;
-            sp.ClaEstado = item.Estado.Clave;
-            sp.ClaPais = item.Estado.Pais.Clave;
+            sp.ClaEstado = item.Estado.ID;
+            sp.ClaPais = item.Estado.Pais.ID;
             
             if (tran !=null) {
             return sp.ExecuteNonQuery(tran);

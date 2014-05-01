@@ -103,6 +103,8 @@ namespace InglesIndividual.Web
 
         }
 
+
+        //Trae la información con la que se llenará el combo Puestos
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
         public static string PuestosDataBind()
@@ -110,6 +112,28 @@ namespace InglesIndividual.Web
             List<Entities.Puesto> list = new List<Puesto>();
             Business.Puestos bo = new Business.Puestos();
             list = bo.Combo();
+            System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+            return js.Serialize(list);
+        }
+        //Trae la información con la que se llenará el combo Paises
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
+        public static string PaisesDataBind()
+        {
+            List<Entities.Pais> list = new List<Pais>();
+            Business.Paises bo = new Business.Paises();
+            list = bo.Combo();
+            System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+            return js.Serialize(list);
+        }
+        //Trae la información con la que se llenará el combo Estados
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
+        public static string EstadosDataBind(string claPais)
+        {
+            List<Entities.Estado> list = new List<Estado>();
+            Business.Estados bo = new Business.Estados();
+            list = bo.Combo(Utils.IsNull(claPais, -1));
             System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
             return js.Serialize(list);
         }
