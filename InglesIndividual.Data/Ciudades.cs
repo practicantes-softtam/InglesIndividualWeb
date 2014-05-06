@@ -21,7 +21,7 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
          {
                 Entities.Ciudad item = new Entities.Ciudad(true);
-                item.Clave = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
+                item.ID = Utils.GetDataRowValue(dr, "ClaCiudad", 0);
                 item.Nombre = Utils.GetDataRowValue(dr, "NomCiudad", "");
                 item.Estado = new Entities.Estado();
                 item.Estado.ID = Utils.GetDataRowValue(dr, "ClaEstado", 0);
@@ -41,7 +41,7 @@ namespace InglesIndividual.Data
             Entities.Ciudad item = entity as Entities.Ciudad;
             DataEntities.SpCiudadesIns
             sp = new DataEntities.SpCiudadesIns();
-            sp.ClaCiudad = item.Clave;
+            sp.ClaCiudad = item.ID;
             sp.ClaEstado = item.Estado.ID;
             sp.ClaPais = item.Estado.Pais.ID;
             

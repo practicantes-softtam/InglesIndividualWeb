@@ -20,7 +20,7 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.Kardex item = new Entities.Kardex(true);
-                item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");                
+                item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -31,35 +31,35 @@ namespace InglesIndividual.Data
         public override int Insert(Entity entity, DataTransaction tran)
         {
             Entities.Kardex item = entity as Entities.Kardex;
-            DataEntities.SpKardexIns sp = new DataEntities.SpKardexIns();
-            sp.IdCalificacion = item.IdCalificacion;
+            DataEntities.SpKardexIns
+                sp = new DataEntities.SpKardexIns();
+            sp.IdCalificacion = item.ID;
             sp.Matricula = item.Matricula;
-            sp.ClaCampus = item.ClaCampus.Clave;
-            sp.ClaNivel = item.ClaNivel.ClaNivel;
-            sp.ClaLeccion = item.ClaLeccion.Clave;
-            sp.ClaProfesor = item.ClaProfesor;
+            sp.ClaCampus = item.Campus.ID;
+            sp.ClaNivel = item.Nivel.ID;
+            sp.ClaLeccion = item.Leccion.Clave;
+            sp.ClaProfesor = item.Profesor;
             sp.Calificacion = item.Calificacion;
             sp.TipoClase = item.TipoClase;
             sp.Fecha = item.Fecha;
             sp.ClaCalificacion = item.ClaCalificacion;
             sp.IdCita = item.IdCita;
-            if (tran != null)
-            {
-                return sp.ExecuteNonQuery(tran);
+   
+       if (tran !=null) {
+            return sp.ExecuteNonQuery(tran);
+                
             }
-            else
-            {
-                return sp.ExecuteNonQuery(this.ConnectionString);
+            else { 
+            return sp.ExecuteNonQuery (this.ConnectionString);
             }
-
-        }
+          }
 
         public override int Delete(Entity entity, DataTransaction tran)
         {
             Entities.Kardex item = entity as Entities.Kardex;
-            DataEntities.SpKardexDel sp = new DataEntities.SpKardexDel();
+            DataEntities.SpKardexDel
+                sp = new DataEntities.SpKardexDel();
             sp.Matricula = item.Matricula;
-
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);
@@ -68,8 +68,8 @@ namespace InglesIndividual.Data
             {
                 return sp.ExecuteNonQuery(this.ConnectionString);
             }
+
         }
 
     }
 }
-

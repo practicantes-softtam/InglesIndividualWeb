@@ -14,21 +14,21 @@ namespace InglesIndividual.Entities
         private int _tipoPersona;
         private string _huella;
 
-       public int IdRegistro
+       public int ID
 	
         {
             get { return _idRegistro; }
             set { _idRegistro = value; }
         }
 
-        public Campus ClaCampus
+        public Campus Campus
 	
         {
             get { return _campus; }
             set { _campus= value; }
         }
 
-        public Empleados ClaEmpleado
+        public Empleados Empleado
         {
             get { return _claEmpleado; }
             set { _claEmpleado = value; }

@@ -9,7 +9,7 @@ namespace InglesIndividual.Entities
     {
         private int _claDepartamento;       
 
-        public int ClaDepartamento
+        public int ID
         {
             get { return _claDepartamento; }
             set { _claDepartamento = value; }
@@ -25,7 +25,7 @@ namespace InglesIndividual.Entities
 
         private string _nomDepartamento;
 
-        public string NomDepartamento
+        public string Nombre
         {
             get { return _nomDepartamento; }
             set { _nomDepartamento = value; }

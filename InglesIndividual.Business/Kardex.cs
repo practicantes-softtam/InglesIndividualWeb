@@ -32,7 +32,7 @@ namespace InglesIndividual.Business
                 foreach (int id in ids)
                 {
                     Entities.Kardex item = new Entities.Kardex(true);
-                    item.IdCalificacion = Utils.IsNull(id, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {

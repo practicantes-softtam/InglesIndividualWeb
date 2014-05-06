@@ -18,20 +18,20 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Nivel();
         }
 
-        public List<Entities.Nivel> ListarNiveles(InglesIndividual.Entities.JQXGridSettings settings, int ClaNivel)
+        public List<Entities.Nivel> ListarNiveles(InglesIndividual.Entities.JQXGridSettings settings, string NomNivel)
         {
-            return this.Data.ListarNivel(settings, ClaNivel);
+            return this.Data.ListarNivel(settings, NomNivel);
         }
 
-        public List<Exception> Eliminar(int[] clas)
+        public List<Exception> Eliminar(string[] ids)
         {
             List<Exception> list = new List<Exception>();
-            if (clas != null && clas.Length > 0)
+            if (ids != null && ids.Length > 0)
             {
-                foreach (int cla in clas)
+                foreach (string id in ids)
                 {
                     Entities.Nivel item = new Entities.Nivel(true);
-                    item.ClaNivel = Utils.IsNull(cla, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {

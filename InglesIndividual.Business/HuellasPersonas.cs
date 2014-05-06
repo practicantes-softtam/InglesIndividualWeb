@@ -32,7 +32,7 @@ namespace InglesIndividual.Business
                 foreach (int id in ids)
                 {
                     Entities.HuellasPersonas item = new Entities.HuellasPersonas(true);
-                    item.IdRegistro = Utils.IsNull(id, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {

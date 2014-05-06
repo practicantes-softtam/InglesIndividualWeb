@@ -32,7 +32,7 @@ namespace InglesIndividual.Business
                 {
                     Entities.OrdenAsignacionCitas item = new Entities.OrdenAsignacionCitas(true);
                     item.Campus = new Entities.Campus();
-                    item.Campus.Clave = Utils.IsNull(cla, 0);
+                    item.Campus.ID = Utils.IsNull(cla, 0);
 
                     try
                     {

@@ -26,7 +26,7 @@ namespace InglesIndividual.Data
             {
                 Entities.FwkUsuarioPerfil item = new Entities.FwkUsuarioPerfil(true);
                 item.FwkUsuario = new Entities.FwkUsuarios();
-                item.FwkUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
+                item.FwkUsuario.ID = Utils.GetDataRowValue(dr, "IdUsuario", "");
                 item.FwkAplicacion = new Entities.FwkAplicaciones();
                 item.FwkAplicacion.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.FwkPerfil = new Entities.FwkPerfiles();
@@ -47,7 +47,7 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkUsuarioPerfilIns
                sp = new DataEntities.SpFwkUsuarioPerfilIns();
 
-            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.IdUsuario = item.FwkUsuario.ID;
             sp.ClaAplicaion = item.FwkAplicacion.ClaAplicacion;
             sp.ClaPerfil = item.FwkPerfil.ClaPerfil;
 
@@ -70,7 +70,7 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkUsuarioPerfilDel
                sp = new DataEntities.SpFwkUsuarioPerfilDel();
 
-            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.IdUsuario = item.FwkUsuario.ID;
             sp.ClaAplicaion = item.FwkAplicacion.ClaAplicacion;
             sp.ClaPerfil = item.FwkPerfil.ClaPerfil;
 

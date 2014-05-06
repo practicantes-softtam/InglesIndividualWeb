@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Framework;
 
 namespace InglesIndividual.Entities
 {
     public class Nivel : WebEntity
     {
-        private int _claNivel;
-        private string _nomNivel;
+        private int _clave;
+        private string _nombre;
         private int _clubConversacion;
 
-        public int ClaNivel
+        public int ID
         {
-            get { return this._claNivel; }
-            set { this._claNivel = value; }
+            get { return _clave; }
+            set { _clave = value; }
         }
         
-        public string NomNivel
+        public string Nombre
         {
-            get { return this._nomNivel; }
-            set { this._nomNivel = value; }
+            get { return this._nombre; }
+            set { this._nombre = value; }
         }
             
         public int ClubConversacion

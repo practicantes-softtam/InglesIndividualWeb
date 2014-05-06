@@ -20,7 +20,7 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.FwkUsuarios item = new Entities.FwkUsuarios(true);
-                item.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", "");
+                item.ID = Utils.GetDataRowValue(dr, "IdUsuario", "");
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -32,8 +32,8 @@ namespace InglesIndividual.Data
         {
             Entities.FwkUsuarios item = entity as Entities.FwkUsuarios;
             DataEntities.SpFwkUsuariosIns sp = new DataEntities.SpFwkUsuariosIns();
-            sp.IdUsuario = item.IdUsuario;
-            sp.NomUsuario = item.NomUsuario;
+            sp.IdUsuario = item.ID;
+            sp.NomUsuario = item.Nombre;
             sp.Password = item.Password;
             sp.Email = item.Email;
              if (tran != null)
@@ -51,7 +51,7 @@ namespace InglesIndividual.Data
         {
             Entities.FwkUsuarios item = entity as Entities.FwkUsuarios;
             DataEntities.SpFwkUsuariosDel sp = new DataEntities.SpFwkUsuariosDel();
-            sp.IdUsuario = item.IdUsuario;
+            sp.IdUsuario = item.ID;
 
             if (tran != null)
             {

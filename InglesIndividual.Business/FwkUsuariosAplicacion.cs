@@ -30,7 +30,7 @@ namespace InglesIndividual.Business
                 {
                     Entities.FwkUsuarioAplicacion item = new Entities.FwkUsuarioAplicacion(true);
                     item.FwkAplicacion.ClaAplicacion = Utils.IsNull(id, 0);
-                    item.FwkUsuario.IdUsuario = Utils.IsNull(id, "");
+                    item.FwkUsuario.ID = Utils.IsNull(id, "");
 
                     try
                     {

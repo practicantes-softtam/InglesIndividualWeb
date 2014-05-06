@@ -31,7 +31,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkPermisosAdicionales item = new Entities.FwkPermisosAdicionales(true);
-                    item.FwkUsuario.IdUsuario = Utils.IsNull(id, "");
+                    item.FwkUsuario.ID = Utils.IsNull(id, "");
                     item.FwkAplicaciones.ClaAplicacion = Utils.IsNull(id, 0);
                     item.FwkModulos.ClaModulo = Utils.IsNull(id, 0);
                     item.FwkObjetos.ClaObjeto = Utils.IsNull(id, 0);

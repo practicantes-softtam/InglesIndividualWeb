@@ -31,7 +31,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.FwkUsuarios item = new Entities.FwkUsuarios(true);
-                    item.IdUsuario = Utils.IsNull(id, "");
+                    item.ID = Utils.IsNull(id, "");
 
                     try
                     {

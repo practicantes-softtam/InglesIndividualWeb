@@ -21,10 +21,10 @@ namespace InglesIndividual.Data
             foreach (DataRow dr in dt.Rows)
             {
                 Entities.HuellasPersonas item = new Entities.HuellasPersonas(true);
-                item.IdRegistro = Utils.GetDataRowValue(dr, "IdRegistro", 0);
+                item.ID = Utils.GetDataRowValue(dr, "IdRegistro", 0);
                 item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
-                item.ClaEmpleado = new Entities.Empleados();
-                item.ClaEmpleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
+                item.Empleado = new Entities.Empleados();
+                item.Empleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -36,10 +36,10 @@ namespace InglesIndividual.Data
         {
             Entities.HuellasPersonas item = entity as Entities.HuellasPersonas;
             DataEntities.SpHuellasPersonasIns sp = new DataEntities.SpHuellasPersonasIns();
-            sp.IdRegistro = item.IdRegistro;
-            sp.ClaCampus = item.ClaCampus.Clave;
+            sp.IdRegistro = item.ID;
+            sp.ClaCampus = item.Campus.ID;
             sp.Matricula = item.Matricula;
-            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             sp.TipoPersona = item.TipoPersona;
             sp.Huella = item.Huella;
             if (tran != null)
@@ -57,9 +57,9 @@ namespace InglesIndividual.Data
         {
             Entities.HuellasPersonas item = entity as Entities.HuellasPersonas;
             DataEntities.SpHuellasPersonasDel sp = new DataEntities.SpHuellasPersonasDel();
-            sp.IdRegistro = item.IdRegistro;
+            sp.IdRegistro = item.ID;
             sp.Matricula = item.Matricula;
-            sp.ClaEmpleado = item.ClaEmpleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

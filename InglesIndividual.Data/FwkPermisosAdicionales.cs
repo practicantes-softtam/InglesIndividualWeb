@@ -27,7 +27,7 @@ namespace InglesIndividual.Data
             {
                 Entities.FwkPermisosAdicionales item = new Entities.FwkPermisosAdicionales(true);
                 item.FwkUsuario = new Entities.FwkUsuarios();
-                item.FwkUsuario.IdUsuario = Utils.GetDataRowValue(dr, "IdUsuario", " ");
+                item.FwkUsuario.ID = Utils.GetDataRowValue(dr, "IdUsuario", " ");
                 item.FwkAcciones = new Entities.FwkAcciones();
                 item.FwkAplicaciones.ClaAplicacion = Utils.GetDataRowValue(dr, "ClaAplicacion", 0);
                 item.FwkModulos = new Entities.FwkModulos();
@@ -53,7 +53,7 @@ namespace InglesIndividual.Data
             DataEntities.SpFwkPermisosAdicionalesIns
                sp = new DataEntities.SpFwkPermisosAdicionalesIns();
 
-            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.IdUsuario = item.FwkUsuario.ID;
             sp.ClaAplicaion = item.FwkAplicaciones.ClaAplicacion;
             sp.ClaModulo = item.FwkModulos.ClaModulo;
             sp.ClaObjeto = item.FwkObjetos.ClaObjeto;
@@ -78,7 +78,7 @@ namespace InglesIndividual.Data
             Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
             DataEntities.SpFwkPermisosAdicionalesUpd
                sp = new DataEntities.SpFwkPermisosAdicionalesUpd();
-            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.IdUsuario = item.FwkUsuario.ID;
             sp.ClaAplicaion = item.FwkAplicaciones.ClaAplicacion;
             sp.ClaModulo = item.FwkModulos.ClaModulo;
             sp.ClaObjeto = item.FwkObjetos.ClaObjeto;
@@ -104,7 +104,7 @@ namespace InglesIndividual.Data
             Entities.FwkPermisosAdicionales item = entity as Entities.FwkPermisosAdicionales;
             DataEntities.SpFwkPermisosAdicionalesDel
                sp = new DataEntities.SpFwkPermisosAdicionalesDel();
-            sp.IdUsuario = item.FwkUsuario.IdUsuario;
+            sp.IdUsuario = item.FwkUsuario.ID;
             sp.ClaAplicaion = item.FwkAplicaciones.ClaAplicacion;
             sp.ClaModulo = item.FwkModulos.ClaModulo;
             sp.ClaObjeto = item.FwkObjetos.ClaObjeto;

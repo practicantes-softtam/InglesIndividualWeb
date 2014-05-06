@@ -10,7 +10,10 @@ namespace InglesIndividual.Entities
     {
         private int _clave;
         private string _nombre;
+        private Nivel _nivel;
+        private int _esReview;
 
+  
     public int Clave
         {
             get { return _clave; }
@@ -22,6 +25,18 @@ namespace InglesIndividual.Entities
         {
             get { return _nombre; }
             set { _nombre = value; }
+        }
+
+        public int EsReview
+        {
+            get { return _esReview; }
+            set { _esReview = value; }
+        }
+
+        public Nivel Nivel
+        {
+            get { return _nivel; }
+            set { _nivel = value; }
         }
         
         public Lecciones() : this(false)

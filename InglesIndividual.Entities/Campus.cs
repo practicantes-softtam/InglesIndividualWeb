@@ -19,7 +19,7 @@ namespace InglesIndividual.Entities
         private string _directorGeneral;
         private string _directorAdministrativo;
 
-        public int Clave
+        public int ID
         {
             get { return _clave; }
             set { _clave = value; }

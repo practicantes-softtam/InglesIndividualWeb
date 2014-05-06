@@ -23,10 +23,10 @@ namespace InglesIndividual.Data
             {
                 Entities.Departamentos item = new Entities.Departamentos(true);
 
-                item.ClaDepartamento = Utils.GetDataRowValue(dr, "ClaDepartamento", 0);
+                item.ID = Utils.GetDataRowValue(dr, "ClaDepartamento", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.Clave = Utils.GetDataRowValue(dr, "ClaCampus", 0);
-                item.NomDepartamento = Utils.GetDataRowValue(dr, "NomDepartamento", "");
+                item.Campus.ID = Utils.GetDataRowValue(dr, "ClaCampus", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomDepartamento", "");
 
                 this.SetWebEntityGridValues(item, dr);
 
@@ -41,9 +41,9 @@ namespace InglesIndividual.Data
             Entities.Departamentos item = entity as Entities.Departamentos;
             DataEntities.SpDepartamentosIns
                 sp = new DataEntities.SpDepartamentosIns();
-            sp.ClaDepartamento = item.ClaDepartamento;
-            sp.ClaCampus = item.Campus.Clave;
-            sp.NomDepartamento = item.NomDepartamento;
+            sp.ClaDepartamento = item.ID;
+            sp.ClaCampus = item.Campus.ID;
+            sp.NomDepartamento = item.Nombre;
 
             if (tran != null)
             {
@@ -61,7 +61,7 @@ namespace InglesIndividual.Data
             Entities.Departamentos item = entity as Entities.Departamentos;
             DataEntities.SpDepartamentosDel
                 sp = new DataEntities.SpDepartamentosDel();
-            sp.NomDepartamento = item.NomDepartamento;
+            sp.NomDepartamento = item.Nombre;
 
             if (tran != null)
             {

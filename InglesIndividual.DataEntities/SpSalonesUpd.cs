@@ -24,7 +24,7 @@ namespace InglesIndividual.DataEntities
              set { this.Command.Parameters["@pClaCampus"].Value = value; }
          }
 
-         public string NomCampus
+         public string NomSalon
          {
              get { return Utils.IsNull(this.Command.Parameters["@pNomCampus"].Value, ""); }
              set { this.Command.Parameters["@pNomCampus"].Value = value; }

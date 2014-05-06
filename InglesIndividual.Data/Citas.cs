@@ -25,7 +25,7 @@ namespace InglesIndividual.Data
 
                 item.IdCita = Utils.GetDataRowValue(dr, "IdCita", 0);
                 item.Campus = new Entities.Campus();
-                item.Campus.Clave = Utils.GetDataRowValue(dr, "Clave", 0);
+                item.Campus.ID = Utils.GetDataRowValue(dr, "Clave", 0);
                 item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
                 item.ClaProfesor = Utils.GetDataRowValue(dr, "ClaProfesor", 0);
                 item.FechaHora = Utils.GetDataRowValue(dr, "FechaHora", 0);
@@ -53,7 +53,7 @@ namespace InglesIndividual.Data
             DataEntities.SpCitasIns
                 sp = new DataEntities.SpCitasIns();
             sp.IdCita = item.IdCita;
-            sp.ClaCampus = item.Campus.Clave;
+            sp.ClaCampus = item.Campus.ID;
             sp.Matricula = item.Matricula;
             sp.ClaProfesor = item.ClaProfesor;
             sp.FechaHora = item.FechaHora;

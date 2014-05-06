@@ -13,7 +13,7 @@ namespace InglesIndividual.Entities
         private string _nomSalon;
         private int _capacidad;
 
-        public int IdSalon
+        public int ID
         {
             get { return _idSalon; }
             set { _idSalon = value; }
@@ -25,7 +25,7 @@ namespace InglesIndividual.Entities
             set { _campus = value; }
         }
 
-        public string NomSalon
+        public string Nombre
         {
             get { return _nomSalon; }
             set { _nomSalon = value; }

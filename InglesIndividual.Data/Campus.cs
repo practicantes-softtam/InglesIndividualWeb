@@ -36,27 +36,34 @@ namespace InglesIndividual.Data
             return list;
         }
 
-        public override int Insert(Entity entity, DataTransaction tran)
+        public override int Insert(Entity entity)
         {
             Entities.Campus item = entity as Entities.Campus;
-            DataEntities.SpCampusIns
-            sp = new DataEntities.SpCampusIns();
-            sp.ClaCampus = item.Clave;
+            DataEntities.SpCampusIns sp = new DataEntities.SpCampusIns();
+            sp.ClaCampus = item.ID;
             sp.NomCampus = item.Nombre;
             sp.Calle = item.Calle;
             sp.Colonia = item.Colonia;
             sp.CodigoPostal = item.CodigoPostal;
             sp.ClaPais = item.Pais.ID;
             sp.ClaEstado = item.Ciudad.Estado.ID;
-            sp.ClaCiudad = item.Ciudad.Clave;
+            sp.ClaCiudad = item.Ciudad.ID;
             sp.Telefono = item.Telefono;
             sp.DirectorGeneral = item.DirectorGeneral;
             sp.DirectorAdministrativo = item.DirectorAdministrativo;
 
+                return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
+        public override int Delete(Entity entity, DataTransaction tran)
+        {
+            Entities.Campus item = entity as Entities.Campus;
+            DataEntities.SpCampusDel sp = new DataEntities.SpCampusDel();
+            sp.ClaCampus = item.ID;
+
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);
-
             }
             else
             {
@@ -64,19 +71,40 @@ namespace InglesIndividual.Data
             }
         }
 
-        public override int Delete(Entity entity, DataTransaction tran)
+        public override int Update(Entity entity)
         {
             Entities.Campus item = entity as Entities.Campus;
-            DataEntities.SpCampusDel sp = new DataEntities.SpCampusDel();
-            sp.ClaCampus = item.Clave;
+            DataEntities.SpCampusUpd sp = new DataEntities.SpCampusUpd();
+            sp.ClaCampus = item.ID;
+            sp.NomCampus = item.Nombre;
+            sp.Calle = item.Calle;
+            sp.Colonia = item.Colonia;
+            sp.CodigoPostal = item.CodigoPostal;
+            sp.ClaPais = item.Pais.ID;
+            sp.ClaEstado = item.Ciudad.Estado.ID;
+            sp.ClaCiudad = item.Ciudad.ID;
+            sp.Telefono = item.Telefono;
+            sp.DirectorGeneral = item.DirectorGeneral;
+            sp.DirectorAdministrativo = item.DirectorAdministrativo;
 
-            if (tran != null)
+            return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
+        public override void PrepareEntityForEdition(Entity entity)
+        {
+            Entities.Campus item = entity as Entities.Campus;
+            if (item != null && item.FromDataSource)
             {
-                return sp.ExecuteNonQuery(tran);
-            }
-            else
-            {
-                return sp.ExecuteNonQuery(this.ConnectionString);
+                DataEntities.SpCampusSel sp = new DataEntities.SpCampusSel();
+                sp.ClaCampus = item.ID;
+
+                DataTable dt = sp.GetDataTable(this.ConnectionString);
+                if (dt != null && dt.Rows.Count == 1)
+                {
+                    item.ID = Utils.GetDataRowValue(dt.Rows[0], "ClaCampus", 0);
+                    item.Nombre = Utils.GetDataRowValue(dt.Rows[0], "NomCampus", "");
+                }
+
             }
         }
     }

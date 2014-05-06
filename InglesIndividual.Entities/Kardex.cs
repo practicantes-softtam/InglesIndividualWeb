@@ -20,7 +20,7 @@ namespace InglesIndividual.Entities
         private int _claCalificacion;
         private int _idCita;
 
-        public int IdCalificacion
+        public int ID
         {
             get { return _idCalificacion; }
             set { _idCalificacion = value; }
@@ -32,25 +32,25 @@ namespace InglesIndividual.Entities
             set { _matricula = value; }
         }
 
-        public Campus ClaCampus
+        public Campus Campus
         {
             get { return _campus; }
             set { _campus = value; }
         }
 
-        public Nivel ClaNivel
+        public Nivel Nivel
         {
             get { return _nivel; }
             set { _nivel = value; }
         }
 
-         public Lecciones ClaLeccion
+         public Lecciones Leccion
         {
             get { return _leccion; }
             set { _leccion = value; }
         }
 
-         public int ClaProfesor
+         public int Profesor
         {
             get { return _claProfesor; }
             set { _claProfesor = value; }

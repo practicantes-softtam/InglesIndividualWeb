@@ -31,7 +31,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.Campus item = new Entities.Campus(true);
-                    item.Clave = Utils.IsNull(id, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {

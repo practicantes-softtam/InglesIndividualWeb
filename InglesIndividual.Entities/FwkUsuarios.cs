@@ -12,13 +12,13 @@ namespace InglesIndividual.Entities
         private string _password;
         private string _email;
 
-        public string IdUsuario
+        public string ID
         {
             get { return _idUsuario; }
             set { _idUsuario = value; }
         }
 
-        public string NomUsuario
+        public string Nombre
         {
             get { return _nomUsuario; }
             set { _nomUsuario = value; }
