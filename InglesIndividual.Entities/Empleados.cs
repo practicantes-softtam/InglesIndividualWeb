@@ -10,7 +10,7 @@ namespace InglesIndividual.Entities
         private int _claEmpleado;
         private Puesto _puesto;
 
-        public int ClaEmpleado
+        public int ID
         {
             get { return _claEmpleado; }
             set { _claEmpleado = value; }

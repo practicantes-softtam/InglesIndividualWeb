@@ -9,7 +9,7 @@ namespace InglesIndividual.Entities
     {
         private int _idAmpliacion;
 
-        public int idAmpliacion
+        public int ID
         {
             get { return _idAmpliacion; }
             set { _idAmpliacion = value; }

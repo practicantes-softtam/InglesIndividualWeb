@@ -76,7 +76,7 @@ namespace InglesIndividual.Entities
 
         private int _idRegistro;
 
-        public int idRegistro
+        public int ID
         {
             get { return _idRegistro; }
             set { _idRegistro = value; }

@@ -26,7 +26,7 @@ namespace InglesIndividual.Entities
 
         private string _nomConfiguracion;
 
-        public string NomConfiguracion
+        public string Nombre
         {
             get { return _nomConfiguracion; }
             set { _nomConfiguracion = value; }

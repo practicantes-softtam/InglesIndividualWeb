@@ -11,14 +11,14 @@ namespace InglesIndividual.Entities
         private int _claEncuesta;
         private string _nomEncuesta;
 
-        public string NomEncuesta
+        public string Nombre
         {
             get { return _nomEncuesta; }
             set { _nomEncuesta = value; }
         }
 
 
-        public int ClaEncuesta
+        public int ID
         {
             get { return _claEncuesta; }
             set { _claEncuesta = value; }
