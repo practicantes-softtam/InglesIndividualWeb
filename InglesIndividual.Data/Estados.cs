@@ -84,6 +84,7 @@ namespace InglesIndividual.Data
             List<Entities.Estado> list = new List<Entities.Estado>();
             DataEntities.SpEstadosSel sp = new DataEntities.SpEstadosSel();
             sp.ClaPais = claPais;
+            sp.ClaEstado = -1;
             DataTable dt = sp.GetDataTable(this.ConnectionString);
 
             foreach (DataRow dr in dt.Rows)
