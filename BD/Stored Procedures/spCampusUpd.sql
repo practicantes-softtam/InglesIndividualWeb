@@ -18,6 +18,7 @@ create proc spCampusUpd
 as
 begin
 	update Campus
+	
 	set NomCampus=@pNomCampus,
 		Calle = @pCalle, 
 		Colonia = @pColonia,
@@ -28,7 +29,11 @@ begin
 		Telefono = @pTelefono,
 		DirectorGeneral = @pDirectorGeneral,
 		DirectorAdministrativo= @pDirectorAdministrativo
+	
 	where ClaCampus = @pClaCampus
+	and ClaCiudad = @pClaCiudad
+	and ClaEstado =@pClaEstado
+	and ClaPais = @pClaPais
        
 end
 
