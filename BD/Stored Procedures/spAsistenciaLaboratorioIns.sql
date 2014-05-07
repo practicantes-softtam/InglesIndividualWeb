@@ -5,6 +5,7 @@ go
 create proc spAsistenciaLaboratorioIns
 (
 	
+	@pIdAsistenciaLaboratorio int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pFecha smalldatetime
@@ -15,5 +16,6 @@ begin
  insert into AsistenciaLaboratorio (ClaCampus, Matricula, Fecha ) 
  values(@pClaCampus, @pMatricula, @pFecha)
  
- select MAX(IdAsistenciaLaboratorio) From AsistenciaLaboratorio
+ --select MAX(IdAsistenciaLaboratorio) From AsistenciaLaboratorio
+ select @pIdAsistenciaLaboratorio = @@IDENTITY
 end
