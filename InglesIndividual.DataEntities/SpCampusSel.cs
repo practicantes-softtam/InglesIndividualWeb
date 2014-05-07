@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Framework;
+
+namespace InglesIndividual.DataEntities
+{
+    public class SpCampusSel : StoredProcedure
+    {
+        public SpCampusSel()
+            : base("SpCampusSel")
+        {
+            this.AddParameter("pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
+
+        }
+
+        public int ClaCampus
+        {
+            get { return Utils.IsNull(this.Command.Parameters["pClaCampus"].Value, 0); }
+            set { this.Command.Parameters["@pClaCampus"].Value = value; }
+        }
+    }
+}
