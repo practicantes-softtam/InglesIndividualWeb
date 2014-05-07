@@ -7,7 +7,8 @@ go
 
 CREATE proc spEstadosSel
 (
-	@pClaPais	int
+	@pClaPais	int,
+	@pClaEstado int
 )
 as
 begin
@@ -17,4 +18,5 @@ begin
 			NomEstado
 	from	Estados
 	where	((ClaPais	=	@pClaPais)	or	@pClaPais = -1)
+	and		((ClaEstado = @pClaEstado) or @pClaEstado = -1)
 end
