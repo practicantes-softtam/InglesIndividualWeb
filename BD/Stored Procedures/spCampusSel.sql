@@ -23,8 +23,9 @@ begin
 			Telefono,
 			DirectorGeneral,
 			DirectorAdministrativo
+			
 	from	Campus
-	where	ClaCampus	=	@pClaCampus
+	where	((ClaCampus = @pClaCampus) or @pClaCampus = -1)
 end
 
 

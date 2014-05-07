@@ -9,6 +9,9 @@ create proc spCampusGrd
 	@pCalle varchar (200),
 	@pColonia varchar (200),
 	@pTelefono varchar (15),
+	@pClaPais int,
+	@pClaEstado int,
+	@pClaCiudad int,
 	@pTamanioPagina	int,
 	@pNumPagina		int,
 	@pOrdenarPor	varchar(100)
@@ -22,10 +25,11 @@ begin
 	end
 	
 	select RowNumber = ROW_NUMBER() over (order by ClaCampus asc),
-	ClaCampus, NomCampus, Calle, Colonia, Telefono
+	ClaCampus, NomCampus, ClaCiudad, ClaEstado, ClaPais, Calle, Colonia, Telefono
 	into #tabla
 	from Campus
 	where NomCampus like @pNomCampus
+	
 	exec spGridPaginado @pTamanioPagina, @pNumPagina, @pOrdenarPor
 
 end
