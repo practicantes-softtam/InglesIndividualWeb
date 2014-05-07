@@ -25,7 +25,7 @@ namespace InglesIndividual.Data
 
                 item.ClaCategoria = Utils.GetDataRowValue(dr, "ClaCategoria", 0);
                 item.ClaConfig = Utils.GetDataRowValue(dr, "ClaConfig", 0);
-                item.NomConfiguracion = Utils.GetDataRowValue(dr, "NomCinfiguracion", "");
+                item.Nombre = Utils.GetDataRowValue(dr, "NomCinfiguracion", "");
                 item.ValorEntero = Utils.GetDataRowValue(dr, "ValorEntero", 0);
                 item.ValorCadena = Utils.GetDataRowValue(dr, "ValorCadena", "");
                 item.Editable = Utils.GetDataRowValue(dr, "Editable", 0);
@@ -45,22 +45,22 @@ namespace InglesIndividual.Data
                 sp = new DataEntities.SpConfiguracionIns();
             sp.ClaCategoria = item.ClaCategoria;
             sp.ClaConfig = item.ClaConfig;
-            sp.NomConfiguracion = item.NomConfiguracion;
+            sp.NomConfiguracion = item.Nombre;
             sp.ValorEntero = item.ValorEntero;
             sp.ValorCadena = item.ValorCadena;
             sp.Editable = item.Editable;
             
 
 
-            if (tran != null)
-            {
-                return sp.ExecuteNonQuery(tran);
+         //   if (tran != null)
+         //   {
+         //       return sp.ExecuteNonQuery(tran);
 
-            }
-            else
-            {
+         //   }
+         //   else
+         //   {
                 return sp.ExecuteNonQuery(this.ConnectionString);
-            }
+         //   }
         }
 
         public override int Delete(Entity entity, DataTransaction tran)
@@ -81,5 +81,43 @@ namespace InglesIndividual.Data
             }
 
         }
+
+        public override int Update(Entity entity)
+        {
+            Entities.Configuracion item = entity as Entities.Configuracion;
+            DataEntities.SpConfiguracionUpd sp = new DataEntities.SpConfiguracionUpd();
+            sp.ClaCategoria = item.ClaCategoria;
+            sp.ClaConfig = item.ClaConfig;
+            sp.NomConfiguracion = item.Nombre;
+            sp.ValorEntero = item.ValorEntero;
+            sp.ValorCadena = item.ValorCadena;
+            sp.Editable = item.Editable;
+
+            return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
+        public override void PrepareEntityForEdition(Entity entity)
+        {
+            Entities.Configuracion item = entity as Entities.Configuracion;
+            if (item != null && item.FromDataSource)
+            {
+                DataEntities.SpConfiguracionSel sp = new DataEntities.SpConfiguracionSel();
+                sp.ClaCategoria = item.ClaCategoria;
+                sp.ClaConfig = sp.ClaConfig;
+
+                DataTable dt = sp.GetDataTable(this.ConnectionString);
+                if (dt != null && dt.Rows.Count == 1)
+                {
+                    
+                    item.ClaCategoria = Utils.GetDataRowValue(dt.Rows[0], "ClaCategoria", 0);
+                    item.ClaConfig = Utils.GetDataRowValue(dt.Rows[0], "ClaConfig", 0);
+                    item.Nombre = Utils.GetDataRowValue(dt.Rows[0], "NomCinfiguracion", "");
+                    item.ValorEntero = Utils.GetDataRowValue(dt.Rows[0], "ValorEntero", 0);
+                    item.ValorCadena = Utils.GetDataRowValue(dt.Rows[0], "ValorCadena", "");
+                    item.Editable = Utils.GetDataRowValue(dt.Rows[0], "Editable", 0);
+                }
+            }
+        }
+
     }
 }
