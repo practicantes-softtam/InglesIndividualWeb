@@ -55,8 +55,8 @@ namespace InglesIndividual.Web
             {
                 item = new Ciudad(true);
             }
-            item.Clave = Utils.IsNull(id, 0);
-            item.NomCiudad = nombre;
+            item.ID = Utils.IsNull(id, 0);
+            item.Nombre = nombre;
 
             Business.Ciudades bo = new Business.Ciudades();
             bo.Save(item);
