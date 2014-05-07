@@ -4,7 +4,7 @@ go
 
 create proc spAsistenciaIns
 (
-	@pIdRegistro int,
+	@pIdRegistro int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pClaEmpleado int,
@@ -18,7 +18,7 @@ create proc spAsistenciaIns
 as 
 begin
 
- insert into Asistencia (IdRegistro, ClaCampus, Matricula, ClaEmpleado, TipoPersona, FechaHora, Mensaje, IdCita, RegistroValido ) 
- values(@pIdRegistro, @pClaCampus, @pMatricula, @pClaEmpleado, @pTipoPersona, @pFechaHora, @pMensaje, @pIdCita,@pRegistroValido)
- 
+ insert into Asistencia (ClaCampus, Matricula, ClaEmpleado, TipoPersona, FechaHora, Mensaje, IdCita, RegistroValido ) 
+ values(@pClaCampus, @pMatricula, @pClaEmpleado, @pTipoPersona, @pFechaHora, @pMensaje, @pIdCita,@pRegistroValido)
+  select @pIdRegistro = @@IDENTITY
 end

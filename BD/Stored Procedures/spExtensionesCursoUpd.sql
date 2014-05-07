@@ -4,7 +4,7 @@ go
 
 create proc spExtensionesCursoUpd
 (
-@pIdRegistro int,
+@pIdRegistro int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pFechaIni smalldatetime,

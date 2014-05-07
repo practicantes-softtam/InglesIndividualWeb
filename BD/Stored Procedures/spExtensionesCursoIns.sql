@@ -4,7 +4,7 @@ go
 
 create proc spExtensionesCursoIns
 (
-	@pIdRegistro int,
+	@pIdRegistro int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pFechaIni smalldatetime,
@@ -20,7 +20,7 @@ create proc spExtensionesCursoIns
 as 
 begin
 
- insert into ExtensionesCurso(IdRegistro, ClaCampus, Matricula, FechaIni, FechaFin, Comentarios, Estatus, ClaNivel, ClaLeccion, TipoRegistro) 
- values(@pIdRegistro, @pClaCampus, @pMatricula, @pFechaIni, @pFechaFin, @pComentarios, @pEstatus, @pClaNivel, @pClaLeccion, @pTipoRegistro)
- 
+ insert into ExtensionesCurso(ClaCampus, Matricula, FechaIni, FechaFin, Comentarios, Estatus, ClaNivel, ClaLeccion, TipoRegistro) 
+ values(@pClaCampus, @pMatricula, @pFechaIni, @pFechaFin, @pComentarios, @pEstatus, @pClaNivel, @pClaLeccion, @pTipoRegistro)
+  select @pIdRegistro = @@IDENTITY
 end

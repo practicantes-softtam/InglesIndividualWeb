@@ -4,7 +4,7 @@ go
 
 create proc spAmpliacionesUpd
 (
-	@pIdAmpliacion int,
+	@pIdAmpliacion int out,
 @pMatricula varchar(10),
 @pVigencia smalldatetime,
 @pComentarios varchar (255),

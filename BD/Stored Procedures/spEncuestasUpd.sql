@@ -4,7 +4,7 @@ go
 
 create proc spEncuestasUpd
 (
-	@pClaEncuesta int,
+	@pClaEncuesta int out,
 	@pNomEncuesta varchar (50)
 	
 )

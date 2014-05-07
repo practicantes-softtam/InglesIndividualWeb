@@ -4,7 +4,7 @@ go
 
 create proc spAsistenciaUpd
 (
-	@pIdRegistro int,
+	@pIdRegistro int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pClaEmpleado int,

@@ -4,7 +4,7 @@ go
 
 create proc spCitasUpd
 (
-	@pIdCita int,
+	@pIdCita int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pClaProfesor int,

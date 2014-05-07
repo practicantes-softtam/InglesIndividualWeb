@@ -4,7 +4,7 @@ go
 
 create proc spCitasIns
 (
-	@pIdCita int,
+	@pIdCita int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pClaProfesor int,
@@ -23,7 +23,7 @@ create proc spCitasIns
 as 
 begin
 
- insert into Citas(IdCita, ClaCampus, Matricula, ClaProfesor, FechaHora, TipoClase, Estatus, ClaNivel, ClaLeccion, FechaHoraOriginal, Observaciones, ModManual, FechaHoraAsistencia, Aprobo ) 
- values(@pIdCita, @pClaCampus, @pMatricula, @pClaProfesor, @pFechaHora, @pTipoClase, @pEstatus, @pClaNivel, @pClaLeccion, @pFechaHoraOriginal, @pObservaciones, @pModManual, @pFechaHoraAsstencia, @pAprobo)
- 
+ insert into Citas(ClaCampus, Matricula, ClaProfesor, FechaHora, TipoClase, Estatus, ClaNivel, ClaLeccion, FechaHoraOriginal, Observaciones, ModManual, FechaHoraAsistencia, Aprobo ) 
+ values(@pClaCampus, @pMatricula, @pClaProfesor, @pFechaHora, @pTipoClase, @pEstatus, @pClaNivel, @pClaLeccion, @pFechaHoraOriginal, @pObservaciones, @pModManual, @pFechaHoraAsstencia, @pAprobo)
+  select @pIdCita = @@IDENTITY
 end

@@ -4,7 +4,7 @@ go
 
 create proc spAmpliacionesIns
 (
-@pIdAmpliacion int,
+@pIdAmpliacion int out,
 @pMatricula varchar(10),
 @pVigencia smalldatetime,
 @pComentarios varchar (255),
@@ -15,7 +15,7 @@ create proc spAmpliacionesIns
 as 
 begin
 
-Insert into Ampliaciones (IdAmpliacion, Matricula, Vigencia, Comentarios, Estatus, ClaNivel, ClaLeccion)  
-values(@pIdAmpliacion, @pMatricula, @pVigencia, @pComentarios, @pEstatus, @pClaNivel, @pClaLeccion)
-
+Insert into Ampliaciones (Matricula, Vigencia, Comentarios, Estatus, ClaNivel, ClaLeccion)  
+values(@pMatricula, @pVigencia, @pComentarios, @pEstatus, @pClaNivel, @pClaLeccion)
+ select @pIdAmpliacion = @@IDENTITY
 end

@@ -1,10 +1,10 @@
 if exists (select 1 from sys.procedures where name = 'spAsistenciaLaboratorioUpd')
-drop proc spAsistenciaUpd
+drop proc spAsistenciaLaboratorioUpd
 go
 
 create proc spAsistenciaLaboratorioUpd
 (
-	@pIdAsistenciaLaboratorio int,
+	@pIdAsistenciaLaboratorio int out,
 	@pClaCampus int,
 	@pMatricula varchar(10),
 	@pFecha smalldatetime
