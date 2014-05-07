@@ -3,18 +3,11 @@ drop proc spCampusDel
 go
 create proc spCampusDel
 (
-	@pClaCampus int,
-	@pClaCiudad int,
-	@pClaEstado int, 
-	@pClaPais	int
+	@pClaCampus int
 )
 as
 begin
 
- delete Campus 
- where  ClaCampus = @pClaCampus
- and ClaCiudad = @pClaCiudad
- and ClaEstado = @pClaEstado
- and ClaPais = @pClaPais
+ delete Campus where  ClaCampus = @pClaCampus
     
 end
