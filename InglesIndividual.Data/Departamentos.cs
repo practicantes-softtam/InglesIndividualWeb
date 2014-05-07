@@ -45,15 +45,15 @@ namespace InglesIndividual.Data
             sp.ClaCampus = item.Campus.ID;
             sp.NomDepartamento = item.Nombre;
 
-            if (tran != null)
-            {
-                return sp.ExecuteNonQuery(tran);
+          //  if (tran != null)
+          //  {
+          //      return sp.ExecuteNonQuery(tran);
 
-            }
-            else
-            {
+           // }
+           // else
+           // {
                 return sp.ExecuteNonQuery(this.ConnectionString);
-            }
+           // }
         }
 
         public override int Delete(Entity entity, DataTransaction tran)
@@ -61,6 +61,7 @@ namespace InglesIndividual.Data
             Entities.Departamentos item = entity as Entities.Departamentos;
             DataEntities.SpDepartamentosDel
                 sp = new DataEntities.SpDepartamentosDel();
+            //sp.IdDepartamento = item.ID;
             sp.NomDepartamento = item.Nombre;
 
             if (tran != null)
@@ -73,5 +74,38 @@ namespace InglesIndividual.Data
             }
 
         }
+
+        public override int Update(Entity entity)
+        {
+            Entities.Departamentos item = entity as Entities.Departamentos;
+            DataEntities.SpDepartamentosUpd sp = new DataEntities.SpDepartamentosUpd();
+            sp.ClaDepartamento = item.ID;
+            sp.ClaCampus = item.Campus.ID;
+            sp.NomDepartamentos = item.Nombre;
+
+            return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
+        public override void PrepareEntityForEdition(Entity entity)
+        {
+            Entities.Departamentos item = entity as Entities.Departamentos;
+            if (item != null && item.FromDataSource)
+            {
+                DataEntities.SpDepartamentosSel sp = new DataEntities.SpDepartamentosSel();
+                sp.ClaDepartamento = item.ID;
+
+                DataTable dt = sp.GetDataTable(this.ConnectionString);
+                if (dt != null && dt.Rows.Count == 1)
+                {
+                   
+                    item.ID = Utils.GetDataRowValue(dt.Rows[0], "ClaDepartamento", 0);
+                    item.Campus = new Entities.Campus();
+                    item.Campus.ID = Utils.GetDataRowValue(dt.Rows[0], "ClaCampus", 0);
+                    item.Nombre = Utils.GetDataRowValue(dt.Rows[0], "NomDepartamento", "");
+
+                }
+            }
+        }
+       
     }
 }
