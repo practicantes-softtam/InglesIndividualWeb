@@ -36,7 +36,7 @@ namespace InglesIndividual.Business
                     item.Campus = new Entities.Campus();
                     item.Campus.ID = Utils.IsNull(cla, 0);
                     item.Empleado = new Entities.Empleados();
-                    item.Empleado.ClaEmpleado = Utils.IsNull(cla, 0);
+                    item.Empleado.ID = Utils.IsNull(cla, 0);
                     item.ClaHorario = Utils.IsNull(cla, 0);
                     item.ClaDia = Utils.IsNull(cla, 0);
                     

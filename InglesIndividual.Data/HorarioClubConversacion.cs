@@ -26,7 +26,7 @@ namespace InglesIndividual.Data
                 item.Campus = new Entities.Campus();
                 item.Campus.ID = Utils.GetDataRowValue(dr, "ClaCampus", 0);
                 item.Empleado = new Entities.Empleados();
-                item.Empleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
+                item.Empleado.ID = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 item.ClaHorario = Utils.GetDataRowValue(dr, "ClaHorario", 0);
                 item.ClaDia = Utils.GetDataRowValue(dr, "ClaDia", 0);
                 this.SetWebEntityGridValues(item, dr);
@@ -41,7 +41,7 @@ namespace InglesIndividual.Data
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionIns sp = new DataEntities.SpHorarioClubConversacionIns();
             sp.ClaCampus = item.Campus.ID;
-            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ID;
             sp.ClaHorario = item.ClaHorario;
             sp.ClaDia = item.ClaDia;
             sp.Horas = item.Horas;
@@ -61,7 +61,7 @@ namespace InglesIndividual.Data
             Entities.HorarioClubConversacion item = entity as Entities.HorarioClubConversacion;
             DataEntities.SpHorarioClubConversacionDel sp = new DataEntities.SpHorarioClubConversacionDel();
             sp.ClaCampus = item.Campus.ID;
-            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ID;
             sp.ClaHorario = item.ClaHorario;
             sp.Horas = item.Horas;
             sp.ClaDia = item.ClaDia;

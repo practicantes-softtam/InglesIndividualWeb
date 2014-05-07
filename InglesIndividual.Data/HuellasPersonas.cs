@@ -24,7 +24,7 @@ namespace InglesIndividual.Data
                 item.ID = Utils.GetDataRowValue(dr, "IdRegistro", 0);
                 item.Matricula = Utils.GetDataRowValue(dr, "Matricula", "");
                 item.Empleado = new Entities.Empleados();
-                item.Empleado.ClaEmpleado = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
+                item.Empleado.ID = Utils.GetDataRowValue(dr, "ClaEmpleado", 0);
                 this.SetWebEntityGridValues(item, dr);
                 list.Add(item);
             }
@@ -39,7 +39,7 @@ namespace InglesIndividual.Data
             sp.IdRegistro = item.ID;
             sp.ClaCampus = item.Campus.ID;
             sp.Matricula = item.Matricula;
-            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ID;
             sp.TipoPersona = item.TipoPersona;
             sp.Huella = item.Huella;
             if (tran != null)
@@ -59,7 +59,7 @@ namespace InglesIndividual.Data
             DataEntities.SpHuellasPersonasDel sp = new DataEntities.SpHuellasPersonasDel();
             sp.IdRegistro = item.ID;
             sp.Matricula = item.Matricula;
-            sp.ClaEmpleado = item.Empleado.ClaEmpleado;
+            sp.ClaEmpleado = item.Empleado.ID;
             if (tran != null)
             {
                 return sp.ExecuteNonQuery(tran);

@@ -33,7 +33,7 @@ namespace InglesIndividual.Business
                 {
                     Entities.HorarioMaestros item = new Entities.HorarioMaestros(true);
                     item.Empleado = new Entities.Empleados();
-                    item.Empleado.ClaEmpleado = Utils.IsNull(cla, 0);
+                    item.Empleado.ID = Utils.IsNull(cla, 0);
                     try
                     {
                         this.Data.Delete(item);
