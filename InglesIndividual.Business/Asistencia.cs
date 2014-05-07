@@ -31,7 +31,7 @@ namespace InglesIndividual.Business
                 foreach (string id in ids)
                 {
                     Entities.Asistencia item = new Entities.Asistencia(true);
-                    item.idRegistro = Utils.IsNull(id, 0);
+                    item.ID = Utils.IsNull(id, 0);
 
                     try
                     {
