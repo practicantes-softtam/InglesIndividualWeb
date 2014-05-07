@@ -13,10 +13,7 @@ as
 begin
 
 	update Ciudades
-	set NomCiudad = @pNomCiudad,  ClaEstado = @pClaEstado, ClaPais = @pClaPais
+	set NomCiudad = @pNomCiudad
 	
 	where ClaCiudad = @pClaCiudad
 end
-
-exec spCiudadesUpd 10, 'Ciudad 10', 1,1
-	select * from Ciudades

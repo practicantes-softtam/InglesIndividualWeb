@@ -4,6 +4,8 @@ go
 
 CREATE proc spCiudadesGrd
 (
+	@pClaPais int,
+	@pClaEstado int,
 	@pNomCiudad varchar (50),
 	@pTamanioPagina	int,
 	@pNumPagina		int,

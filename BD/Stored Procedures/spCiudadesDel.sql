@@ -4,7 +4,10 @@ go
 
 create proc spCiudadesDel
 (
-	@pClaCiudad int
+	@pClaCiudad int,
+	@pClaEstado int,
+	@pClaPais int
+	
 	
 )
 as
@@ -12,6 +15,8 @@ begin
 
 	delete Ciudades 
 	where ClaCiudad = @pClaCiudad
+	and ClaEstado = @pClaEstado
+	and ClaPais = @pClaPais
 
 end
 
