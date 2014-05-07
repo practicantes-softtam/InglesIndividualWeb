@@ -2,10 +2,10 @@ if exists (select 1 from sys.procedures where name = 'spConfiguracionIns')
 drop proc spConfiguracionIns
 go
 
-create proc spConfiguracionIns
+create proc spConfiguracionIns 
 (
-	@pClaCategoria int,
-	@pClaConfig int,
+	@pClaCategoria int out,
+	@pClaConfig int out,
 	@pNomConfig varchar(255),
 	@pValorEntero int,
 	@pValorCadena varchar(100),

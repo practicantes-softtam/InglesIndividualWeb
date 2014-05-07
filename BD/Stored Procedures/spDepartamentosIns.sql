@@ -15,8 +15,8 @@ as
 begin
 
 
-	insert into Departamentos (ClaCampus, NomDepartamento)
-	values (@pClaCampus, @pNomDepartamento)
+	insert into Departamentos (ClaDepartamento, ClaCampus, NomDepartamento)
+	values (@pClaDepartamento, @pClaCampus, @pNomDepartamento)
 	
 	select @pClaDepartamento = @@IDENTITY
 end
