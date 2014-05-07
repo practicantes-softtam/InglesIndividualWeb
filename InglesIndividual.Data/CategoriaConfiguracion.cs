@@ -23,7 +23,7 @@ namespace InglesIndividual.Data
                 Entities.CategoriaConfiguracion item = new Entities.CategoriaConfiguracion(true);
 
                 item.ClaCategoria = Utils.GetDataRowValue(dr, "ClaCategoria", 0);
-                item.NomCategoria = Utils.GetDataRowValue(dr, "NomCategoria", "");
+                item.Nombre = Utils.GetDataRowValue(dr, "NomCategoria", "");
 
 
                 this.SetWebEntityGridValues(item, dr);
@@ -40,18 +40,18 @@ namespace InglesIndividual.Data
             DataEntities.SpCategoriaConfiguracionIns
                 sp = new DataEntities.SpCategoriaConfiguracionIns();
             sp.ClaCategoria = item.ClaCategoria;
-            sp.NomCategoria = item.NomCategoria;
+            sp.NomCategoria = item.Nombre;
 
 
-            if (tran != null)
-            {
-                return sp.ExecuteNonQuery(tran);
+          //  if (tran != null)
+          //  {
+           //     return sp.ExecuteNonQuery(tran);
 
-            }
-            else
-            {
+           // }
+           // else
+           // {
                 return sp.ExecuteNonQuery(this.ConnectionString);
-            }
+           // }
         }
 
         public override int Delete(Entity entity, DataTransaction tran)
@@ -70,6 +70,35 @@ namespace InglesIndividual.Data
                 return sp.ExecuteNonQuery(this.ConnectionString);
             }
 
+        }
+
+        public override int Update(Entity entity)
+        {
+            Entities.CategoriaConfiguracion item = entity as Entities.CategoriaConfiguracion;
+            DataEntities.SpCategoriaConfiguracionUpd sp = new DataEntities.SpCategoriaConfiguracionUpd();
+            sp.ClaCategoria = item.ClaCategoria;
+            sp.NomCategoria = item.Nombre;
+
+            return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
+        public override void PrepareEntityForEdition(Entity entity)
+        {
+            Entities.CategoriaConfiguracion item = entity as Entities.CategoriaConfiguracion;
+            if (item != null && item.FromDataSource)
+            {
+                DataEntities.SpCategoriaConfiguracionSel sp = new DataEntities.SpCategoriaConfiguracionSel();
+                sp.ClaCategoria = item.ClaCategoria;
+               
+
+                DataTable dt = sp.GetDataTable(this.ConnectionString);
+                if (dt != null && dt.Rows.Count == 1)
+                {
+
+                    item.ClaCategoria = Utils.GetDataRowValue(dt.Rows[0], "ClaCategoria", 0);
+                    item.Nombre = Utils.GetDataRowValue(dt.Rows[0], "NomCategoria", "");
+                }
+            }
         }
     }
 }
