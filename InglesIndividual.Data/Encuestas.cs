@@ -22,8 +22,8 @@ namespace InglesIndividual.Data
             {
                 Entities.Encuestas item = new Entities.Encuestas(true);
 
-                item.ClaEncuesta = Utils.GetDataRowValue(dr, "ClaEncuesta", 0);
-                item.NomEncuesta = Utils.GetDataRowValue(dr, "NomEncuesta", "");
+                item.ID = Utils.GetDataRowValue(dr, "ClaEncuesta", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomEncuesta", "");
 
                 this.SetWebEntityGridValues(item, dr);
 
@@ -38,18 +38,18 @@ namespace InglesIndividual.Data
             Entities.Encuestas item = entity as Entities.Encuestas;
             DataEntities.SpEncuestasIns
                 sp = new DataEntities.SpEncuestasIns();
-            sp.ClaEncuesta = item.ClaEncuesta;
-            sp.NomEncuesta = item.NomEncuesta;
+            sp.ClaEncuesta = item.ID;
+            sp.NomEncuesta = item.Nombre;
 
-            if (tran != null)
-            {
-                return sp.ExecuteNonQuery(tran);
+          //  if (tran != null)
+          //  {
+          //      return sp.ExecuteNonQuery(tran);
 
-            }
-            else
-            {
+          //  }
+          //  else
+          //  {
                 return sp.ExecuteNonQuery(this.ConnectionString);
-            }
+           // }
         }
 
         public override int Delete(Entity entity, DataTransaction tran)
@@ -57,7 +57,7 @@ namespace InglesIndividual.Data
             Entities.Encuestas item = entity as Entities.Encuestas;
             DataEntities.SpEncuestasDel
                 sp = new DataEntities.SpEncuestasDel();
-            sp.ClaEncuesta = item.ClaEncuesta;
+            sp.ClaEncuesta = item.ID;
 
             if (tran != null)
             {
@@ -69,5 +69,34 @@ namespace InglesIndividual.Data
             }
 
         }
+
+        public override int Update(Entity entity)
+        {
+            Entities.Encuestas item = entity as Entities.Encuestas;
+            DataEntities.SpEncuestasUpd sp = new DataEntities.SpEncuestasUpd();
+            sp.ClaEncuesta = item.ID;
+            sp.NomEncuesta = item.Nombre;
+
+            return sp.ExecuteNonQuery(this.ConnectionString);
+        }
+
+        public override void PrepareEntityForEdition(Entity entity)
+        {
+            Entities.Encuestas item = entity as Entities.Encuestas;
+            if (item != null && item.FromDataSource)
+            {
+                DataEntities.SpEncuestasSel sp = new DataEntities.SpEncuestasSel();
+                sp.ClaEncuesta = item.ID;
+
+                DataTable dt = sp.GetDataTable(this.ConnectionString);
+                if (dt != null && dt.Rows.Count == 1)
+                {
+
+                    item.ID = Utils.GetDataRowValue(dt.Rows[0], "ClaEncuesta", 0);
+                    item.Nombre = Utils.GetDataRowValue(dt.Rows[0], "NomEncuesta", "");
+                }
+            }
+        }
+
     }
 }
