@@ -7,21 +7,23 @@
     var grid = new Grid("PaisGrid");
     var settings = {
         source: {
-            datafields: [{ name: 'Clave' }, { name: 'Nombre'}],
-            url: 'Paises.aspx/GetData'
+            datafields: [{ name: 'ID' }, { name: 'Nombre'}],
+            url: getFormName() + '.aspx/GetData'
         },
         gridOptions: {
             columns: [
-                        { text: 'ID', dataField: 'Clave', width: 100, cellsrenderer: renderEdit },
+                        //{ text: 'ID', dataField: 'Clave', width: 100, cellsrenderer: renderEdit },
                         { text: 'Pais', dataField: 'Nombre', width: 300 },
-                        { text: 'Eliminar', dataField: "Eliminar", sortable: false, cellsrenderer: renderDelete }
+                        { text: 'Eliminar', dataField: "Eliminar", sortable: false, cellsrenderer: renderDelete },
+                        { text: 'Editar', dataField: 'Editar', width: 50, cellsrenderer: renderEdit, columntype: 'button', buttonclick: editClick }
+
                     ]
         },
         adapter: {
             formatData: function (data) {
                 if (data.sortdatafield != undefined && data.sortdatafield != null) {
                     switch (data.sortdatafield) {
-                        case "Clave": data.sortdatafield = "ClaPais"; break;
+                        case "ID": data.sortdatafield = "ClaPais"; break;
                         case "Nombre": data.sortdatafield = "NomPais"; break;
                     }
                 }
@@ -30,25 +32,25 @@
         },
         deleteOptions: {
             checkID: "Paises",
-            fieldID: "Clave"
+            fieldID: "ID"
         }
     };
 
     $(document).ready(function () {
         grid.load(settings)
-        $("#jqxwindow").jqxWindow({ width: 300, height: 300, autoOpen: false });
-        $("#uiGuardar").jqxButton();
-        $("#uiCancelar").jqxButton();
+        $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
+       
+        $("#uiID").jqxInput({ placeHolder: " ID del Pais", height: 30, width: 150, disabled: true });
+        $("#uiNombre").jqxInput({ placeHolder: " Nombre del Pais", height: 30, width: 200 });
 
-        $("#uiCancelar").click(function () {
-            $("#jqxwindow").jqxWindow("close");
-        });
-        $("#form1").jqxValidator({
+
+        $("#mainForm").jqxValidator({
+            theme: GetTheme(),
             rules: [
-                { input: "#uiNombre", message: "El nombre del puesto es requerido", rule: "required" }
+                { input: "#uiNombre", message: "El nombre del pais es requerido", rule: "required" }
             ]
         });
-        $("#form1").on('validationSuccess', function (event) {
+        $("#mainForm").on('validationSuccess', function (event) {
             var actionData = {
                 action: $("#uiAction").val(),
                 id: $("#uiID").val(),
@@ -66,54 +68,41 @@
             executeAjax(settings);
         });
 
-        $("#uiGuardar").click(function () {
-            $("#form1").jqxValidator("validate");
-            
-        });
-        $("#uiNuevo").click(function () {
-            $("#uiAction").attr("value", "add");
-            $("#jqxwindow").jqxWindow("open");
-        });
-
-        $("#uiEliminar").click(function () {
-            eliminar();
-        });
-
-        $("#uiBuscar").click(function () {
-            grid.refresh();
-        });
-
-        grid.load(settings);
+        grid.load(settings,500);
     });
 
-    function eliminar() {
-        var arr = grid.getRecordsForDelete();
-        if (arr.length > 0) {
-            var actionData = { ids: arr };
-            var settings = {
-                url: "paises.aspx/Eliminar",
-                data: JSON.stringify(actionData),
-                success: function (msg) {
-                    if (msg.d != "") {
-                        alert(msg.d);
-                    }
-                    grid.refresh();
-                }
-            };
-
-            executeAjax(settings);
-        }
-    }
-
-
-    
+   
     function renderDelete(row, columnfield, value, defaulthtml, columnproperties) {
         return grid.renderDeleteCheckBox(row);
     }
 
+    function getFormName() {
+        return "Paises";
+    }
+
+    function edit(id) {
+        SetEntityForEdition(id);
+    }
+
+    function SetControlValues(entity) {
+        $("#uiAction").attr("value", "edit");
+        $('#uiID').val(entity.ID);
+        $('#uiNombre').val(entity.Nombre);
+        $('#jqxwindow').jqxWindow('open');
+    }
+
+    function CleanControls(entity) {
+        $('#uiID').val("");
+        $('#uiNombre').val("");
+    }
+
+
+
+
+
+
 </script>
- <input type="button" value ="Nuevo" id ="uiNuevo" />
- <input type="button" value="Eliminar" id="uiEliminar" />&nbsp;<div id="PaisGrid"></div>
+<div id="PaisGrid"></div>
 
  <div id="jqxwindow">
         <div>Paises</div>
@@ -126,12 +115,7 @@
                 <tr>
                     <td>Paises</td><td><input type="text" id="uiNombre" /></td>
                 </tr>
-                <tr>
-                    <td colspan="2">
-
-                        <input type="button" value="Guardar" id="uiGuardar" />&nbsp;
-                        <input type="button" value="Cancelar" id="uiCancelar" /></td>
-                </tr>
+              
             </table>
         </div>
     </div>
