@@ -46,23 +46,22 @@
             },
             deleteOptions: {
                 checkID: "Campus",
-                fieldID: "Clave"
+                fieldID: "ID"
             }
         };
 
         $(document).ready(function () {
 
-            //$("#uiGrid").jqxGrid({theme: 'office'});
-            $("#jqxwindow").jqxWindow({ width: 300, height: 300, autoOpen: false, theme: GetTheme() });
-            $("#uiGuardar").jqxButton({ theme: GetTheme() });
-            $("#uiCancelar").jqxButton({ theme: GetTheme() });
+            $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
 
-            $("#uiCancelar").click(function () {
-                $("#jqxwindow").jqxWindow("close");
-            });
+            $("#uiPuesto").jqxInput({ placeHolder: " Proporcione el Campus a buscar", height: 30, width: 300 });
+            $("#uiID").jqxInput({ placeHolder: " ID del Campus", height: 30, width: 150, disabled: true });
+            $("#uiNombre").jqxInput({ placeHolder: " Nombre del Campus", height: 30, width: 200 });
+
             $("#mainForm").jqxValidator({
+                theme: GetTheme(),
                 rules: [
-                { input: "#uiNombre", message: "El nombre del Campus es requerido", rule: "required" }
+                { input: "#uiNombre", message: "El nombre del campus es requerido", rule: "required" }
             ]
             });
 
@@ -97,37 +96,27 @@
                     url: "Campus.aspx/Guardar",
                     data: JSON.stringify(actionData),
                     success: function (msg) {
-                        if (msg.d != "") {
-                            alert(msg.d);
-                        }
+                        $("#jqxwindow").jqxWindow("close");
                         grid.refresh();
+
+                        //                    if (msg.d != "") {
+                        //                        alert(msg.d);
+                        //                    }
+
                     }
                 };
 
                 executeAjax(settings);
             });
 
-            $("#uiGuardar").click(function () {
-                $("#mainForm").jqxValidator("validate");
-            });
-            $("#uiNuevo").click(function () {
-                $("#uiAction").attr("value", "add");
-                $("#jqxwindow").jqxWindow("open");
-            });
+              });
 
-            $("#uiEliminar").click(function () {
-                eliminar();
-            });
+        configurarCombo();
 
-            $("#uiBuscar").click(function () {
-                grid.refresh();
-            });
+        grid.load(settings, 500);
+    });
 
-            configurarCombo();
-
-            grid.load(settings);
-        });
-
+           
         function configurarCombo() {
             var url = "Campus.aspx/PruebaCombo";
             // prepare the data
@@ -157,28 +146,25 @@
             return grid.renderDeleteCheckBox(row);
         }
 
-        function eliminar() {
-            var arr = grid.getRecordsForDelete();
-            if (arr.length > 0) {
-                var actionData = { ids: arr };
-                var settings = {
-                    url: "Campus.aspx/Eliminar",
-                    data: JSON.stringify(actionData),
-                    success: function (msg) {
-                        grid.refresh();
-                    }
-                };
+        function getFormName() {
+        return "Campus";
+    }
 
-                executeAjax(settings);
-            }
-        }
+    function edit(id) {
+        SetEntityForEdition(id);
+    }
 
-        function edit(id) {
-            $("#uiAction").attr("value", "edit");
-            $("#uiID").attr("value", id);
-            $('#jqxwindow').jqxWindow('open');
-        }
+    function SetControlValues(entity) {
+        $("#uiAction").attr("value", "edit");
+        $('#uiID').val(entity.ID);
+        $('#uiNombre').val(entity.Nombre);
+        $('#jqxwindow').jqxWindow('open');
+    }
 
+    function CleanControls(entity) {
+        $('#uiID').val("");
+        $('#uiNombre').val("");
+    }
     </script>
     <table>
         <tr>

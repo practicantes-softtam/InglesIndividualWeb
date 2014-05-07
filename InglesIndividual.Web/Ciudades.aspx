@@ -27,7 +27,10 @@
                             case "Nombre": data.sortdatafield = "NomCiudad"; break;
                         }
                     }
-
+                    var p1 = $("#uiCiudad").val();
+                    $.extend(data, {
+                        nomCiudad: p1
+                    });
                     return data;
                 }
             },
@@ -36,121 +39,119 @@
                 fieldID: "Clave"
             }
         };
-        function renderDelete(row, columnfield, value, defaulthtml, columnproperties) {
-            return grid.renderDeleteCheckBox(row);
-        }
+
         $(document).ready(function () {
-            grid.load(settings);
 
+            $("#jqxwindow").jqxWindow({ width: 300, height: 120, autoOpen: false, theme: GetTheme() });
 
-            $("#jqxwindow").jqxWindow({ width: 300, height: 300, autoOpen: false });
-            $("#uiGuardar").jqxButton();
-            $("#uiCancelar").jqxButton();
+            $("#uiCiudad").jqxInput({ placeHolder: " Proporcione la Ciudad a buscar", height: 30, width: 300 });
+            $("#uiID").jqxInput({ placeHolder: " Clave de la Ciudad", height: 30, width: 150, disabled: true });
+            $("#uiNombre").jqxInput({ placeHolder: " Nombre de la Ciudad", height: 30, width: 200 });
 
-            $("#uiCancelar").click(function () {
-                $("#jqxwindow").jqxWindow("close");
-            });
-            $("#form1").jqxValidator({
+            $("#mainForm").jqxValidator({
+                theme: GetTheme(),
                 rules: [
-                { input: "#uiNombre", message: "El nombre del puesto es requerido", rule: "required" }
+                { input: "#uiNombre", message: "El nombre de la Ciudad es requerido", rule: "required" }
             ]
             });
-            $("#form1").on('validationSuccess', function (event) {
+
+            $("#mainForm").on('validationSuccess', function (event) {
                 var actionData = {
                     action: $("#uiAction").val(),
                     id: $("#uiID").val(),
                     nombre: $("#uiNombre").val()
                 };
                 var settings = {
-                    url: "ciudades.aspx/Guardar",
+                    url: "puestos.aspx/Guardar",
                     data: JSON.stringify(actionData),
                     success: function (msg) {
-
+                        $("#jqxwindow").jqxWindow("close");
                         grid.refresh();
-                    }
-                };
 
-                executeAjax(settings); //ejecutar el codigo del servido
-            });
+                        //                    if (msg.d != "") {
+                        //                        alert(msg.d);
+                        //                    }
 
-            $("#uiGuardar").click(function () {
-                $("#form1").jqxValidator("validate");
-            });
-            $("#uiNuevo").click(function () {
-                $("#uiAction").attr("value", "add");
-                $("#jqxwindow").jqxWindow("open");
-            });
-
-            $("#uiEliminar").click(function () {
-                eliminar();
-            });
-
-            $("#uiBuscar").click(function () {
-                grid.refresh();
-            });
-
-        });
-
-
-        function eliminar() {
-            var arr = grid.getRecordsForDelete();
-            if (arr.length > 0) {
-                var actionData = { ids: arr };
-                var settings = {
-                    url: "ciudades.aspx/Eliminar",
-                    data: JSON.stringify(actionData),
-                    success: function (msg) {
-                        if (msg.d != "") {
-                            alert(msg.d);
-                        }
-                        grid.refresh();
                     }
                 };
 
                 executeAjax(settings);
-            }
+            });
+
+            configurarCombo();
+
+            grid.load(settings, 500);
+        });
+
+        function configurarCombo() {
+            var url = "puestos.aspx/PruebaCombo";
+            // prepare the data
+            var src =
+            {
+                datatype: "json",
+                datafields: [
+                    { name: 'Clave' },
+                    { name: 'Nombre' }
+                ],
+                url: url
+            };
+            var adp = new $.jqx.dataAdapter(src, {
+                contentType: 'application/json; charset=utf-8',
+                downloadComplete: function (data, textStatus, jqXHR) {
+                    //alert(data.d);
+                    return data.d;
+                }
+            });
+            //adp.dataBind();
+            $("#combo").jqxComboBox({ theme: GetTheme(), selectedIndex: 0, source: adp, displayMember: "Nombre", valueMember: "ID", width: 200, height: 25 });
+        }
+
+        function renderDelete(row, columnfield, value, defaulthtml, columnproperties) {
+            return grid.renderDeleteCheckBox(row);
+        }
+
+        function getFormName() {
+            return "Ciudad";
         }
 
         function edit(id) {
+
             $("#uiAction").attr("value", "edit");
             $("#uiID").attr("value", id);
             $('#jqxwindow').jqxWindow('open');
         }
 
+        //    function GetControlValues() {
+        //        var url = document.URL;
+        //        var params = "{clave:'" + document.URL.split('=')[1] + "'}";
+        //        var entity;
+        //        entity = SetEntityForEdition(params, 'AcidosEdit');
+        //    }
+
+        
     </script>
-    <input type="button" value="Nuevo" id="uiNuevo" />
-    <input type="button" value="Eliminar" id="uiEliminar" />
+   <table>
+        <tr>
+            <td>Ciudad</td><td><input type="text" id="uiCiudad" /></td>
+        </tr>
+    </table>
     <div id="uiGrid">
     </div>
+
+    <div id="combo"></div>
     <div id="jqxwindow">
-        <div>
-            Ciudades</div>
+        <div>Ciudades</div>
         <div>
             <input type="hidden" id="uiAction" />
             <table>
                 <tr>
-                    <td>
-                        ID
-                    </td>
-                    <td>
-                        <input type="text" id="uiID" disabled="disabled" />
-                    </td>
+                    <td>ID</td><td><input type="text" id="uiID" disabled="disabled" /></td>
                 </tr>
                 <tr>
-                    <td>
-                        Ciudades
-                    </td>
-                    <td>
-                        <input type="text" id="uiNombre" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="button" value="Guardar" id="uiGuardar" />&nbsp;
-                        <input type="button" value="Cancelar" id="uiCancelar" />
-                    </td>
+                    <td>Ciudad</td><td><input type="text" id="uiNombre" /></td>
                 </tr>
             </table>
         </div>
     </div>
+    <br />
 </asp:Content>
