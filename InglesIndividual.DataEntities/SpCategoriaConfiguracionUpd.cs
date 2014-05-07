@@ -13,7 +13,7 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pNomCategoria", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaCategoriaa", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaCategoria"].Direction = System.Data.ParameterDirection.Output;
+           // this.Command.Parameters["@pClaCategoria"].Direction = System.Data.ParameterDirection.Output;
     }
          public string NomCategoria
          {

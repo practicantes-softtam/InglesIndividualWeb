@@ -18,7 +18,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pClaCategoria", System.Data.SqlDbType.Int, DBNull.Value);
             this.Command.Parameters["@pClaCategoria"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaConfig", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaConfig"].Direction = System.Data.ParameterDirection.Output;
+          //  this.Command.Parameters["@pClaConfig"].Direction = System.Data.ParameterDirection.Output;
 
         }
         public string NomConfiguracion

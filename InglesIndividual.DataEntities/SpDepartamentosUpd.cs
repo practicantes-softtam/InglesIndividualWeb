@@ -15,7 +15,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pNomDepartamento", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaDepartamento", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaDepartamento"].Direction = System.Data.ParameterDirection.Output;
+           // this.Command.Parameters["@pClaDepartamento"].Direction = System.Data.ParameterDirection.Output;
    }
         public int ClaCampus
         {

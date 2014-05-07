@@ -33,7 +33,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pFoto", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pObservaciones", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaEmpleado", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaEmpleado"].Direction = System.Data.ParameterDirection.Output;
+           // this.Command.Parameters["@pClaEmpleado"].Direction = System.Data.ParameterDirection.Output;
 
     }
 

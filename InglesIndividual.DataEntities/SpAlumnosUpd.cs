@@ -25,8 +25,8 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pTelefono1", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pTelefono2", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pEmail", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.AddParameter("@pIngreso", System.Data.SqlDbType.DateTime, DBNull.Value);
-            this.AddParameter("@pVigencia", System.Data.SqlDbType.DateTime, DBNull.Value);
+            this.AddParameter("@pIngreso", System.Data.SqlDbType.Int, DBNull.Value);
+            this.AddParameter("@pVigencia", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pEstatus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, DBNull.Value);
@@ -37,10 +37,10 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pEspecial", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pObservaciones", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pFoto", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.AddParameter("@pFechaNacimiento", System.Data.SqlDbType.DateTime, DBNull.Value);
+            this.AddParameter("@pFechaNacimiento", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pTelefono3", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.Command.Parameters["@pMatricula"].Direction = System.Data.ParameterDirection.Output;
+            //this.Command.Parameters["@pMatricula"].Direction = System.Data.ParameterDirection.Output;
 
         }
 
@@ -129,15 +129,15 @@ namespace InglesIndividual.DataEntities
             set { this.Command.Parameters["@pEmail"].Value = value; }
         }
 
-        public DateTime Ingreso
+        public int Ingreso
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pIngreso"].Value, DateTime.Now); }
+            get { return Utils.IsNull(this.Command.Parameters["@pIngreso"].Value, 0); }
             set { this.Command.Parameters["@pIngreso"].Value = value; }
         }
 
-        public DateTime Vigencia
+        public int Vigencia
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pVigencia"].Value, DateTime.Now); }
+            get { return Utils.IsNull(this.Command.Parameters["@pVigencia"].Value, 0); }
             set { this.Command.Parameters["@pVigencia"].Value = value; }
         }
 
@@ -198,15 +198,15 @@ namespace InglesIndividual.DataEntities
         }
 
 
-        public int Foto
+        public string Foto
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pFoto"].Value, 0); }
+            get { return Utils.IsNull(this.Command.Parameters["@pFoto"].Value, ""); }
             set { this.Command.Parameters["@pFoto"].Value = value; }
         }
 
-        public DateTime FechaNacimiento
+        public int FechaNacimiento
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pFechaNacimiento"].Value, DateTime.Now); }
+            get { return Utils.IsNull(this.Command.Parameters["@pFechaNacimiento"].Value, 0); }
             set { this.Command.Parameters["@pFechaNacimiento"].Value = value; }
         }
 

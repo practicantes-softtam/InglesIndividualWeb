@@ -26,7 +26,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pTelefono2", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pEmail", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pIngreso", System.Data.SqlDbType.Int, DBNull.Value);
-            this.AddParameter("@pVigencia", System.Data.SqlDbType.DateTime, DBNull.Value);
+            this.AddParameter("@pVigencia", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pEstatus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, DBNull.Value);
@@ -37,10 +37,10 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pEspecial", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pObservaciones", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pFoto", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.AddParameter("@pFechaNacimiento", System.Data.SqlDbType.DateTime, DBNull.Value);
+            this.AddParameter("@pFechaNacimiento", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pTelefono3", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
-            this.Command.Parameters["@pMatricula"].Direction = System.Data.ParameterDirection.Output;
+           // this.Command.Parameters["@pMatricula"].Direction = System.Data.ParameterDirection.Output;
 
 
         }

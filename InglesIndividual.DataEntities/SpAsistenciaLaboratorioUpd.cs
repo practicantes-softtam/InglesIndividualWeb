@@ -14,8 +14,8 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pClaCampus", System.Data.SqlDbType.Int, DBNull.Value);
         this.AddParameter("@pMatricula", System.Data.SqlDbType.VarChar, DBNull.Value);
         this.AddParameter("@pFecha", System.Data.SqlDbType.DateTime, DBNull.Value);
-        this.AddParameter("@pIdRegistroLaboratorio", System.Data.SqlDbType.Int, DBNull.Value);
-        this.Command.Parameters["@pIdRegistroLaboratorio"].Direction = System.Data.ParameterDirection.Output;
+        this.AddParameter("@pIdAsistenciaLaboratorio", System.Data.SqlDbType.Int, DBNull.Value);
+        this.Command.Parameters["@pIdAsistenciaLaboratorio"].Direction = System.Data.ParameterDirection.Output;
     }
 
         public int ClaCampus
@@ -36,10 +36,10 @@ namespace InglesIndividual.DataEntities
             set { this.Command.Parameters["@pFecha"].Value = value; }
         }
 
-        public int IdRegistroLaboratorio
+        public int IdAsistenciaLaboratorio
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pIdRegistroLaboratorio"].Value, 0); }
-            set { this.Command.Parameters["@pIdRegistroLaboratorio"].Value = value; }
+            get { return Utils.IsNull(this.Command.Parameters["@pIdAsistenciaLaboratorio"].Value, 0); }
+            set { this.Command.Parameters["@pIdAsistenciaLaboratorio"].Value = value; }
         }
     }
 }
