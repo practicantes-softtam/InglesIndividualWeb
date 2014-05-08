@@ -17,6 +17,7 @@ namespace InglesIndividual.Web
         {
 
         }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
         public static string GetData()
@@ -43,7 +44,14 @@ namespace InglesIndividual.Web
         }
 
         [WebMethod]
-     
+        public static string GetDataAjax(string nombre, string apellido, string[] arreglo)
+        {
+            return string.Format("Hola {0} {1}", nombre, apellido);
+        }
+
+
+        [WebMethod]
+
         public static void Guardar(string action, string id, string nombre)
         {
             Entities.Pais item;
@@ -82,7 +90,25 @@ namespace InglesIndividual.Web
 
             return "";
         }
-    }
-}
 
-    
+        [WebMethod]
+        public static string GetEntityForEdition(string id)
+        {
+            System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+            Business.Paises bo = new Business.Paises();
+            Entities.Pais entity = new Entities.Pais();
+            entity.ID = Utils.IsNull(id, 0);
+            entity.SetFromDataSource(true);
+            bo.PrepareEntityForEdition(entity);
+
+            return js.Serialize(entity);
+        }
+
+
+
+
+
+       
+    }
+
+}
