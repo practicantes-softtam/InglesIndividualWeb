@@ -1,6 +1,6 @@
 if exists (select * from sys.procedures where name = 'spCategoriaConfiguracionSel')
 begin
-	drop proc spAsistenciaLaboratorioSel
+	drop proc spCategoriaConfiguracionSel
 end
 
 go
@@ -15,5 +15,6 @@ begin
 	select	ClaCategoria, NomCategoria
  
 	from	CategoriaConfiguracion
-	where	ClaCategoria	=	@pClaCategoria
+	where	
+	((ClaCategoria	=	@pClaCategoria) or @pClaCategoria = -1)
 end
