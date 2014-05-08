@@ -7,7 +7,10 @@ go
 
 CREATE proc spAsistenciaSel
 (
-	@pIdRegistro		int
+	@pIdRegistro		int,
+	@pClaCampus int,
+	@pClaEmpleado int,
+	@pIdCita int
 )
 as
 begin
@@ -15,5 +18,9 @@ begin
 	select	IdRegistro, ClaCampus, Matricula, ClaEmpleado, TipoPersona, FechaHora, Mensaje, IdCita, RegistroValido
  
 	from	Asistencia
-	where	IdRegistro	=	@pIdRegistro
+	where	
+	((IdRegistro	=	@pIdRegistro) or @pIdRegistro = -1) and
+	((ClaCampus = @pClaCampus) or @pClaCampus = -1) and
+	((ClaEmpleado = @pClaEmpleado) or @pClaEmpleado = -1) and
+	((IdCita = @pIdCita) or @pIdCita = .1)
 end
