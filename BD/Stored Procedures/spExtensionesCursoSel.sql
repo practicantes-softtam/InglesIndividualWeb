@@ -7,7 +7,10 @@ go
 
 CREATE proc spExtensionesCursoSel
 (
-	@pIdRegistro	int
+	@pIdRegistro	int,
+	@pClaCampus int,
+	@pClaNivel int,
+	@pClaLeccion int
 
 )
 as
@@ -16,5 +19,9 @@ begin
 	select	IdRegistro, ClaCampus, Matricula, FechaIni, FechaFin, Comentarios, Estatus, ClaNivel, ClaLeccion, TipoRegistro
  
 	from	ExtensionesCurso
-	where	IdRegistro =	@pIdRegistro
+	where	
+	((IdRegistro =	@pIdRegistro) or @pIdRegistro = -1) and
+	((ClaCampus = @pClaCampus) or @pClaCampus = -1) and
+	((ClaNivel = @pClaNivel) or @pClaNivel = -1) and
+	((ClaLeccion = @pClaLeccion) or @pClaLeccion = -1)
 end
