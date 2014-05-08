@@ -7,7 +7,8 @@ go
 
 CREATE proc spAsistenciaLaboratorioSel
 (
-	@pIdAsistenciaLaboratorio		int
+	@pIdAsistenciaLaboratorio		int,
+	@pClaCampus int
 )
 as
 begin
@@ -15,5 +16,7 @@ begin
 	select	IdAsistenciaLaboratorio, ClaCampus, Matricula, Fecha
  
 	from	AsistenciaLaboratorio
-	where	IdAsistenciaLaboratorio	=	@pIdAsistenciaLaboratorio
+	where	
+	((IdAsistenciaLaboratorio	=	@pIdAsistenciaLaboratorio) or @pIdAsistenciaLaboratorio = -1) and
+	((ClaCampus = @pClaCampus) or @pClaCampus = -1)
 end
