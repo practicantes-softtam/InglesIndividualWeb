@@ -7,7 +7,9 @@ go
 
 CREATE proc spAmpliacionesSel
 (
-	@pIdAmpliacion		int
+	@pIdAmpliacion		int,
+	@pClaNivel int,
+	@pClaLeccion int
 )
 as
 begin
@@ -15,5 +17,8 @@ begin
 	select	IdAmpliacion, Matricula, Vigencia, Comentarios, Estatus, ClaNivel, ClaLeccion
  
 	from	Ampliaciones
-	where	IdAmpliacion	=	@pIdAmpliacion
+	where	
+	((IdAmpliacion	=	@pIdAmpliacion) or @pIdAmpliacion = -1) and
+	((ClaNivel	=	@pClaNivel)	or	@pClaNivel = -1) and
+	((ClaLeccion	=	@pClaLeccion)	or	@pClaLeccion = -1)
 end
