@@ -16,5 +16,6 @@ begin
 	select	ClaEncuesta, NomEncuesta
  
 	from	Encuestas
-	where	ClaEncuesta =	@pClaEncuesta
+	where	
+	((ClaEncuesta =	@pClaEncuesta) or @pClaEncuesta = -1)
 end
