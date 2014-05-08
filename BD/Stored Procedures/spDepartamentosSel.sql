@@ -7,16 +7,17 @@ go
 
 CREATE proc spDepartamentosSel
 (
-	@pClaDepartamento		int
+	@pClaDepartamento		int,
+	@pClaCampus int
+
 )
 as
 begin
 
-	select	ClaDepartamento,
-			ClaCampus,
-			NomDepartamento
+	select	ClaDepartamento, ClaCampus, NomDepartamento
+ 
 	from	Departamentos
-	where	ClaDepartamento	=	@pClaDepartamento
+	where	
+	((ClaDepartamento	=	@pClaDepartamento) or @pClaDepartamento = -1) and
+	((ClaCampus = @pClaCampus) or @pClaCampus = -1)
 end
-
-
