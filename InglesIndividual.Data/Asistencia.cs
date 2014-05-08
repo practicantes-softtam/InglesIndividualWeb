@@ -112,6 +112,9 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpAsistenciaSel sp = new DataEntities.SpAsistenciaSel();
                 sp.IdRegistro = item.ID;
+                sp.ClaCampus = item.Campus.ID;
+                sp.ClaEmpleado = item.Empleado.ID;
+                sp.IdCita = item.idCita;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)

@@ -89,7 +89,6 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpCategoriaConfiguracionSel sp = new DataEntities.SpCategoriaConfiguracionSel();
                 sp.ClaCategoria = item.ClaCategoria;
-               
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)

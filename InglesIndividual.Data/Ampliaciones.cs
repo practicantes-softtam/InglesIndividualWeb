@@ -106,6 +106,8 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpAmpliacionesSel sp = new DataEntities.SpAmpliacionesSel();
                 sp.IdAmpliacion = item.ID;
+                sp.ClaNivel = item.ClaLeccion;
+                sp.ClaLeccion = item.ClaLeccion;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)

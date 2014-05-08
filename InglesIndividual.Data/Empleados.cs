@@ -153,6 +153,12 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpEmpleadosSel sp = new DataEntities.SpEmpleadosSel();
                 sp.ClaEmpleado = item.ID;
+                sp.ClaCampus = item.Campus.ID;
+                sp.ClaDepartamento = item.Departamento.ID;
+                sp.ClaPuesto = item.Puesto.ID;
+                sp.ClaPais = item.Pais.ID;
+                sp.ClaEstado = item.Estado.ID;
+                sp.ClaCiudad = item.Ciudad.ID;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)

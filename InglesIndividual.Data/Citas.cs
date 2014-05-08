@@ -128,6 +128,10 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpCitasSel sp = new DataEntities.SpCitasSel();
                 sp.IdCita = item.ID;
+                sp.ClaCampus = item.Campus.ID;
+                sp.ClaProfesor = item.ClaProfesor;
+                sp.CLaNivel = item.ClaNivel;
+                sp.ClaLeccion = item.ClaLeccion;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)

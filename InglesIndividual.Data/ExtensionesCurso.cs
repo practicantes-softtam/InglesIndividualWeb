@@ -113,6 +113,9 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpExtensionesCursoSel sp = new DataEntities.SpExtensionesCursoSel();
                 sp.IdRegistro = item.IdRegistro;
+                sp.ClaCampus = item.Campus.ID;
+                sp.ClaNivel = item.ClaNivel;
+                sp.ClaLeccion  = item.ClaLeccion;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)
