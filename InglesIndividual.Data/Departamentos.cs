@@ -93,6 +93,7 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpDepartamentosSel sp = new DataEntities.SpDepartamentosSel();
                 sp.ClaDepartamento = item.ID;
+                sp.ClaCampus = item.Campus.ID;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)
