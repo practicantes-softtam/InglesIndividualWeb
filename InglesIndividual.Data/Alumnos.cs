@@ -174,6 +174,13 @@ namespace InglesIndividual.Data
             {
                 DataEntities.SpAlumnosSel sp = new DataEntities.SpAlumnosSel();
                 sp.Matricula = item.Matricula;
+                sp.ClaPais = item.Pais.ID;
+                sp.ClaEstado = item.Estado.ID;
+                sp.ClaCiudad = item.Ciudad.ID;
+                sp.ClaCampus = item.ClaCampus;
+                sp.ClaNivel = item.ClaNivel;
+                sp.ClaLeccion = item.ClaLeccion;
+                sp.ClaAtendio = item.ClaAtendio;
 
                 DataTable dt = sp.GetDataTable(this.ConnectionString);
                 if (dt != null && dt.Rows.Count == 1)
