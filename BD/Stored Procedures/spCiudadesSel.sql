@@ -9,14 +9,17 @@ CREATE proc spCiudadesSel
 (
 	@pClaCiudad		int,
 	@pClaEstado		int,
-	@pClaPais		int,
-	@pNomCiudad		varchar (40)
-	
+	@pClaPais		int	
 )
 
 as
 begin
-	select	ClaCiudad, ClaEstado, ClaPais, NomCiudad
+	select	ClaPais, 
+			ClaEstado,
+			ClaCiudad,
+			NomCiudad
 	from	Ciudades
-	where ((ClaCiudad = @pClaCiudad) or @pClaCiudad = -1)
+	where	((ClaPais = @pClaPais) or @pClaPais = -1)
+	and		((ClaEstado = @pClaEstado) or @pClaEstado = -1)
+	and		((ClaCiudad = @pClaCiudad) or @pClaCiudad = -1)
 end
