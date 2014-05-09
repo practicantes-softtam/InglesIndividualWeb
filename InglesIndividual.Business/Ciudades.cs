@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Ciudades();
         }
 
-        public List<Entities.Ciudad> ListarCiudades(Entities.JQXGridSettings settings, string nomCiudad)
+        public List<Entities.Ciudad> ListarCiudades( InglesIndividual.Entities.JQXGridSettings settings, int claEstado, int claPais, string nomCiudad)
         {
-            return this.Data.ListarCiudades(settings, nomCiudad);
+            return this.Data.ListarCiudades(settings, claEstado, claPais, nomCiudad);
 
 
         }
@@ -46,6 +46,11 @@ namespace InglesIndividual.Business
             }
 
             return list;
+        }
+
+        public List<Entities.Ciudad> Combo()
+        {
+            return this.Data.Combo();
         }
     }
 }
