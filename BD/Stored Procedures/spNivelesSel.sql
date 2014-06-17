@@ -17,7 +17,7 @@ begin
 				ClubConversacion
 	
 	from	Niveles 
-	where	ClaNivel	=	@pClaNivel
+	where	((ClaNivel = @pClaNivel) or @pClaNivel = -1)
 end
 
 

@@ -13,9 +13,9 @@ create proc spNivelesGrd
 )
 as
 begin
-
-		if @pClaNivel is not null begin
-		select @pClaNivel = '%' + @pClaNivel + '%'
+	
+	if @pNomNivel is not null begin
+	select @pNomNivel = '%' + @pNomNivel + '%'
 	end	
 	
 	select	RowNumber = ROW_NUMBER() over (order by ClaNivel asc), 

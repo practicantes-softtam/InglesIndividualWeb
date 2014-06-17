@@ -12,7 +12,7 @@ as
 begin
 
 	update Niveles
-	set NomNivel = @pNomNivel, @pClaNivel = @pClubConversacion
+	set NomNivel = @pNomNivel, @pClaNivel = @pClaNivel, ClubConversacion = @pClubConversacion
 	
 	where ClaNivel = @pClaNivel
 end
