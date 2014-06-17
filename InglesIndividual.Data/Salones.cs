@@ -96,5 +96,26 @@ namespace InglesIndividual.Data
                 }
             }
         }
+
+        public List<Entities.Salones> Combo()
+        {
+            List<Entities.Salones> list = new List<Entities.Salones>();
+            DataEntities.SpSalonesSel sp = new DataEntities.SpSalonesSel();
+            sp.IdSalon = -1;
+            DataTable dt = sp.GetDataTable(this.ConnectionString);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Entities.Salones item = new Entities.Salones(true);
+                item.ID = Utils.GetDataRowValue(dr, "IdSalon", 0);
+                item.Nombre = Utils.GetDataRowValue(dr, "NomSalon", "");
+
+                this.SetWebEntityGridValues(item, dr);
+
+                list.Add(item);
+            }
+
+            return list;
+        }
     }
 }

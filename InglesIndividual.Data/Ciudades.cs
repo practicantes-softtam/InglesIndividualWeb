@@ -10,7 +10,7 @@ namespace InglesIndividual.Data
 {
     public class Ciudades : InglesIndividualDataObject
     {
-        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, int claEstado, int claPais, string nomCiudad)
+        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, string nomCiudad, int claEstado, int claPais)
         {
             List<Entities.Ciudad> list = new List<Entities.Ciudad>();
             DataEntities.SpCiudadesGrd sp = new DataEntities.SpCiudadesGrd();
@@ -40,12 +40,14 @@ namespace InglesIndividual.Data
 
         public override int Insert(Entity entity, DataTransaction tran)
         {
-            Entities.Ciudad item = entity as Entities.Ciudad;
+            Entities.Ciudad item = entity as Entities.Ciudad;            
             DataEntities.SpCiudadesIns sp = new DataEntities.SpCiudadesIns();
+
             sp.ClaCiudad = item.ID;
-            sp.ClaEstado = item.Estado.ID;
-            sp.ClaPais = item.Estado.Pais.ID;
             sp.NomCiudad = item.Nombre;
+            sp.ClaEstado = item.Estado.ID;//<---- Por qué dice que se hace una referencia a un objeto no instanciado? si en ciudad si tengo Estado y Pais?
+            sp.ClaPais = item.Estado.Pais.ID;
+           
              
             return sp.ExecuteNonQuery (this.ConnectionString);
             }
