@@ -90,5 +90,7 @@ namespace InglesIndividual.Entities
         public Campus(bool fromDataSource) : base(fromDataSource)
         {
         }
+
+        public Estado Estado { get; set; }
     }
 }

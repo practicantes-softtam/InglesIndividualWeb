@@ -10,7 +10,7 @@ namespace InglesIndividual.Entities
         private int _clave;
         private Estado _estado;
         private string _nombre;
-
+        private Pais _pais;
 
 	    public int ID
 	       {
@@ -29,6 +29,13 @@ namespace InglesIndividual.Entities
             get { return _estado; }
             set { _estado = value; }
         }
+
+        public Pais Pais
+        {
+            get { return _pais; }
+            set { _pais = value; }
+        }
+
 
         public Ciudad() : this(false)
         {
