@@ -18,9 +18,9 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Campus();
         }
 
-        public List<Entities.Campus> ListarCampus(InglesIndividual.Entities.JQXGridSettings settings, string nomCampus, string calle, string colonia, string telefono)
+        public List<Entities.Campus> ListarCampus(InglesIndividual.Entities.JQXGridSettings settings, string nomCampus, string calle, string colonia, string telefono, int claPais, int claEstado, int claCiudad)
         {
-            return this.Data.ListarCampus(settings, nomCampus, calle, colonia, telefono);//this.Data.ListarCampus(settings, nomCampus, calle, colonia, telefono);
+            return this.Data.ListarCampus(settings, nomCampus, calle, colonia, telefono,claPais,claEstado,claCiudad );
         }
 
         public List<Exception> Eliminar(string[] ids)
@@ -47,5 +47,15 @@ namespace InglesIndividual.Business
             return list;
         }
 
+        public List<Entities.Campus> Combo()
+        {
+            return this.Data.Combo();
+        }
+
+
+        public List<Entities.Campus> ListarCampus(Entities.JQXGridSettings settings, string nomCampus, string calle, string colonia, string telefono)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

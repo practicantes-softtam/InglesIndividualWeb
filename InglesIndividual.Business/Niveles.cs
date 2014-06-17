@@ -8,19 +8,19 @@ namespace InglesIndividual.Business
 {
     public class Niveles : BaseBusinessObject
     {
-        private Data.Nivel Data
+        private Data.Niveles Data
         {
-            get { return this.DataObject as Data.Nivel; }
+            get { return this.DataObject as Data.Niveles; }
         }
 
         public Niveles()
         {
-            this.DataObject = new Data.Nivel();
+            this.DataObject = new Data.Niveles();
         }
 
-        public List<Entities.Nivel> ListarNiveles(InglesIndividual.Entities.JQXGridSettings settings, string NomNivel)
+        public List<Entities.Nivel> ListarNiveles(InglesIndividual.Entities.JQXGridSettings settings, string nomNivel)
         {
-            return this.Data.ListarNivel(settings, NomNivel);
+            return this.Data.ListarNivel(settings, nomNivel);
         }
 
         public List<Exception> Eliminar(string[] ids)
@@ -45,6 +45,11 @@ namespace InglesIndividual.Business
             }
 
             return list;
+        }
+
+        public List<Entities.Nivel> Combo()
+        {
+            return this.Data.Combo();
         }
 
     }

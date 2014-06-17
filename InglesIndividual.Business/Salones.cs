@@ -47,5 +47,11 @@ namespace InglesIndividual.Business
 
             return list;
         }
+
+        public List<Entities.Salones> Combo()
+        {
+            return this.Data.Combo();
+        }
+
     }
 }
