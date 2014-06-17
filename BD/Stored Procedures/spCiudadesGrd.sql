@@ -4,6 +4,7 @@ go
 
 CREATE proc spCiudadesGrd
 (
+
 	@pClaPais int,
 	@pClaEstado int,
 	@pNomCiudad varchar (50),
@@ -19,7 +20,7 @@ begin
 	end	
 
 	select	RowNumber = ROW_NUMBER() over (order by ClaCiudad asc), 
-		 ClaCiudad, NomCiudad, ClaEstado, ClaPais
+		 ClaCiudad, NomCiudad, ClaEstado
 	into #tabla
 	from Ciudades
 	where NomCiudad like @pNomCiudad 
@@ -27,4 +28,3 @@ begin
 
 end
 
-select*from Ciudades
