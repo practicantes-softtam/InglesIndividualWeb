@@ -14,7 +14,7 @@ namespace InglesIndividual.DataEntities
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, DBNull.Value);
         }
 
-        public int ClNivel
+        public int ClaNivel
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaNivel"].Value, 0); }
             set { this.Command.Parameters["@pClaNivel"].Value = value; }

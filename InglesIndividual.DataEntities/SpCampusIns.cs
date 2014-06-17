@@ -38,14 +38,14 @@ namespace InglesIndividual.DataEntities
 
         public string Calle
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pClaCalle"].Value, ""); }
-            set { this.Command.Parameters["@pClaCalle"].Value = value; }
+            get { return Utils.IsNull(this.Command.Parameters["@pCalle"].Value, ""); }
+            set { this.Command.Parameters["@pCalle"].Value = value; }
         }
 
         public string Colonia
         {
-            get { return Utils.IsNull(this.Command.Parameters["@pClaColonia"].Value, ""); }
-            set { this.Command.Parameters["@pClaColonia"].Value = value; }
+            get { return Utils.IsNull(this.Command.Parameters["@pColonia"].Value, ""); }
+            set { this.Command.Parameters["@pColonia"].Value = value; }
         }
 
         public int CodigoPostal
