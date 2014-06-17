@@ -16,7 +16,7 @@ begin
 		select @pNomEncuesta = '%' + @pNomEncuesta + '%'
 	end	
 
-	select	RowNumber = ROW_NUMBER() over (order by NomEncuesta asc), 
+	select	RowNumber = ROW_NUMBER() over (order by ClaEncuesta asc), 
 	ClaEncuesta,NomEncuesta
 	into #tabla
 	from Encuestas
