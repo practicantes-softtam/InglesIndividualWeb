@@ -19,7 +19,7 @@ begin
 			ClaCiudad,
 			NomCiudad
 	from	Ciudades
-	where	((ClaPais = @pClaPais) or @pClaPais = -1)
-	and		((ClaEstado = @pClaEstado) or @pClaEstado = -1)
-	and		((ClaCiudad = @pClaCiudad) or @pClaCiudad = -1)
+	where	((ClaPais	= @pClaPais)	or @pClaPais	= -1)
+	and		((ClaEstado = @pClaEstado)	or @pClaEstado	= -1)
+	and		((ClaCiudad = @pClaCiudad)	or @pClaCiudad	= -1)
 end

@@ -15,5 +15,7 @@ begin
 	update Ciudades
 	set NomCiudad = @pNomCiudad
 	
-	where ClaCiudad = @pClaCiudad
+	where	ClaCiudad = @pClaCiudad
+	and		ClaEstado = @pClaEstado
+	and		ClaPais	= @pClaPais
 end
