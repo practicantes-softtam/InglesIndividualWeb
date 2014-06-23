@@ -13,11 +13,9 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pNomCiudad", System.Data.SqlDbType.VarChar, DBNull.Value);
             this.AddParameter("@pClaEstado", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaEstado"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaPais", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaPais"].Direction = System.Data.ParameterDirection.Output;
             this.AddParameter("@pClaCiudad", System.Data.SqlDbType.Int, DBNull.Value);
-            this.Command.Parameters["@pClaCiudad"].Direction = System.Data.ParameterDirection.Output;
+            
 
         }
 

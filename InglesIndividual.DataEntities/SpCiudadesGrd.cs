@@ -12,6 +12,7 @@ namespace InglesIndividual.DataEntities
         public SpCiudadesGrd(): base ("SpCiudadesGrd")
      {
             this.AddParameter("@pNomCiudad", System.Data.SqlDbType.VarChar, DBNull.Value);
+            //this.AddParameter("@pClaCiudad", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaEstado", System.Data.SqlDbType.Int, DBNull.Value);
             this.AddParameter("@pClaPais", System.Data.SqlDbType.Int, DBNull.Value);
             
@@ -23,16 +24,17 @@ namespace InglesIndividual.DataEntities
             set { this.Command.Parameters["@pNomCiudad"].Value = value; }
         }
 
-        public int ClaPais
-        {
-            get { return Utils.IsNull(this.Command.Parameters["@pClaPais"].Value, 0); }
-            set { this.Command.Parameters["@pClaPais"].Value = value; }
-        }
-
         public int ClaEstado
         {
             get { return Utils.IsNull(this.Command.Parameters["@pClaEstado"].Value, 0); }
             set { this.Command.Parameters["@pClaEstado"].Value = value; }
         }
+        
+        public int ClaPais
+        {
+           get { return Utils.IsNull(this.Command.Parameters["@pClaPais"].Value, 0); }
+           set { this.Command.Parameters["@pClaPais"].Value = value; }
+        }
     }
-}
+    }
+
