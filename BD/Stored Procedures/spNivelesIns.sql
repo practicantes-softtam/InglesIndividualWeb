@@ -12,8 +12,11 @@ create proc spNivelesIns
 )
 as
 begin
-	insert into Niveles (NomNivel)
-	values (@pNomNivel)
+
+	select @pClaNivel = ISNULL (MAX (ClaNivel), 0) +1
+	from Niveles
 	
-	select @pClaNivel = @@IDENTITY
+	insert into Niveles (ClaNivel,		NomNivel)
+	values				(@pClaNivel,	@pNomNivel)
+	
 end
