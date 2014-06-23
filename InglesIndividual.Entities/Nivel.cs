@@ -29,8 +29,7 @@ namespace InglesIndividual.Entities
             set { this._clubConversacion = value; }
         }
 
-        public Nivel()
-            : this(false)
+        public Nivel() : this(false)
         { 
 
         }

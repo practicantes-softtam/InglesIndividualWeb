@@ -14,6 +14,7 @@ namespace InglesIndividual.DataEntities
         {
             this.AddParameter("@pClaNivel", System.Data.SqlDbType.Int, 0);
             this.AddParameter("@pNomNivel", System.Data.SqlDbType.VarChar, "");
+            this.AddParameter("@pClubConversacion", System.Data.SqlDbType.Int, 0);
         }
 
         public int ClaNivel
@@ -26,6 +27,12 @@ namespace InglesIndividual.DataEntities
         {
             get { return Utils.IsNull(this.Command.Parameters["@pNomNivel"].Value, ""); }
             set { this.Command.Parameters["@pNomNivel"].Value = value; }
+        }
+
+        public int ClubConversacion
+        {
+            get { return Utils.IsNull(this.Command.Parameters["@pClubConversacion"].Value, 0); }
+            set { this.Command.Parameters["@pClubConversacion"].Value = value; }
         }
     }
 }
