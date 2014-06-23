@@ -4,10 +4,10 @@ go
 
 create proc spCiudadesUpd
 (
-	@pClaCiudad int out,
-	@pNomCiudad varchar (30), 
-	@pClaEstado int,
-	@pClaPais int
+	@pClaPais	int,
+	@pClaEstado	int,
+	@pClaCiudad	int,
+	@pNomCiudad	varchar	(50)
 )
 as
 begin

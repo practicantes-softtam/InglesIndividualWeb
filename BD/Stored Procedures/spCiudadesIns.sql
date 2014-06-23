@@ -4,19 +4,20 @@ go
 
 create proc spCiudadesIns
 (
-	@pClaCiudad int out,
-	@pNomCiudad varchar (30),
+	@pClaPais int,
 	@pClaEstado int,
-	@pClaPais int
+	@pClaCiudad int out,
+	@pNomCiudad varchar (50)
 )
 as
 begin
-	select @pClaCiudad = isnull  (MAX (ClaCiudad), 0)+ 1 
-	from Ciudades
-	where ClaEstado = @pClaEstado
+	select	@pClaCiudad = isnull  (MAX (ClaCiudad), 0)+ 1 
+	from	Ciudades
+	where	ClaEstado = @pClaEstado
+	and		ClaPais =	@pClaPais
 
-	insert into Ciudades	(ClaCiudad,		NomCiudad,	ClaEstado,		ClaPais) 
-	values					(@pClaCiudad,	@pNomCiudad,	@pClaEstado, @pClaPais)
+	insert into Ciudades	(ClaCiudad,		NomCiudad,		ClaEstado,		ClaPais) 
+	values					(@pClaCiudad,	@pNomCiudad,	@pClaEstado,	@pClaPais)
 
 end
 

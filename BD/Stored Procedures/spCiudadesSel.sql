@@ -7,9 +7,9 @@ go
 
 CREATE proc spCiudadesSel
 (
-	@pClaCiudad		int,
-	@pClaEstado		int,
-	@pClaPais		int	
+	@pClaPais	int,
+	@pClaEstado	int,
+	@pClaCiudad	int
 )
 
 as
@@ -18,6 +18,7 @@ begin
 			ClaEstado,
 			ClaCiudad,
 			NomCiudad
+			
 	from	Ciudades
 	where	((ClaPais	= @pClaPais)	or @pClaPais	= -1)
 	and		((ClaEstado = @pClaEstado)	or @pClaEstado	= -1)
