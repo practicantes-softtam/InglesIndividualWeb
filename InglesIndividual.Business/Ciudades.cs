@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Framework;
 
 namespace InglesIndividual.Business
@@ -18,10 +19,11 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Ciudades();
         }
 
-        public List<Entities.Ciudad> ListarCiudades( InglesIndividual.Entities.JQXGridSettings settings,  string nomCiudad, int claPais, int claEstado)
+        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, string nomCiudad, int claPais, int claEstado) //, int claPais, int claEstado
         {
-            return this.Data.ListarCiudades(settings, nomCiudad, claEstado, claPais);
+            return this.Data.ListarCiudades(settings, "", 0, 0);
         }
+       
         public List<Exception> Eliminar(string[] ids)
         {
             List<Exception> list = new List<Exception>();
@@ -45,15 +47,10 @@ namespace InglesIndividual.Business
 
             return list;
         }
-
         public List<Entities.Ciudad> Combo()
         {
             return this.Data.Combo();
         }
 
-        public List<Entities.Ciudad> Combo(int p)
-        {
-            return this.Data.Combo();
-        }
     }
 }
