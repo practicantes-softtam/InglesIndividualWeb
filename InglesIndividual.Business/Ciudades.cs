@@ -19,7 +19,7 @@ namespace InglesIndividual.Business
             this.DataObject = new Data.Ciudades();
         }
 
-        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, string nomCiudad, int claPais, int claEstado) //, int claPais, int claEstado
+        public List<Entities.Ciudad> ListarCiudades(InglesIndividual.Entities.JQXGridSettings settings, string nomCiudad, int claPais, int claEstado)
         {
             return this.Data.ListarCiudades(settings, "", 0, 0);
         }
