@@ -17,8 +17,8 @@ namespace InglesIndividual.Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
         }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
         public static string GetData()
@@ -28,7 +28,8 @@ namespace InglesIndividual.Web
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
             Business.Ciudades bo = new Business.Ciudades();
-            List<Entities.Ciudad> list = bo.ListarCiudades(settings, 0,0,  "");
+            List<Entities.Ciudad> list = bo.ListarCiudades(settings, "", 0, 0);
+            
 
             int registros = 0;
 
@@ -43,6 +44,7 @@ namespace InglesIndividual.Web
 
             return json;
         }
+
         [WebMethod]
         public static string GetDataAjax(string nombre, string apellido, string[] arreglo)
         {
@@ -87,11 +89,13 @@ namespace InglesIndividual.Web
 
             if (action.ToLower() == "add")
             {
-                item = new Ciudad();
+                item = new Entities.Ciudad();
+                
             }
             else
             {
-                item = new Ciudad(true);
+                item = new Entities.Ciudad(true);
+                    
             }
 
             item.ID = Utils.IsNull(id, 0);
@@ -103,7 +107,7 @@ namespace InglesIndividual.Web
         }
 
 
-        //Trae la información con la que se llenará el combo Puestos
+        //Trae la información con la que se llenará el combo Ciudades
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
         public static string CiudadesDataBind()
@@ -132,7 +136,7 @@ namespace InglesIndividual.Web
         {
             List<Entities.Estado> list = new List<Estado>();
             Business.Estados bo = new Business.Estados();
-            list = bo.Combo(Utils.IsNull(claPais, -1));
+            list = bo.Combo(0);
             System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
             return js.Serialize(list);
         }

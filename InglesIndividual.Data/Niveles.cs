@@ -86,7 +86,7 @@ namespace InglesIndividual.Data
             }
         }
 
-        public List<Entities.Nivel> Combo()
+        public List<Entities.Nivel> Combo(int claPais)
         {
             List<Entities.Nivel> list = new List<Entities.Nivel>();
             DataEntities.SpNivelesSel sp = new DataEntities.SpNivelesSel();

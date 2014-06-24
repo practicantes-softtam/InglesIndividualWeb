@@ -47,9 +47,9 @@ namespace InglesIndividual.Business
             return list;
         }
 
-        public List<Entities.Nivel> Combo()
+        public List<Entities.Nivel> Combo(int claPais)
         {
-            return this.Data.Combo();
+            return this.Data.Combo(claPais);
         }
 
     }

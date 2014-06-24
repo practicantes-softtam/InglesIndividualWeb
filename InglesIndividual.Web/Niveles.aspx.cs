@@ -111,7 +111,7 @@ namespace InglesIndividual.Web
             {
                 List<Entities.Nivel> list = new List<Nivel>();
                 Business.Niveles bo = new Business.Niveles();
-                list = bo.Combo();
+                list = bo.Combo(0);
                 System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
                 return js.Serialize(list);
             }
@@ -133,7 +133,7 @@ namespace InglesIndividual.Web
             {
                 List<Entities.Estado> list = new List<Estado>();
                 Business.Estados bo = new Business.Estados();
-                list = bo.Combo();
+                list = bo.Combo(Utils.IsNull(claPais, -1));
                 System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
                 return js.Serialize(list);
             }

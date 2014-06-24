@@ -28,10 +28,14 @@ namespace InglesIndividual.Web
             string calle = HttpContext.Current.Request.QueryString.Get("calle");
             string colonia = HttpContext.Current.Request.QueryString.Get("colonia");
             string telefono = HttpContext.Current.Request.QueryString.Get("telefono");
+            //string Pais = HttpContext.Current.Request.QueryString.Get("claPais");
+            //string Estado = HttpContext.Current.Request.QueryString.Get("claEstado");
+            //string Ciudad = HttpContext.Current.Request.QueryString.Get("claCiudad");
+
             JQXGridSettings settings = JsonGridData.GetGridSettings();
 
             Business.Campus bo = new Business.Campus();
-            List<Entities.Campus> list = bo.ListarCampus(settings, nomCampus, calle, colonia, telefono);
+            List<Entities.Campus> list = bo.ListarCampus(settings, nomCampus, calle, colonia, telefono, 0,0,0);
             int registros = 0;
             if (list.Count > 0)
             {
@@ -123,5 +127,6 @@ namespace InglesIndividual.Web
             return js.Serialize(list);
 
         }
+
     }
 }
